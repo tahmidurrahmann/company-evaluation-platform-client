@@ -25,12 +25,12 @@ const NavBar = () => {
             About Us
         </NavLink>
         <NavLink
-            to="/contact"
+            to="/ourValuesOrMission"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
             }
         >
-            Contact
+            OurValuesOrMission
         </NavLink>
     </div>
 
