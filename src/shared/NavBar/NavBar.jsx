@@ -7,7 +7,7 @@ import { IoMdClose } from "react-icons/io";
 
 const NavBar = () => {
 
-    const navItems = <div className="flex flex-wrap justify-center items-center gap-8">
+    const navItems = <div className="flex flex-wrap justify-center my-6 md:my-0 ml-6 items-center gap-8">
         <NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -59,7 +59,7 @@ const NavBar = () => {
                         position="right"
                     >
                         <div className="demo-content">
-                            <button type="button" className="hover:scale-105 text-white" onClick={() => setIsOpen(false)}>
+                            <button type="button" className="hover:scale-105 text-white hover:bg-gray-400 rounded-lg" onClick={() => setIsOpen(false)}>
                                 <IoMdClose size={30}/>
                             </button>
                             {navItems}
