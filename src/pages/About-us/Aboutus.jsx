@@ -1,11 +1,9 @@
-
-
-const Aboutus = () => {
+const AboutUs = () => {
     return (
         <div>
-            <h1>hellow world</h1>
+            <h1>about us!</h1>
         </div>
     );
 };
 
-export default Aboutus;
+export default AboutUs;
