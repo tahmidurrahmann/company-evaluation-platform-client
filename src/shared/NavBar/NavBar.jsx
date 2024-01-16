@@ -17,7 +17,7 @@ const navItems = <div className='flex flex-col md:flex-row justify-center items-
     <NavLink
         to="/"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 text-white border-b-white font-medium text-sm" : "text-white text-sm"
+            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
         }
     >
         Home
@@ -25,7 +25,7 @@ const navItems = <div className='flex flex-col md:flex-row justify-center items-
     <NavLink
         to="/aboutUs"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 text-white border-b-white font-medium text-sm" : "text-white text-sm"
+            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
         }
     >
         About Us
@@ -33,7 +33,7 @@ const navItems = <div className='flex flex-col md:flex-row justify-center items-
     <NavLink
         to="/contact"
         className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 text-white border-b-white font-medium text-sm" : "text-white text-sm"
+            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
         }
     >
         Contact
@@ -51,7 +51,9 @@ function NavBar(props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                IONE
+                <div className='flex justify-center h-full'>
+                    IONE
+                </div>
             </Typography>
             <Divider />
             <List>
