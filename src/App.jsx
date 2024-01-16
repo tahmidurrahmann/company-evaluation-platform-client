@@ -1,10 +1,14 @@
+import { Outlet } from "react-router-dom"
+import NavBar from "./shared/NavBar/NavBar"
+import Footer from "./shared/Footer/Footer"
+
 function App() {
 
   return (
     <>
-    <div>
-      <h1 className="text-xl">I O N E</h1>
-    </div>
+      <NavBar></NavBar>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }
