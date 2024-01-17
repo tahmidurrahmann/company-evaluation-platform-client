@@ -30,7 +30,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
             }
         >
-            OurValuesOrMission
+            Missions
         </NavLink>
     </div>
 
