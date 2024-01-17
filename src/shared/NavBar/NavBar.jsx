@@ -1,118 +1,73 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { NavLink } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import Drawer from "./Drawer";
+import "./styles.css";
+import { CiMenuFries } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 
-const drawerWidth = 240;
-const navItems = <div className='flex flex-col md:flex-row justify-center items-center gap-6'>
-    <NavLink
-        to="/"
-        className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
-        }
-    >
-        Home
-    </NavLink>
-    <NavLink
-        to="/aboutUs"
-        className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
-        }
-    >
-        About Us
-    </NavLink>
-    <NavLink
-        to="/contact"
-        className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "md:py-5 md:border-b-2 md:text-white border-b-white font-medium text-sm" : " text-sm"
-        }
-    >
-        Contact
-    </NavLink>
-</div>
+const NavBar = () => {
 
-function NavBar(props) {
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const navItems = <div className="flex flex-wrap justify-center my-6 md:my-0 ml-6 items-center gap-8">
+        <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+            }
+        >
+            Home
+        </NavLink>
+        <NavLink
+            to="/aboutUs"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+            }
+        >
+            About Us
+        </NavLink>
+        <NavLink
+            to="/ourValuesOrMission"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+            }
+        >
+            OurValuesOrMission
+        </NavLink>
+    </div>
 
-    const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
-    };
-
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                <div className='flex justify-center h-full'>
-                    IONE
-                </div>
-            </Typography>
-            <Divider />
-            <List>
-                {navItems}
-            </List>
-        </Box>
-    );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar component="nav" sx={{ backgroundColor: "#1515154D" }}>
-                <Container maxWidth="xl">
-                    <Toolbar>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            edge="start"
-                            onClick={handleDrawerToggle}
-                            sx={{ mr: 2, display: { sm: 'none' } }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-                        >
-                            IONE
-                        </Typography>
-                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <div className="max-w-screen-2xl mx-auto my-3">
+            <div className="flex justify-between items-center px-4 xl:px-0">
+                <div className="flex gap-1">
+                    <img className="w-[30px] md:w-[40px]" src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png" alt="" />
+                    <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
+                </div>
+                <div className="hidden md:flex gap-4">
+                    {navItems}
+                </div>
+                <div className="flex gap-2">
+                    <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">Log In</button>
+                    <button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">Sign Up</button>
+                </div>
+                <button className="flex md:hidden" type="button" onClick={() => setIsOpen(!isOpen)}>
+                    <CiMenuFries />
+                </button>
+                    <Drawer
+                        isOpen={isOpen}
+                        onClose={() => setIsOpen(false)}
+                        position="right"
+                    >
+                        <div className="demo-content">
+                            <button type="button" className="hover:scale-105 text-white hover:bg-gray-400 rounded-lg" onClick={() => setIsOpen(false)}>
+                                <IoMdClose size={30}/>
+                            </button>
                             {navItems}
-                        </Box>
-                    </Toolbar>
-                </Container>
-            </AppBar>
-            <nav>
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-            </nav>
-            <Box component="main" sx={{ p: 3 }}>
-                <Toolbar />
-            </Box>
-        </Box>
+                        </div>
+                    </Drawer>
+            </div>
+        </div>
     );
-}
+};
+
 export default NavBar;
