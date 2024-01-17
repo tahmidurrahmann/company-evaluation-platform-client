@@ -11,7 +11,7 @@ const NavBar = () => {
         <NavLink
             to="/"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
             Home
@@ -19,7 +19,7 @@ const NavBar = () => {
         <NavLink
             to="/aboutUs"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
             About Us
@@ -27,7 +27,7 @@ const NavBar = () => {
         <NavLink
             to="/ourValuesOrMission"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
             OurValuesOrMission
@@ -59,7 +59,7 @@ const NavBar = () => {
                         position="right"
                     >
                         <div className="demo-content">
-                            <button type="button" className="hover:scale-105 text-white hover:bg-gray-400 rounded-lg" onClick={() => setIsOpen(false)}>
+                            <button type="button" className="hover:scale-105 hover:bg-gray-400 rounded-lg" onClick={() => setIsOpen(false)}>
                                 <IoMdClose size={30}/>
                             </button>
                             {navItems}
