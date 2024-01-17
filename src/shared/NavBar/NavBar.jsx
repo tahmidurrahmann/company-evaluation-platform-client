@@ -8,6 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
+import { MdOutlineContacts } from "react-icons/md";
 
 const NavBar = () => {
 
@@ -18,7 +19,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            <span className="flex gap-2 items-center"><FaHome className="text-[#007cc7]"/>Home</span>
+            <span className="flex gap-2 items-center"><FaHome className="text-[#007cc7]" />Home</span>
         </NavLink>
         <NavLink
             to="/aboutUs"
@@ -26,7 +27,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            <span className="flex gap-2 items-center"><FcAbout className="text-[#007cc7]"/>About Us</span>
+            <span className="flex gap-2 items-center"><FcAbout className="text-[#007cc7]" />About Us</span>
         </NavLink>
         <NavLink
             to="/ourValuesOrMission"
@@ -34,8 +35,8 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            
-            <span className="flex gap-2 items-center"><RxValue className="text-[#007cc7]"/>Missions</span>
+
+            <span className="flex gap-2 items-center"><RxValue className="text-[#007cc7]" />Missions</span>
         </NavLink>
         <NavLink
             to="/assessments"
@@ -43,37 +44,38 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            <span className="flex gap-2 items-center"><MdAssessment className="text-[#007cc7]"/>Assessments</span>
+            <span className="flex gap-2 items-center"><MdAssessment className="text-[#007cc7]" />Assessments</span>
         </NavLink>
         <NavLink
             to="/contact"
             className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg text-white md:text-black" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg text-white md:text-black"
+                isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            Contact
+            <span className="flex gap-2 items-center"><MdOutlineContacts className="text-[#007cc7]" />Contact</span>
         </NavLink>
     </div>
 
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="max-w-screen-2xl mx-auto my-3">
-            <div className="flex justify-between items-center px-4 xl:px-0">
-                <div className="flex gap-1">
-                    <img className="w-[30px] md:w-[40px]" src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png" alt="" />
-                    <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
-                </div>
-                <div className="hidden lg:flex gap-4">
-                    {navItems}
-                </div>
-                <div className="flex gap-2">
-                    <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">Log In</button>
-                    <button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">Sign Up</button>
-                </div>
-                <button className="flex lg:hidden" type="button" onClick={() => setIsOpen(!isOpen)}>
-                    <CiMenuFries />
-                </button>
+        <div className="fixed z-10 w-full bg-white">
+            <div className="max-w-screen-2xl py-3 mx-auto">
+                <div className="flex justify-between items-center px-4 xl:px-0">
+                    <div className="flex gap-1">
+                        <img className="w-[30px] md:w-[40px]" src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png" alt="" />
+                        <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
+                    </div>
+                    <div className="hidden lg:flex gap-4">
+                        {navItems}
+                    </div>
+                    <div className="flex gap-2">
+                        <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">Log In</button>
+                        <button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">Sign Up</button>
+                    </div>
+                    <button className="flex lg:hidden" type="button" onClick={() => setIsOpen(!isOpen)}>
+                        <CiMenuFries />
+                    </button>
                     <Drawer
                         isOpen={isOpen}
                         onClose={() => setIsOpen(false)}
@@ -81,11 +83,12 @@ const NavBar = () => {
                     >
                         <div className="demo-content">
                             <button type="button" className="hover:scale-105 hover:bg-gray-400 rounded-lg" onClick={() => setIsOpen(false)}>
-                                <IoMdClose size={30}/>
+                                <IoMdClose size={30} />
                             </button>
                             {navItems}
                         </div>
                     </Drawer>
+                </div>
             </div>
         </div>
     );
