@@ -2,7 +2,7 @@
 
 const GlobalCollection = () => {
   return (
-    <div className="m-10 mt-40">
+    <div className="m-10 mt-40 md:mt-5 lg:mt-40 ">
       <h1 className="font-extrabold md:text-6xl text-3xl text-[#30acfa]">GLOBAL COLLABORATION -  <br /> SIMPLY WORK TOGETHER</h1>
       <div className="flex flex-col-reverse md:flex-row gap-10">
         <div className="md:w-full">

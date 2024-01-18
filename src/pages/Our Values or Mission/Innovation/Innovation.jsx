@@ -3,8 +3,8 @@ import { IoMdArrowDropright } from "react-icons/io";
 const Innovation = () => {
     return (
         <>
-            <h1 className="font-bold text-5xl text-center mt-20 mb-10">Understand better your organization’s innovation capability level with our interactive innovation assessment tool</h1>
-            <div className=" py-10 grid grid-cols-2">
+            <h1 className="font-bold md:text-5xl text-2xl text-center mt-20 mx-5 mb-10">Understand better your organization`s innovation capability level with our interactive innovation assessment tool</h1>
+            <div className=" py-10 grid lg:grid-cols-2 grid-cols-1">
                 <div className="col-span-1 mx-auto flex ">
                     <img src="https://i.ibb.co/dM8z1p7/innovation-removebg-preview.png" alt="" />
                 </div>
@@ -15,7 +15,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">MANAGEMENT & LEADERSHIP</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-8"> <strong>How</strong> top management envisions & understands innovation? </p>
                         </div>
                     </div>
@@ -25,7 +25,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">STRATEGY</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-8"> <strong>Why</strong> do we innovate </p>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">PEOPLE & CULTURE</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-8"> <strong>Who</strong> is responsible for making innovation happen? </p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">PROCESS</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-8"> <strong>How</strong> effective are your innovation processes? </p>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">TOOLS</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-8"> <strong>What</strong> facilitates our innovation? </p>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ const Innovation = () => {
                         </div>
                         <div>
                             <button className="font-extrabold text-2xl">METRICS</button>
-                            <hr className="h-1 bg-white w-[500px] my-2" />
+                            <hr className="h-1 bg-white md:w-[500px] my-2" />
                             <p className="mb-10"> <strong>How</strong> do we measure our innovation progress?</p>
                         </div>
                     </div>
