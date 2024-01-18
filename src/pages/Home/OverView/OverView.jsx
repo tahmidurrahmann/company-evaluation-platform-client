@@ -13,9 +13,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
-                                    Reviews & Check-Ins
-                                </h2>
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63dcd779b87d179c95e4f32b_checklist.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        Reviews & Check-Ins
+                                    </h2>
+                                </div>
 
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
@@ -33,7 +36,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Drive high quality performance conversations</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Drive high quality performance conversations</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Employee appraisals</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />360 reviews</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Quarterly check-ins</p>
@@ -48,9 +51,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/6430a9309b3f2e6cb22c1f12_process-diagrams.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
                                     Goal Management
-                                </h2>
+                                    </h2>
+                                </div>
 
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
@@ -68,7 +74,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Align your people around what’s next</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Align your people around what’s next</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Collaborative goal setting</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Goal check-ins</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Cascading goals</p>
@@ -84,9 +90,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63f681d2045c0458cc6d5db7_product-value-human.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
                                     Continuous Feedback
-                                </h2>
+                                    </h2>
+                                </div>
 
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
@@ -104,7 +113,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Formalize continuous and relevant feedback</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Formalize continuous and relevant feedback</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Continuous feedback</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Employee recognition</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Performance notes</p>
@@ -121,10 +130,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/6430b004a31608337299d05b_product-performance.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
                                     Reporting and Analytics
-                                </h2>
-
+                                    </h2>
+                                </div>
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +152,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Inform your HR decision making</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Inform your HR decision making</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Performance trends</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />9 box grids</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Rankings</p>
@@ -156,10 +167,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/6430ad05c2094e3604aedbb7_engage-your-people.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
                                     Employee Management
-                                </h2>
-
+                                    </h2>
+                                </div>
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +189,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Listen. Learn. Take Action.</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Listen. Learn. Take Action.</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />iONE Engagement Survey</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Engagement Factors and Questions</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Engagement Trends Dashboard</p>
@@ -191,10 +204,12 @@ const OverView = () => {
                             open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
-                                <h2 className="text-xl font-bold text-gray-900">
-                                Performance Improvement Roadmap
-                                </h2>
-
+                                <div className="flex items-center gap-4">
+                                    <img className="w-[40px]" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63dcd77adfbd2f7d2ae1c453_people.svg" alt="" />
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                    Performance Improvement Roadmap
+                                    </h2>
+                                </div>
                                 <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +226,7 @@ const OverView = () => {
                                 </span>
                             </summary>
                             <div>
-                                <h1 className="text-xl md:text-2xl lg:text-4xl font-bold py-6">Conduct comprehensive evaluations of individual and team performance.</h1>
+                                <h1 className="text-2xl lg:text-4xl font-bold py-6">Conduct comprehensive evaluations of individual and team performance.</h1>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Individual and Team Assessments</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Continuous Improvement Plans</p>
                                 <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Milestone Tracking</p>
