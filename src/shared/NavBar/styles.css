@@ -13,11 +13,11 @@
   }
   
   .drawer-container {
-    --transition-speed: 0.3s;
+    --transition-speed: 0.4s;
   }
   
   .drawer {
-    background: #000;
+    background: #fff;
     width: 100%;
     height: 100%;
     overflow: auto;

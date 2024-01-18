@@ -1,10 +1,21 @@
-import React from 'react';
+import Excellence from "./Excellence/Excellence";
+import GlobalCollection from "./GlobalCollection";
+import Inclusivity from "./Inclusivity/Inclusivity"
+import Integrity from "./Integrity/Integrity";
 
 const OurValuesOrMission = () => {
     return (
+
+      
+
         <div>
-            <h1>ourValues or Mission</h1>
+            
+            <Inclusivity></Inclusivity>
+            <GlobalCollection></GlobalCollection>
+            <Excellence></Excellence>
+            <Integrity></Integrity>
         </div>
+
     );
 };
 
