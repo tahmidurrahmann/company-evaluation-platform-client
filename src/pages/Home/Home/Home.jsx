@@ -16,7 +16,7 @@ const Home = () => {
             <Banner />
             <Logo />
             <Reviews />
-            <AboutUs />
+           
         </div>
     );
 
