@@ -4,6 +4,9 @@ import Logo from "../Logo/Logo";
 import Reviews from "../Reviews/Reviews";
 import AboutUs from "../../About-us/Aboutus";
 
+// import AboutUs from "../../About-us/Aboutus";
+
+
 const Home = () => {
     return (
         <div>
