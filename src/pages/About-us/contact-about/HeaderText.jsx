@@ -3,7 +3,7 @@ const HeaderText = ({ text }) => {
     <div>
       {" "}
       <h3
-        className="text-purple-800 text-xl uppercase font-semibold mb-5"
+        className="text-purple-800 text-xl uppercase font-semibold mb-5  text-center md:text-left"
         style={{ letterSpacing: "2px" }}
       >
         {text}
