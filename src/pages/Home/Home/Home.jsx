@@ -4,7 +4,7 @@ import Banner from "../Banner/Banner";
 import Logo from "../Logo/Logo";
 import Reviews from "../Reviews/Reviews";
 
-import AboutUs from "../../About-us/Aboutus";
+// import AboutUs from "../../About-us/Aboutus";
 
 
 const Home = () => {
@@ -16,7 +16,11 @@ const Home = () => {
             <Banner />
             <Logo />
             <Reviews />
+
            
+
+            {/* <AboutUs /> */}
+
         </div>
     );
 
