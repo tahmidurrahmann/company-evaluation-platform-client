@@ -6,7 +6,7 @@ import HeaderText from "./HeaderText";
 
 const ContactAbout = () => {
   return (
-    <div className="container mx-auto mb-80">
+    <div className="container mx-auto mb-12">
       {/* Banner Section  */}
       <div className="bg-sky-500 relative h-[450px] py-24 px-12 mb-[150px]">
         <div className="flex justify-between mt-[20px]">
@@ -81,8 +81,6 @@ const ContactAbout = () => {
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };
