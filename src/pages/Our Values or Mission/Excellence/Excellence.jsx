@@ -3,7 +3,7 @@
 const Excellence = () => {
     return (
         <div>
-            <div className="bg-[#1369B4] md:h-[300px] pb-5 md:pb-0">
+            <div className="bg-[#92aec7] md:h-[300px] pb-5 md:pb-0">
                 <div className="text-white flex md:justify-between justify-center items-center h-20 max-w-7xl mx-auto">
                     <h1>Company Excellence</h1>
                 </div>

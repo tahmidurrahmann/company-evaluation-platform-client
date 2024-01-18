@@ -2,8 +2,8 @@
 
 const GlobalCollection = () => {
   return (
-    <div className="m-10">
-      <h1 className="font-extrabold md:text-6xl text-3xl">GLOBAL COLLABORATION -  <br /> SIMPLY WORK TOGETHER</h1>
+    <div className="m-10 mt-40">
+      <h1 className="font-extrabold md:text-6xl text-3xl text-[#30acfa]">GLOBAL COLLABORATION -  <br /> SIMPLY WORK TOGETHER</h1>
       <div className="flex flex-col-reverse md:flex-row gap-10">
         <div className="md:w-full">
           <p className=" mt-4 ">Your brand is present in a huge range of digital and real-world locations.
@@ -18,7 +18,7 @@ const GlobalCollection = () => {
         </div>
         <div className="relative md:w-[330px]">
           <p className="w-56 border mt-10 md:mt-0 mr-36 px-9 py-14 bg-yellow-300 rounded-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, optio.</p>
-          <p className="w-28 border mt-5 md:mt-0 rounded-full p-5 absolute top-[-25px] right-11 bg-yellow-300">REQUEST DEMO NEW</p>
+          <button className="w-28 border  mt-5 md:mt-0 rounded-full p-5 absolute top-[-25px] right-11 bg-yellow-300 border-blue-500 hover:shadow-blue-600 shadow-xl">REQUEST DEMO NEW</button>
         </div>
       </div>
     </div>

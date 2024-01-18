@@ -1,6 +1,7 @@
 import Excellence from "./Excellence/Excellence";
 import GlobalCollection from "./GlobalCollection";
 import Inclusivity from "./Inclusivity/Inclusivity"
+import Innovation from "./Innovation/Innovation";
 import Integrity from "./Integrity/Integrity";
 
 const OurValuesOrMission = () => {
@@ -10,10 +11,11 @@ const OurValuesOrMission = () => {
 
         <div>
             
-            <Inclusivity></Inclusivity>
-            <GlobalCollection></GlobalCollection>
-            <Excellence></Excellence>
             <Integrity></Integrity>
+            <GlobalCollection></GlobalCollection>
+            <Innovation></Innovation>
+            <Excellence></Excellence>
+            <Inclusivity></Inclusivity>
         </div>
 
     );
