@@ -6,8 +6,8 @@ const Banner = () => {
         <div className='relative'>
             <video className='w-full' autoPlay loop muted src={banner}></video>
             <div className='absolute top-0 bg-gradient-to-r from-[#15151500] to-[#151515] w-full h-full'>
-                <div className='absolute space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 top-[63px] md:top-[100px] lg:top-16 xl:top-[150px] flex flex-col items-end left-1/3 lg:left-3/4 xl:right-8 right-4'>
-                    <h1 className="text-white md:text-4xl text-right xl:text-5xl font-semibold">Boost Your IT Skills with Accurate Assessments</h1>
+                <div className='absolute space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 top-[63px] md:top-[100px] lg:top-16 xl:top-[170px] flex flex-col items-end left-1/3 lg:left-3/4 xl:right-8 right-4'>
+                    <h1 className="text-white md:text-4xl text-right font-semibold">Boost Your IT Skills with Accurate Assessments</h1>
                     <p className="text-white text-right hidden md:flex">Empower your IT career with our all-in-one platform! Streamline assessments, track progress, and set meaningful goals. Elevate your skills with precision evaluations and receive continuous feedback. Designed for excellence and growth – your key to success in IT!</p>
                     <button className="font-semibold bg-[#007cc7] px-2 md:px-5 py-1 md:py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition">Start Your IT Journey</button>
                     <div className="flex items-center gap-1">
@@ -42,9 +42,7 @@ const Banner = () => {
                             readonly
                         />
                         <p className="text-white text-xs md:text-base">From 700+ Reviews on</p>
-                    </div>
-                    <div className="flex">
-                        <img className="w-[60px] md:w-[80px] xl:w-[140px]" src="https://i.ibb.co/KFHx96S/Sales-Force-Logo-Design-min-removebg-preview.png" alt="" /><img className="w-[60px] md:w-[80px] xl:w-[140px]" src="https://i.ibb.co/T07sN2C/Cisco-Logo-Design-min-removebg-preview.png" alt="" />
+                        <img className="w-[60px] md:w-[80px]" src="https://i.ibb.co/T07sN2C/Cisco-Logo-Design-min-removebg-preview.png" alt="" />
                     </div>
                 </div>
             </div>
