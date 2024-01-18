@@ -59,8 +59,8 @@ const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed z-10 w-full bg-white">
-            <div className="max-w-screen-2xl py-3 mx-auto">
+        <div className="fixed z-10 bg-white container">
+            <div className="py-3">
                 <div className="flex justify-between items-center px-4 xl:px-0">
                     <div className="flex gap-1">
                         <img className="w-[30px] md:w-[40px]" src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png" alt="" />
