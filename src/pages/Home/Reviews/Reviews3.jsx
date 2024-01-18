@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
+import Loading from "../../../shared/Loading/Loading";
 
 
 
@@ -11,7 +12,7 @@ const Reviews3 = () => {
     const [allReviews, isReviews] = useReviews();
 
     if (isReviews) {
-        return <p>loading...</p>
+        return <Loading />
     }
 
     const pagination = {

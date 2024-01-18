@@ -1,12 +1,13 @@
 import Marquee from "react-fast-marquee";
 import useReviews from '../../../hooks/useReviews';
+import Loading from "../../../shared/Loading/Loading";
 
 const Reviews1 = () => {
 
     const [allReviews, isReviews] = useReviews();
 
     if (isReviews) {
-        return <p>loading...</p>
+        return <Loading />
     }
 
     return (
