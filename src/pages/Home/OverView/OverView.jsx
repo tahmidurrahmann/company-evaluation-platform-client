@@ -5,9 +5,9 @@ const OverView = () => {
         <div>
             <h6 className="text-center font-semibold pt-6">Product Overview</h6>
             <h1 className="p-12 text-3xl md:text-4xl text-center xl:text-5xl font-semibold text-[#151746]">Your Complete Performance <br /> Management Toolkit</h1>
-            <div className="flex flex-col md:flex-row my-6 md:my-8 lg:my-12">
+            <div className="flex flex-col md:flex-row my-6 md:my-8 gap-6 lg:my-12">
                 <div className="flex-1">
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
@@ -45,7 +45,7 @@ const OverView = () => {
                             </div>
                         </details>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
@@ -84,7 +84,7 @@ const OverView = () => {
                             </div>
                         </details>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
@@ -124,7 +124,7 @@ const OverView = () => {
                     </div>
                 </div>
                 <div className="flex-1">
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
@@ -161,7 +161,7 @@ const OverView = () => {
                             </div>
                         </details>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
@@ -198,7 +198,7 @@ const OverView = () => {
                             </div>
                         </details>
                     </div>
-                    <div className="space-y-4">
+                    <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
                             open
