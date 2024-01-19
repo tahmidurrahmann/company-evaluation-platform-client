@@ -1,11 +1,26 @@
+import { Link } from "react-router-dom";
 import aboutCompanyImg from "../../../assets/1.webp";
 import HeaderText from "./HeaderText";
+import { FaAngleDoubleRight } from "react-icons/fa";
 
 const ContactAbout = () => {
   return (
-    <div className="container mx-auto mb-80">
+    <div className="container mx-auto mb-20">
       {/* Banner Section  */}
-
+      <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/mJ9Wn63/image.png)' }}>
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">Welcome </h1>
+            <p className="mb-5">Our platform is a catalyst for innovation, collaboration, and growth in the ever-evolving tech landscape.</p>
+           <div className="flex gap-3 jus items-center ml-40  text-red-600">
+              <Link to={'/'} className="hover:text-blue-500">Home  </Link>
+              <FaAngleDoubleRight />
+              <Link to={'/aboutUs'}>About us</Link>
+           </div>
+          </div>
+        </div>
+      </div>
       {/* About Company Section  */}
       <div className="py-24 px-12 flex flex-col md:flex-row lg:flex-row justify-between space-y-6">
         {/* Image */}
@@ -17,7 +32,7 @@ const ContactAbout = () => {
         <div className="w-full md:w-[40%] ">
           <HeaderText text={"ABOUT COMPANY"} />
           <h1
-            className="text-2xl lg:text-5xl font-bold text-black text-center"
+            className="text-2xl lg:text-5xl font-bold text-black "
             style={{ lineHeight: 1.2 }}
           >
             We,r making
@@ -42,7 +57,7 @@ const ContactAbout = () => {
 
             <div className="stat">
               <div className="stat-title">New Users</div>
-              <div className="stat-value">4,200</div>
+              <div className="stat-value text-secondary">4,200</div>
               <div className="stat-desc">↗︎ 400 (22%)</div>
             </div>
           </div>

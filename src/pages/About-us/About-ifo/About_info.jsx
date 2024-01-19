@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa";
 const About_info = () => {
     return (
        <div>
-        <div className="mb-12 ">
+        <div className="mb-20 ">
             <h1 className="font-bold text-2xl text-center mb-2 uppercase pt-16">our Tem</h1>
                 <h1 className="text-5xl text-center font-bold"> Meet the <span className="text-[#007cc7] "> Professionals</span> </h1>
         </div>
