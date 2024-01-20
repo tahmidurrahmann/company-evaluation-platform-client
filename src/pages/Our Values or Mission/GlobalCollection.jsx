@@ -1,5 +1,7 @@
 // this globalCollection
 // hello 
+// new line comment
+// hello world
 
 const GlobalCollection = () => {
     return (
