@@ -1,4 +1,5 @@
 // this globalCollection
+// hello 
 
 const GlobalCollection = () => {
     return (
@@ -11,13 +12,10 @@ Disorganization, lack of transparency or an insufficient overview of progress ca
 <div className="relative ">
 <p className="w-56 border mr-36 px-9 py-14 bg-yellow-300 rounded-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, optio.</p>
 <p className="w-28 border rounded-full p-5 absolute top-[-25px] right-16 bg-yellow-300">REQUEST DEMO NEW</p>
-
-
-
 </div>
   </div>
     </div>
-    );
+  );
 };
 
 export default GlobalCollection;
