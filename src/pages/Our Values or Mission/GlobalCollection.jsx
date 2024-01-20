@@ -1,4 +1,4 @@
-
+// this globalCollection
 
 const GlobalCollection = () => {
     return (
