@@ -9,11 +9,14 @@ import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
+// hegghdfisdfghihofodfodfg
 
 const NavBar = () => {
 
-    const navItems = <div className="flex flex-col lg:flex-row items-center my-6 lg:my-0 gap-8">
-        <NavLink
+    const [isOpen, setIsOpen] = useState(false);
+
+    const navItems = <div className="flex flex-col lg:flex-row items-center my-6 lg:my-0 gap-8 py-24 md:py-0 ml-28 md:ml-0">
+        <NavLink onClick={() => setIsOpen(false)}
             to="/"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
@@ -21,7 +24,7 @@ const NavBar = () => {
         >
             <span className="flex gap-2 items-center"><FaHome className="text-[#007cc7]" />Home</span>
         </NavLink>
-        <NavLink
+        <NavLink onClick={() => setIsOpen(false)}
             to="/aboutUs"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
@@ -29,7 +32,7 @@ const NavBar = () => {
         >
             <span className="flex gap-2 items-center"><FcAbout className="text-[#007cc7]" />About Us</span>
         </NavLink>
-        <NavLink
+        <NavLink onClick={() => setIsOpen(false)}
             to="/ourValuesOrMission"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
@@ -38,7 +41,7 @@ const NavBar = () => {
 
             <span className="flex gap-2 items-center"><RxValue className="text-[#007cc7]" />Missions</span>
         </NavLink>
-        <NavLink
+        <NavLink onClick={() => setIsOpen(false)}
             to="/assessments"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
@@ -46,7 +49,7 @@ const NavBar = () => {
         >
             <span className="flex gap-2 items-center"><MdAssessment className="text-[#007cc7]" />Assessments</span>
         </NavLink>
-        <NavLink
+        <NavLink onClick={() => setIsOpen(false)}
             to="/contact"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
@@ -55,8 +58,6 @@ const NavBar = () => {
             <span className="flex gap-2 items-center"><MdOutlineContacts className="text-[#007cc7]" />Contact</span>
         </NavLink>
     </div>
-
-    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div className="fixed z-10 bg-white container">
