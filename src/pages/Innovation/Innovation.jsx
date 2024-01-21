@@ -210,6 +210,8 @@ const Innovation = () => {
         </div>
       </div>
 
+      {/* now i am pushing */}
+
       <div className="mb-24">
         {/* GET STARTED NOW Button  */}
         <div className="flex justify-center">
