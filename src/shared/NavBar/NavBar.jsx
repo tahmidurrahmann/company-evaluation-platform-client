@@ -48,7 +48,7 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg" : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
             }
         >
-            <span className="flex gap-2 items-center"><MdAssessment className="text-[#007cc7]" />Assessments</span>
+            <span className="flex gap-2 items-center"><MdAssessment className="text-[#007cc7]" />Management</span>
         </NavLink>
         <NavLink onClick={() => setIsOpen(false)}
             to="/contact"
