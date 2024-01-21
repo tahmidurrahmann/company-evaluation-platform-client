@@ -67,7 +67,7 @@ const NavBar = () => {
       </NavLink>
       <NavLink
         onClick={() => setIsOpen(false)}
-        to="/assessments"
+        to="/management"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending"
@@ -78,7 +78,7 @@ const NavBar = () => {
       >
         <span className="flex gap-2 items-center">
           <MdAssessment className="text-[#007cc7]" />
-          Assessments
+          Management
         </span>
       </NavLink>
       <NavLink
