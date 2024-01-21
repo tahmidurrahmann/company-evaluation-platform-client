@@ -6,6 +6,7 @@ import Aboutus from "../pages/About-us/Aboutus";
 import OurValuesOrMission from "../pages/Our Values or Mission/OurValuesOrMission";
 import Contact from "../pages/Contact/Contact";
 import Innovation from "../pages/Innovation/Innovation";
+import Management from "../pages/Management/Management";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/management",
+        element: <Management />,
       },
     ],
   },
