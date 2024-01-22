@@ -126,8 +126,8 @@ const NavBar = () => {
 
   return (
     <div className="bg-white w-full fixed z-10">
-      <div className=" max-w-screen-2xl mx-auto">
-        <div className="py-1 md:py-2">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="py-2">
           <div className="flex justify-between items-center px-4 xl:px-0">
             <Link to="/"><div className="flex gap-1">
               <img
@@ -138,7 +138,7 @@ const NavBar = () => {
               <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
             </div></Link>
             <div className="hidden lg:flex gap-4">{navItems}</div>
-            <div className="flex justify-center items-center gap-2">
+            <div className="flex justify-start items-center gap-2">
               <div className="navbar-end">
                 {user ? (
                   <div className="flex items-center ">
