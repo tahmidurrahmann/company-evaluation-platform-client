@@ -14,11 +14,15 @@ const OurValuesOrMission = () => {
                 <title>IONE | Mission</title>
             </Helmet>
             <Integrity></Integrity>
+            <div className="container mx-auto">
             <GlobalCollection></GlobalCollection>
             <Innovation></Innovation>
+            </div>
             <Excellence></Excellence>
+            <div className="container mx-auto">
             <Inclusivity></Inclusivity>
-        </div>
+           </div>
+        </div >
 
     );
 };
