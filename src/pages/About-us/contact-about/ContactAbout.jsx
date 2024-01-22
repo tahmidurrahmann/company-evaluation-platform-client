@@ -5,7 +5,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 
 const ContactAbout = () => {
   return (
-    <div className="container mx-auto mb-20">
+    <div className="">
       {/* Banner Section  */}
       <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/y4QZGGN/image.png)' }}>
         <div className="hero-overlay bg-opacity-80"></div>
@@ -22,7 +22,7 @@ const ContactAbout = () => {
         </div>
       </div>
       {/* About Company Section  */}
-      <div className="py-24 px-12 flex flex-col md:flex-row lg:flex-row justify-between space-y-6">
+      <div className="container mx-auto py-24 px-12 flex flex-col md:flex-row lg:flex-row justify-between space-y-6">
         {/* Image */}
         <div className="w-full md:w-[40%]">
           <img className="w-full" src={aboutCompanyImg} alt="" />

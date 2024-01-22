@@ -8,17 +8,21 @@ import Integrity from "./Integrity/Integrity";
 const OurValuesOrMission = () => {
 
     return (
-        <div>
+        <div className=" overflow-hidden">
 
             <Helmet>
                 <title>IONE | Mission</title>
             </Helmet>
             <Integrity></Integrity>
+            <div className="container mx-auto">
             <GlobalCollection></GlobalCollection>
             <Innovation></Innovation>
+            </div>
             <Excellence></Excellence>
+            <div className="container mx-auto">
             <Inclusivity></Inclusivity>
-        </div>
+           </div>
+        </div >
 
     );
 };

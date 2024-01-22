@@ -124,27 +124,21 @@ const NavBar = () => {
   return (
     <div className="bg-white w-full fixed z-10">
       <div className=" max-w-screen-2xl mx-auto">
-        <div className="py-3">
+        <div className="py-1 md:py-2">
           <div className="flex justify-between items-center px-4 xl:px-0">
-            <div className="flex gap-1">
+            <Link to="/"><div className="flex gap-1">
               <img
                 className="w-[30px] md:w-[40px]"
                 src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                 alt=""
               />
               <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
-            </div>
+            </div></Link>
             <div className="hidden lg:flex gap-4">{navItems}</div>
             <div className="flex justify-center items-center gap-2">
               <div className="navbar-end">
                 {user ? (
                   <div className="flex items-center ">
-                    <button
-                      onClick={handleLogeOut}
-                      className="btn font-bold bg-blue-500 text-white"
-                    >
-                      Log Out
-                    </button>
                     <div className="dropdown dropdown-end">
                       <label
                         tabIndex={0}
@@ -161,6 +155,12 @@ const NavBar = () => {
                         <li>
                           <h4>{user?.displayName}</h4>
                         </li>
+                        <button
+                          onClick={handleLogeOut}
+                          className="btn font-bold bg-blue-500 text-white"
+                        >
+                          Log Out
+                        </button>
                       </ul>
                     </div>
                   </div>
@@ -172,7 +172,6 @@ const NavBar = () => {
                   </Link>
                 )}
               </div>
-              <Link to="signUp"><button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">SignUp</button></Link>
             </div>
             <button
               className="flex lg:hidden"
