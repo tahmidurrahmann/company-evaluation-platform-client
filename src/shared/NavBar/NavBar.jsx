@@ -139,12 +139,6 @@ const NavBar = () => {
               <div className="navbar-end">
                 {user ? (
                   <div className="flex items-center ">
-                    <button
-                      onClick={handleLogeOut}
-                      className="btn font-bold bg-blue-500 text-white"
-                    >
-                      Log Out
-                    </button>
                     <div className="dropdown dropdown-end">
                       <label
                         tabIndex={0}
@@ -161,6 +155,12 @@ const NavBar = () => {
                         <li>
                           <h4>{user?.displayName}</h4>
                         </li>
+                        <button
+                          onClick={handleLogeOut}
+                          className="btn font-bold bg-blue-500 text-white"
+                        >
+                          Log Out
+                        </button>
                       </ul>
                     </div>
                   </div>
