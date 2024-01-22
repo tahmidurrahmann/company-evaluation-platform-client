@@ -8,6 +8,8 @@ import Contact from "../pages/Contact/Contact";
 import SignIn from "../shared/SignIn/SignIn";
 import SignUp from "../shared/SignUp/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Innovation from "../pages/Innovation/Innovation";
+import Management from "../pages/Management/Management";
 
 const router = createBrowserRouter([
     {
@@ -28,8 +30,16 @@ const router = createBrowserRouter([
                 element: <OurValuesOrMission></OurValuesOrMission>
             },
             {
-                path:'/contact',
-                element:<Contact></Contact>
+              path: "/innovation",
+              element: <Innovation />,
+            },
+            {
+              path: "/contact",
+              element: <Contact></Contact>,
+            },
+            {
+              path: "/management",
+              element: <Management/>
             },
             {
                 path:'/signIn',
@@ -38,7 +48,8 @@ const router = createBrowserRouter([
             {
                 path:'/signUp',
                 element:<SignUp></SignUp>
-            }
+            },
+            
         ]
     }
 ])

@@ -15,7 +15,7 @@
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.4",
     "@nextui-org/react": "^2.2.9",
-    "@tanstack/react-query": "^5.17.19",
+    "@tanstack/react-query": "^5.17.15",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
     "firebase": "^10.7.2",
@@ -33,7 +33,8 @@
     "react-icons": "^5.0.1",
     "react-rating": "^2.0.5",
     "react-router-dom": "^6.21.2",
-    "react-toastify": "^10.0.4",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.5"
