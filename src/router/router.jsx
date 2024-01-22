@@ -5,6 +5,9 @@ import Home from "../pages/Home/Home/Home";
 import Aboutus from "../pages/About-us/Aboutus";
 import OurValuesOrMission from "../pages/Our Values or Mission/OurValuesOrMission";
 import Contact from "../pages/Contact/Contact";
+import SignIn from "../shared/SignIn/SignIn";
+import SignUp from "../shared/SignUp/SignUp";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/aboutUs',
-                element:<Aboutus/>
+                element:<PrivateRoute> <Aboutus/></PrivateRoute>
             },
             {
                 path: '/ourValuesOrMission',
@@ -27,6 +30,14 @@ const router = createBrowserRouter([
             {
                 path:'/contact',
                 element:<Contact></Contact>
+            },
+            {
+                path:'/signIn',
+                element:<SignIn></SignIn>
+            },
+            {
+                path:'/signUp',
+                element:<SignUp></SignUp>
             }
         ]
     }

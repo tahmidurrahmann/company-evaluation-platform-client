@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Drawer from "./Drawer";
 import "./styles.css";
 import { CiMenuFries } from "react-icons/ci";
@@ -9,10 +9,12 @@ import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
+import { AuthContext } from "../../Provider/AuthProvider";
 // hegghdfisdfghihofodfodfg
  // hellowwwwww  
 
 const NavBar = () => {
+    const {user,logOut}=useContext(AuthContext)
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -60,6 +62,15 @@ const NavBar = () => {
         </NavLink>
     </div>
 
+
+
+const handleLogeOut =()=>{
+    logOut()
+    .then()
+    .catch()
+  }
+
+
     return (
         <div className="fixed z-10 bg-white container">
             <div className="py-3">
@@ -72,8 +83,37 @@ const NavBar = () => {
                         {navItems}
                     </div>
                     <div className="flex gap-2">
-                        <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">Log In</button>
-                        <button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">Sign Up</button>
+                       {/* <Link to={'/signIn'}> <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">Log In</button></Link>
+                     <Link to={'/signUp'}>   <button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">Sign Up</button></Link> */}
+
+
+
+
+                     <div className="navbar-end">
+    {
+      user ? <div className="flex items-center "> 
+
+<button onClick={handleLogeOut} className="btn font-bold bg-blue-500 text-white">Log Out</button>
+      <div className="dropdown dropdown-end">
+      <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img src={user.photoURL} />
+        </div>
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+       
+        
+        <li><a>User Name: {user.displayName}</a></li>
+      </ul>
+    </div>
+      </div>:<Link to={'/signIn'}><button className="btn font-bold">Login</button>
+      </Link>
+    }
+    
+  </div>
+
+
+
                     </div>
                     <button className="flex lg:hidden" type="button" onClick={() => setIsOpen(!isOpen)}>
                         <CiMenuFries />
