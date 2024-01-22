@@ -3,10 +3,14 @@ import './Contact.css'
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
 import { IoIosMailUnread } from "react-icons/io";
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
     return (
         <div>
+            <Helmet>
+                <title>IONE | Contact</title>
+            </Helmet>
             <img className="w-full" src="https://i.ibb.co/7RCw46R/image.png" alt="" />
             {/* ------ first  section here ----- */}
             <div className='pt-20 mb-12 gap-12 p-12 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
