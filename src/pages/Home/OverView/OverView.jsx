@@ -2,7 +2,7 @@ import { TbCornerDownRight } from "react-icons/tb";
 
 const OverView = () => {
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto px-6 2xl:px-0">
             <h6 className="text-center font-semibold pt-6">Product Overview</h6>
             <h1 className="p-12 text-3xl md:text-4xl text-center xl:text-5xl font-semibold text-[#151746]">Your Complete Performance <br /> Management Toolkit</h1>
             <div className="flex flex-col md:flex-row my-6 md:my-8 gap-6 lg:my-12">

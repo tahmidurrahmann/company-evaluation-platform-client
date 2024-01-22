@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <div className="bg-neutral">
             <footer className="text-neutral-content max-w-screen-2xl mx-auto">
-                <div className="flex flex-col lg:flex-row justify-start items-start py-10 gap-6">
+                <div className="flex flex-col lg:flex-row justify-start items-start py-10 gap-6 px-6 2xl:px-0">
                     <div className="flex-1">
                         <div className="flex gap-2">
                             <img className="w-[30px] md:w-[40px]" src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png" alt="" />
@@ -31,7 +31,7 @@ const Footer = () => {
                         <a className="link link-hover">Cookie policy</a>
                     </div>
                 </div>
-                <div className="pb-6">
+                <div className="pb-6 px-6 2xl:px-0">
                     <h3><p>©2024 iONE. All Rights Reserved</p></h3>
                 </div>
             </footer>
