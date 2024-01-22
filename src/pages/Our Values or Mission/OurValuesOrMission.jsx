@@ -8,7 +8,7 @@ import Integrity from "./Integrity/Integrity";
 const OurValuesOrMission = () => {
 
     return (
-        <div>
+        <div className=" overflow-hidden">
 
             <Helmet>
                 <title>IONE | Mission</title>
