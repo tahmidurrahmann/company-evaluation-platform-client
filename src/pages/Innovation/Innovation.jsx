@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GrStatusGood } from "react-icons/gr";
+import { Helmet } from "react-helmet";
 
 const Innovation = () => {
   var settings = {
@@ -18,6 +19,9 @@ const Innovation = () => {
   };
   return (
     <div className="space-y-24 font-serif mb-52">
+      <Helmet>
+        <title>IONE | Innovation</title>
+      </Helmet>
       {/* banner  */}
       <div
         className="hero min-h-screen"

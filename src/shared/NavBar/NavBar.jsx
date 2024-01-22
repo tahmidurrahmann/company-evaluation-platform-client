@@ -10,6 +10,9 @@ import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaRegUser } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
+import { MdLogin } from "react-icons/md";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -152,22 +155,20 @@ const NavBar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
-                        <li>
-                          <h4>{user?.displayName}</h4>
-                        </li>
+                        <h4 className="text-center text-lg font-semibold py-2 flex justify-center items-center gap-1"><FaRegUser />{user?.displayName}</h4>
                         <button
                           onClick={handleLogeOut}
-                          className="btn font-bold bg-blue-500 text-white"
+                          className="bg-red-600 hover:bg-red-800 py-2 rounded text-white flex justify-center items-center gap-1"
                         >
-                          Log Out
+                          LOGOUT <BiLogOut size={22}/>
                         </button>
                       </ul>
                     </div>
                   </div>
                 ) : (
                   <Link to={"/signIn"}>
-                    <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">
-                      Log In
+                    <button className="font-semibold border border-[#007cc7] rounded-lg text-[#007cc7] hover:scale-105 transition flex justify-center py-1 px-3 gap-1 items-center">
+                    <MdLogin />LOGIN
                     </button>
                   </Link>
                 )}

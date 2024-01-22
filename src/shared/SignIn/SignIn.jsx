@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 // import animation from "../../assets/Animation - 1705910044429.json"
 // import Lottie from "lottie-react";
 
@@ -33,6 +34,9 @@ const SignIn = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>IONE | SignIn</title>
+      </Helmet>
       <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/mDDDHFQ/png-transparent-desktop-sky-blue-light-blue-blue-background-miscellaneous-blue-atmosphere.png)' }}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
