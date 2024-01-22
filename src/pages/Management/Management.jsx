@@ -5,7 +5,7 @@ import { FaFileArchive } from "react-icons/fa";
 
 const Management = () => {
     return (
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
             <div className="flex flex-col lg:flex-row justify-between items-center ">
               
                <div className="ml-10 space-y-10">
