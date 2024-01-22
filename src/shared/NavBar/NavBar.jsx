@@ -126,14 +126,14 @@ const NavBar = () => {
       <div className=" max-w-screen-2xl mx-auto">
         <div className="py-3">
           <div className="flex justify-between items-center px-4 xl:px-0">
-            <div className="flex gap-1">
+            <Link to="/"><div className="flex gap-1">
               <img
                 className="w-[30px] md:w-[40px]"
                 src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                 alt=""
               />
               <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
-            </div>
+            </div></Link>
             <div className="hidden lg:flex gap-4">{navItems}</div>
             <div className="flex justify-center items-center gap-2">
               <div className="navbar-end">
