@@ -42,10 +42,10 @@ const Innovation = () => {
       </div>
 
       {/* title  */}
-      <MyTitle text={` Best Reasons to Choose Our Services.`} />
+      <MyTitle text={`Best Reasons to Choose Our Services.`} />
 
       {/* Cards .. */}
-      <div className="grid grid-cols-3 gap-14">
+      <div className="grid grid-cols-3 gap-14  container mx-auto">
         <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
           <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
             <div className="card-body w-1/3">
@@ -212,7 +212,7 @@ const Innovation = () => {
 
       {/* now i am pushing */}
 
-      <div className="mb-24">
+      <div className="mb-24  container mx-auto">
         {/* GET STARTED NOW Button  */}
         <div className="flex justify-center">
           <div className="stack">
@@ -284,7 +284,7 @@ const Innovation = () => {
 
       {/* client say .. */}
 
-      <div className="">
+      <div className="container mx-auto">
         <div className="items-center text-center mx-auto mb-24">
           <h4 className="text-xl text-orange-600 font-semibold mb-5">
             OUR TESTIMONIALS
