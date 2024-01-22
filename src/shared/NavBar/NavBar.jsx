@@ -124,7 +124,7 @@ const NavBar = () => {
   return (
     <div className="bg-white w-full fixed z-10">
       <div className=" max-w-screen-2xl mx-auto">
-        <div className="py-3">
+        <div className="py-1 md:py-2">
           <div className="flex justify-between items-center px-4 xl:px-0">
             <Link to="/"><div className="flex gap-1">
               <img
@@ -172,7 +172,6 @@ const NavBar = () => {
                   </Link>
                 )}
               </div>
-              <Link to="signUp"><button className="font-semibold bg-[#007cc7] px-3 py-1 rounded-lg text-white hover:scale-105 transition">SignUp</button></Link>
             </div>
             <button
               className="flex lg:hidden"
