@@ -45,7 +45,7 @@ const Contact = () => {
                         <a href="https://www.maps.ie/population/">Population calculator map</a>
                     </iframe>
                 </div>
-                <div className="bg-white  border-r-2 border-t-2 shadow-2xl hover:border-blue-400 lg:w-[950px]  h-[550px] rounded-lg">
+                <div className="bg-white  border-r-2 border-t-2 shadow-2xl hover:border-blue-400 lg:w-[950px]  h-[550px] rounded-lg mx-6">
                     <h1 className="text-3xl font-bold pt-8 text-center">Get In Touch</h1>
                     <div className="p-8">
                         <input type="email" name="" className="border  w-full p-4 hover:input-info rounded-xl mb-5 " placeholder="Your Email " id="" />
