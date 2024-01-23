@@ -7,6 +7,7 @@ import OurValuesOrMission from "../pages/Our Values or Mission/OurValuesOrMissio
 import Contact from "../pages/Contact/Contact";
 import Innovation from "../pages/Innovation/Innovation";
 import Management from "../pages/Management/Management";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/management",
         element: <Management />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
       },
     ],
   },
