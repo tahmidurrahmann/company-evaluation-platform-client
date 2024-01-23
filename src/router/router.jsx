@@ -10,6 +10,7 @@ import Management from "../pages/Management/Management";
 import SignIn from "../shared/SignIn/SignIn";
 import SignUp from "../shared/SignUp/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/aboutUs",
-        element: <PrivateRoute><Aboutus />,</PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Aboutus />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/ourValuesOrMission",
@@ -41,15 +46,20 @@ const router = createBrowserRouter([
         path: "/management",
         element: <Management />,
       },
-      {
-        path:'/signIn',
-        element:<SignIn></SignIn>
-      },
-      {
-        path:'/signUp',
-        element:<SignUp></SignUp>
-      }
     ],
+  },
+  {
+    path: "/signIn",
+    element: <SignIn></SignIn>,
+  },
+  {
+    path: "/signUp",
+    element: <SignUp></SignUp>,
+  },
+
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 
