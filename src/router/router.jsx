@@ -23,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/aboutUs",
-        element: <PrivateRoute><Aboutus />,</PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Aboutus />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/ourValuesOrMission",
@@ -40,17 +44,17 @@ const router = createBrowserRouter([
       {
         path: "/management",
         element: <Management />,
-      }
+      },
     ],
   },
   {
-    path: '/signIn',
-    element: <SignIn></SignIn>
+    path: "/signIn",
+    element: <SignIn></SignIn>,
   },
   {
-    path: '/signUp',
-    element: <SignUp></SignUp>
-  }
+    path: "/signUp",
+    element: <SignUp></SignUp>,
+  },
 ]);
 
 export default router;

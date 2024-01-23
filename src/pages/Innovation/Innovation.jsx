@@ -7,7 +7,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GrStatusGood } from "react-icons/gr";
-import { Helmet } from "react-helmet";
 
 const Innovation = () => {
   var settings = {
@@ -18,13 +17,10 @@ const Innovation = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="space-y-24 font-serif mb-52">
-      <Helmet>
-        <title>IONE | Innovation</title>
-      </Helmet>
+    <div className="font-serif space-y-6 mb-24">
       {/* banner  */}
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen mb-24"
         style={{
           backgroundImage: "url(https://i.ibb.co/5FTy9DR/banner-Pic.jpg)",
         }}
@@ -46,12 +42,12 @@ const Innovation = () => {
       </div>
 
       {/* title  */}
-      <MyTitle text={`Best Reasons to Choose Our Services.`} />
+      <MyTitle text={` Best Reasons to Choose Our Services.`} />
 
       {/* Cards .. */}
-      <div className="grid grid-cols-3 gap-14  container mx-auto">
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
+      <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4 sm:m-0">
+        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
+          <div className="flex justify-between items-center group-hover:shadow-green-800">
             <div className="card-body w-1/3">
               <h2 className="card-title">01.Technology demands</h2>
               <p>- 01 Case Studies</p>
@@ -64,12 +60,12 @@ const Innovation = () => {
             </div>
           </div>
 
-          <figure className="w-96">
+          <figure className="md:w-full lg:w-full">
             <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
           </figure>
         </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
+        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
+          <div className="flex justify-between items-center group-hover:shadow-green-800">
             <div className="card-body w-1/3">
               <h2 className="card-title">01.Technology demands</h2>
               <p>- 01 Case Studies</p>
@@ -82,12 +78,12 @@ const Innovation = () => {
             </div>
           </div>
 
-          <figure className="w-96">
+          <figure className="md:w-full lg:w-full">
             <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
           </figure>
         </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
+        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
+          <div className="flex justify-between items-center group-hover:shadow-green-800">
             <div className="card-body w-1/3">
               <h2 className="card-title">01.Technology demands</h2>
               <p>- 01 Case Studies</p>
@@ -100,12 +96,12 @@ const Innovation = () => {
             </div>
           </div>
 
-          <figure className="w-96">
+          <figure className="md:w-full lg:w-full">
             <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
           </figure>
         </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
+        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
+          <div className="flex justify-between items-center group-hover:shadow-green-800">
             <div className="card-body w-1/3">
               <h2 className="card-title">01.Technology demands</h2>
               <p>- 01 Case Studies</p>
@@ -118,106 +114,13 @@ const Innovation = () => {
             </div>
           </div>
 
-          <figure className="w-96">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="w-96">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="w-96">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="w-96">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="w-96">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400">
-          <div className="flex justify-between items-center w-96 group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="w-96">
+          <figure className="md:w-full lg:w-full">
             <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
           </figure>
         </div>
       </div>
 
-      {/* now i am pushing */}
-
-      <div className="mb-24  container mx-auto">
-        {/* GET STARTED NOW Button  */}
+      <div className="">
         <div className="flex justify-center">
           <div className="stack">
             <div className="text-center border border-base-content card bg-base-100">
@@ -233,9 +136,9 @@ const Innovation = () => {
           </div>
         </div>
 
-        <div className="min-h-screen flex justify-center items-center ">
+        <div className="flex justify-center items-center mt-24">
           <div>
-            <div className="items-center text-center mx-auto">
+            <div className="mb-10 items-center text-center mx-auto w-full md:w-3/4">
               <h4 className="text-xl text-orange-600 font-semibold mb-5">
                 OUR WORKING PROCESS
               </h4>
@@ -244,8 +147,8 @@ const Innovation = () => {
               />
             </div>
 
-            <div className="flex justify-between">
-              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center">
+            <div className="grid gap-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center mx-auto justify-center">
+              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px] ">
                 <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
                   <HiMiniViewfinderCircle className="text-4xl" />
                 </div>
@@ -257,7 +160,7 @@ const Innovation = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center">
+              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
                 <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
                   <FaUsersViewfinder className="text-4xl" />
                 </div>
@@ -269,7 +172,7 @@ const Innovation = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center">
+              <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
                 <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
                   <TbBrandFinder className="text-4xl" />
                 </div>
@@ -288,22 +191,22 @@ const Innovation = () => {
 
       {/* client say .. */}
 
-      <div className="container mx-auto">
-        <div className="items-center text-center mx-auto mb-24">
+      <div className="">
+        <div className="items-center text-center mx-auto mb-10 mt-24">
           <h4 className="text-xl text-orange-600 font-semibold mb-5">
             OUR TESTIMONIALS
           </h4>
           <MyTitle text={"What's our Client Say"} />
         </div>
-        <div className="flex justify-between gap-4">
-          <div className="w-1/2 rounded-md">
+        <div className="flex flex-col gap-4 lg:flex-row">
+          <div className="w-full lg:w-1/2 md:w-full rounded-md">
             <img
               className="w-full border border-amber-900 rounded-md"
               src="https://i.ibb.co/8bJ7fqD/client.jpg"
               alt=""
             />
           </div>
-          <div className="w-1/2 border border-amber-900 rounded-md">
+          <div className="w-full lg:w-1/2 md:w-full border border-amber-900 rounded-md">
             {" "}
             <div className="bg-yellow-200 border border-amber-900 mx-10">
               <Slider {...settings} className="border text-white bg-slate-500">
