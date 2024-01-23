@@ -7,7 +7,9 @@ import OurValuesOrMission from "../pages/Our Values or Mission/OurValuesOrMissio
 import Contact from "../pages/Contact/Contact";
 import Innovation from "../pages/Innovation/Innovation";
 import Management from "../pages/Management/Management";
-import Dashboard from "../pages/dashboard/Dashboard";
+import SignIn from "../shared/SignIn/SignIn";
+import SignUp from "../shared/SignUp/SignUp";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +23,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/aboutUs",
-        element: <Aboutus />,
+        element: (
+          <PrivateRoute>
+            <Aboutus />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/ourValuesOrMission",
@@ -39,11 +45,15 @@ const router = createBrowserRouter([
         path: "/management",
         element: <Management />,
       },
-      {
-        path: "dashboard",
-        element: <Dashboard />,
-      },
     ],
+  },
+  {
+    path: "/signIn",
+    element: <SignIn></SignIn>,
+  },
+  {
+    path: "/signUp",
+    element: <SignUp></SignUp>,
   },
 ]);
 
