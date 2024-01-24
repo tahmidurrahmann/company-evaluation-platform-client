@@ -3,21 +3,21 @@ import { FaInstagram } from "react-icons/fa";
 
 const About_info = () => {
   return (
-    <div>
-      <div className="mb-12 ">
+    <div className="px-6 2xl:px-0">
+      <div className="mb-12">
         <h1 className="font-bold text-2xl text-center mb-2 uppercase pt-16">
-          our Tem
+          Our Team
         </h1>
         <h1 className="text-5xl text-center font-bold">
           {" "}
           Meet the <span className="text-[#007cc7] "> Professionals</span>{" "}
         </h1>
       </div>
-      <div className="mb-10 grid lg:grid-cols-3 md:grid-cols-2  grid-cols-1  gap-5 max-w-screen-xl mx-auto">
+      <div className="mb-10 grid lg:grid-cols-3 md:grid-cols-2  grid-cols-1  gap-5 max-w-screen-2xl mx-auto">
         <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
           <figure>
             <img
-              className=""
+              className="pt-16"
               src="https://i.ibb.co/qBwTVmg/image.png"
               alt="Shoes"
             />
@@ -49,7 +49,7 @@ const About_info = () => {
           </figure>
           <div className="card-body">
             <h2 className=" font-bold text-xl text-[#007cc7] italic  text-center">
-              Tahmidur Rohman
+              Tahmidur Rahman
             </h2>
             <p className="tex-xl font-semibold text-center text-[#007cc7] mb-2">
               Developer

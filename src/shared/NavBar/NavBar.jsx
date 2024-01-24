@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Drawer from "./Drawer";
 import "./styles.css";
@@ -9,10 +9,14 @@ import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { FaRegUser } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
+import { MdLogin } from "react-icons/md";
+import useAuth from "../../hooks/useAuth";
+import { MdOutlineDashboard } from "react-icons/md";
 
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +29,7 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg"
+              ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition text-lg"
               : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
         }
       >
@@ -123,8 +127,8 @@ const NavBar = () => {
 
   return (
     <div className="bg-white w-full fixed z-10">
-      <div className=" max-w-screen-2xl mx-auto">
-        <div className="py-1 md:py-2">
+      <div className="max-w-screen-2xl mx-auto">
+        <div className="py-2">
           <div className="flex justify-between items-center px-4 xl:px-0">
             <Link to="/"><div className="flex gap-1">
               <img
@@ -135,10 +139,10 @@ const NavBar = () => {
               <h1 className="text-2xl md:text-4xl font-semibold">iONE</h1>
             </div></Link>
             <div className="hidden lg:flex gap-4">{navItems}</div>
-            <div className="flex justify-center items-center gap-2">
+            <div className="flex justify-start items-center gap-2">
               <div className="navbar-end">
                 {user ? (
-                  <div className="flex items-center ">
+                  <div className="flex items-center">
                     <div className="dropdown dropdown-end">
                       <label
                         tabIndex={0}
@@ -152,22 +156,21 @@ const NavBar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
-                        <li>
-                          <h4>{user?.displayName}</h4>
-                        </li>
+                        <h4 className="text-lg text-neutral-600 font-semibold px-2.5 py-1 flex items-center gap-1"><FaRegUser />{user?.displayName}</h4>
+                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg font-semibold px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
                         <button
                           onClick={handleLogeOut}
-                          className="btn font-bold bg-blue-500 text-white"
+                          className="bg-red-600 hover:bg-red-800 py-2 rounded text-white flex justify-center items-center gap-1"
                         >
-                          Log Out
+                          LOGOUT <BiLogOut size={22}/>
                         </button>
                       </ul>
                     </div>
                   </div>
                 ) : (
                   <Link to={"/signIn"}>
-                    <button className="font-semibold border border-[#007cc7] px-3 py-1 rounded-lg text-[#007cc7] hover:scale-105 transition">
-                      Log In
+                    <button className="font-semibold border border-[#007cc7] rounded-lg text-[#007cc7] hover:scale-105 transition flex justify-center py-1 px-3 gap-1 items-center">
+                    <MdLogin />LOGIN
                     </button>
                   </Link>
                 )}

@@ -10,6 +10,10 @@ import Management from "../pages/Management/Management";
 import SignIn from "../shared/SignIn/SignIn";
 import SignUp from "../shared/SignUp/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
+import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/aboutUs",
-        element: <PrivateRoute><Aboutus />,</PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Aboutus />,
+          </PrivateRoute>
+        ),
       },
       {
         path: "/ourValuesOrMission",
@@ -41,15 +49,35 @@ const router = createBrowserRouter([
         path: "/management",
         element: <Management />,
       },
+    ],
+  },
+  {
+    path: "/signIn",
+    element: <SignIn></SignIn>,
+  },
+  {
+    path: "/signUp",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: "dashboard",
+    element : <Dashboard />,
+    children : [
+      //user
       {
-        path:'/signIn',
-        element:<SignIn></SignIn>
+        path : "userProfile",
+        element : <UserProfile />
+      },
+      //admin
+      {
+        path : "adminProfile",
+        element : <AdminProfile />
       },
       {
-        path:'/signUp',
-        element:<SignUp></SignUp>
-      }
-    ],
+        path : "allUsers",
+        element : <AllUsers />
+      },
+    ]
   },
 ]);
 

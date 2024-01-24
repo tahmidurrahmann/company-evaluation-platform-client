@@ -5,6 +5,9 @@ import { createContext } from "react";
 import app from "../firebase/firebase.config";
 import axios from 'axios';
 export const AuthContext = createContext()
+import { app } from "../firebase/firebase.config";
+
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider()
 
 const auth = getAuth(app)
@@ -12,17 +15,17 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-
-
+    
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
-
     }
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
+
     const googleSignIn = () => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
@@ -37,8 +40,6 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log(currentUser.email)
             setUser(currentUser)
-
-
             const userEmail = user?.email || user?.email;
             const loggedUser = { email: userEmail }
             axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
@@ -47,12 +48,16 @@ const AuthProvider = ({ children }) => {
                     // TODO : Navigate
                 })
 
+            setUser(currentUser)
+            console.log(currentUser, "currentUser");
             setLoading(false)
         })
         return () => {
             unSubscribe()
         }
+
     }, [user])
+
 
     const authInfo = {
         user,

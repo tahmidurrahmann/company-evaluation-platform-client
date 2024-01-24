@@ -2,37 +2,38 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet";
+import SocialLogin from "../SocialLogin/SocialLogin";
 // import animation from "../../assets/Animation - 1705910044429.json"
 // import Lottie from "lottie-react";
 
 const SignIn = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext)
-  const location = useLocation()
-  const navigation = useNavigate()
+
+  const { signIn } = useContext(AuthContext)
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location?.state?.from?.pathname || "/";
+  
   const handleLogin = e => {
     e.preventDefault()
-    const from = e.target;
-    const email = from.email.value;
-    const password = from.password.value
+    const fromi = e.target;
+    const email = fromi.email.value;
+    const password = fromi.password.value;
     signIn(email, password)
-      .then(result => {
-        console.log(result.user);
-        toast.success('Successfully toasted!')
-        navigation(location?.state ? location.state : '/')
+      .then(() => {
+        toast.success('Your Login Successful')
+        navigate(from, { replace: true });
       })
-      .catch(err => console.log(err))
-  }
-  const handleGoogle = (media) => {
-    media()
-      .then((res) => {
-        console.log(res);
-        navigation("/")
+      .catch(error => {
+        toast.error(error?.message)
       })
-      .catch()
   }
+
   return (
     <div>
+      <Helmet>
+        <title>IONE | SignIn</title>
+      </Helmet>
       <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/mDDDHFQ/png-transparent-desktop-sky-blue-light-blue-blue-background-miscellaneous-blue-atmosphere.png)' }}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
@@ -57,9 +58,6 @@ const SignIn = () => {
                         <span className="label-text text-white font-semibold">Password</span>
                       </label>
                       <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                      <label className="label">
-                        <a href="#" className="label-text-alt link link-hover text-white font-semibold">Forgot password?</a>
-                      </label>
                     </div>
                     <div className="form-control mt-6">
                       <button className="btn btn-primary">Login</button>
@@ -67,11 +65,9 @@ const SignIn = () => {
                   </form>
                   <div>
                     <h1>or sign in using</h1>
-                    <button onClick={() => handleGoogle(googleSignIn)} className=" btn btn-outline text-sky-500"><FaGoogle /></button>
-
-
+                    <SocialLogin />
                   </div>
-                  <p className="text-center my-6">New To Doctors Cards <Link to={'/signUp'} className="underline text-orange-400 font-semibold">Sign Up</Link></p>
+                  <p className="text-center my-6">New To IONE <Link to={'/signUp'} className="underline text-orange-400 font-semibold">Sign Up</Link></p>
                 </div>
               </div>
             </div>
