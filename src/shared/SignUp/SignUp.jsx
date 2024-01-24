@@ -36,18 +36,19 @@ const SignUp = () => {
         "content-type": "multipart/form-data",
       }
     })
-    const image = uploadImage?.data?.data?.display_url;
+    const imageURL = uploadImage?.data?.data?.display_url;
     createUser(email, password)
       .then(result => {
         const user = result?.user;
         updateProfile(user, {
-          displayName: name, photoURL: image,
+          displayName: name, photoURL: imageURL,
         }).then(async () => {
             toast.success("Your Registration Successful");
             const email = user?.email;
             const name = user?.displayName;
             const role = "user";
-            const registerInfo = {email, name, role};
+            const image = imageURL;
+            const registerInfo = {email, name, role, image};
             const res = await axiosSecure.post("/user", registerInfo);
             console.log(res?.data);
             navigate(from, { replace: true });
