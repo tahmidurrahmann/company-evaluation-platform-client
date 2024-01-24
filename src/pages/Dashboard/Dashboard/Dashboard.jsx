@@ -18,7 +18,7 @@ import Loading from '../../../shared/Loading/Loading';
 const drawerWidth = 240;
 function Dashboard(props) {
     const [isAdmin, pending] = useAdmin();
-    
+
     const { user } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -49,14 +49,24 @@ function Dashboard(props) {
                 <div className='flex items-center gap-2'><FaUser />User Profile</div>
             </NavLink>}
             {
-                user?.email && isAdmin && <NavLink
-                to="/dashboard/adminProfile"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                }
-            >
-                <div className='flex items-center gap-2'><MdOutlineAdminPanelSettings /> Admin Profile</div>
-            </NavLink>
+                user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
+                    <NavLink
+                        to="/dashboard/adminProfile"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><MdOutlineAdminPanelSettings /> Admin Profile</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/allUsers"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><FaUser /> All Users</div>
+                    </NavLink>
+                </div>
             }
             <NavLink
                 to="/"

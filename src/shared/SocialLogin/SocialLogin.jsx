@@ -20,7 +20,8 @@ const SocialLogin = () => {
           const email = user?.email;
           const name = user?.displayName;
           const role = "user";
-          const userInfo = { email, name, role }
+          const image = user?.photoURL;
+          const userInfo = { email, name, role, image }
           const res = await axiosPublic.post("/user", userInfo);
           console.log(res?.data);
           toast.success("Google Log in Successful");
