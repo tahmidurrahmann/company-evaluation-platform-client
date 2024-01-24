@@ -1,10 +1,14 @@
 import "./SignUp.css"
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import {  updateProfile } from "firebase/auth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
@@ -13,28 +17,71 @@ const SignUp = () => {
 
   const { createUser } = useContext(AuthContext)
   const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
+  const location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
-  const handleSignUp = async (event) => {
-    event.preventDefault()
-    const from = event.target
-    const name = from.name.value;
-    const email = from.email.value;
-    const password = from.password.value;
-    const photo = from.photo.value.split("\\");
-    const fileName = photo[photo.length - 1];
-    const photoObj = { image: fileName }
+  const {
+    register, handleSubmit, formState: { errors } } = useForm()
+
+  const onSubmit = async (data) => {
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    const photo = data.photo[0];
+    const photoObj = { image: photo }
     const uploadImage = await axiosPublic.post(apiURL, photoObj, {
       headers: {
         "content-type": "multipart/form-data",
       }
     })
-    console.log(uploadImage, name);
+    const image = uploadImage?.data?.data?.display_url;
     createUser(email, password)
       .then(result => {
-        console.log(result.user);
+        const user = result?.user;
+        updateProfile(user, {
+          displayName: name, photoURL: image,
+        }).then(async () => {
+            toast.success("Your Registration Successful");
+            const email = user?.email;
+            const name = user?.displayName;
+            const role = "user";
+            const registerInfo = {email, name, role};
+            const res = await axiosSecure.post("/user", registerInfo);
+            console.log(res?.data);
+            navigate(from, { replace: true });
+          })
+          .catch((error) => {
+            toast.error(error?.message)
+          })
       })
-      .catch(err => console.log(err))
+      .catch((error) => {
+        toast.error(error?.message)
+      })
   }
+
+  // const handleSignUp = async (event) => {
+  //   event.preventDefault()
+  //   const from = event.target
+  //   const name = from.name.value;
+  //   const email = from.email.value;
+  //   const password = from.password.value;
+  //   const photo = from.photo.value.split("\\");
+  //   const fileName = photo[photo.length - 1];
+  // const photoObj = { image: fileName }
+  // const uploadImage = await axiosPublic.post(apiURL, photoObj, {
+  //   headers: {
+  //     "content-type": "multipart/form-data",
+  //   }
+  // })
+  //   console.log(uploadImage, name);
+  //   createUser(email, password)
+  //     .then(result => {
+  //       console.log(result.user);
+  //     })
+  //     .catch(err => console.log(err))
+  // }
 
   return (
     <div>
@@ -51,29 +98,50 @@ const SignUp = () => {
               <div className="">
 
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-">
-                  <form onSubmit={handleSignUp} className="card-body">
+                  <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Name</span>
                       </label>
-                      <input type="text" name="name" placeholder="Name" className="input input-bordered text-black" required />
+                      <input {...register("name", { required: true })} type="text" placeholder="Your Full Name" className="input input-bordered text-black" />
+                      {errors.name?.type === "required" && (
+                        <p className="text-red-600 text-left pt-1">Name is required</p>
+                      )}
                     </div>
 
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Email</span>
                       </label>
-                      <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                      <input {...register("email", { required: true })} type="email" placeholder="Your Email Address" className="input input-bordered" />
+                      {errors.email?.type === "required" && (
+                        <p className="text-red-600 text-left pt-1">Email is required</p>
+                      )}
                     </div>
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Password</span>
                       </label>
-                      <input type="password" name="password" placeholder="password" className="input input-bordered text-black" required />
+                      <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" placeholder="Your Password" className="input input-bordered text-black" />
+                      {errors.password?.type === "required" && (
+                        <p className="text-red-600 text-left pt-1">Password is required</p>
+                      )}
+                      {errors.password?.type === "maxLength" && (
+                        <p className="text-red-600 text-left pt-1">Your Password should not more than 20 Characters.</p>
+                      )}
+                      {errors.password?.type === "minLength" && (
+                        <p className="text-red-600 text-left pt-1">Your Password should have more than 7 Characters.</p>
+                      )}
+                      {errors.password?.type === "pattern" && (
+                        <p className="text-red-600 text-left pt-1">Your Password should have one uppercase, one lowercase, one special character and one digit.</p>
+                      )}
                     </div>
                     <div className="input-div mt-4 py-1">
-                      <input className="inputu" name="photo" type="file" />
+                      <input {...register("photo", { required: true })} className="inputu" type="file" />
+                      {errors.photo?.type === "required" && (
+                        <p className="text-red-600 text-left pt-1">Photo is required.</p>
+                      )}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="1em"

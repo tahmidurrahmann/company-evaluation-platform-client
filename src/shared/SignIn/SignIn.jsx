@@ -8,21 +8,25 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 // import Lottie from "lottie-react";
 
 const SignIn = () => {
+
   const { signIn } = useContext(AuthContext)
-  const location = useLocation()
-  const navigation = useNavigate()
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location?.state?.from?.pathname || "/";
+  
   const handleLogin = e => {
     e.preventDefault()
-    const from = e.target;
-    const email = from.email.value;
-    const password = from.password.value
+    const fromi = e.target;
+    const email = fromi.email.value;
+    const password = fromi.password.value;
     signIn(email, password)
-      .then(result => {
-        console.log(result.user);
-        toast.success('Successfully toasted!')
-        navigation(location?.state ? location.state : '/')
+      .then(() => {
+        toast.success('Your Login Successful')
+        navigate(from, { replace: true });
       })
-      .catch(err => console.log(err))
+      .catch(error => {
+        toast.error(error?.message)
+      })
   }
 
   return (
