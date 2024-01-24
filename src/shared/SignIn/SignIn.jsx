@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import SocialLogin from "../SocialLogin/SocialLogin";
 // import animation from "../../assets/Animation - 1705910044429.json"
 // import Lottie from "lottie-react";
 
 const SignIn = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext)
   const location = useLocation()
   const navigation = useNavigate()
   const handleLogin = e => {
@@ -24,14 +24,7 @@ const SignIn = () => {
       })
       .catch(err => console.log(err))
   }
-  const handleGoogle = (media) => {
-    media()
-      .then((res) => {
-        console.log(res);
-        navigation("/")
-      })
-      .catch()
-  }
+
   return (
     <div>
       <Helmet>
@@ -61,9 +54,6 @@ const SignIn = () => {
                         <span className="label-text text-white font-semibold">Password</span>
                       </label>
                       <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                      <label className="label">
-                        <a href="#" className="label-text-alt link link-hover text-white font-semibold">Forgot password?</a>
-                      </label>
                     </div>
                     <div className="form-control mt-6">
                       <button className="btn btn-primary">Login</button>
@@ -71,11 +61,9 @@ const SignIn = () => {
                   </form>
                   <div>
                     <h1>or sign in using</h1>
-                    <button onClick={() => handleGoogle(googleSignIn)} className=" btn btn-outline text-sky-500"><FaGoogle /></button>
-
-
+                    <SocialLogin />
                   </div>
-                  <p className="text-center my-6">New To Doctors Cards <Link to={'/signUp'} className="underline text-orange-400 font-semibold">Sign Up</Link></p>
+                  <p className="text-center my-6">New To IONE <Link to={'/signUp'} className="underline text-orange-400 font-semibold">Sign Up</Link></p>
                 </div>
               </div>
             </div>

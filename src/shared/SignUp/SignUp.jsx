@@ -1,42 +1,40 @@
-
+import "./SignUp.css"
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
-import { FaGoogle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
+const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
+const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
 const SignUp = () => {
 
-  const { createUser, googleSignIn } = useContext(AuthContext)
-  const navigation = useNavigate()
+  const { createUser } = useContext(AuthContext)
+  const axiosPublic = useAxiosPublic();
 
-  const handleSignUp = event => {
+  const handleSignUp = async (event) => {
     event.preventDefault()
     const from = event.target
     const name = from.name.value;
     const email = from.email.value;
     const password = from.password.value;
-
-    console.log(name);
+    const photo = from.photo.value.split("\\");
+    const fileName = photo[photo.length - 1];
+    const photoObj = { image: fileName }
+    const uploadImage = await axiosPublic.post(apiURL, photoObj, {
+      headers: {
+        "content-type": "multipart/form-data",
+      }
+    })
+    console.log(uploadImage, name);
     createUser(email, password)
       .then(result => {
         console.log(result.user);
       })
       .catch(err => console.log(err))
-
   }
-
-
-  const handleGoogle = (media) => {
-    media()
-      .then((res) => {
-        console.log(res);
-        navigation("/")
-      })
-      .catch()
-  }
-
 
   return (
     <div>
@@ -59,7 +57,7 @@ const SignUp = () => {
                       <label className="label">
                         <span className="label-text">Name</span>
                       </label>
-                      <input type="text" name="name" placeholder="Name" className="input input-bordered" />
+                      <input type="text" name="name" placeholder="Name" className="input input-bordered text-black" required />
                     </div>
 
                     <div className="form-control">
@@ -68,24 +66,40 @@ const SignUp = () => {
                       </label>
                       <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
-
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text">Password</span>
                       </label>
-                      <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                      <label className="label">
-                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                      </label>
+                      <input type="password" name="password" placeholder="password" className="input input-bordered text-black" required />
                     </div>
+                    <div className="input-div mt-4 py-1">
+                      <input className="inputu" name="photo" type="file" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="1em"
+                        height="1em"
+                        strokeLinejoin="round"
+                        strokeLinecap="round"
+                        viewBox="0 0 24 24"
+                        strokeWidth="2"
+                        fill="none"
+                        stroke="currentColor"
+                        className="icon"
+                      >
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                        <line y2="21" x2="12" y1="12" x1="12"></line>
+                        <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
+                        <polyline points="16 16 12 12 8 16"></polyline>
+                      </svg>
+                    </div>
+
                     <div className="form-control mt-6">
                       <button className="btn btn-primary">SignUp</button>
                     </div>
                   </form>
                   <div>
                     <h1>or sign in using</h1>
-                    <button onClick={() => handleGoogle(googleSignIn)} className=" btn btn-outline text-sky-500"><FaGoogle /></button>
-
+                    <SocialLogin />
                   </div>
                   <p className="text-center my-6">Already have an account <Link to={'/signIn'} className="underline text-orange-400 font-semibold">Please Login</Link></p>
 
