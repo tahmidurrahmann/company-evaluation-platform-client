@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ const SocialLogin = () => {
     const { googleSignIn } = useAuth();
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic();
+    const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
 
