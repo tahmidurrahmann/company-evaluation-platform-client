@@ -15,13 +15,13 @@ const OurValuesOrMission = () => {
             </Helmet>
             <Integrity></Integrity>
             <div className="container mx-auto">
-            <GlobalCollection></GlobalCollection>
-            <Innovation></Innovation>
+                <GlobalCollection></GlobalCollection>
+                <Innovation></Innovation>
             </div>
             <Excellence></Excellence>
             <div className="container mx-auto">
-            <Inclusivity></Inclusivity>
-           </div>
+                <Inclusivity></Inclusivity>
+            </div>
         </div >
 
     );
