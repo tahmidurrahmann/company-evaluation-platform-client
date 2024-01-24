@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Logo from "../Logo/Logo";
 import Reviews from "../Reviews/Reviews";
 import OverView from "../OverView/OverView";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
     return (
@@ -10,6 +11,10 @@ const Home = () => {
             <Helmet>
                 <title>IONE | Home</title>
             </Helmet>
+            <MessengerCustomerChat
+                pageId="202053042984596"
+                appId="1019541442448361"
+            />
             <Banner />
             <Logo />
             <Reviews />

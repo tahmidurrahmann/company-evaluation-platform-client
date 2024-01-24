@@ -1,0 +1,40 @@
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { FaGoogle } from "react-icons/fa";
+import toast from "react-hot-toast";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
+const SocialLogin = () => {
+
+    const { googleSignIn } = useAuth();
+    const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
+
+    let from = location.state?.from?.pathname || "/";
+
+    const handleGoogle = (media) => {
+        media()
+        .then(async (result) => {
+          const user = result?.user;
+          const email = user?.email;
+          const name = user?.displayName;
+          const role = "user";
+          const userInfo = { email, name, role }
+          const res = await axiosPublic.post("/user", userInfo);
+          console.log(res?.data);
+          toast.success("Google Log in Successful");
+          navigate(from, { replace: true });
+      })
+      .catch(error => {
+          toast.error(error?.message);
+      })
+      }
+
+    return (
+        <div>
+            <button onClick={() => handleGoogle(googleSignIn)} className=" btn btn-outline text-sky-500"><FaGoogle /></button>
+        </div>
+    );
+};
+
+export default SocialLogin;

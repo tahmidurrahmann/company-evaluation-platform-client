@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Drawer from "./Drawer";
 import "./styles.css";
@@ -9,13 +9,14 @@ import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { FaRegUser } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
+import useAuth from "../../hooks/useAuth";
+import { MdOutlineDashboard } from "react-icons/md";
 
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +29,7 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition text-lg"
+              ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition text-lg"
               : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition text-lg"
         }
       >
@@ -141,7 +142,7 @@ const NavBar = () => {
             <div className="flex justify-start items-center gap-2">
               <div className="navbar-end">
                 {user ? (
-                  <div className="flex items-center ">
+                  <div className="flex items-center">
                     <div className="dropdown dropdown-end">
                       <label
                         tabIndex={0}
@@ -156,6 +157,7 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
                         <h4 className="text-center text-lg font-semibold py-2 flex justify-center items-center gap-1"><FaRegUser />{user?.displayName}</h4>
+                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg font-semibold px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
                         <button
                           onClick={handleLogeOut}
                           className="bg-red-600 hover:bg-red-800 py-2 rounded text-white flex justify-center items-center gap-1"

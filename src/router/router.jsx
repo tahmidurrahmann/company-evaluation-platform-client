@@ -10,7 +10,9 @@ import Management from "../pages/Management/Management";
 import SignIn from "../shared/SignIn/SignIn";
 import SignUp from "../shared/SignUp/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
-import Dashboard from "../pages/dashboard/Dashboard";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 
 const router = createBrowserRouter([
   {
@@ -56,10 +58,21 @@ const router = createBrowserRouter([
     path: "/signUp",
     element: <SignUp></SignUp>,
   },
-
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "dashboard",
+    element : <Dashboard />,
+    children : [
+      //user
+      {
+        path : "userProfile",
+        element : <UserProfile />
+      },
+      //admin
+      {
+        path : "adminProfile",
+        element : <AdminProfile />
+      },
+    ]
   },
 ]);
 
