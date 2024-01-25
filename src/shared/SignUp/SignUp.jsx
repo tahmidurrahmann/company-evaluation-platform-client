@@ -1,5 +1,5 @@
 import "./SignUp.css"
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -92,12 +92,12 @@ const SignUp = () => {
       </Helmet>
       <div className=" min-h-screen" >
         <div className="hero-overlay bg-opacity-60"></div>
-        <div className=" bg-black text-center text-neutral-content">
+        <div className=" bg-black h-[100vh] text-center text-neutral-content">
           <div className="w-full mx-auto ">
 
             {/* from control start */}
-            <div className="md:w-full min-h-screen  ">
-              <div className=" flex justify-center  items-center bg-container min-h-screen ">
+            <div className="md:w-full h-[100vh]  ">
+              <div className=" flex justify-center  items-center bg-container h-[100vh] ">
                 <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap  h-[100vh] ">
                   <div className="box"></div>
                   <div className="box"></div>
