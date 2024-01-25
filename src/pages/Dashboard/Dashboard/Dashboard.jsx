@@ -13,11 +13,14 @@ import useAuth from '../../../hooks/useAuth';
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import useAdmin from '../../../hooks/useAdmin';
 import Loading from '../../../shared/Loading/Loading';
-
+import useHr from '../../../hooks/useHr';
+import { FaUserTie } from "react-icons/fa";
 
 const drawerWidth = 240;
 function Dashboard(props) {
+
     const [isAdmin, pending] = useAdmin();
+    const [isHr, isPending] = useHr();
 
     const { user } = useAuth();
     const { window } = props;
@@ -30,7 +33,10 @@ function Dashboard(props) {
     if (pending) {
         return <Loading />
     }
-    console.log(isAdmin);
+
+    if(isPending){
+        return <Loading />
+    }
 
     const drawer = (
         <div className='flex flex-col items-center gap-4 justify-center pt-6'>
@@ -40,7 +46,8 @@ function Dashboard(props) {
                 </div>
             </div>
             <h1 className='font-bold'>{user?.displayName}</h1>
-            {user?.email && !isAdmin && <NavLink
+            {/* user Dashboard */}
+            {user?.email && !isAdmin && !isHr && <NavLink
                 to="/dashboard/userProfile"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
@@ -48,6 +55,16 @@ function Dashboard(props) {
             >
                 <div className='flex items-center gap-2'><FaUser />User Profile</div>
             </NavLink>}
+            {/* hr dashboard */}
+            {user?.email && !isAdmin && isHr && <NavLink
+                to="/dashboard/hrProfile"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                }
+            >
+                <div className='flex items-center gap-2'><FaUserTie />Hr Profile</div>
+            </NavLink>}
+            {/* admin dashboard */}
             {
                 user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
                     <NavLink

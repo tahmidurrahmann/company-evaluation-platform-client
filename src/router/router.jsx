@@ -14,6 +14,7 @@ import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers";
+import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
       {
         path : "userProfile",
         element : <UserProfile />
+      },
+      //hr
+      {
+        path : "hrProfile",
+        element : <HrProfile />
       },
       //admin
       {
