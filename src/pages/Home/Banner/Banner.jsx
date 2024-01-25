@@ -67,7 +67,7 @@ const Banner = () => {
                                                 <UserForm />
                                             </div>
                                             <div className="mt-4">
-                                                <button onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
                                             </div>
                                         </Dialog.Panel>
                                     </Transition.Child>

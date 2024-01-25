@@ -6,6 +6,8 @@ import "./custom.css"
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import useAgreement from '../../../hooks/useAgreement';
+import Loading from '../../../shared/Loading/Loading';
 
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
@@ -44,12 +46,18 @@ const UserForm = () => {
         const imageURL = uploadImage?.data?.data?.display_url;
         const formDetails = { company, imageURL, role, name, email };
         const res = await axiosSecure.post("/formDetails", formDetails);
-        if(res?.data?.insertedId){
+        if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
         }
-        else{
+        else {
             toast.error("You Cannot Post Twice")
         }
+    }
+
+    const [allAgreements, isAgreement] = useAgreement();
+
+    if (isAgreement) {
+        return <Loading />
     }
 
     return (
@@ -101,14 +109,12 @@ const UserForm = () => {
                                             <label className="inputLabel font-semibold">EMAIL</label>
                                             <div className="inputUnderline"></div>
                                         </div>
-                                        <div className="inputContainer w-full">
-                                            <input {...register("company", { required: true })} required className="customInput py-3" type="name" />
-                                            <label className="inputLabel font-semibold">COMPANY NAME</label>
-                                            <div className="inputUnderline"></div>
-                                        </div>
-                                        {errors.company?.type === "required" && (
-                                            <p className="text-red-600 text-left">Name is required</p>
-                                        )}
+                                        <select className="select select-info w-full">
+                                            <option disabled selected>Select Your Company</option>
+                                            {
+                                                allAgreements?.map((agreement, index) => <option key={index}>{agreement?.company}</option>)
+                                            }
+                                        </select>
                                         <input {...register("photo", { required: true })} type="file" className="file-input file-input-bordered w-full" />
                                         {errors.photo?.type === "required" && (
                                             <p className="text-red-600 text-left pt-1">Photo is required</p>
@@ -117,7 +123,7 @@ const UserForm = () => {
                                         <button>Submit</button>
                                     </form>
                                     <div className="mt-4">
-                                        <button onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                        <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>

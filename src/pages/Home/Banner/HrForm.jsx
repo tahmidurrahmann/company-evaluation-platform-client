@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
+import useAgreement from '../../../hooks/useAgreement';
 
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
@@ -13,7 +14,8 @@ const HrForm = () => {
 
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
-    let [isOpen, setIsOpen] = useState(false)
+    let [isOpen, setIsOpen] = useState(false);
+    const [,, refetch] = useAgreement();
 
     function closeModal() {
         setIsOpen(false)
@@ -34,7 +36,7 @@ const HrForm = () => {
         const role = "hr";
         const name = user?.displayName;
         const email = user?.email;
-        const photoObj = { image: photo }
+        const photoObj = { image: photo };
         const uploadImage = await axiosPublic.post(apiURL, photoObj, {
             headers: {
                 "content-type": "multipart/form-data",
@@ -43,10 +45,11 @@ const HrForm = () => {
         const imageURL = uploadImage?.data?.data?.display_url;
         const formDetails = { company, imageURL, role, name, email };
         const res = await axiosSecure.post("/formDetails", formDetails);
-        if(res?.data?.insertedId){
+        if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
+            refetch();
         }
-        else{
+        else {
             toast.error("You Cannot Post Twice")
         }
     }
@@ -116,7 +119,7 @@ const HrForm = () => {
                                         <button>Submit</button>
                                     </form>
                                     <div className="mt-4">
-                                        <button onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                        <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
