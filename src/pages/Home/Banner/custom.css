@@ -1,0 +1,69 @@
+.inputContainer {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .customInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #000;
+  }
+  
+  .inputLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    padding: 5px;
+    font-size: 16px;
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .customInput:focus + .inputLabel,
+  .customInput:not(:placeholder-shown) + .inputLabel {
+    transform: translateY(-100%) translateX(-5px) scale(0.8);
+  }
+  
+  .inputUnderline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+
+
+  button {
+    border-radius: .25rem;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #fff;
+    -webkit-clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
+    height: 40px;
+    font-size: 0.7rem;
+    line-height: 14px;
+    letter-spacing: 1.2px;
+    transition: .2s .1s;
+    background-image: linear-gradient(90deg,#1c1c1c,#007cc7);
+    border: 0 solid;
+    overflow: hidden;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    transition: all .3s ease-in;
+    padding-right: 30px;
+    padding-left: 30px;
+  }

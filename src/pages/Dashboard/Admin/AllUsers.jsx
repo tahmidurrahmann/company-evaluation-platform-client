@@ -37,7 +37,7 @@ const AllUsers = () => {
                             {
                                 hr?.map((person, index) => <tr key={person?._id}>
                                     <th>{index + 1}</th>
-                                    <th><img className="w-8 md:w-12 rounded-full" src={person?.image} alt="" /></th>
+                                    <th><img referrerPolicy="no-referrer" className="w-8 md:w-12 rounded-full" src={person?.image} alt="" /></th>
                                     <td>{person?.name}</td>
                                     <td>{person?.email}</td>
                                 </tr>)
@@ -62,7 +62,7 @@ const AllUsers = () => {
                             {
                                 user?.map((person, index) => <tr key={person?._id}>
                                     <th>{index + 1}</th>
-                                    <th><img className="w-8 md:w-12 rounded-full" src={person?.image} alt="" /></th>
+                                    <th><img referrerPolicy="no-referrer" className="w-8 md:w-12 rounded-full" src={person?.image} alt="" /></th>
                                     <td>{person?.name}</td>
                                     <td>{person?.email}</td>
                                 </tr>)
