@@ -61,30 +61,7 @@ const SignUp = () => {
         toast.error(error?.message)
       })
   }
-
-  // const handleSignUp = async (event) => {
-  //   event.preventDefault()
-  //   const from = event.target
-  //   const name = from.name.value;
-  //   const email = from.email.value;
-  //   const password = from.password.value;
-  //   const photo = from.photo.value.split("\\");
-  //   const fileName = photo[photo.length - 1];
-  // const photoObj = { image: fileName }
-  // const uploadImage = await axiosPublic.post(apiURL, photoObj, {
-  //   headers: {
-  //     "content-type": "multipart/form-data",
-  //   }
-  // })
-  //   console.log(uploadImage, name);
-  //   createUser(email, password)
-  //     .then(result => {
-  //       console.log(result.user);
-  //     })
-  //     .catch(err => console.log(err))
-  // }
-
-
+  
   return (
     <div>
       <Helmet>
@@ -96,7 +73,7 @@ const SignUp = () => {
           <div className="w-full mx-auto ">
 
             {/* from control start */}
-            <div className="md:w-full h-[100vh]  ">
+            <div className="md:w-full h-[100vh]">
               <div className=" flex justify-center  items-center bg-container h-[100vh] ">
                 <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap  h-[100vh] ">
                   <div className="box"></div>
