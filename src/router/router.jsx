@@ -15,6 +15,7 @@ import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
+import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
       {
         path : "allUsers",
         element : <AllUsers />
+      },
+      {
+        path : "agreementRequest",
+        element : <AgreementRequest />
       },
     ]
   },
