@@ -1,84 +1,116 @@
 .input-div {
-    position: relative;
-    border: 2px solid rgb(0,124,199);
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    box-shadow: 0px 0px 100px rgb(0,124,199) , inset 0px 0px 10px rgb(0,124,199),0px 0px 5px rgb(255, 255, 255);
-    animation: flicker 2s linear infinite;
+  position: relative;
+  border: 2px solid rgb(0, 124, 199);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
+  animation: flicker 2s linear infinite;
+}
+
+.icon {
+  color: rgb(0, 124, 199);
+  font-size: 2rem;
+  cursor: pointer;
+  animation: iconflicker 2s linear infinite;
+}
+
+.inputu {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer !important;
+}
+
+@keyframes flicker {
+  0% {
+    border: 2px solid rgb(0, 124, 199);
+    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
   }
-  
-  .icon {
-    color: rgb(0,124,199);
-    font-size: 2rem;
-    cursor: pointer;
-    animation: iconflicker 2s linear infinite;
+
+  5% {
+    border: none;
+    box-shadow: none;
   }
-  
-  .inputu {
-    position: absolute;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer !important;
+
+  10% {
+    border: 2px solid rgb(0, 124, 199);
+    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
   }
-  
-  @keyframes flicker {
-    0% {
-      border: 2px solid rgb(0,124,199);
-      box-shadow: 0px 0px 100px rgb(0,124,199) , inset 0px 0px 10px rgb(0,124,199),0px 0px 5px rgb(255, 255, 255);
-    }
-  
-    5% {
-      border: none;
-      box-shadow: none;
-    }
-  
-    10% {
-      border: 2px solid rgb(0,124,199);
-      box-shadow: 0px 0px 100px rgb(0,124,199) , inset 0px 0px 10px rgb(0,124,199),0px 0px 5px rgb(255, 255, 255);
-    }
-  
-    25% {
-      border: none;
-      box-shadow: none;
-    }
-  
-    30% {
-      border: 2px solid rgb(0,124,199);
-      box-shadow: 0px 0px 100px rgb(0,124,199) , inset 0px 0px 10px rgb(0,124,199),0px 0px 5px rgb(255, 255, 255);
-    }
-  
-    100% {
-      border: 2px solid rgb(0,124,199);
-      box-shadow: 0px 0px 100px rgb(0,124,199) , inset 0px 0px 10px rgb(0,124,199),0px 0px 5px rgb(255, 255, 255);
-    }
+
+  25% {
+    border: none;
+    box-shadow: none;
   }
-  
-  @keyframes iconflicker {
-    0% {
-      opacity: 1;
-    }
-  
-    5% {
-      opacity: 0.2;
-    }
-  
-    10% {
-      opacity: 1;
-    }
-  
-    25% {
-      opacity: 0.2;
-    }
-  
-    30% {
-      opacity: 1;
-    }
-  
-    100% {
-      opacity: 1;
-    }
+
+  30% {
+    border: 2px solid rgb(0, 124, 199);
+    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
   }
+
+  100% {
+    border: 2px solid rgb(0, 124, 199);
+    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
+  }
+}
+
+@keyframes iconflicker {
+  0% {
+    opacity: 1;
+  }
+
+  5% {
+    opacity: 0.2;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.2;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.box {
+  height: 77px;
+  width: 78px;
+  background: rgb(48, 47, 47);
+  transition: 1s;
+  margin: 1px;
+}
+
+.box:hover {
+  transform: scale(1.0);
+  background: #007cc7;
+  box-shadow: 2px 2px #007cc7;
+  z-index: 2;
+}
+
+.bg-container {
+  height: 100%;
+  width: 100%;
+  background: #007cc7;
+  animation: mymove 2s infinite;
+}
+
+@keyframes mymove {
+  0%{
+    background-color: #1c4a66;
+  }
+
+  100%{
+    background-color: rgb(3, 3, 3);
+  }
+}

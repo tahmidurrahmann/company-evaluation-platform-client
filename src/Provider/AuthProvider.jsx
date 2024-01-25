@@ -3,7 +3,8 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import { useState } from "react";
 import { createContext } from "react";
 import axios from 'axios';
-import { app } from "../firebase/firebase.config";
+import { app } from "../firebase/firebase";
+
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider()
