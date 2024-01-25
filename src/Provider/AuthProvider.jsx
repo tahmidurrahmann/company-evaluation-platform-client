@@ -4,7 +4,9 @@ import { useState } from "react";
 import { createContext } from "react";
 import axios from 'axios';
 import { app } from "../firebase/firebase";
-export const AuthContext = createContext()
+
+
+export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider()
 
 const auth = getAuth(app)
@@ -35,7 +37,6 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log(currentUser.email)
             setUser(currentUser)
             const userEmail = user?.email || user?.email;
             const loggedUser = { email: userEmail }

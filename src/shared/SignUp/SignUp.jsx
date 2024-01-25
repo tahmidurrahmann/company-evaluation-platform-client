@@ -1,5 +1,5 @@
 import "./SignUp.css"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -84,6 +84,7 @@ const SignUp = () => {
   //     .catch(err => console.log(err))
   // }
 
+
   return (
     <div>
       <Helmet>
@@ -92,12 +93,12 @@ const SignUp = () => {
       <div className=" min-h-screen" >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className=" bg-black text-center text-neutral-content">
-          <div className="w-full mx-auto">
+          <div className="w-full mx-auto ">
 
             {/* from control start */}
-            <div className="md:w-full min-h-screen ">
-              <div className=" flex justify-center items-center bg-container min-h-screen ">
-                <div className="w-full h-full  flex flex-wrap ">
+            <div className="md:w-full min-h-screen  ">
+              <div className=" flex justify-center  items-center bg-container min-h-screen ">
+                <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap  h-[100vh] ">
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
@@ -236,12 +237,12 @@ const SignUp = () => {
                   <div className="box"></div>
                 </div>
 
-                <div className="card fixed shrink-0 w-full max-w-sm shadow-2xl ">
+                <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-sm shadow-2xl ">
                   <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text text-white">Name</span>
                       </label>
                       <input {...register("name", { required: true })} type="text" placeholder="Your Full Name" className="input input-bordered text-black" />
                       {errors.name?.type === "required" && (
@@ -251,7 +252,7 @@ const SignUp = () => {
 
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text">Email</span>
+                        <span className="label-text text-white">Email</span>
                       </label>
                       <input {...register("email", { required: true })} type="email" placeholder="Your Email Address" className="input input-bordered" />
                       {errors.email?.type === "required" && (
@@ -260,7 +261,7 @@ const SignUp = () => {
                     </div>
                     <div className="form-control">
                       <label className="label">
-                        <span className="label-text">Password</span>
+                        <span className="label-text text-white">Password</span>
                       </label>
                       <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" placeholder="Your Password" className="input input-bordered text-black" />
                       {errors.password?.type === "required" && (
