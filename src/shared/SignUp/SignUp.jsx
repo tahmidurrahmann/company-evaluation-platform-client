@@ -1,5 +1,5 @@
 import "./SignUp.css"
-import { useContext } from "react";
+import { useContext, } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -15,7 +15,7 @@ const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
 const SignUp = () => {
 
-  const { createUser } = useContext(AuthContext)
+  const { createUser  } = useContext(AuthContext)
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
@@ -98,7 +98,7 @@ const SignUp = () => {
             {/* from control start */}
             <div className="md:w-full h-[100vh]  ">
               <div className=" flex justify-center  items-center bg-container h-[100vh] ">
-                <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap  h-[100vh] ">
+                <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden h-[100vh] ">
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
@@ -237,7 +237,7 @@ const SignUp = () => {
                   <div className="box"></div>
                 </div>
 
-                <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-sm shadow-2xl ">
+                <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="form-control">

@@ -15,6 +15,10 @@ import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
+import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
+import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
+import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
+import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 
 const router = createBrowserRouter([
   {
@@ -62,26 +66,42 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element : <Dashboard />,
-    children : [
+    element: <Dashboard />,
+    children: [
       //user
       {
-        path : "userProfile",
-        element : <UserProfile />
+        path: "userProfile",
+        element: <UserProfile />
       },
       //hr
       {
-        path : "hrProfile",
-        element : <HrProfile />
+        path: "hrProfile",
+        element: <HrProfile />,
+      },
+      {
+        path: "hrProfile",
+        element: <HrProfileRating></HrProfileRating>
+      },
+      {
+        path: "allEmploye",
+        element: <AllEmploye></AllEmploye>
+      },
+      {
+        path: "employeTask",
+        element: <EmployeTaskes></EmployeTaskes>
+      },
+      {
+        path: "employeTeamPearformence",
+        element: <EmployeTeamPearformence></EmployeTeamPearformence>
       },
       //admin
       {
-        path : "adminProfile",
-        element : <AdminProfile />
+        path: "adminProfile",
+        element: <AdminProfile />
       },
       {
-        path : "allUsers",
-        element : <AllUsers />
+        path: "allUsers",
+        element: <AllUsers />
       },
     ]
   },
