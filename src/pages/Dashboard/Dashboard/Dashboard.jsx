@@ -35,7 +35,7 @@ function Dashboard(props) {
         return <Loading />
     }
 
-    if(isPending){
+    if (isPending) {
         return <Loading />
     }
 
@@ -57,14 +57,41 @@ function Dashboard(props) {
                 <div className='flex items-center gap-2'><FaUser />User Profile</div>
             </NavLink>}
             {/* hr dashboard */}
-            {user?.email && !isAdmin && isHr && <NavLink
-                to="/dashboard/hrProfile"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                }
-            >
-                <div className='flex items-center gap-2'><FaUserTie />Hr Profile</div>
-            </NavLink>}
+            {user?.email && !isAdmin && isHr && <>
+                <NavLink
+                    to="/dashboard/hrProfile"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaUserTie />Hr Profile</div>
+                </NavLink>
+                <NavLink
+                    to="/dashboard/allEmploye"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaUserTie />All Employe</div>
+                </NavLink>
+                <NavLink
+                    to="/dashboard/employeTask"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaUserTie />Employe Taskes</div>
+                </NavLink>
+                <NavLink
+                    to="/dashboard/employeTeamPearformence"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaUserTie />Employe Team pearformence</div>
+                </NavLink>
+
+            </>}
             {/* admin dashboard */}
             {
                 user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
@@ -108,6 +135,7 @@ function Dashboard(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
+
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar

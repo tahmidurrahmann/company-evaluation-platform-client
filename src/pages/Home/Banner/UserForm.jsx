@@ -45,7 +45,7 @@ const UserForm = () => {
         })
         const imageURL = uploadImage?.data?.data?.display_url;
         const formDetails = { company, imageURL, role, name, email };
-        const res = await axiosSecure.post("/formDetails", formDetails);
+        const res = await axiosSecure.post("/employee", formDetails);
         if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
         }
@@ -55,6 +55,7 @@ const UserForm = () => {
     }
 
     const [allAgreements, isAgreement] = useAgreement();
+    console.log(allAgreements);
 
     if (isAgreement) {
         return <Loading />
@@ -112,9 +113,12 @@ const UserForm = () => {
                                         <select className="select select-info w-full">
                                             <option disabled selected>Select Your Company</option>
                                             {
-                                                allAgreements?.map((agreement, index) => <option key={index}>{agreement?.company}</option>)
+                                                allAgreements?.map((agreement, index) => <option {...register("company", { required: true })} key={index}>{agreement?.company}</option>)
                                             }
                                         </select>
+                                        {errors.company?.type === "required" && (
+                                            <p className="text-red-600 text-left pt-1">Photo is required</p>
+                                        )}
                                         <input {...register("photo", { required: true })} type="file" className="file-input file-input-bordered w-full" />
                                         {errors.photo?.type === "required" && (
                                             <p className="text-red-600 text-left pt-1">Photo is required</p>
