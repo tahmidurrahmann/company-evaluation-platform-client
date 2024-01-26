@@ -183,9 +183,6 @@ const SignIn = () => {
 
                 <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleLogin} className="card-body">
-
-
-
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text text-white font-semibold">Email</span>

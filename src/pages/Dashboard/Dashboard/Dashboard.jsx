@@ -15,6 +15,7 @@ import useAdmin from '../../../hooks/useAdmin';
 import Loading from '../../../shared/Loading/Loading';
 import useHr from '../../../hooks/useHr';
 import { FaUserTie } from "react-icons/fa";
+import { FaCodePullRequest } from "react-icons/fa6";
 
 const drawerWidth = 240;
 function Dashboard(props) {
@@ -109,6 +110,14 @@ function Dashboard(props) {
                         }
                     >
                         <div className='flex items-center gap-2'><FaUser /> All Users</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/agreementRequest"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><FaCodePullRequest /> Agreement Request</div>
                     </NavLink>
                 </div>
             }

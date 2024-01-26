@@ -1,11 +1,43 @@
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
+import useUsers from "../../../hooks/useUsers";
 
 
 const UserProfile = () => {
+    const { user: myuserId } = useContext(AuthContext)
+    const [allUsers] = useUsers();
+    const [myProfile, setMyProfile] = useState(null);
+    console.log(myProfile)
+    useEffect(() => {
+        if (allUsers) {
+            setMyProfile(allUsers?.filter(myInfo => myInfo.email === myuserId.email))
+        }
+    }, [allUsers, myuserId])
 
     return (
         <div>
             <div className="overflow-x-auto">
-                <table className="table table-xs">
+                <section className='mt-10'>
+                    {
+                        myProfile?.map(element => <>
+                            <div className='flex justify-between  max-w-4xl'>
+                                <div>
+                                    <h1 className='font-bold text-3xl'>Name :{element.name}</h1>
+                                    <h3 className='font-medium my-5'>Email: {element.email}</h3>
+                                    <h3 className='font-bold text-3xl'>Company Name: Programming Hero</h3>
+                                    <h3 className='font-medium text-xl my-5'>Position: {element.role}</h3>
+                                </div>
+                                <div>
+                                    <img className='h-[200px] w-[200px] rounded-2xl' src={element.image} alt="" />
+                                </div>
+                            </div>
+
+                        </>)
+                    }
+
+
+                </section>
+                {/* <table className="table table-xs">
                     <thead>
                         <tr>
                             <th></th>
@@ -210,7 +242,7 @@ const UserProfile = () => {
                             <th>Favorite Color</th>
                         </tr>
                     </tfoot>
-                </table>
+                </table> */}
             </div>
         </div>
     );

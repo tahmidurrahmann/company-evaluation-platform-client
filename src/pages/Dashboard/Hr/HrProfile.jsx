@@ -1,18 +1,21 @@
 import CountUp from 'react-countup';
-import { SiVirustotal } from "react-icons/si";
-import { CgBoy, CgGirl } from "react-icons/cg";
-import { GiLifeBar } from "react-icons/gi";
+import { FaUsers, FaUserGraduate, FaTasks } from "react-icons/fa";
+import { FaPersonSnowboarding } from "react-icons/fa6";
 import useUsers from '../../../hooks/useUsers';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
 const HrProfile = () => {
+    const { user: myuserId } = useContext(AuthContext)
     const [allUsers] = useUsers();
     const [user, setUser] = useState(null);
-
+    const [myProfile, setMyProfile] = useState(null);
+    console.log(myProfile)
     useEffect(() => {
         if (allUsers) {
             setUser(allUsers?.filter(user => user?.role === "user"));
+            setMyProfile(allUsers?.filter(myInfo => myInfo.email === myuserId.email))
         }
-    }, [allUsers])
+    }, [allUsers, myuserId])
     if (!allUsers) {
         return
     }
@@ -22,10 +25,31 @@ const HrProfile = () => {
     return (
         <>
 
+            <section className='mt-10'>
+                {
+                    myProfile?.map(element => <>
+                        <div className='flex justify-between  max-w-4xl'>
+                            <div>
+                                <h1 className='font-bold text-3xl'>Name :{element.name}</h1>
+                                <h3 className='font-medium my-5'>Email: {element.email}</h3>
+                                <h3 className='font-bold text-3xl'>Company Name: Programming Hero</h3>
+                                <h3 className='font-medium text-xl my-5'>Position: {element.role}</h3>
+                            </div>
+                            <div>
+                                <img className='h-[200px] w-[200px] rounded-2xl' src={element.image} alt="" />
+                            </div>
+                        </div>
+
+                    </>)
+                }
+
+
+            </section>
+            <h1 className='flex justify-center items-center text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
             <section className="grid gap-12 md:grid-cols-3 md:gap-16 mx-40 my-20">
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <SiVirustotal className='text-5xl' />
+                        <FaUsers className='text-5xl' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -41,7 +65,8 @@ const HrProfile = () => {
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <CgBoy className='text-5xl' />
+
+                        <FaUserGraduate className='text-5xl' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -57,7 +82,8 @@ const HrProfile = () => {
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <CgGirl className='text-5xl' />
+
+                        <FaTasks className='text-5xl' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -73,7 +99,7 @@ const HrProfile = () => {
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <GiLifeBar className='text-5xl' />
+                        <FaPersonSnowboarding className='text-5xl' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">

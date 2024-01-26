@@ -19,6 +19,7 @@ import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
 import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
 import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
+import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,10 @@ const router = createBrowserRouter([
       {
         path: "allUsers",
         element: <AllUsers />
+      },
+      {
+        path : "agreementRequest",
+        element : <AgreementRequest />
       },
     ]
   },

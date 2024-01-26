@@ -1,8 +1,8 @@
 
-import useUsers from "../../../hooks/useUsers";
+import useEmployee from "../../../hooks/useEmployee";
 
 const AllEmploye = () => {
-    const [allUsers] = useUsers();
+    const [employeeAgreements] = useEmployee()
     return (
         <div>
             <div className="overflow-x-auto">
@@ -21,11 +21,11 @@ const AllEmploye = () => {
                     </thead>
                     <tbody>
                         {
-                            allUsers.map((element, index) =>
+                            employeeAgreements.map((element, index) =>
                             <>
                             <tr>
                                 <th>{index + 1}</th>
-                                <td><img className="h-12 w-12 rounded-full" src={element.image} alt="" /></td>
+                                <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>Boom Saka laka</td>
                                 <td>Tahmidur Rahaman</td>
