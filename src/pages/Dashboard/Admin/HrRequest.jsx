@@ -2,6 +2,7 @@ import useAgreement from "../../../hooks/useAgreement";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import Loading from "../../../shared/Loading/Loading";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const HrRequest = () => {
 
@@ -39,19 +40,19 @@ const HrRequest = () => {
     const rejectReq = (id) => {
         Swal.fire({
             title: "Are you sure?",
-            text: "You want to reject this request!",
+            text: "You want to delete this request!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, Reject!"
+            confirmButtonText: "Yes, Delete!"
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await axiosSecure.patch(`/rejectHrRequest/${id}`);
-                if (res?.data?.modifiedCount) {
+                const res = await axiosSecure.delete(`/rejectHrRequest/${id}`);
+                if (res?.data?.deletedCount) {
                     Swal.fire({
-                        title: "Successful!",
-                        text: "This request is now rejected.",
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
                         icon: "success"
                     });
                     refetch();
@@ -83,7 +84,7 @@ const HrRequest = () => {
                                 <td>{agreement?.email}</td>
                                 <td>{agreement?.company}</td>
                                 <td><span onClick={() => handleMakeHr(agreement?._id)} className={`${agreement?.status === "checked" ? "text-lg text-[#007cc7] font-semibold" : "bg-[#007cc7] px-2 py-1 hover:border hover:border-[#007cc7] hover:bg-white hover:text-[#007cc7] text-white font-semibold rounded"}`}>{agreement?.status === "checked" ? "Checked" : "Accept"}</span></td>
-                                <td><span onClick={() => rejectReq(agreement?._id)} className={`${agreement?.status === "rejected" ? "text-lg text-red-600 font-semibold" : "bg-red-600 px-2 py-1 hover:border hover:border-red-600 hover:bg-white hover:text-red-600 text-white font-semibold rounded"}`}>{agreement?.status === "rejected" ? "Rejected" : "Reject"}</span></td>
+                                <td><span onClick={() => rejectReq(agreement?._id)} ><RiDeleteBin6Line className="text-red-600 border-red-600 border p-1 rounded hover:bg-red-600 hover:text-white" size={26} /></span></td>
                             </tr>)
                         }
                     </tbody>
