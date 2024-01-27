@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { GrStatusGood } from "react-icons/gr";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Innovation = () => {
   const [service, setService] = useState([]);
@@ -39,6 +40,9 @@ const Innovation = () => {
   };
   return (
     <div className="font-serif space-y-6 mb-24">
+      <Helmet>
+        <title>IONE | Innovation</title>
+      </Helmet>
       {/* banner  */}
       <div
         className="hero min-h-screen mb-24"
@@ -66,11 +70,11 @@ const Innovation = () => {
       <MyTitle text={` Best Reasons to Choose Our Services.`} />
 
       {/* Cards .. */}
-      <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4 sm:m-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:m-0">
         {service.map((item) => (
           <div
             key={item._id}
-            className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2"
+            className="group flex flex-col justify-between bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2"
           >
             <div className="flex justify-between items-center group-hover:shadow-green-800">
               <div className="card-body w-1/3">
@@ -86,7 +90,7 @@ const Innovation = () => {
             </div>
 
             <figure className="md:w-full lg:w-full">
-              <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
+              <img className="h-40 w-full" src={item?.imgUrl} alt="" />
             </figure>
           </div>
         ))}
