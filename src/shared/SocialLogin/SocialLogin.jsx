@@ -34,7 +34,7 @@ const SocialLogin = () => {
 
     return (
         <div>
-            <button onClick={() => handleGoogle(googleSignIn)} className=" btn btn-outline text-sky-500"><FaGoogle /></button>
+            <button onClick={() => handleGoogle(googleSignIn)} className="flex justify-center items-center gap-2">SIGN IN WITH <FaGoogle /></button>
         </div>
     );
 };

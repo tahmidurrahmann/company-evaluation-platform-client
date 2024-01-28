@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 import SocialLogin from "../SocialLogin/SocialLogin";
 // import animation from "../../assets/Animation - 1705910044429.json"
 // import Lottie from "lottie-react";
+import "./SignIn.css"
 
 const SignIn = () => {
 
@@ -184,27 +185,48 @@ const SignIn = () => {
                 <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleLogin} className="card-body">
                     <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-white font-semibold">Email</span>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                      />
+                      <label>
+                        <span style={{ transitionDelay: '0ms' }}>E</span>
+                        <span style={{ transitionDelay: '50ms' }}>m</span>
+                        <span style={{ transitionDelay: '100ms' }}>a</span>
+                        <span style={{ transitionDelay: '150ms' }}>i</span>
+                        <span className="pr-2" style={{ transitionDelay: '200ms' }}>l</span>
+                        <span style={{ transitionDelay: '250ms' }}>A</span>
+                        <span style={{ transitionDelay: '300ms' }}>d</span>
+                        <span style={{ transitionDelay: '350ms' }}>d</span>
+                        <span style={{ transitionDelay: '400ms' }}>r</span>
+                        <span style={{ transitionDelay: '450ms' }}>e</span>
+                        <span style={{ transitionDelay: '500ms' }}>s</span>
+                        <span style={{ transitionDelay: '550ms' }}>s</span>
                       </label>
-                      <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                     </div>
-
                     <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-white font-semibold">Password</span>
+                      <input type="password" name="password" required />
+                      <label>
+                        <span style={{ transitionDelay: '0ms' }}>P</span>
+                        <span style={{ transitionDelay: '50ms' }}>a</span>
+                        <span style={{ transitionDelay: '100ms' }}>s</span>
+                        <span style={{ transitionDelay: '150ms' }}>s</span>
+                        <span style={{ transitionDelay: '200ms' }}>w</span>
+                        <span style={{ transitionDelay: '250ms' }}>o</span>
+                        <span style={{ transitionDelay: '300ms' }}>r</span>
+                        <span style={{ transitionDelay: '350ms' }}>d</span>
                       </label>
-                      <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                      <button className="btn btn-primary">Login</button>
+                      <button>Login</button>
                     </div>
                   </form>
-                  <div>
-                    <h1>or sign in using</h1>
+                  <div className="flex justify-center gap-6 items-center">
+                    <h1 className="text-white font-semibold">Or</h1>
                     <SocialLogin />
                   </div>
-                  <p className="text-center my-6">New To IONE <Link to={'/signUp'} className="underline text-orange-400 font-semibold">Sign Up</Link></p>
+                  <p className="text-center my-6 text-white">New here? <Link to={'/signUp'} className="underline font-semibold text-white">Create a New Account</Link></p>
                 </div>
               </div>
             </div>
