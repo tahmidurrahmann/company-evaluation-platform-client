@@ -43,7 +43,7 @@ const SignIn = () => {
             {/* from control start */}
             <div className="md:w-full min-h-screen  ">
               <div className=" flex justify-center  items-center bg-container min-h-screen ">
-                <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden  h-[100vh] ">
+                {/* <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden  h-[100vh] ">
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
@@ -180,7 +180,7 @@ const SignIn = () => {
                   <div className="box"></div>
                   <div className="box"></div>
                   <div className="box"></div>
-                </div>
+                </div> */}
 
                 <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleLogin} className="card-body">
