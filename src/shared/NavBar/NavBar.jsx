@@ -157,7 +157,7 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
                         <h4 className="text-lg text-neutral-600 font-semibold px-2.5 py-1 flex items-center gap-1"><FaRegUser />{user?.displayName}</h4>
-                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg font-semibold px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
+                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
                         <button
                           onClick={handleLogeOut}
                           className="bg-red-600 hover:bg-red-800 py-2 rounded text-white flex justify-center items-center gap-1"

@@ -32,7 +32,7 @@ const AllEmploye = () => {
                                 <td>Shadul Islam</td> */}
                                 <td>{element?.company}</td>
                                 {/* TODO: if hr not responce user then button well be show (panding) */}
-                                <td><button className="btn ">Responced</button></td> 
+                                <td><button>Response</button></td> 
                             </tr>
                         </>
                             )
