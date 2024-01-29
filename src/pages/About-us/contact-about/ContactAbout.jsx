@@ -1,26 +1,12 @@
-import { Link } from "react-router-dom";
 import aboutCompanyImg from "../../../assets/1.webp";
 import HeaderText from "./HeaderText";
-import { FaAngleDoubleRight } from "react-icons/fa";
+import SharedBanner from "../../../shared/SharedBanner/SharedBanner";
 
 const ContactAbout = () => {
   return (
-    <div className="">
+    <div>
       {/* Banner Section  */}
-      <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/y4QZGGN/image.png)' }}>
-        <div className="hero-overlay bg-opacity-80"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-3 text-7xl text-white font-bold">Welcome </h1>
-            <p className="mb-5 text-white">Our platform is a catalyst for innovation, collaboration, and growth in the ever-evolving tech landscape.</p>
-           <div className="flex gap-3 jus items-center justify-center text-xl  text-red-600">
-              <Link to={'/'} className="hover:text-blue-500">Home  </Link>
-              <FaAngleDoubleRight />
-              <Link to={'/aboutUs'}>About us</Link>
-           </div>
-          </div>
-        </div>
-      </div>
+      <SharedBanner  passage="About Us" heading="About Us"/>
       {/* About Company Section  */}
       <div className="container mx-auto py-24 px-12 flex flex-col md:flex-row lg:flex-row justify-between space-y-6">
         {/* Image */}
