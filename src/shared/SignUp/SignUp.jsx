@@ -75,6 +75,7 @@ const SignUp = () => {
             {/* from control start */}
             <div className="md:w-full h-[100vh]">
               <div className=" flex justify-center  items-center bg-container h-[100vh] ">
+
                 {/* <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden h-[100vh] ">
                   <div className="box"></div>
                   <div className="box"></div>

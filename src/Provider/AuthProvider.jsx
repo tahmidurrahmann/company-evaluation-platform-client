@@ -48,7 +48,6 @@ const AuthProvider = ({ children }) => {
                 .catch(error => {
                     console.log(error)
                 })
-
             setUser(currentUser)
             console.log(currentUser, "currentUser");
             setLoading(false)
