@@ -10,6 +10,7 @@ import { GrStatusGood } from "react-icons/gr";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import SharedBanner from "../../shared/SharedBanner/SharedBanner";
 
 const Innovation = () => {
   const [service, setService] = useState([]);
@@ -44,27 +45,7 @@ const Innovation = () => {
         <title>IONE | Innovation</title>
       </Helmet>
       {/* banner  */}
-      <div
-        className="hero min-h-screen mb-24"
-        style={{
-          backgroundImage: "url(https://i.ibb.co/5FTy9DR/banner-Pic.jpg)",
-        }}
-      >
-        <div className="hero-overlay bg-opacity-60"></div>
-        <div className="hero-content text-center text-neutral-content">
-          <div className="mt-30">
-            <h1 className="mb-5 text-5xl font-bold">
-              Our Journey in Technological Excellence
-            </h1>
-            <p className="mb-5">
-              Explore our story of technological excellence,
-              <br /> where innovative solutions pave the way for a digital
-              tomorrow, and each milestone signifies a step towards a brighter
-              future.
-            </p>
-          </div>
-        </div>
-      </div>
+      <SharedBanner heading="Innovation" passage="Innovation"/>
 
       {/* title  */}
       <MyTitle text={` Best Reasons to Choose Our Services.`} />

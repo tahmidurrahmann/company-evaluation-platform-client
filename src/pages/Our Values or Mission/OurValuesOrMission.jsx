@@ -3,7 +3,7 @@ import Excellence from "./Excellence/Excellence";
 import GlobalCollection from "./GlobalCollection";
 import Inclusivity from "./Inclusivity/Inclusivity"
 import Innovation from "./Innovation/Innovation";
-import Integrity from "./Integrity/Integrity";
+import SharedBanner from "../../shared/SharedBanner/SharedBanner";
 
 const OurValuesOrMission = () => {
 
@@ -13,7 +13,7 @@ const OurValuesOrMission = () => {
             <Helmet>
                 <title>IONE | Mission</title>
             </Helmet>
-            <Integrity></Integrity>
+            <SharedBanner heading="Our Mission" passage="Our Mission"/>
             <div className="container mx-auto">
                 <GlobalCollection></GlobalCollection>
                 <Innovation></Innovation>

@@ -3,15 +3,16 @@ import { FaCloudDownloadAlt } from "react-icons/fa";
 import { MdAssistantDirection } from "react-icons/md";
 import { FaFileArchive } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import SharedBanner from "../../shared/SharedBanner/SharedBanner";
 
 const Management = () => {
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div>
             <Helmet>
                 <title>IONE | Management</title>
             </Helmet>
-            <div className="flex flex-col lg:flex-row justify-between items-center ">
-
+            <SharedBanner passage="Management" heading="Management"/>
+            <div className="flex flex-col lg:flex-row justify-between items-center max-w-screen-2xl mx-auto">
                 <div className="ml-10 space-y-10">
                     <h1 className=" text-black pt-20 lg:pt-0  font-bold text-7xl">All solutions
                         <br /> in <span className="text-orange-500 ml-3"> one software</span></h1>

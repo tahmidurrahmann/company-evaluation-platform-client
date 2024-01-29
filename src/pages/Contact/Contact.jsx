@@ -6,6 +6,7 @@ import { IoIosMailUnread } from "react-icons/io";
 import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { useRef } from 'react';
+import SharedBanner from '../../shared/SharedBanner/SharedBanner';
 
 const Contact = () => {
 
@@ -29,7 +30,7 @@ const Contact = () => {
             <Helmet>
                 <title>IONE | Contact</title>
             </Helmet>
-            <img className="w-full" src="https://i.ibb.co/7RCw46R/image.png" alt="" />
+            <SharedBanner heading="Contact Us" passage="Contact Us"/>
             {/* ------ first  section here ----- */}
             <div className='pt-20 mb-12 gap-12 p-12 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
                 <div className='bg-white border-2 shadow-2xl hover:bg-blue-300 rounded-xl relative pb-4'>
