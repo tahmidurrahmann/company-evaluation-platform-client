@@ -22,17 +22,17 @@ const Banner = () => {
             <video className='w-full' autoPlay loop muted src={banner}></video>
             <div className='absolute top-0 bg-gradient-to-r from-[#15151500] to-[#151515] w-full h-full'>
                 <div className='absolute space-y-2 md:space-y-3 lg:space-y-4 xl:space-y-5 top-[63px] md:top-[100px] lg:top-16 xl:top-[220px] flex flex-col items-end left-1/3 lg:left-3/4 xl:right-28 right-4'>
-                    <h1 className="text-white md:text-4xl text-right font-semibold">Boost Your IT Skills with Accurate Assessments</h1>
+                    <h1 className="text-white md:text-4xl text-right font-semibold pt-6">Boost Your IT Skills with Accurate Assessments</h1>
                     <p className="text-white text-right hidden md:flex">Empower your IT career with our all-in-one platform! Streamline assessments, track progress, and set meaningful goals. Elevate your skills with precision evaluations and receive continuous feedback. Designed for excellence and growth – your key to success in IT!</p>
                     {/* ------ modal starts here ----- */}
                     <div className="inset-0 flex items-center justify-center">
-                        <button
+                        <span
                             type="button"
                             onClick={openModal}
-                            className="font-semibold bg-[#007cc7] px-2 md:px-5 py-1 md:py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition"
+                            className="font-semibold bg-[#007cc7] px-4 md:px-5 py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition"
                         >
                             Start Your IT Journey
-                        </button>
+                        </span>
                     </div>
 
                     <Transition appear show={isOpen} as={Fragment}>
@@ -76,7 +76,7 @@ const Banner = () => {
                         </Dialog>
                     </Transition>
 
-                    <div className="flex items-center gap-1">
+                    <div className="hidden md:flex items-center gap-1">
                         <Rating
                             initialRating="4.6"
                             emptySymbol={<svg

@@ -2,25 +2,37 @@ import CountUp from 'react-countup';
 import { FaUsers, FaUserGraduate, FaTasks } from "react-icons/fa";
 import { FaPersonSnowboarding } from "react-icons/fa6";
 import { PopupButton } from 'react-calendly';
-import useAuth from '../../../hooks/useAuth';
 import Loading from '../../../shared/Loading/Loading';
 import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
+import useUsers from '../../../hooks/useUsers';
+import useEmployee from '../../../hooks/useEmployee';
+import { useEffect, useState } from 'react';
 
 const HrProfile = () => {
 
-    const { user } = useAuth();
+    const [employeeAgreements, isEmployee] = useEmployee();
+    const [allUsers, isUser] = useUsers();
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
+    const [employee, setEmployee] = useState([]);
 
-    if (isHr) {
+    useEffect(() => {
+        if (employeeAgreements?.length > 0) {
+            const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
+            setEmployee(allEmployee);
+        }
+    }, [employeeAgreements])
+
+    if (isHr || isUser || isEmployee) {
         return <Loading />
     }
 
+    console.log(employee);
+
     return (
         <>
-
             <section className='mt-10'>
                 {
                     hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg border p-6">
@@ -45,8 +57,8 @@ const HrProfile = () => {
                     text="Click here to schedule!"
                 />
             </div>
-            <h1 className='flex justify-center items-center text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
-            <section className="grid gap-12 md:grid-cols-3 md:gap-16 mx-40 my-20">
+            <h1 className='text-center text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
+            <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20">
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
                         <FaUsers className='text-5xl' />
@@ -54,14 +66,13 @@ const HrProfile = () => {
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
                             <div>
-
-                                <CountUp start={0} end="">
+                                <CountUp start={0} end={allUsers?.length}>
                                 </CountUp>
                             </div>
                         </span>
                         <span className="inline-flex font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-300 mb-2">All Users</span>
                     </h2>
-                    {/* <p className="text-sm text-slate-500">Many desktop publishing packages and web page editors now use Pinky as their default model text.</p> */}
+
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
@@ -71,14 +82,13 @@ const HrProfile = () => {
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
                             <div>
-
-                                <CountUp start={0} end={user?.length}>
+                                <CountUp start={0} end={employee?.length}>
                                 </CountUp>
                             </div>
                         </span>
                         <span className="inline-flex font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-300 mb-2">All Employe</span>
                     </h2>
-                    {/* <p className="text-sm text-slate-500">Many desktop publishing packages and web page editors now use Pinky as their default model text.</p> */}
+
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
@@ -95,7 +105,7 @@ const HrProfile = () => {
                         </span>
                         <span className="inline-flex font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-300 mb-2">Your Employe Task</span>
                     </h2>
-                    {/* <p className="text-sm text-slate-500">Many desktop publishing packages and web page editors now use Pinky as their default model text.</p> */}
+
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
@@ -111,7 +121,7 @@ const HrProfile = () => {
                         </span>
                         <span className="inline-flex font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-300 mb-2">Your employe pearformeance</span>
                     </h2>
-                    {/* <p className="text-sm text-slate-500">Many desktop publishing packages and web page editors now use Pinky as their default model text.</p> */}
+
                 </article>
             </section>
         </>

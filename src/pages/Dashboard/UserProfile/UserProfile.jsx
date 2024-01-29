@@ -13,8 +13,6 @@ const UserProfile = () => {
         return <Loading />
     }
 
-    console.log(employeeRequestCheck);
-
     return (
         <div>
             <div className="overflow-x-auto">
@@ -34,7 +32,7 @@ const UserProfile = () => {
                         </div>
                         : <div className="min-h-[80vh] flex justify-center items-center font-semibold text-xl">Please Request for Employee or wait for Accept your request</div>}
                 </section>
-                <div className="App flex justify-center items-center">
+                <div className="App flex justify-center items-center pt-12">
                     <PopupButton
                         url="https://calendly.com/tahmidurrahman/30min"
 

@@ -12,9 +12,9 @@ const AllEmploye = () => {
                             <th>No:</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Group Name</th>
+                            {/* <th>Group Name</th>
                             <th>Group Lider</th>
-                            <th>Hr</th>
+                            <th>Hr</th> */}
                             <th>Company Name</th>
                             <th>Responce</th>
                         </tr>
@@ -27,12 +27,12 @@ const AllEmploye = () => {
                                 <th>{index + 1}</th>
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
-                                <td>Boom Saka laka</td>
+                                {/* <td>Boom Saka laka</td>
                                 <td>Tahmidur Rahaman</td>
-                                <td>Shadul Islam</td>
-                                <td>Programming Hero</td>
+                                <td>Shadul Islam</td> */}
+                                <td>{element?.company}</td>
                                 {/* TODO: if hr not responce user then button well be show (panding) */}
-                                <td><button className="btn ">Responced</button></td> 
+                                <td><button>Response</button></td> 
                             </tr>
                         </>
                             )
