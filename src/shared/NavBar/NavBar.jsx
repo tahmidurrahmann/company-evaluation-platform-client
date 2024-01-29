@@ -21,7 +21,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = (
-    <div className="flex flex-col lg:flex-row items-center my-6 lg:my-0 gap-8 py-24 md:py-0 ml-28 md:ml-0">
+    <div className="flex flex-col lg:flex-row items-center my-6 lg:my-0 gap-8 py-24 md:py-36 lg:py-0">
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/"
@@ -157,7 +157,7 @@ const NavBar = () => {
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
                         <h4 className="text-lg text-neutral-600 font-semibold px-2.5 py-1 flex items-center gap-1"><FaRegUser />{user?.displayName}</h4>
-                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg font-semibold px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
+                        <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
                         <button
                           onClick={handleLogeOut}
                           className="bg-red-600 hover:bg-red-800 py-2 rounded text-white flex justify-center items-center gap-1"
@@ -169,33 +169,33 @@ const NavBar = () => {
                   </div>
                 ) : (
                   <Link to={"/signIn"}>
-                    <button className="font-semibold border border-[#007cc7] rounded-lg text-[#007cc7] hover:scale-105 transition flex justify-center py-1 px-3 gap-1 items-center">
+                    <button className="font-semibold border border-[#007cc7] rounded-lg text-white hover:scale-105 transition flex justify-center py-1 px-3 gap-1 items-center">
                     <MdLogin />LOGIN
                     </button>
                   </Link>
                 )}
               </div>
             </div>
-            <button
+            <span
               className="flex lg:hidden"
               type="button"
               onClick={() => setIsOpen(!isOpen)}
             >
               <CiMenuFries />
-            </button>
+            </span>
             <Drawer
               isOpen={isOpen}
               onClose={() => setIsOpen(false)}
               position="right"
             >
-              <div className="demo-content">
-                <button
+              <div className="demo-content w-screen">
+                <span
                   type="button"
                   className="hover:scale-105 hover:bg-gray-400 rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >
                   <IoMdClose size={30} />
-                </button>
+                </span>
                 {navItems}
               </div>
             </Drawer>

@@ -25,62 +25,47 @@
   cursor: pointer !important;
 }
 
-@keyframes flicker {
-  0% {
-    border: 2px solid rgb(0, 124, 199);
-    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
-  }
-
-  5% {
-    border: none;
-    box-shadow: none;
-  }
-
-  10% {
-    border: 2px solid rgb(0, 124, 199);
-    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
-  }
-
-  25% {
-    border: none;
-    box-shadow: none;
-  }
-
-  30% {
-    border: 2px solid rgb(0, 124, 199);
-    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
-  }
-
-  100% {
-    border: 2px solid rgb(0, 124, 199);
-    box-shadow: 0px 0px 100px rgb(0, 124, 199), inset 0px 0px 10px rgb(0, 124, 199), 0px 0px 5px rgb(255, 255, 255);
-  }
+.form-control {
+  position: relative;
+  margin: 20px 0 40px;
 }
 
-@keyframes iconflicker {
-  0% {
-    opacity: 1;
-  }
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
 
-  5% {
-    opacity: 0.2;
-  }
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: lightblue;
+}
 
-  10% {
-    opacity: 1;
-  }
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  pointer-events: none;
+}
 
-  25% {
-    opacity: 0.2;
-  }
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  color: #fff;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-  30% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.form-control input:focus+label span,
+.form-control input:valid+label span {
+  color: lightblue;
+  transform: translateY(-30px);
 }
 
 .box {
@@ -102,15 +87,75 @@
 .bg-container {
   height: 100%;
   width: 100%;
-  background: #129ff7;
-  animation: mymove 5s infinite;
+  /* background: #129ff7; */
+  animation: mymove 15s infinite;
+  transition: 5s;
 }
 
 @keyframes mymove {
-  0%{
-    background-color: #129ff7;
+  0% {
+    background: linear-gradient(#147cbd, black, black, black, black, black, black, black, black, black);
+    transition: 5s;
   }
-  100%{
-    background-color: rgb(3, 3, 3);
+
+  10% {
+    background: linear-gradient(black, #147cbd, black, black, black, black, black, black, black, black);
+    transition: 5s;
+    animation: 2s;
+
+  }
+
+  20% {
+    background: linear-gradient(black, black, #147cbd, black, black, black, black, black, black, black);
+    transition: 5s;
+
+  }
+
+  30% {
+    background: linear-gradient(black, black, black, #147cbd, black, black, black, black, black, black);
+    transition: 5s;
+
+  }
+
+  40% {
+    background: linear-gradient(black, black, black, black, #147cbd, black, black, black, black, black);
+    transition: 5s;
+
+  }
+
+  50% {
+    background: linear-gradient(black, black, black, black, black, #147cbd, black, black, black, black);
+    transition: 5s;
+
+  }
+
+  60% {
+    background: linear-gradient(black, black, black, black, black, black, #147cbd, black, black, black);
+    transition: 5s;
+
+  }
+
+  70% {
+    background: linear-gradient(black, black, black, black, black, black, black, #147cbd, black, black);
+    transition: 5s;
+
+  }
+
+  80% {
+    background: linear-gradient(black, black, black, black, black, black, black, black, #147cbd, black);
+    transition: 5s;
+
+  }
+
+  90% {
+    background: linear-gradient(black, black, black, black, black, black, black, black, black, #147cbd);
+    transition: 5s;
+
+  }
+
+  100% {
+    background: linear-gradient(black, black, black, black, black, black, black, black, black, #147cbd);
+    transition: 5s;
+
   }
 }
