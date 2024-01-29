@@ -29,7 +29,7 @@ const Banner = () => {
                         <span
                             type="button"
                             onClick={openModal}
-                            className="font-semibold bg-[#007cc7] px-2 md:px-5 py-1 md:py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition"
+                            className="font-semibold bg-[#007cc7] px-4 md:px-5 py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition"
                         >
                             Start Your IT Journey
                         </span>
