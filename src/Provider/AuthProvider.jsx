@@ -45,7 +45,6 @@ const AuthProvider = ({ children }) => {
                     console.log(res.data)
                     // TODO : Navigate
                 })
-
             setUser(currentUser)
             console.log(currentUser, "currentUser");
             setLoading(false)

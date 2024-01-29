@@ -15,7 +15,7 @@ const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
 const SignUp = () => {
 
-  const { createUser  } = useContext(AuthContext)
+  const { createUser } = useContext(AuthContext)
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
@@ -61,7 +61,7 @@ const SignUp = () => {
         toast.error(error?.message)
       })
   }
-  
+
   return (
     <div>
       <Helmet>
@@ -76,33 +76,198 @@ const SignUp = () => {
             <div className="md:w-full h-[100vh]">
               <div className=" flex justify-center  items-center bg-container h-[100vh] ">
 
+                {/* <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden h-[100vh] ">
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                  <div className="box"></div>
+                </div> */}
+
                 <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleSubmit(onSubmit)}>
 
                     <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-white">Name</span>
+                      <input {...register("name", { required: true })} type="text" />
+                      <label>
+                        <span className="text-white" style={{ transitionDelay: '0ms' }}>Y</span>
+                        <span className="text-white" style={{ transitionDelay: '50ms' }}>o</span>
+                        <span className="text-white" style={{ transitionDelay: '100ms' }}>u</span>
+                        <span className="text-white pr-2" style={{ transitionDelay: '150ms' }}>r</span>
+                        <span className="text-white" style={{ transitionDelay: '200ms' }}>N</span>
+                        <span className="text-white" style={{ transitionDelay: '250ms' }}>a</span>
+                        <span className="text-white" style={{ transitionDelay: '300ms' }}>m</span>
+                        <span className="text-white" style={{ transitionDelay: '350ms' }}>e</span>
                       </label>
-                      <input {...register("name", { required: true })} type="text" placeholder="Your Full Name" className="input input-bordered text-black" />
-                      {errors.name?.type === "required" && (
+                      {errors.email?.type === "required" && (
                         <p className="text-red-600 text-left pt-1">Name is required</p>
                       )}
                     </div>
 
                     <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-white">Email</span>
+                      <input {...register("email", { required: true })} type="email" />
+                      <label>
+                        <span style={{ transitionDelay: '0ms' }}>E</span>
+                        <span style={{ transitionDelay: '50ms' }}>m</span>
+                        <span style={{ transitionDelay: '100ms' }}>a</span>
+                        <span style={{ transitionDelay: '150ms' }}>i</span>
+                        <span className="pr-2" style={{ transitionDelay: '200ms' }}>l</span>
+                        <span style={{ transitionDelay: '250ms' }}>A</span>
+                        <span style={{ transitionDelay: '300ms' }}>d</span>
+                        <span style={{ transitionDelay: '350ms' }}>d</span>
+                        <span style={{ transitionDelay: '400ms' }}>r</span>
+                        <span style={{ transitionDelay: '450ms' }}>e</span>
+                        <span style={{ transitionDelay: '500ms' }}>s</span>
+                        <span style={{ transitionDelay: '550ms' }}>s</span>
                       </label>
-                      <input {...register("email", { required: true })} type="email" placeholder="Your Email Address" className="input input-bordered" />
                       {errors.email?.type === "required" && (
                         <p className="text-red-600 text-left pt-1">Email is required</p>
                       )}
                     </div>
+
                     <div className="form-control">
-                      <label className="label">
-                        <span className="label-text text-white">Password</span>
+                      <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" />
+                      <label>
+                        <span style={{ transitionDelay: '0ms' }}>P</span>
+                        <span style={{ transitionDelay: '50ms' }}>a</span>
+                        <span style={{ transitionDelay: '100ms' }}>s</span>
+                        <span style={{ transitionDelay: '150ms' }}>s</span>
+                        <span style={{ transitionDelay: '200ms' }}>w</span>
+                        <span style={{ transitionDelay: '250ms' }}>o</span>
+                        <span style={{ transitionDelay: '300ms' }}>r</span>
+                        <span style={{ transitionDelay: '350ms' }}>d</span>
                       </label>
-                      <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" placeholder="Your Password" className="input input-bordered text-black" />
                       {errors.password?.type === "required" && (
                         <p className="text-red-600 text-left pt-1">Password is required</p>
                       )}
@@ -141,14 +306,14 @@ const SignUp = () => {
                     </div>
 
                     <div className="form-control mt-6">
-                      <button className="btn btn-primary">SignUp</button>
+                      <button>SignUp</button>
                     </div>
                   </form>
-                  <div>
-                    <h1>or sign in using</h1>
+                  <div className="flex justify-center gap-6 items-center pt-6">
+                    <h1 className="text-white font-semibold">Or</h1>
                     <SocialLogin />
                   </div>
-                  <p className="text-center my-6">Already have an account <Link to={'/signIn'} className="underline text-orange-400 font-semibold">Please Login</Link></p>
+                  <p className="text-center my-6">Already have an account? <Link to={'/signIn'} className="underline font-semibold text-white">Please Login</Link></p>
 
                 </div>
               </div>

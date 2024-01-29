@@ -13,7 +13,6 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
-import AllUsers from "../pages/Dashboard/Admin/AllUsers";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
 import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
@@ -99,10 +98,6 @@ const router = createBrowserRouter([
       {
         path: "adminProfile",
         element: <AdminProfile />
-      },
-      {
-        path: "allUsers",
-        element: <AllUsers />
       },
       {
         path : "agreementRequest",

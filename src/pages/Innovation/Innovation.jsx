@@ -7,8 +7,30 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GrStatusGood } from "react-icons/gr";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const Innovation = () => {
+  const [service, setService] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const getServiceData = () => {
+    return axios.get("/inov.json").then((res) => setService(res.data));
+  };
+
+  const getReviewData = () => {
+    return axios.get("/review.json").then((res) => {
+      console.log(res.data);
+
+      setReviews(res.data);
+    });
+  };
+
+  useEffect(() => {
+    getServiceData();
+    getReviewData();
+  }, []);
+
   var settings = {
     dots: true,
     infinite: true,
@@ -18,6 +40,9 @@ const Innovation = () => {
   };
   return (
     <div className="font-serif space-y-6 mb-24">
+      <Helmet>
+        <title>IONE | Innovation</title>
+      </Helmet>
       {/* banner  */}
       <div
         className="hero min-h-screen mb-24"
@@ -45,79 +70,30 @@ const Innovation = () => {
       <MyTitle text={` Best Reasons to Choose Our Services.`} />
 
       {/* Cards .. */}
-      <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-4 sm:m-0">
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
-          <div className="flex justify-between items-center group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:m-0">
+        {service.map((item) => (
+          <div
+            key={item._id}
+            className="group flex flex-col justify-between bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2"
+          >
+            <div className="flex justify-between items-center group-hover:shadow-green-800">
+              <div className="card-body w-1/3">
+                <h2 className="card-title">01.{item.title}</h2>
+                <p>- 01 {item.subtitle}</p>
+              </div>
+
+              <div>
+                <button className="btn group-hover:bg-purple-500 transition-colors">
+                  <IoIosArrowForward />
+                </button>
+              </div>
             </div>
 
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
+            <figure className="md:w-full lg:w-full">
+              <img className="h-40 w-full" src={item?.imgUrl} alt="" />
+            </figure>
           </div>
-
-          <figure className="md:w-full lg:w-full">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
-          <div className="flex justify-between items-center group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="md:w-full lg:w-full">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
-          <div className="flex justify-between items-center group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="md:w-full lg:w-full">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
-        <div className="group bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2">
-          <div className="flex justify-between items-center group-hover:shadow-green-800">
-            <div className="card-body w-1/3">
-              <h2 className="card-title">01.Technology demands</h2>
-              <p>- 01 Case Studies</p>
-            </div>
-
-            <div>
-              <button className="btn group-hover:bg-purple-500 transition-colors">
-                <IoIosArrowForward />
-              </button>
-            </div>
-          </div>
-
-          <figure className="md:w-full lg:w-full">
-            <img src="https://i.ibb.co/Kj7bRqN/card.jpg" alt="" />
-          </figure>
-        </div>
+        ))}
       </div>
 
       <div className="">
@@ -153,10 +129,10 @@ const Innovation = () => {
                   <HiMiniViewfinderCircle className="text-4xl" />
                 </div>
                 <div className="card-body">
-                  <h2 className="card-title">01. Find New Ideas</h2>
+                  <h2 className="card-title">01. Innovative Solutions</h2>
                   <p>
-                    There are many variations of pass of Lorem Ipsum donor
-                    available.
+                    Showcase how your company brings fresh and innovative
+                    solutions to the table
                   </p>
                 </div>
               </div>
@@ -165,10 +141,10 @@ const Innovation = () => {
                   <FaUsersViewfinder className="text-4xl" />
                 </div>
                 <div className="card-body">
-                  <h2 className="card-title">02. Find New Ideas</h2>
+                  <h2 className="card-title">02. Client-Centric Approach</h2>
                   <p>
-                    There are many variations of pass of Lorem Ipsum donor
-                    available.
+                    understanding and prioritizing the unique needs of your
+                    clients.
                   </p>
                 </div>
               </div>
@@ -177,10 +153,10 @@ const Innovation = () => {
                   <TbBrandFinder className="text-4xl" />
                 </div>
                 <div className="card-body">
-                  <h2 className="card-title">03. Find New Ideas</h2>
+                  <h2 className="card-title">03. Proven Track Record</h2>
                   <p>
-                    There are many variations of pass of Lorem Ipsum donor
-                    available.
+                    Highlight successful case studies or examples that
+                    demonstrate
                   </p>
                 </div>
               </div>
@@ -206,74 +182,18 @@ const Innovation = () => {
               alt=""
             />
           </div>
-          <div className="w-full lg:w-1/2 md:w-full border border-amber-900 rounded-md">
+          <div className="h-full w-full lg:w-1/2 border border-green-950  md:w-full rounded-md">
             {" "}
-            <div className="bg-yellow-200 border border-amber-900 mx-10">
-              <Slider {...settings} className="border text-white bg-slate-500">
-                <div className="p-8">
-                  <GrStatusGood className="text-6xl mb-4" />
+            <div className="bg-yellow-200 h-full items-center p-5 ">
+              <Slider {...settings} className="border text-white bg-green-600 ">
+                {reviews.map((item) => (
+                  <div key={item._id} className="p-8 mt-6">
+                    <GrStatusGood className="text-6xl mb-6" />
 
-                  <p className="text-2xl">
-                    Thank you for entrusting us with [specific aspect or
-                    project]. We value the partnership we've built and look
-                    forward to continuing to exceed your expectations in the
-                    future. If there's anything more we can do to enhance your
-                    experience, please don't hesitate to let us know.
-                  </p>
-                  <h2 className="mt-4">Jonson abress</h2>
-                </div>
-
-                <div className="p-8">
-                  <GrStatusGood className="text-6xl mb-4" />
-
-                  <p className="text-2xl">
-                    Thank you for entrusting us with [specific aspect or
-                    project]. We value the partnership we've built and look
-                    forward to continuing to exceed your expectations in the
-                    future. If there's anything more we can do to enhance your
-                    experience, please don't hesitate to let us know.
-                  </p>
-                  <h2 className="mt-4">Jonson abress</h2>
-                </div>
-
-                <div className="p-8">
-                  <GrStatusGood className="text-6xl mb-4" />
-
-                  <p className="text-2xl">
-                    Thank you for entrusting us with [specific aspect or
-                    project]. We value the partnership we've built and look
-                    forward to continuing to exceed your expectations in the
-                    future. If there's anything more we can do to enhance your
-                    experience, please don't hesitate to let us know.
-                  </p>
-                  <h2 className="mt-4">Jonson abress</h2>
-                </div>
-
-                <div className="p-8">
-                  <GrStatusGood className="text-6xl mb-4" />
-
-                  <p className="text-2xl">
-                    Thank you for entrusting us with [specific aspect or
-                    project]. We value the partnership we've built and look
-                    forward to continuing to exceed your expectations in the
-                    future. If there's anything more we can do to enhance your
-                    experience, please don't hesitate to let us know.
-                  </p>
-                  <h2 className="mt-4">Jonson abress</h2>
-                </div>
-
-                <div className="p-8">
-                  <GrStatusGood className="text-6xl mb-4" />
-
-                  <p className="text-2xl">
-                    Thank you for entrusting us with [specific aspect or
-                    project]. We value the partnership we've built and look
-                    forward to continuing to exceed your expectations in the
-                    future. If there's anything more we can do to enhance your
-                    experience, please don't hesitate to let us know.
-                  </p>
-                  <h2 className="mt-4">Jonson abress</h2>
-                </div>
+                    <p className="text-2xl">{item.review}</p>
+                    <h2 className="mt-4">{item.name}</h2>
+                  </div>
+                ))}
               </Slider>
             </div>
           </div>
