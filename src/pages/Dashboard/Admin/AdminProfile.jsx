@@ -3,12 +3,14 @@ import useUsers from "../../../hooks/useUsers";
 import Loading from "../../../shared/Loading/Loading";
 import { FaUserTie } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import useDragAndDrop from "../../../hooks/useDragAndDrop";
 
 const AdminProfile = () => {
 
     const [allUsers, isUser] = useUsers();
     const [hr, setHr] = useState(null);
     const [user, setUser] = useState(null);
+    const [dragAndDrop, isDrag] = useDragAndDrop();
 
     useEffect(() => {
         if (allUsers) {
@@ -17,11 +19,11 @@ const AdminProfile = () => {
         }
     }, [allUsers])
 
-    if (isUser) {
+    if (isUser || isDrag) {
         return <Loading />
     }
 
-    console.log(hr, user);
+    console.log(dragAndDrop);
 
     return (
         <div className="flex justify-center min-h-[70vh] items-center max-w-screen-2xl mx-auto">

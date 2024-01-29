@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useState } from "react";
 import { createContext } from "react";
-import axios from 'axios';
 import { app } from "../firebase/firebase";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 export const AuthContext = createContext(null);
@@ -14,7 +14,8 @@ const auth = getAuth(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    
+    const axiosSecure = useAxiosSecure();
+
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -40,12 +41,13 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             const userEmail = user?.email || user?.email;
             const loggedUser = { email: userEmail }
-            axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+            axiosSecure.post('/imployeeTasks', loggedUser)
                 .then(res => {
-                    console.log(res.data)
-                    // TODO : Navigate
+                    console.log(res)
                 })
-
+                .catch(error => {
+                    console.log(error)
+                })
             setUser(currentUser)
             console.log(currentUser, "currentUser");
             setLoading(false)
@@ -54,7 +56,7 @@ const AuthProvider = ({ children }) => {
             unSubscribe()
         }
 
-    }, [user])
+    }, [user, axiosSecure])
 
 
     const authInfo = {
