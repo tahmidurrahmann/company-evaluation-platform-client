@@ -41,7 +41,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             const userEmail = user?.email || user?.email;
             const loggedUser = { email: userEmail }
-            axiosSecure.post('/imployeeTasks', loggedUser)
+            axiosSecure.post('/jwt', loggedUser)
                 .then(res => {
                     console.log(res)
                 })
