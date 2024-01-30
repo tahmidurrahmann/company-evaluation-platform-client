@@ -1,10 +1,13 @@
 import { IoMdArrowDropright } from "react-icons/io";
+import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
 
 const Innovation = () => {
     return (
         <>
-            <h1 className="font-bold md:text-5xl text-2xl text-center mt-20 mx-5 mb-10">Understand better your organization`s innovation capability level with our interactive innovation assessment tool</h1>
-            <div className=" py-10 grid lg:grid-cols-2 grid-cols-1">
+            <div className="mt-20 px-4 2xl:px-0 mb-10">
+                <SharedHeading heading="Discover Your Innovation Potential" />
+            </div>
+            <div className="py-10 grid lg:grid-cols-2 grid-cols-1">
                 <div className="col-span-1 mx-auto flex ">
                     <img src="https://i.ibb.co/dM8z1p7/innovation-removebg-preview.png" alt="" />
                 </div>

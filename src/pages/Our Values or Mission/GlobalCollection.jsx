@@ -1,24 +1,16 @@
-
+import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 
 const GlobalCollection = () => {
   return (
-    <div className="m-10 mt-40 md:mt-5 lg:mt-40 ">
-      <h1 className="font-extrabold md:text-6xl text-3xl text-[#30acfa]">GLOBAL COLLABORATION -  <br /> SIMPLY WORK TOGETHER</h1>
+    <div className="mt-10 md:mt-32 lg:mt-40 px-4 2xl:px-0">
+        <SharedHeading heading="INNOVATION UNLEASHED - TOGETHER WE THRIVE" />
       <div className="flex flex-col-reverse md:flex-row gap-10">
-        <div className="md:w-full">
-          <p className=" mt-4 ">Your brand is present in a huge range of digital and real-world locations.
-           But global collaboration presents several challenges: When different people, tools and systems 
-           come together, the results can be unpredictable. Quality becomes unreliable, processes slow down 
-           and things often get needlessly complicated. File sharing costs your employees time and patience 
-           they have to wait for the right files because instead of accessing materials whenever they need them. 
-           Working like this is particularly frustrating when your teams are based in different time zones - and  <button className=" md:ml-0 ml-5 mt-5 btn">Learn more.....</button> </p>
-           {/* 
-           can lead to expensive delays. Disorganization, lack of transparency or an insufficient overview of 
-           progress can make it more difficult to maintain control over your brand identity. */}
+        <div className="space-y-2 text-neutral-500">
+          <p className="mt-4">Our mission is to empower organizations with the tools they need to thrive in a dynamic business landscape. Through cutting-edge evaluation methods and a commitment to excellence, we aim to foster innovation, elevate performance, and drive success for our clients.</p> <p>At IONE, we are dedicated to revolutionizing the way businesses evaluate and evolve. Our platform serves as a catalyst for progress, providing comprehensive solutions for performance assessment and continuous improvement. </p><p>Discover a world-class evaluation platform designed to streamline your processes, uncover actionable insights, and propel your organization to new heights. Whether it's employee performance, project outcomes, or strategic initiatives, our platform offers a comprehensive suite of tools to assess, refine, and optimize.</p>
         </div>
         <div className="relative md:w-[330px]">
-          <p className="w-56 border mt-10 md:mt-0 mr-36 px-9 py-14 bg-yellow-300 rounded-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, optio.</p>
-          <button className="w-28 border  mt-5 md:mt-0 rounded-full p-5 absolute top-[-25px] right-11 bg-yellow-300 border-blue-500 hover:shadow-blue-600 shadow-xl">REQUEST DEMO NEW</button>
+          <p className="w-56 border mt-10 md:mt-0 mr-36 px-9 py-14 bg-gradient-to-r from-[#007cc7] via-[#007bc7ce] to-[#007bc791] rounded-lg text-white font-medium">Empowering Growth through Insightful Evaluation</p>
+          <span className="w-24 mt-5 md:mt-0 rounded-full p-5 absolute top-[-25px] right-11 bg-gradient-to-r from-[#007bc791] via-[#007bc7ce] to-[#007cc7] hover:shadow-[#007cc7] shadow-2xl text-white">Unlock Insights</span>
         </div>
       </div>
     </div>
