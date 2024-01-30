@@ -26,3 +26,7 @@ const GlobalCollection = () => {
 };
 
 export default GlobalCollection;
+
+
+
+

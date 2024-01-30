@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 
-
+// jjjjjjjj
 const About_valus = () => {
     return (
-        <div className="mb-20">
+        <div className="mb-20 container mx-auto">
           <div className="">
-                <h1 className="font-bold text-2xl lg:ml-2 lg:text-start text-center mb-2 uppercase">OUR VALUES</h1>
-                <h1 className="text-5xl lg:ml-2 lg:text-start text-center mb-12 font-bold">Completely disintermediate <br /><span className="text-[#007cc7] ">excellent skills</span></h1>
+                <h1 className="font-bold text-2xl lg:ml-2 text-center mb-2 uppercase">OUR VALUES</h1>
+                <h1 className="text-5xl lg:ml-2 py-3 text-center mb-12 font-bold">Completely disintermediate <br /><span className="text-[#007cc7] ">excellent skills</span></h1>
           </div>
-          <div className="grid mt-9 lg:grid-cols-3 gap-6 md:grid-cols-2 grid-cols-1 max-w-screen-xl mx-auto">
+          <div className="grid mt-9 lg:grid-cols-3 gap-6 md:grid-cols-2 grid-cols-1">
             <div>
                 {/* 1 hellow */}
                 <div className="bg-base-100 shadow-2xl hover:shadow-blue-500 lg:w-96 w-80 ml-12 lg:ml-0 h-80 rounded-xl">
