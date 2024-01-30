@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 
-// jjjjjjjj
+
 const About_valus = () => {
     return (
         <div className="mb-20 container mx-auto">

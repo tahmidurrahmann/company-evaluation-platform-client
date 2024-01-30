@@ -105,7 +105,6 @@ const HrProfile = () => {
                         </span>
                         <span className="inline-flex font-semibold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-300 mb-2">Your Employe Task</span>
                     </h2>
-
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
