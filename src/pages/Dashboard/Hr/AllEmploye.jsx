@@ -2,13 +2,20 @@
 
 import useEmployee from "../../../hooks/useEmployee";
 import { useForm } from "react-hook-form"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Loading from "../../../shared/Loading/Loading";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure()
     const [data, setData] = useState([])
     const [targetinfo, setTargetinfo] = useState([])
+    const [postTask, setPostTask] = useState([])
+    const [employeeAgreements, isEmployee] = useEmployee();
+    const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
+    const [employee, setEmployee] = useState([]);
+    const [myEmploye, setMyEmploye] = useState([])
     const {
         register,
         handleSubmit,
@@ -27,18 +34,39 @@ const AllEmploye = () => {
         const name = targetinfo.name
         const email = targetinfo.email
         const giveTaskInfo = { additem, timeAndLocal, audience, tags, number, channel, effort, name, email }
-        console.log(giveTaskInfo)
-        axiosSecure.post('/imployeeTasks', giveTaskInfo,)
+        setPostTask(giveTaskInfo)
+
+    }
+    console.log(employee)
+
+    useEffect(() => {
+        if (hrRequestCheck?.status === "checked") {
+            const findEmployeMatch = employee.filter(element => element?.company === hrRequestCheck?.company)
+            setMyEmploye(findEmployeMatch)
+            console.log(findEmployeMatch)
+        }
+    }, [employee, hrRequestCheck?.company, hrRequestCheck?.status])
+
+    useEffect(() => {
+        if (employeeAgreements?.length > 0) {
+            const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
+            setEmployee(allEmployee);
+        }
+    }, [employeeAgreements])
+
+    if (isHr || isEmployee) {
+        return <Loading />
+    }
+
+    const handeltaskPost = () => {
+        axiosSecure.post('/imployeeTasks', postTask)
             .then(res => {
                 console.log(res)
             })
             .catch(error => {
                 console.log(error)
             })
-
-
     }
-    const [employeeAgreements] = useEmployee()
     const handelinformation = (info) => {
         console.log(info)
         setTargetinfo(info)
@@ -64,7 +92,7 @@ const AllEmploye = () => {
                     </thead>
                     <tbody>
                         {
-                            employeeAgreements.map((element, index) => <tr key={index}>
+                            myEmploye.map((element, index) => <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
@@ -168,8 +196,8 @@ const AllEmploye = () => {
                                     <h1>{targetinfo.name}</h1>
                                     <h1>{targetinfo.email}</h1>
                                 </div>
-                                <input type="submit" className="btn btn-neutral" value="Give His Task" />
                             </form>
+                            <button onClick={handeltaskPost} className="btn btn-neutral">Give His Task</button>
                         </div>
                     </div>
                 </dialog>
