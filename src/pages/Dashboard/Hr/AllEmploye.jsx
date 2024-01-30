@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../shared/Loading/Loading";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+import TeamMemberReq from "./TeamMemberReq";
 
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure()
@@ -38,6 +39,7 @@ const AllEmploye = () => {
 
     }
     console.log(employee)
+    console.log(myEmploye)
 
     useEffect(() => {
         if (hrRequestCheck?.status === "checked") {
@@ -73,18 +75,16 @@ const AllEmploye = () => {
     }
     return (
         <div>
+            <TeamMemberReq></TeamMemberReq>
             <div className="overflow-x-auto">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
                 <table className="table table-xs">
                     <thead>
                         <tr>
                             <th>No:</th>
                             <th>Image</th>
                             <th>Name</th>
-                            {/* <th>Group Name</th>
-                            <th>Group Lider</th>
-                            <th>Hr</th> */}
                             <th>Company Name</th>
-                            <th>Responce</th>
                             <th>Give Task</th>
                             <th>GTask Start Date</th>
                             <th>Task End Date</th>
@@ -97,8 +97,6 @@ const AllEmploye = () => {
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
-                                {/* TODO: if hr not responce user then button well be show (panding) */}
-                                <td><button>Response</button></td>
                                 <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
                                 <td></td>
                                 <td></td>
