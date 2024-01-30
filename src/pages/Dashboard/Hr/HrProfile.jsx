@@ -18,6 +18,8 @@ const HrProfile = () => {
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employee, setEmployee] = useState([]);
 
+    console.log(hrRequestCheck)
+
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
             const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
