@@ -55,7 +55,6 @@ const UserForm = () => {
     }
 
     const [allAgreements, isAgreement] = useAgreement();
-    console.log(allAgreements);
 
     if (isAgreement) {
         return <Loading />
@@ -110,14 +109,14 @@ const UserForm = () => {
                                             <label className="inputLabel font-semibold">EMAIL</label>
                                             <div className="inputUnderline"></div>
                                         </div>
-                                        <select className="select select-info w-full">
+                                        <select {...register("company", { required: true })} className="select select-bordered w-full">
                                             <option disabled selected>Select Your Company</option>
                                             {
-                                                allAgreements?.map((agreement, index) => <option {...register("company", { required: true })} key={index}>{agreement?.company}</option>)
+                                                allAgreements?.map((agreement, index) => <option key={index} value={agreement?.company}>{agreement?.company}</option>)
                                             }
                                         </select>
                                         {errors.company?.type === "required" && (
-                                            <p className="text-red-600 text-left pt-1">Photo is required</p>
+                                            <p className="text-red-600 text-left pt-1">Company is required</p>
                                         )}
                                         <input {...register("photo", { required: true })} type="file" className="file-input file-input-bordered w-full" />
                                         {errors.photo?.type === "required" && (
