@@ -25,11 +25,11 @@ const Management = () => {
                 </div>
             </div>
             {/* secend section heree   */}
-            <div className="mt-20">
+            <div className="mt-20 flex justify-center items-center">
                 <img src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/07/Frame-122-2.png" alt="" />
             </div>
             {/* third section here      */}
-            <div className="grid mt-16  lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1 mb-10  justify-evenly">
+            <div className="grid mt-16 container mx-auto lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1 mb-10  justify-evenly">
                 <div className="bg-base m-12 lg:ml-0 p-6 rounded-xl shadow-gray-400 hover:shadow-orange-500 shadow-xl">
                     <img src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/05/Frame-82.png" alt="" />
                     <h1 className="text-xl font-bold">Simple budjet planning</h1>
@@ -52,7 +52,7 @@ const Management = () => {
                 </div>
             </div>
             {/* fourth section here      */}
-            <div className="mt-52  flex flex-col lg:flex-row justify-between">
+            <div className="mt-52 container mx-auto flex flex-col lg:flex-row justify-between">
                 <div>
                     <img className="w-[700px]" src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/08/XMLID_23509_.png" alt="" />
                 </div>
@@ -77,7 +77,7 @@ const Management = () => {
                 </div>
             </div>
             {/* five section here*/}
-            <div className="bg-shadow-700 shadow-2xl hover:shadow-orange-500 mb-12 h-[50vh] rounded-tr-full  rounded-bl-full  mt-32">
+            <div className="bg-shadow-700 shadow-2xl hover:shadow-orange-500 mb-12 h-[50vh] rounded-tr-full container mx-auto rounded-bl-full  mt-32">
                 <h1 className=" text-center pt-20 lg:text-5xl font-bold">Connect with us. We’re ready to <br /> talk about opportunities</h1>
                 <div className="flex justify-center space-y-4 mt-4">
                     <Link to={'/signIn'}> <button className="bg-orange-500 py-2 px-3 lg:mt-4 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</button></Link>
