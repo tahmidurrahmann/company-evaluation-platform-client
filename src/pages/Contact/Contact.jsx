@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import { useRef } from 'react';
 import SharedBanner from '../../shared/SharedBanner/SharedBanner';
 
+
 const Contact = () => {
 
     const form = useRef();
@@ -26,6 +27,7 @@ const Contact = () => {
     };
 
     return (
+
         <div>
             <Helmet>
                 <title>IONE | Contact</title>
@@ -97,6 +99,7 @@ const Contact = () => {
                     </div>
                 </form>
             </div>
+
         </div>
     );
 };

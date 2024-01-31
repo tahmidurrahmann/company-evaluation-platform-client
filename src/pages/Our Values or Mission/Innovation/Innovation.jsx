@@ -9,7 +9,6 @@ const Innovation = () => {
             </div>
             <div className="py-10 grid lg:grid-cols-2 grid-cols-1">
                 <div className="col-span-1 mx-auto flex ">
-                    <img src="https://i.ibb.co/dM8z1p7/innovation-removebg-preview.png" alt="" />
                 </div>
                 <div>
                     <div className="flex gap-3">

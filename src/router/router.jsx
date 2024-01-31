@@ -73,6 +73,8 @@ const router = createBrowserRouter([
         path: "userProfile",
         element: <UserProfile />
       },
+   
+   
       //hr
       {
         path: "hrProfile",
@@ -106,5 +108,6 @@ const router = createBrowserRouter([
     ]
   },
 ]);
+
 
 export default router;
