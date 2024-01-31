@@ -166,7 +166,7 @@ const Innovation = () => {
           <div className="h-full w-full lg:w-1/2 border border-green-950  md:w-full rounded-md">
             {" "}
             <div className="bg-yellow-200 h-full items-center p-5 ">
-              <Slider {...settings} className="border text-white bg-green-600 ">
+              <Slider {...settings} className="border text-black bg-gray-200 ">
                 {reviews.map((item) => (
                   <div key={item._id} className="p-8 mt-6">
                     <GrStatusGood className="text-6xl mb-6" />

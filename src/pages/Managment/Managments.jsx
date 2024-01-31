@@ -13,7 +13,7 @@ const Managments = () => {
                         <br /> in <span className="text-orange-500 ml-3"> one software</span></h1>
                     <p className="text-gray-500">Task tracking, customer support help desk, and workflow management all <br/> wrapped up into one simple issue tracker your team <br/> and customers will love.</p>
                 <input type="email" name="" className="p-2 border-orange-500 border-2 rounded-xl shadow-xl " placeholder="Your email" id="" />
-                    <Link to={'/signin'}> <button className="bg-orange-500 py-2 px-3 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</button></Link>
+                    <a className="bg-orange-500 py-2 px-3 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400" to={'/signin'}> Get Started </a>
                </div>
                <div className="">
                     <img className="w-[600px]" src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/08/Group-2327.png" alt="" />

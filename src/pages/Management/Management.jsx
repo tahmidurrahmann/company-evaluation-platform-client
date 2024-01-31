@@ -18,7 +18,7 @@ const Management = () => {
                         <br /> in <span className="text-orange-500 ml-3"> one software</span></h1>
                     <p className="text-gray-500">Task tracking, customer support help desk, and workflow management all <br /> wrapped up into one simple issue tracker your team <br /> and customers will love.</p>
                     <input type="email" name="" className="p-2 border-orange-500 border-2 rounded-xl shadow-xl " placeholder="Your email" id="" />
-                    <Link to={'/signin'}> <button className="bg-orange-500 py-2 px-3 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</button></Link>
+                    <Link to={'/signin'}> <a className="bg-orange-500 py-2 px-3 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</a></Link>
                 </div>
                 <div className="">
                     <img className="w-[600px]" src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/08/Group-2327.png" alt="" />
@@ -80,7 +80,7 @@ const Management = () => {
             <div className="bg-shadow-700 shadow-2xl hover:shadow-orange-500 mb-12 h-[50vh] rounded-tr-full  rounded-bl-full  mt-32">
                 <h1 className=" text-center pt-20 lg:text-5xl font-bold">Connect with us. We’re ready to <br /> talk about opportunities</h1>
                 <div className="flex justify-center space-y-4 mt-4">
-                    <Link to={'/signIn'}> <button className="bg-orange-500 py-2 px-3 lg:mt-4 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</button></Link>
+                    <Link to={'/signIn'}  className="bg-orange-500 py-2 px-3 lg:mt-4 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</Link>
                 </div>
             </div>
         </div>

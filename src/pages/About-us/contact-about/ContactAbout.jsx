@@ -1,8 +1,10 @@
 import aboutCompanyImg from "../../../assets/1.webp";
 import HeaderText from "./HeaderText";
 import SharedBanner from "../../../shared/SharedBanner/SharedBanner";
+import useAuth from "../../../hooks/useAuth";
 
 const ContactAbout = () => {
+  const {user} =useAuth()
   return (
     <div>
       {/* Banner Section  */}
@@ -23,7 +25,7 @@ const ContactAbout = () => {
             style={{ lineHeight: 1.2 }}
           >
             Discover all 
-            <br /> <span className="text-yellow-400"> our features </span>
+            <br /> <span className="text-blue-500"> our features </span>
           
             
           </h1>
@@ -43,7 +45,7 @@ const ContactAbout = () => {
 
             <div className="stat">
               <div className="stat-title">New Users</div>
-              <div className="stat-value text-yellow-500">4,200</div>
+              <div className="stat-value text-orange-500">4,200</div>
               <div className="stat-desc">↗︎ 400 (22%)</div>
             </div>
           </div>
