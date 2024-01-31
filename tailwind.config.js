@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: "'Inter', 'sans- serif'",
+        raleway: "'Raleway', 'sans- serif'",
+        permanent : "'Permanent Marker', 'cursive'",
+    }
+    },
   },
   plugins: [require("daisyui")]
 }
