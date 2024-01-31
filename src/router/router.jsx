@@ -74,6 +74,7 @@ const router = createBrowserRouter([
         element: <UserProfile />
       },
    
+   
       //hr
       {
         path: "hrProfile",

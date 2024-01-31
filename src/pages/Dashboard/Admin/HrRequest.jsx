@@ -79,7 +79,7 @@ const HrRequest = () => {
                     <tbody>
                         {
                             allAgreements?.map(agreement => <tr key={agreement?._id}>
-                                <th><img referrerPolicy="no-referrer" className="w-8 md:w-12 rounded-full" src={agreement?.imageURL} alt="" /></th>
+                                <th><img referrerPolicy="no-referrer" className="w-12 h-12 rounded-full" src={agreement?.imageURL} alt="" /></th>
                                 <td>{agreement?.name}</td>
                                 <td>{agreement?.email}</td>
                                 <td>{agreement?.company}</td>
