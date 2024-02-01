@@ -18,7 +18,6 @@
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.15.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.13",
-    "@nextui-org/react": "^2.2.9",
     "@tanstack/react-query": "^5.17.15",
     "axios": "^1.6.5",
     "classnames": "^2.5.1",
@@ -28,20 +27,14 @@
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^6.3.1",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.44",
     "react": "^18.2.0",
-<<<<<<< HEAD
-
-    "react-beautiful-dnd": "^13.1.1",
-
-=======
-    "react-beautiful-dnd": "^13.1.1",
->>>>>>> beec777dfef16d1cabc94b274a59739a49016892
     "react-calendar": "^4.8.0",
-
-    "react-calendar": "^4.8.0",
-
     "react-calendly": "^4.3.0",
     "react-countup": "^6.5.0",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.2",
     "react-helmet": "^6.1.0",
@@ -53,6 +46,7 @@
     "react-rating": "^2.0.5",
     "react-router-dom": "^6.21.2",
     "react-slick": "^0.29.0",
+    "recharts": "^2.11.0",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
