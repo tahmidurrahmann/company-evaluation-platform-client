@@ -20,7 +20,7 @@ const AllEmploye = () => {
     const [myEmploye, setMyEmploye] = useState([])
 
 
-    // console.log(time.startTime)
+    console.log(hrRequestCheck.company)
     // console.log(time.timeAndLocal)
 
     const {
@@ -31,7 +31,7 @@ const AllEmploye = () => {
     const onSubmit = (formdata) => {
         const startTime = moment().format('MMMM Do YYYY, h:mm:ss a')
         // setTime(time)
-        console.log(formdata)
+        // console.log(formdata)
         setData(formdata)
         const additem = data.additem
         const status = 'todo'
@@ -43,38 +43,21 @@ const AllEmploye = () => {
         const effort = data.effort
         const name = targetinfo.name
         const email = targetinfo.email
-        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime }
+        const company = hrRequestCheck.company
+        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime, company }
         setPostTask(giveTaskInfo)
     }
     // console.log(employee)
     // console.log(myEmploye)
     // console.log(hrRequestCheck)
-    // const [time, setTime] = useState([])
+    const [time, setTime] = useState([])
     useEffect(() => {
         if (hrRequestCheck?.status === "checked") {
             const findEmployeMatch = employee.filter(element => element?.company === hrRequestCheck?.company)
             setMyEmploye(findEmployeMatch)
             axiosPublic.get('/imployeeTasks')
                 .then(res => {
-                    findEmployeMatch.filter(edat => {
-                        console.log('edat', edat.email)
-                        res.data.filter(element => {
-                            if (element.email === edat.email) {
-                                console.log(element)
-                                const localItem = JSON.parse(localStorage.getItem('data'))
-                                if (!localItem) {
-                                    localStorage.setItem('data', JSON.stringify([element]))
-                                }
-                                else {
-                                    localItem.map(localElement => {
-                                        if (element._id !== localElement._id) {
-                                            localStorage.setItem('data', JSON.stringify([...localItem, element]))
-                                        }
-                                    })
-                                }
-                            }
-                        })
-                    })
+                    setTime(res.data)
                 })
                 .catch(error => {
                     console.log(error)
@@ -107,6 +90,7 @@ const AllEmploye = () => {
         setTargetinfo(info)
     }
 
+
     // const localGetItem = JSON.parse(localStorage.getItem('data'))
     // console.log(localGetItem)
 
@@ -123,8 +107,11 @@ const AllEmploye = () => {
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <th>GTask Start Date</th>
-                            <th>Task End Date</th>
+                            <div className="flex flex-row w-96 justify-between">
+                                <th>GTask Start Date</th>
+                                <th>Task End Date</th>
+                            </div>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -135,8 +122,15 @@ const AllEmploye = () => {
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
+
                                 {/* {
                                     localGetItem.map((elementss) => <>
+
+                                {
+
+                                    time.map((elementss, index) => <div key={index} className="flex flex-row w-96 justify-between" >
+
+
                                         <td >
                                             {
                                                 element.email === elementss.email ? elementss.startTime : ''
@@ -148,14 +142,17 @@ const AllEmploye = () => {
                                             }
 
                                         </td>
+
                                     </>)
                                 } */}
 
-                            </tr>
 
+                                    </div>)
+                                }
+
+                            </tr>
                             )
                         }
-
                     </tbody>
                 </table>
                 <div>
