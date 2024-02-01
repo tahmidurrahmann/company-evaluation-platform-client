@@ -30,7 +30,6 @@
     "moment": "^2.30.1",
     "moment-timezone": "^0.5.44",
     "react": "^18.2.0",
-
     "react-calendar": "^4.8.0",
     "react-calendly": "^4.3.0",
     "react-countup": "^6.5.0",

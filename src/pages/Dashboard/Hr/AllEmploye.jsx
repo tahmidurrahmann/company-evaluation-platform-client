@@ -107,8 +107,8 @@ const AllEmploye = () => {
         setTargetinfo(info)
     }
 
-    const localGetItem = JSON.parse(localStorage.getItem('data'))
-    console.log(localGetItem)
+    // const localGetItem = JSON.parse(localStorage.getItem('data'))
+    // console.log(localGetItem)
 
     return (
         <div>
@@ -135,7 +135,7 @@ const AllEmploye = () => {
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
-                                {
+                                {/* {
                                     localGetItem.map((elementss) => <>
                                         <td >
                                             {
@@ -149,7 +149,7 @@ const AllEmploye = () => {
 
                                         </td>
                                     </>)
-                                }
+                                } */}
 
                             </tr>
 
