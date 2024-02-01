@@ -90,6 +90,10 @@ const AllEmploye = () => {
         setTargetinfo(info)
     }
 
+
+    // const localGetItem = JSON.parse(localStorage.getItem('data'))
+    // console.log(localGetItem)
+
     return (
         <div>
             <TeamMemberReq></TeamMemberReq>
@@ -118,9 +122,14 @@ const AllEmploye = () => {
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
+
+                                {/* {
+                                    localGetItem.map((elementss) => <>
+
                                 {
 
                                     time.map((elementss, index) => <div key={index} className="flex flex-row w-96 justify-between" >
+
 
                                         <td >
                                             {
@@ -133,8 +142,14 @@ const AllEmploye = () => {
                                             }
 
                                         </td>
+
+                                    </>)
+                                } */}
+
+
                                     </div>)
                                 }
+
                             </tr>
                             )
                         }
