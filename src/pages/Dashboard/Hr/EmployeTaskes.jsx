@@ -5,17 +5,17 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useState } from "react";
 
 const EmployeTaskes = () => {
-    const [tasks, setTasks] = useState([])
-    const axiosPublic = useAxiosPublic()
-    axiosPublic.get('/imployeeTasks')
-        .then(res => {
-            console.log(res.data)
-            setTasks(res.data)
+    const [tasks, setTasks] = useState([]);
+    const axiosPublic = useAxiosPublic();
+    axiosPublic
+        .get("/imployeeTasks")
+        .then((res) => {
+            console.log(res.data);
+            setTasks(res.data);
         })
-        .catch(error => {
-            console.log(error)
-        })
-
+        .catch((error) => {
+            console.log(error);
+        });
 
     return (
         <div className="space-y-10">
@@ -71,14 +71,14 @@ const EmployeTaskes = () => {
                 <td>Content 7</td> */}
                                 {/* Add more td elements as needed */}
                             </tr>
-                            {
-                                tasks.map((element, index) => <tr key={index}>
+                            {tasks.map((element, index) => (
+                                <tr key={index}>
                                     <td>{element.additem}</td>
                                     <td className="flex justify-center items-center gap-4">
                                         <div className="avatar">
                                             <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                                 <img
-                                                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                                    src=":http//daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                                                     alt="User Avatar"
                                                 />
                                             </div>
@@ -87,21 +87,60 @@ const EmployeTaskes = () => {
                                     </td>
                                     <td>{element.timeAndLocal}</td>
                                     <td>
-                                        <h1 className="badge badge-success">{element.audience}</h1>
+                                        <h1
+                                            className={`${element.audience === "primium"
+                                                    ? "badge badge-secondary"
+                                                    : element.audience === "busness"
+                                                        ? "badge badge-primary"
+                                                        : "badge badge-accent"
+                                                }`}
+                                        >
+                                            {element.audience}
+                                        </h1>
                                     </td>
                                     <td>
-                                        <h1 className="badge badge-secondary">{element.tags}</h1>
+                                        <h1
+                                            className={`${element.tags === "lowProirity"
+                                                    ? "badge badge-secondary badge-outline"
+                                                    : element.tags === "highPriority"
+                                                        ? "badge badge-primary badge-outline"
+                                                        : "badge badge-accent badge-outline"
+                                                }`}
+                                        >
+                                            {element.tags}
+                                        </h1>
                                     </td>
                                     <td>2</td>
                                     <td>
-                                        <h1 className="badge badge-primary">{element.channel}</h1>
+                                        <h1
+                                            className={`${element.channel === "social"
+                                                    ? "badge badge-secondary"
+                                                    : element.channel === "blog"
+                                                        ? "badge badge-primary"
+                                                        : element.channel === "press"
+                                                            ? "badge badge-accent"
+                                                            : "badge badge-outline"
+                                                }`}
+                                        >
+                                            {element.channel}
+                                        </h1>
                                     </td>
                                     <td>
-                                        <h1 className="badge badge-secondary">{element.effort}</h1>
+                                        <h1
+                                            className={`${element.effort === "medium"
+                                                    ? "badge badge-secondary badge-outline"
+                                                    : element.tags === "low"
+                                                        ? "badge badge-primary badge-outline"
+                                                        : element.effort === "high"
+                                                            ? "badge badge-accent badge-outline"
+                                                            : "badge badge-neutral"
+                                                }`}
+                                        >
+                                            {element.effort}
+                                        </h1>
                                     </td>
-                                </tr>)
-                            }
-
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
