@@ -71,7 +71,6 @@ const AllEmploye = () => {
                                             localStorage.setItem('data', JSON.stringify([...localItem, element]))
                                         }
                                     })
-
                                 }
                             }
                         })
