@@ -20,7 +20,7 @@ const AllEmploye = () => {
     const [myEmploye, setMyEmploye] = useState([])
 
 
-    // console.log(time.startTime)
+    console.log(hrRequestCheck.company)
     // console.log(time.timeAndLocal)
 
     const {
@@ -43,7 +43,8 @@ const AllEmploye = () => {
         const effort = data.effort
         const name = targetinfo.name
         const email = targetinfo.email
-        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime }
+        const company = hrRequestCheck.company
+        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime, company }
         setPostTask(giveTaskInfo)
     }
     // console.log(employee)
