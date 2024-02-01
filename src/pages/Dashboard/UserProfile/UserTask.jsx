@@ -62,33 +62,34 @@ const UserTask = () => {
                                     <div className="flex  justify-end">
                                         <SiPoly className="text-3xl text-blue-400  "  />
                                     </div>
-                                    <h1 className="text-xl font-bold">{item?.name}</h1>
+                                    <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
                                    
-
-                                   
-                                        <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                        <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-                                 
-
-
-
-                                   
+                                    <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
+                               
                                     <div className="flex justify-between ">
 
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
-                                        <dialog id="my_modal_3" className="modal">
+                                        <dialog id="my_modal_3" className="modal ">
                                             <div className="modal-box">
-                                                <form method="dialog">
+                                                <form method="dialog" className="p-5">
                                                   
                                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                                 </form>
-                                                <h3 className="font-bold text-lg">{item?.additem}</h3>
+                                               
+                                            <div className="flex justify-between">
+                                                    <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
+                                                    <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+                                                    
+                                            </div>
+                                               <div className="mt-2">
+                                                
+                                                    <h3 className="font-bold text-lg">{item?.additem}</h3>
+                                               </div>
                                             
                                             </div>
                                         </dialog>
                                   
-                                  <h1 className="text-sm text-blue-400 font-bold mb-2">Tags :{item?.tags}</h1>
                                     </div>
                                     
 
@@ -130,12 +131,12 @@ const UserTask = () => {
                                 <div className="flex  justify-end">
                                     <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
                                 </div>
-                                <h1 className="text-xl font-bold">{item?.name}</h1>
+                                <h1 className="text-xl font-bold">{item?.company}</h1>
                                 <h1 className="text-orange-500">{item?.email}</h1>
-                               
-                                <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-                             
+                                <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
+
+
+                                
 
                                 <div className="flex justify-between ">
 
@@ -146,12 +147,17 @@ const UserTask = () => {
 
                                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
+
+                                            <div className="flex justify-between">
+                                                <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
+                                                <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+
+                                            </div>
                                             <h3 className="">{item?.additem}</h3>
 
                                         </div>
                                     </dialog>
 
-                                    <h1 className="text-sm font-bold text-orange-400 mb-2">Tags :{item?.tags}</h1>
                                 </div>
                               
                               
@@ -181,11 +187,9 @@ const UserTask = () => {
                                 <div className="flex  justify-end">
                                     <RiVerifiedBadgeFill className="text-3xl text-green-500" />
                                 </div>
-                                <h1 className="text-xl font-bold">{item?.name}</h1>
+                                <h1 className="text-xl font-bold">{item?.company}</h1>
                                 <h1 className="text-green-500">{item?.email}</h1>
-                            
-                                <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+                                <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
                                 <div className="flex justify-between ">
 
                                     <Link className="border-2 hover:bg-green-300 mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
@@ -195,6 +199,11 @@ const UserTask = () => {
 
                                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                             </form>
+                                            <div className="flex justify-between">
+                                                <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
+                                                <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+
+                                            </div>
                                             <h3 className="font-bold  text-lg">{item?.additem}</h3>
 
                                         </div>
