@@ -20,6 +20,7 @@ const NavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+
   const navItems = (
     <div className="flex flex-col lg:flex-row items-center my-6 lg:my-0 gap-8 py-24 md:py-36 lg:py-0">
       <NavLink
@@ -118,6 +119,7 @@ const NavBar = () => {
           Contact
         </span>
       </NavLink>
+
     </div>
   );
 

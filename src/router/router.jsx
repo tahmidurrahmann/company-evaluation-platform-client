@@ -19,6 +19,7 @@ import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
 import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
+import UserTask from "../pages/Dashboard/UserProfile/UserTask";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
         path: "userProfile",
         element: <UserProfile />
       },
+      {
+        path : "userTask",
+        element : <UserTask />
+      },
       //hr
       {
         path: "hrProfile",
@@ -100,11 +105,12 @@ const router = createBrowserRouter([
         element: <AdminProfile />
       },
       {
-        path : "agreementRequest",
-        element : <AgreementRequest />
+        path: "agreementRequest",
+        element: <AgreementRequest />
       },
     ]
   },
 ]);
+
 
 export default router;
