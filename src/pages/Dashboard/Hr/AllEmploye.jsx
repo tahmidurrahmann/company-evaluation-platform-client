@@ -7,7 +7,6 @@ import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import TeamMemberReq from "./TeamMemberReq";
 import moment from "moment-timezone";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { Link } from "react-router-dom";
 
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure()
@@ -20,13 +19,7 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([])
 
-
     console.log(targetinfo)
-
-
-
-    console.log(hrRequestCheck?.company)
-    // console.log(time.timeAndLocal)
 
     const {
         register,
@@ -91,38 +84,35 @@ const AllEmploye = () => {
 
     return (
         <div>
-            
             <TeamMemberReq></TeamMemberReq>
-
-            <div className="divider divider-info">Or</div>
             <div className="overflow-x-auto">
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-4">All Responce Employe</h1>
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
                 <table className="table table-xs">
-                    <thead className="font-bold text-black  bg-gray-200 h-12">
-                        <tr className="">
+                    <thead>
+                        <tr>
                             <th>No:</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <div className="flex flex-row w-96 items-center pt-3 justify-between">
+                            <div className="flex flex-row w-96 justify-between">
                                 <th>GTask Start Date</th>
                                 <th>Task End Date</th>
                             </div>
 
                         </tr>
                     </thead>
-                    <tbody className="">
+                    <tbody>
                         {
-                            myEmploye.map((element, index) => <tr className="   border-blue-400 border-b-2 " key={index}>
+                            myEmploye.map((element, index) => <tr key={index}>
                                 <th>{index + 1}</th>
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
-                                <td onClick={() => handelinformation(element)} ><Link className="uppercase bg-gray-400 px-3 py-2 hover:bg-blue-600 rounded-full text-white font-bold" onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</Link></td>
+                                <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
                                 {
 
-                                    time.map((elementss, index) => <div key={index} className="flex flex-row w-96 justify-between items-center" >
+                                    time.map((elementss, index) => <div key={index} className="flex flex-row w-96 justify-between" >
 
                                         <td >
                                             {
