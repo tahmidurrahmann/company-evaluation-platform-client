@@ -22,6 +22,7 @@ const EmployeTaskes = () => {
             console.log(error);
         });
 
+        console.log(tasks)
     return (
         <div className="space-y-10">
             <div className="flex justify-between">
@@ -150,7 +151,7 @@ const EmployeTaskes = () => {
                                     <div className="avatar">
                                         <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                             <img
-                                                src=":http//daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                                src={element.employImage}
                                                 alt="User Avatar"
                                             />
                                         </div>
