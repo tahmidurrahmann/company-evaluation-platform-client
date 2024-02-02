@@ -12,6 +12,14 @@ const TeamMemberReq = () => {
     const [hrRequestCheck] = useHrRequestCheckedOrNot();
     const [myEmploye, setMyEmploye] = useState([])
 
+    useEffect(() => {
+        if (hrRequestCheck?.status === "checked") {
+            const findEmployeMatch = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company)
+            setMyEmploye(findEmployeMatch)
+            console.log(findEmployeMatch)
+        }
+    }, [employeeAgreements, hrRequestCheck?.company, hrRequestCheck?.status])
+
     if (isEmployee) {
         return <Loading />
     }
@@ -64,21 +72,14 @@ const TeamMemberReq = () => {
         });
     }
 
-    useEffect(() => {
-        if (hrRequestCheck?.status === "checked") {
-            const findEmployeMatch = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company)
-            setMyEmploye(findEmployeMatch)
-            console.log(findEmployeMatch)
-        }
-    }, [employeeAgreements, hrRequestCheck?.company, hrRequestCheck?.status])
 
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto mb-20">
             <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">Employe User Requests</h1>
             <div className="overflow-x-auto">
                 <table className="table table-xs">
-                    <thead>
-                        <tr>
+                    <thead className="font-bold  h-12 text-black bg-gray-100 ">
+                        <tr className="">
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -87,10 +88,10 @@ const TeamMemberReq = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="mt-3 ">
                         {
-                            myEmploye?.map(agreement => <tr key={agreement?._id}>
-                                <th><img referrerPolicy="no-referrer" className="w-8 md:w-12 rounded-full" src={agreement?.imageURL} alt="" /></th>
+                            myEmploye?.map(agreement => <tr className="h-20  border-b-2 border-gray-200" key={agreement?._id}>
+                                <th ><img referrerPolicy="no-referrer" className="w-8 md:w-16  rounded-full" src={agreement?.imageURL} alt="" /></th>
                                 <td>{agreement?.name}</td>
                                 <td>{agreement?.email}</td>
                                 <td>{agreement?.company}</td>

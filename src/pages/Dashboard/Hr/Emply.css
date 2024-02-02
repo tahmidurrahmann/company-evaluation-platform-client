@@ -1,0 +1,21 @@
+.typing-demo {
+    width: 5ch;
+    animation: typing 2s steps(20), blink .8s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+
+    font-family: monospace;
+    font-size: 1em;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+@keyframes blink {
+    20% {
+        border-color: transparent
+    }
+}
