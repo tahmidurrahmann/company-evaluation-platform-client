@@ -19,6 +19,8 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([])
 
+    console.log(targetinfo)
+
     const {
         register,
         handleSubmit,
@@ -36,9 +38,10 @@ const AllEmploye = () => {
         const channel = data.channel
         const effort = data.effort
         const name = targetinfo.name
+        const employImage = targetinfo.imageURL
         const email = targetinfo.email
         const company = hrRequestCheck?.company
-        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime, company }
+        const giveTaskInfo = { additem, status, timeAndLocal,employImage, audience, tags, number, channel, effort, name, email, startTime, company }
         setPostTask(giveTaskInfo)
     }
     const [time, setTime] = useState([])
