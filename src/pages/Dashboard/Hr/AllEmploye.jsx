@@ -19,9 +19,7 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([])
 
-
-    // console.log(time.startTime)
-    // console.log(time.timeAndLocal)
+    console.log(targetinfo)
 
     const {
         register,
@@ -30,8 +28,6 @@ const AllEmploye = () => {
 
     const onSubmit = (formdata) => {
         const startTime = moment().format('MMMM Do YYYY, h:mm:ss a')
-        // setTime(time)
-        console.log(formdata)
         setData(formdata)
         const additem = data.additem
         const status = 'todo'
@@ -42,46 +38,26 @@ const AllEmploye = () => {
         const channel = data.channel
         const effort = data.effort
         const name = targetinfo.name
+        const employImage = targetinfo.imageURL
         const email = targetinfo.email
-        const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime }
+        const company = hrRequestCheck?.company
+        const giveTaskInfo = { additem, status, timeAndLocal,employImage, audience, tags, number, channel, effort, name, email, startTime, company }
         setPostTask(giveTaskInfo)
     }
-    // console.log(employee)
-    // console.log(myEmploye)
-    // console.log(hrRequestCheck)
-    // const [time, setTime] = useState([])
+    const [time, setTime] = useState([])
     useEffect(() => {
         if (hrRequestCheck?.status === "checked") {
             const findEmployeMatch = employee.filter(element => element?.company === hrRequestCheck?.company)
             setMyEmploye(findEmployeMatch)
             axiosPublic.get('/imployeeTasks')
                 .then(res => {
-                    findEmployeMatch.filter(edat => {
-                        console.log('edat', edat.email)
-                        res.data.filter(element => {
-                            if (element.email === edat.email) {
-                                console.log(element)
-                                const localItem = JSON.parse(localStorage.getItem('data'))
-                                if (!localItem) {
-                                    localStorage.setItem('data', JSON.stringify([element]))
-                                }
-                                else {
-                                    localItem.map(localElement => {
-                                        if (element._id !== localElement._id) {
-                                            localStorage.setItem('data', JSON.stringify([...localItem, element]))
-                                        }
-                                    })
-                                }
-                            }
-                        })
-                    })
+                    setTime(res.data)
                 })
                 .catch(error => {
                     console.log(error)
                 })
         }
     }, [employee, hrRequestCheck?.company, axiosPublic, hrRequestCheck?.status, data])
-    // console.log(time)
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
             const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
@@ -103,12 +79,8 @@ const AllEmploye = () => {
             })
     }
     const handelinformation = (info) => {
-        // console.log(info)
         setTargetinfo(info)
     }
-
-    // const localGetItem = JSON.parse(localStorage.getItem('data'))
-    // console.log(localGetItem)
 
     return (
         <div>
@@ -123,8 +95,11 @@ const AllEmploye = () => {
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <th>GTask Start Date</th>
-                            <th>Task End Date</th>
+                            <div className="flex flex-row w-96 justify-between">
+                                <th>GTask Start Date</th>
+                                <th>Task End Date</th>
+                            </div>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -135,8 +110,10 @@ const AllEmploye = () => {
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} ><button onClick={() => document.getElementById('my_modal_3').showModal()}><span>+</span> add task</button></td>
-                                {/* {
-                                    localGetItem.map((elementss) => <>
+                                {
+
+                                    time.map((elementss, index) => <div key={index} className="flex flex-row w-96 justify-between" >
+
                                         <td >
                                             {
                                                 element.email === elementss.email ? elementss.startTime : ''
@@ -148,14 +125,11 @@ const AllEmploye = () => {
                                             }
 
                                         </td>
-                                    </>)
-                                } */}
-
+                                    </div>)
+                                }
                             </tr>
-
                             )
                         }
-
                     </tbody>
                 </table>
                 <div>
@@ -175,7 +149,7 @@ const AllEmploye = () => {
                                         <tr>
                                             <th>Task Name</th>
                                             <th>Assignee</th>
-                                            <th>Due Date</th>
+                                            {/* <th>Due Date</th> this is customizable */}
                                             <th>Audience</th>
                                             <th>Tags</th>
                                             <th>Estimated hour</th>
