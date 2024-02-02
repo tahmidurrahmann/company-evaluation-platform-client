@@ -3,7 +3,7 @@ import { FaHandPointRight } from "react-icons/fa";
 import { IoFilterSharp } from "react-icons/io5";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useState } from "react";
-
+import  './Emply.css'
 const EmployeTaskes = () => {
     const [tasks, setTasks] = useState([]);
     const axiosPublic = useAxiosPublic();
@@ -39,14 +39,15 @@ const EmployeTaskes = () => {
             <div className="">
                 <div className="overflow-x-auto">
                     <table className="table ">
-                        <thead>
+                        <thead className="bg-gray-300 text-black font-bold">
                             <tr>
+                                    <th>Assignee</th>
                                 <th>Task Name</th>
-                                <th>Assignee</th>
+                            
                                 <th>Due date</th>
                                 <th>Audience</th>
                                 <th>Tags</th>
-                                <th>Estimated hours</th>
+                              
                                 <th>Channel</th>
                                 <th>Effort</th>
                                 {/* Add more headers as needed */}
@@ -56,9 +57,9 @@ const EmployeTaskes = () => {
                             <tr className="font-bold">
                                 <td className="py-3 text-xl flex">
                                     Requirement
-                                    <span className="text-green-800 text-2xl font-bold">
+                                    <span className="text-green-800 text-2xl font-bold typing-demo">
                                         {" "}
-                                        ...
+                                        ......
                                     </span>
                                 </td>
                                 {/* Add more td elements for this row */}
@@ -72,27 +73,31 @@ const EmployeTaskes = () => {
                                 {/* Add more td elements as needed */}
                             </tr>
                             {tasks.map((element, index) => (
-                                <tr key={index}>
-                                    <td>{element.additem}</td>
-                                    <td className="flex justify-center items-center gap-4">
+                                <tr className="h-24 border-b-2 border-gray-300" key={index}>
+                                  
+                                    <td className="flex justify-center mt-5  items-center gap-4">
                                         <div className="avatar">
-                                            <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <div className="w-8 rounded-full  border-2">
                                                 <img
-                                                    src=":http//daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                                                     alt="User Avatar"
                                                 />
                                             </div>
                                         </div>
                                         {element.name}
                                     </td>
+
+                                    <td>{element.additem}</td>
+
+                                    
                                     <td>{element.timeAndLocal}</td>
                                     <td>
                                         <h1
                                             className={`${element.audience === "primium"
-                                                    ? "badge badge-secondary"
+                                                    ? "text-blue-500 font-bold"
                                                     : element.audience === "busness"
-                                                        ? "badge badge-primary"
-                                                        : "badge badge-accent"
+                                                        ? "text-gray-500 font-bold"
+                                                        : "font-bold text-orange-500"
                                                 }`}
                                         >
                                             {element.audience}
@@ -101,28 +106,28 @@ const EmployeTaskes = () => {
                                     <td>
                                         <h1
                                             className={`${element.tags === "lowProirity"
-                                                    ? "badge badge-secondary badge-outline"
+                                                    ? "border-2 border-black rounded-full text-center hover:bg-blue-400 hover:text-white px-1 text-black"
                                                     : element.tags === "highPriority"
-                                                        ? "badge badge-primary badge-outline"
-                                                        : "badge badge-accent badge-outline"
+                                                    ? "border-2 border-black rounded-full text-center hover:bg-orange-300 hover:text-white px-1 text-black"
+                                                    : "border-2 border-black rounded-full text-center hover:bg-gray-200 hover:text-white px-1 text-black"
                                                 }`}
                                         >
                                             {element.tags}
                                         </h1>
                                     </td>
-                                    <td>2</td>
+                                   
                                     <td>
                                         <h1
                                             className={`${element.channel === "social"
-                                                    ? "badge badge-secondary"
+                                                    ? "font-bold "
                                                     : element.channel === "blog"
-                                                        ? "badge badge-primary"
+                                                        ? "font-bold"
                                                         : element.channel === "press"
-                                                            ? "badge badge-accent"
-                                                            : "badge badge-outline"
+                                                            ? "font-bold"
+                                                            : "font-bold"
                                                 }`}
                                         >
-                                            {element.channel}
+                                            {element.channel}*
                                         </h1>
                                     </td>
                                     <td>
