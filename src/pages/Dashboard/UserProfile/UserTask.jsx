@@ -76,7 +76,6 @@ const UserTask = () => {
                                 <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
                                 <div className="flex justify-end ">
 
-                                    <h1 className="text-sm text-blue-400 mb-2">Company :{item?.company}</h1>
                                     <h1 className="text-sm text-blue-400 mb-2">Tags :{item?.tags}</h1>
                                 </div>
 

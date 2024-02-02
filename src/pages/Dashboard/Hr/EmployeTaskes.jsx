@@ -3,15 +3,18 @@ import { FaHandPointRight } from "react-icons/fa";
 import { IoFilterSharp } from "react-icons/io5";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useState } from "react";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 
 const EmployeTaskes = () => {
     const [tasks, setTasks] = useState([]);
     const axiosPublic = useAxiosPublic();
+    const [hrRequestCheck] = useHrRequestCheckedOrNot();
+
     axiosPublic
         .get("/imployeeTasks")
         .then((res) => {
-            console.log(res.data);
-            setTasks(res.data);
+            const taskFilter = res.data.filter(element => element.company === hrRequestCheck.company)
+            setTasks(taskFilter);
         })
         .catch((error) => {
             console.log(error);
@@ -49,7 +52,6 @@ const EmployeTaskes = () => {
                                 <th>Estimated hours</th>
                                 <th>Channel</th>
                                 <th>Effort</th>
-                                {/* Add more headers as needed */}
                             </tr>
                         </thead>
                         <tbody>
@@ -61,86 +63,77 @@ const EmployeTaskes = () => {
                                         ...
                                     </span>
                                 </td>
-                                {/* Add more td elements for this row */}
-                                {/* <td>Content 1</td>
-                <td>Content 2</td>
-                <td>Content 3</td>
-                <td>Content 4</td>
-                <td>Content 5</td>
-                <td>Content 6</td>
-                <td>Content 7</td> */}
-                                {/* Add more td elements as needed */}
                             </tr>
-                            {tasks.map((element, index) => (
-                                <tr key={index}>
-                                    <td>{element.additem}</td>
-                                    <td className="flex justify-center items-center gap-4">
-                                        <div className="avatar">
-                                            <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                                <img
-                                                    src=":http//daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                                                    alt="User Avatar"
-                                                />
-                                            </div>
+                            {
+                                tasks.map((element, index) =><tr key={index}>
+                                <td>{element.additem}</td>
+                                <td className="flex justify-center items-center gap-4">
+                                    <div className="avatar">
+                                        <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <img
+                                                src=":http//daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                                                alt="User Avatar"
+                                            />
                                         </div>
-                                        {element.name}
-                                    </td>
-                                    <td>{element.timeAndLocal}</td>
-                                    <td>
-                                        <h1
-                                            className={`${element.audience === "primium"
-                                                    ? "badge badge-secondary"
-                                                    : element.audience === "busness"
-                                                        ? "badge badge-primary"
-                                                        : "badge badge-accent"
-                                                }`}
-                                        >
-                                            {element.audience}
-                                        </h1>
-                                    </td>
-                                    <td>
-                                        <h1
-                                            className={`${element.tags === "lowProirity"
-                                                    ? "badge badge-secondary badge-outline"
-                                                    : element.tags === "highPriority"
-                                                        ? "badge badge-primary badge-outline"
-                                                        : "badge badge-accent badge-outline"
-                                                }`}
-                                        >
-                                            {element.tags}
-                                        </h1>
-                                    </td>
-                                    <td>2</td>
-                                    <td>
-                                        <h1
-                                            className={`${element.channel === "social"
-                                                    ? "badge badge-secondary"
-                                                    : element.channel === "blog"
-                                                        ? "badge badge-primary"
-                                                        : element.channel === "press"
-                                                            ? "badge badge-accent"
-                                                            : "badge badge-outline"
-                                                }`}
-                                        >
-                                            {element.channel}
-                                        </h1>
-                                    </td>
-                                    <td>
-                                        <h1
-                                            className={`${element.effort === "medium"
-                                                    ? "badge badge-secondary badge-outline"
-                                                    : element.tags === "low"
-                                                        ? "badge badge-primary badge-outline"
-                                                        : element.effort === "high"
-                                                            ? "badge badge-accent badge-outline"
-                                                            : "badge badge-neutral"
-                                                }`}
-                                        >
-                                            {element.effort}
-                                        </h1>
-                                    </td>
-                                </tr>
-                            ))}
+                                    </div>
+                                    {element.name}
+                                </td>
+                                <td>{element.timeAndLocal}</td>
+                                <td>
+                                    <h1
+                                        className={`${element.audience === "primium"
+                                            ? "badge badge-secondary"
+                                            : element.audience === "busness"
+                                                ? "badge badge-primary"
+                                                : "badge badge-accent"
+                                            }`}
+                                    >
+                                        {element.audience}
+                                    </h1>
+                                </td>
+                                <td>
+                                    <h1
+                                        className={`${element.tags === "lowProirity"
+                                            ? "badge badge-secondary badge-outline"
+                                            : element.tags === "highPriority"
+                                                ? "badge badge-primary badge-outline"
+                                                : "badge badge-accent badge-outline"
+                                            }`}
+                                    >
+                                        {element.tags}
+                                    </h1>
+                                </td>
+                                <td>2</td>
+                                <td>
+                                    <h1
+                                        className={`${element.channel === "social"
+                                            ? "badge badge-secondary"
+                                            : element.channel === "blog"
+                                                ? "badge badge-primary"
+                                                : element.channel === "press"
+                                                    ? "badge badge-accent"
+                                                    : "badge badge-outline"
+                                            }`}
+                                    >
+                                        {element.channel}
+                                    </h1>
+                                </td>
+                                <td>
+                                    <h1
+                                        className={`${element.effort === "medium"
+                                            ? "badge badge-secondary badge-outline"
+                                            : element.tags === "low"
+                                                ? "badge badge-primary badge-outline"
+                                                : element.effort === "high"
+                                                    ? "badge badge-accent badge-outline"
+                                                    : "badge badge-neutral"
+                                            }`}
+                                    >
+                                        {element.effort}
+                                    </h1>
+                                </td>
+                            </tr>)
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -150,3 +143,6 @@ const EmployeTaskes = () => {
 };
 
 export default EmployeTaskes;
+
+
+

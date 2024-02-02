@@ -19,10 +19,6 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([])
 
-
-    // console.log(hrRequestCheck.company)
-    // console.log(time.timeAndLocal)
-
     const {
         register,
         handleSubmit,
@@ -30,8 +26,6 @@ const AllEmploye = () => {
 
     const onSubmit = (formdata) => {
         const startTime = moment().format('MMMM Do YYYY, h:mm:ss a')
-        // setTime(time)
-        // console.log(formdata)
         setData(formdata)
         const additem = data.additem
         const status = 'todo'
@@ -47,9 +41,6 @@ const AllEmploye = () => {
         const giveTaskInfo = { additem, status, timeAndLocal, audience, tags, number, channel, effort, name, email, startTime, company }
         setPostTask(giveTaskInfo)
     }
-    // console.log(employee)
-    // console.log(myEmploye)
-    // console.log(hrRequestCheck)
     const [time, setTime] = useState([])
     useEffect(() => {
         if (hrRequestCheck?.status === "checked") {
@@ -64,7 +55,6 @@ const AllEmploye = () => {
                 })
         }
     }, [employee, hrRequestCheck?.company, axiosPublic, hrRequestCheck?.status, data])
-    // console.log(time)
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
             const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
@@ -86,7 +76,6 @@ const AllEmploye = () => {
             })
     }
     const handelinformation = (info) => {
-        // console.log(info)
         setTargetinfo(info)
     }
 
@@ -157,7 +146,7 @@ const AllEmploye = () => {
                                         <tr>
                                             <th>Task Name</th>
                                             <th>Assignee</th>
-                                            <th>Due Date</th>
+                                            {/* <th>Due Date</th> this is customizable */}
                                             <th>Audience</th>
                                             <th>Tags</th>
                                             <th>Estimated hour</th>
