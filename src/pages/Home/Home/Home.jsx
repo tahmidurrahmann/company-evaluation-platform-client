@@ -19,6 +19,7 @@ const Home = () => {
             <Logo />
             <Reviews />
             <OverView />
+            
         </div>
     );
 
