@@ -68,7 +68,7 @@ const UserForm = () => {
                     onClick={openModal}
                     className="bg-[#007cc7] py-2 px-4 rounded text-white font-medium hover:bg-[#007bc7d0]"
                 >
-                    USER
+                    EMPLOYEE
                 </button>
             </div>
 

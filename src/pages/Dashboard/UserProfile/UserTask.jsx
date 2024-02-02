@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 const UserTask = () => {
 
-    const [allEmployee, isDrag, refetch] = useDragAndDrop();
+    const [specificEmployee, isDrag, refetch] = useDragAndDrop();
     const [hrRequestCheck] = useHrRequestCheckedOrNot();
     const [todo, setTodo] = useState([]);
     const [doing, setDoing] = useState([]);
@@ -20,12 +20,11 @@ const UserTask = () => {
     const axiosSecure = useAxiosSecure();
     const [selectedValue, setSelectedValue] = useState("");
     const { user } = useContext(AuthContext)
-    // console.log(user.email)
+    
     const handleMoveTask = async (e) => {
         e.preventDefault();
         const form = e.target;
         const status = form.status.value;
-        // console.log(status);
         const res = await axiosSecure.put(`/moveTask?task=${status}&id=${selectedValue}`)
         if (res.data?.modifiedCount) {
             toast.success(`Your task moved to ${status}`)
@@ -33,32 +32,26 @@ const UserTask = () => {
         }
     }
 
-    console.log(allEmployee)
-    console.log(todo)
-
-
     useEffect(() => {
-        if (allEmployee?.length > 0) {
-            const todoTask = allEmployee?.filter(employee => employee?.status === "todo" && employee.email === user.email);
+        if (specificEmployee?.length > 0) {
+            const todoTask = specificEmployee?.filter(employee => employee?.status === "todo" && employee.email === user.email);
             setTodo(todoTask);
-            const doingTask = allEmployee?.filter(employee => employee?.status === "doing" && employee.email === user.email);
+            const doingTask = specificEmployee?.filter(employee => employee?.status === "doing" && employee.email === user.email);
             setDoing(doingTask);
-            const completedTask = allEmployee?.filter(employee => employee?.status === "completed" && employee.email === user.email);
+            const completedTask = specificEmployee?.filter(employee => employee?.status === "completed" && employee.email === user.email);
             setCompleted(completedTask);
         }
-    }, [allEmployee, hrRequestCheck, user.email])
+    }, [specificEmployee, hrRequestCheck, user.email])
 
     if (isDrag) {
         return <Loading />
     }
 
-
-
     return (
         <div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
-                <div className="">
-                    <h1 className="font-bold text-center text-xl">TO DO {todo.length}</h1>
+                <div>
+                    <h1 className="font-bold text-center text-xl">TO DO ({todo.length})</h1>
 
                     <div className="flex justify-center">
                         <hr className="border-2  border-blue-400 w-60" />
@@ -129,7 +122,7 @@ const UserTask = () => {
                 </div >
                 <div draggable>
                     <div >
-                        <h1 className="font-bold text-center text-xl">DOING {doing.length}</h1>
+                        <h1 className="font-bold text-center text-xl">DOING ({doing.length})</h1>
                         <div className="flex justify-center ">
                             <hr className="border-2  border-orange-500 w-60" />
                         </div>
@@ -186,7 +179,7 @@ const UserTask = () => {
                     </div>
                 </div>
                 <div>
-                    <h1 className="font-bold text-center text-xl">COMPLETED {completed.length}</h1>
+                    <h1 className="font-bold text-center text-xl">COMPLETED ({completed.length})</h1>
                     <div className="flex justify-center ">
                         <hr className="border-2  border-green-500 w-60" />
                     </div>

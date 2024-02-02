@@ -4,6 +4,7 @@ import Loading from "../../../shared/Loading/Loading";
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
+import UserAnalysis from "./UserAnalysis";
 
 const UserProfile = () => {
 
@@ -40,6 +41,7 @@ const UserProfile = () => {
                         text="Click here to schedule!"
                     />
                 </div>
+                <UserAnalysis />
             </div>
         </div>
     );
