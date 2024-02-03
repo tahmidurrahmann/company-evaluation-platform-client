@@ -20,7 +20,7 @@ const UserTask = () => {
     const axiosSecure = useAxiosSecure();
     const [selectedValue, setSelectedValue] = useState("");
     const { user } = useContext(AuthContext)
-    
+
     const handleMoveTask = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -52,11 +52,9 @@ const UserTask = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
                 <div>
                     <h1 className="font-bold text-center text-xl">TO DO ({todo.length})</h1>
-
                     <div className="flex justify-center">
                         <hr className="border-2  border-blue-400 w-60" />
                     </div>
-
                     <div >
                         {
                             todo?.map(item => <>
@@ -66,41 +64,28 @@ const UserTask = () => {
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
-
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
-
                                     <div className="flex justify-between ">
-
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
                                         <dialog id="my_modal_3" className="modal ">
                                             <div className="modal-box">
                                                 <form method="dialog" className="p-5">
-
                                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                                 </form>
-
                                                 <div className="flex justify-between">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-
                                                 </div>
                                                 <div className="mt-2">
-
                                                     <h3 className="font-bold text-lg">{item?.additem}</h3>
                                                 </div>
-
                                             </div>
                                         </dialog>
-
                                     </div>
-
                                     <h1 className="text-sm text-blue-400 mb-2">Tags :{item?.tags}</h1>
-
-
-
                                     <form className="" onSubmit={handleMoveTask}>
                                         <div className="flex gap-3 ">
-                                            <select onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
+                                            <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
                                                 <option value="todo">TO DO</option>
                                                 <option value="doing">DOING</option>
                                                 <option value="completed">COMPLETED</option>
@@ -114,11 +99,7 @@ const UserTask = () => {
                                 </div>
                             </>)
                         }
-
                     </div>
-
-
-
                 </div >
                 <div draggable>
                     <div >
@@ -135,12 +116,7 @@ const UserTask = () => {
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-orange-500">{item?.email}</h1>
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
-
-
-
-
                                     <div className="flex justify-between ">
-
                                         <Link className="border-2 hover:bg-orange-300 mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
                                         <dialog id="my_modal_3" className="modal">
                                             <div className="modal-box">
@@ -158,21 +134,17 @@ const UserTask = () => {
 
                                             </div>
                                         </dialog>
-
                                     </div>
-
-
                                     <form onSubmit={handleMoveTask}>
                                         <div className="flex gap-3">
-                                            <select onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
-                                                <option value="todo" selected>TO DO</option>
+                                            <select defaultValue="doing" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
+                                                <option value="todo">TO DO</option>
                                                 <option value="doing">DOING</option>
                                                 <option value="completed">COMPLETED</option>
                                             </select>
                                             <input type="submit" value="Move" className="btn rounded-xl hover:bg-orange-300 hover:text-white border-orange-400 border-2" />
                                         </div>
                                     </form>
-
                                 </div>)
                             }
                         </div>
@@ -215,9 +187,8 @@ const UserTask = () => {
                                 </div>
                                 <form onSubmit={handleMoveTask}>
                                     <div className="flex gap-3">
-
-                                        <select onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
-                                            <option value="todo" selected>TO DO</option>
+                                        <select defaultValue="completed" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
+                                            <option value="todo">TO DO</option>
                                             <option value="doing">DOING</option>
                                             <option value="completed">COMPLETED</option>
                                         </select>
