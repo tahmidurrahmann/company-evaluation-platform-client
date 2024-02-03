@@ -8,15 +8,15 @@ const useDragAndDrop = () => {
 
     const { user } = useAuth();
 
-    const { data: allEmployee, isPending: isDrag, refetch } = useQuery({
+    const { data: specificEmployee, isPending: isDrag, refetch } = useQuery({
         queryKey: ["employeeTask"],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/imployeeTasks?email=${user?.email}`)
+            const res = await axiosSecure.get(`/imployeeTasks/${user?.email}`)
             return res?.data;
         }
     })
 
-    return [allEmployee, isDrag, refetch];
+    return [specificEmployee, isDrag, refetch];
 };
 
 export default useDragAndDrop;

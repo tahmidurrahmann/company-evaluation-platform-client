@@ -49,14 +49,14 @@ function Dashboard(props) {
                 </div>
             </div>
             <h1 className='font-bold'>{user?.displayName}</h1>
-            {/* user Dashboard */}
+            {/* employee Dashboard */}
             {user?.email && !isAdmin && !isHr && <NavLink
                 to="/dashboard/userProfile"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
-                <div className='flex items-center gap-2'><FaUser />User Profile</div>
+                <div className='flex items-center gap-2'><FaUser />Employee Profile</div>
             </NavLink>}
 
             {user?.email && !isAdmin && !isHr && <NavLink
@@ -65,7 +65,7 @@ function Dashboard(props) {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
-                <div className='flex items-center gap-2'><GoTasklist />User Task</div>
+                <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
             </NavLink>}
          
             {/* hr dashboard */}
