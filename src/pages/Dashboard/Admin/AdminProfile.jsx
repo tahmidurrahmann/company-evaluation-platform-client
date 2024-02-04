@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useUsers from "../../../hooks/useUsers";
 import Loading from "../../../shared/Loading/Loading";
-import { FaUserTie } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import PieC from "./PieC";
 
 const AdminProfile = () => {
 
@@ -21,25 +21,60 @@ const AdminProfile = () => {
         return <Loading />
     }
 
-    return (
-        <div className="flex justify-center min-h-[70vh] items-center max-w-screen-2xl mx-auto">
-            <div className="stats shadow">
-                <div className="stat">
-                    <div className="stat-figure text-secondary">
-                        <FaUserTie size={26} />
-                    </div>
-                    <div className="stat-title">HR'S</div>
-                    <div className="stat-value">{hr?.length}</div>
-                </div>
+    const hrLength = hr?.length;
+    const employeeLength = user?.length;
 
-                <div className="stat">
-                    <div className="stat-figure text-secondary">
-                        <FaUser size={26} />
-                    </div>
-                    <div className="stat-title">USERS</div>
-                    <div className="stat-value">{user?.length}</div>
-                </div>
-            </div>
+    const colors = ['#007cc7', '#FF8042'];
+
+    const data = [
+        {
+            name: "HR's",
+            uv: hrLength,
+        },
+        {
+            name: "EMPLOYEE's",
+            uv: employeeLength,
+        },
+    ];
+
+
+
+    const getPath = (x, y, width, height) => {
+        return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+        ${x + width / 2}, ${y}
+        C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+        Z`;
+    };
+
+    const TriangleBar = (props) => {
+        const { fill, x, y, width, height } = props;
+
+        return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+    };
+
+    return (
+        <div className="flex flex-col-reverse min-h-[70vh] lg:flex-row justify-center items-center">
+            <BarChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                    top: 20,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                    {data.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                    ))}
+                </Bar>
+            </BarChart>
+            <PieC hrLength={hrLength} employeeLength={employeeLength} />
         </div>
     );
 };
