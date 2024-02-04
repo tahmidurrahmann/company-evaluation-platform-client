@@ -64,12 +64,13 @@ const UserTask = () => {
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
+                                    
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
                                     <div className="flex justify-between ">
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
-                                        <dialog id="my_modal_3" className="modal ">
-                                            <div className="modal-box">
-                                                <form method="dialog" className="p-5">
+                                        <dialog id="my_modal_3" className="modal h-[80vh]">
+                                            <div className="modal-box bg-blue-100 ">
+                                                <form method="dialog" className="p-5 ">
                                                     <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                                 </form>
                                                 <div className="flex justify-between">
@@ -82,7 +83,7 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
-                                    <h1 className="text-sm text-blue-400 mb-2">Tags :{item?.tags}</h1>
+                                    
                                     <form className="" onSubmit={handleMoveTask}>
                                         <div className="flex gap-3 ">
                                             <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
@@ -183,7 +184,6 @@ const UserTask = () => {
                                         </div>
                                     </dialog>
 
-                                    <h1 className="text-sm font-bold text-green-500 mb-2">Tags :{item?.tags}</h1>
                                 </div>
                                 <form onSubmit={handleMoveTask}>
                                     <div className="flex gap-3">

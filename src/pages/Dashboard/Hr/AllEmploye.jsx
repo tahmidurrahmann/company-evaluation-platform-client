@@ -141,7 +141,7 @@ const AllEmploye = () => {
                 <div>
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <dialog id="my_modal_3" className="modal ">
-                        <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[500px] max-w-8xl mx-auto ">
+                        <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="bg-neutral text-white font-bold absolute right-3 px-7 py-2">✕</button>
@@ -151,9 +151,7 @@ const AllEmploye = () => {
                                 <form onChange={handleSubmit(onSubmit)}>
                                     
                                     <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
-                                        <div className="col-span-1 p-2">
-                                            <input type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="input input-bordered input-info w-full " />
-                                        </div>
+                                    
                                         <div className="col-span-1 p-2">
                                             <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" />
                                         </div>
@@ -185,6 +183,9 @@ const AllEmploye = () => {
                                                 <option value='medium'>medium</option>
                                                 <option value='high'>high</option>
                                             </select>
+                                        </div>
+                                        <div className="col-span-1 p-2">
+                                            <textarea type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
                                         </div>
                                     </div>
                                     <div className="flex justify-center items-center">
