@@ -98,23 +98,23 @@ const AllEmploye = () => {
             <TeamMemberReq></TeamMemberReq>
             <div className="overflow-x-auto">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
-                <table className="table table-xs">
-                    <thead>
+                <table className="table table-xs ">
+                    <thead className="bg-gray-100 text-black h-12">
                         <tr>
                             <th>No:</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <div className="flex flex-row w-96 justify-between">
+                            <div className="flex flex-row w-96 mt-3 justify-between">
                                 <th>GTask Start Date</th>
                                 <th>Task End Date</th>
                             </div>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="">
                         {myEmploye.map((element, index) => (
-                            <tr key={index}>
+                            <tr className="border-blue-300 border-b-2" key={index}>
                                 <th>{index + 1}</th>
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>

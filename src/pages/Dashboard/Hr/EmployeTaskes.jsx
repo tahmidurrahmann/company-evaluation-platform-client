@@ -133,11 +133,11 @@ const EmployeTaskes = () => {
                                     <td>
                                         <h1
                                             className={`${element.effort === "medium"
-                                                ? "badge badge-secondary badge-outline"
+                                                ? "badge badge-neutral"
                                                 : element.tags === "low"
-                                                    ? "badge badge-primary badge-outline"
+                                                    ? "badge  badge-neutral"
                                                     : element.effort === "high"
-                                                        ? "badge badge-accent badge-outline"
+                                                        ? "badge badge-neutral"
                                                         : "badge badge-neutral"
                                                 }`}
                                         >
