@@ -1,4 +1,3 @@
-import UserRequest from "./UserRequest";
 import HrRequest from "./HrRequest";
 
 const AgreementRequest = () => {
@@ -6,7 +5,6 @@ const AgreementRequest = () => {
     return (
         <div className="font-inter">
             <HrRequest />
-            <UserRequest />
         </div>
     );
 };

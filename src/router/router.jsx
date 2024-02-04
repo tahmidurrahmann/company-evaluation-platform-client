@@ -20,6 +20,7 @@ import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import UserTask from "../pages/Dashboard/UserProfile/UserTask";
+import PostNotices from "../pages/Dashboard/Admin/PostNotices";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "agreementRequest",
         element: <AgreementRequest />
+      },
+      {
+        path: "notices",
+        element: <PostNotices />
       },
     ]
   },
