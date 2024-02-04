@@ -4,7 +4,7 @@ import { IoFilterSharp } from "react-icons/io5";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 
-import './Emply.css'
+
 
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 const EmployeTaskes = () => {
@@ -65,7 +65,7 @@ const EmployeTaskes = () => {
                             <tr className="font-bold">
                                 <td className="py-3 text-xl flex">
                                     Requirement
-                                    <span className="text-green-800 text-2xl font-bold typing-demo">
+                                    <span className="text-green-800 text-2xl font-bold ">
                                         {" "}
                                         ......
                                     </span>
