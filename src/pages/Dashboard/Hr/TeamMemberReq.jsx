@@ -88,7 +88,7 @@ const TeamMemberReq = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody className="mt-3 ">
+                    <tbody className="mt-3 border-b-2 border-blue-300">
                         {
                             myEmploye?.map(agreement => <tr className="h-20  border-b-2 border-gray-200" key={agreement?._id}>
                                 <th ><img referrerPolicy="no-referrer" className="w-8 md:w-16  rounded-full" src={agreement?.imageURL} alt="" /></th>

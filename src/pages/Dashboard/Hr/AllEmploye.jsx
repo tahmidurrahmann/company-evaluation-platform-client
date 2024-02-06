@@ -10,7 +10,12 @@ import useEmployee from "../../../hooks/useEmployee";
 import toast from "react-hot-toast";
 
 
+
+
+
 const AllEmploye = () => {
+  
+
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const [data, setData] = useState([]);
@@ -39,7 +44,11 @@ const AllEmploye = () => {
         const company = hrRequestCheck?.company;
         const giveTaskInfo = { additem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company };
         setPostTask(giveTaskInfo);
+        console.log(giveTaskInfo);
     };
+
+
+    
 
     const [time, setTime] = useState([]);
 
@@ -93,28 +102,35 @@ const AllEmploye = () => {
         setTargetinfo(info);
     };
 
+
+
+
     return (
         <div>
             <TeamMemberReq></TeamMemberReq>
+         
+                                    
             <div className="overflow-x-auto">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
-                <table className="table table-xs">
-                    <thead>
+                <table className="table table-xs ">
+                    <thead className="bg-gray-100 text-black h-12">
                         <tr>
                             <th>No:</th>
                             <th>Image</th>
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <div className="flex flex-row w-96 justify-between">
+                            <div className="flex flex-row w-96 mt-3 justify-between">
                                 <th>GTask Start Date</th>
                                 <th>Task End Date</th>
                             </div>
+                        
+
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="">
                         {myEmploye.map((element, index) => (
-                            <tr key={index}>
+                            <tr className="border-blue-300 border-b-2" key={index}>
                                 <th>{index + 1}</th>
                                 <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
@@ -134,6 +150,10 @@ const AllEmploye = () => {
                                         </td>
                                     </div>
                                 ))}
+                           
+
+                            
+
                             </tr>
                         ))}
                     </tbody>
@@ -141,19 +161,17 @@ const AllEmploye = () => {
                 <div>
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <dialog id="my_modal_3" className="modal ">
-                        <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[500px] max-w-8xl mx-auto ">
+                        <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="bg-neutral text-white font-bold absolute right-3 px-7 py-2">✕</button>
                             </form>
                             <div className="mt-20">
-                                
+
                                 <form onChange={handleSubmit(onSubmit)}>
-                                    
+
                                     <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
-                                        <div className="col-span-1 p-2">
-                                            <input type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="input input-bordered input-info w-full " />
-                                        </div>
+
                                         <div className="col-span-1 p-2">
                                             <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" />
                                         </div>
@@ -186,16 +204,16 @@ const AllEmploye = () => {
                                                 <option value='high'>high</option>
                                             </select>
                                         </div>
+                                        <div className="col-span-1 p-2">
+                                            <textarea type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
+                                        </div>
                                     </div>
                                     <div className="flex justify-center items-center">
                                         <button onClick={handeltaskPost} className="btn btn-neutral mt-5">Give His Task</button>
                                     </div>
-                                      
-                                  
+
+
                                 </form>
-
-                             
-
 
 
                             </div>

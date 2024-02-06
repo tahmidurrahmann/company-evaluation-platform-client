@@ -20,6 +20,8 @@ import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import UserTask from "../pages/Dashboard/UserProfile/UserTask";
+import Meets from "../pages/Meet/Meets";
+
 
 const router = createBrowserRouter([
   {
@@ -75,8 +77,8 @@ const router = createBrowserRouter([
         element: <UserProfile />
       },
       {
-        path : "userTask",
-        element : <UserTask />
+        path: "userTask",
+        element: <UserTask />
       },
       //hr
       {
@@ -99,6 +101,11 @@ const router = createBrowserRouter([
         path: "employeTeamPearformence",
         element: <EmployeTeamPearformence></EmployeTeamPearformence>
       },
+      {
+        path:'meet',
+        element:<Meets/>
+      },
+    
       //admin
       {
         path: "adminProfile",
@@ -108,6 +115,7 @@ const router = createBrowserRouter([
         path: "agreementRequest",
         element: <AgreementRequest />
       },
+
     ]
   },
 ]);
