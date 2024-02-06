@@ -21,6 +21,8 @@ import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformen
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import UserTask from "../pages/Dashboard/UserProfile/UserTask";
 import PostNotices from "../pages/Dashboard/Admin/PostNotices";
+import CompanyInfo from "../pages/Dashboard/Admin/CompanyInfo";
+import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +114,15 @@ const router = createBrowserRouter([
       {
         path: "notices",
         element: <PostNotices />
+      },
+      {
+        path: "companyInfo",
+        element: <CompanyInfo />
+      },
+      {
+        path: "singleCompanyDetails/:id",
+        element: <SingleCompanyDetails />,
+        loader : ({params}) => fetch(`http://localhost:5000/hrAndUsers/${params?.id}`)
       },
     ]
   },

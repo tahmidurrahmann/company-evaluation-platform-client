@@ -18,6 +18,7 @@ import { FaUserTie } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { GoTasklist } from "react-icons/go";
 import { FaNewspaper } from "react-icons/fa";
+import { ImOffice } from "react-icons/im";
 
 const drawerWidth = 240;
 function Dashboard(props) {
@@ -132,6 +133,14 @@ function Dashboard(props) {
                         }
                     >
                         <div className='flex items-center gap-2'><FaNewspaper />Post Notices & Info</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/companyInfo"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><ImOffice />Company Info</div>
                     </NavLink>
                 </div>
             }
