@@ -8,7 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { IoHomeOutline } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUsers, FaVideo } from "react-icons/fa";
 import useAuth from '../../../hooks/useAuth';
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import useAdmin from '../../../hooks/useAdmin';
@@ -17,8 +17,8 @@ import useHr from '../../../hooks/useHr';
 import { FaUserTie } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { GoTasklist } from "react-icons/go";
-
-
+import { BsListTask } from "react-icons/bs";
+import { SiSoundcharts } from "react-icons/si";
 const drawerWidth = 240;
 function Dashboard(props) {
 
@@ -42,13 +42,17 @@ function Dashboard(props) {
     }
 
     const drawer = (
-        <div className='flex flex-col items-center gap-4 justify-center pt-6'>
+        <div className='flex flex-col items-center gap-4 border-r-1  border-gray-200 justify-center pt-6'>
             <div className="avatar placeholder">
                 <div className="bg-neutral text-neutral-content rounded-full w-24">
                     <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
                 </div>
             </div>
             <h1 className='font-bold'>{user?.displayName}</h1>
+
+            <div className="flex justify-center">
+                <hr className="border-1  border-gray-300 w-60" />
+            </div>
             {/* employee Dashboard */}
             {user?.email && !isAdmin && !isHr && <NavLink
                 to="/dashboard/userProfile"
@@ -67,9 +71,9 @@ function Dashboard(props) {
             >
                 <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
             </NavLink>}
-         
+
             {/* hr dashboard */}
-            <div className='flex flex-col justify-center gap-2 items-center border text-center'>
+            <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>
                 {user?.email && !isAdmin && isHr && <>
                     <NavLink
                         to="/dashboard/hrProfile"
@@ -77,7 +81,7 @@ function Dashboard(props) {
                             isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
-                        <div className='flex items-center gap-2'><FaUserTie />Hr Profile</div>
+                        <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
                     </NavLink>
                     <NavLink
                         to="/dashboard/allEmploye"
@@ -85,7 +89,16 @@ function Dashboard(props) {
                             isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
-                        <div className='flex items-center gap-2'><FaUserTie />All Employe</div>
+                        <div className='flex items-center gap-2'><FaUsers className='text-[24px]' />All Employe</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/meet"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+
+                        <div className='flex items-center gap-2'><FaVideo />Contact Employe</div>
                     </NavLink>
                     <NavLink
                         to="/dashboard/employeTask"
@@ -93,7 +106,7 @@ function Dashboard(props) {
                             isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
-                        <div className='flex items-center gap-2'><FaUserTie />Employe Taskes</div>
+                        <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />Employe Taskes</div>
                     </NavLink>
                     <NavLink
                         to="/dashboard/employeTeamPearformence"
@@ -101,7 +114,7 @@ function Dashboard(props) {
                             isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
-                        <div className='flex items-center gap-2'><FaUserTie />Employe Team pearformence</div>
+                        <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Employe Team pearformence</div>
                     </NavLink>
 
                 </>}
@@ -133,6 +146,8 @@ function Dashboard(props) {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-neutral-900 " : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
+
+                
                 <div className='flex items-center gap-2'><IoHomeOutline /> Home</div>
             </NavLink>
         </div>
@@ -142,7 +157,7 @@ function Dashboard(props) {
 
     return (
 
-        <Box sx={{ display: 'flex'}}>
+        <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar
                 position="fixed"

@@ -10,7 +10,12 @@ import useEmployee from "../../../hooks/useEmployee";
 import toast from "react-hot-toast";
 
 
+
+
+
 const AllEmploye = () => {
+  
+
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const [data, setData] = useState([]);
@@ -39,7 +44,11 @@ const AllEmploye = () => {
         const company = hrRequestCheck?.company;
         const giveTaskInfo = { additem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company };
         setPostTask(giveTaskInfo);
+        console.log(giveTaskInfo);
     };
+
+
+    
 
     const [time, setTime] = useState([]);
 
@@ -93,9 +102,14 @@ const AllEmploye = () => {
         setTargetinfo(info);
     };
 
+
+
+
     return (
         <div>
             <TeamMemberReq></TeamMemberReq>
+         
+                                    
             <div className="overflow-x-auto">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
                 <table className="table table-xs ">
@@ -110,6 +124,8 @@ const AllEmploye = () => {
                                 <th>GTask Start Date</th>
                                 <th>Task End Date</th>
                             </div>
+                        
+
                         </tr>
                     </thead>
                     <tbody className="">
@@ -134,6 +150,10 @@ const AllEmploye = () => {
                                         </td>
                                     </div>
                                 ))}
+                           
+
+                            
+
                             </tr>
                         ))}
                     </tbody>
@@ -147,11 +167,11 @@ const AllEmploye = () => {
                                 <button className="bg-neutral text-white font-bold absolute right-3 px-7 py-2">✕</button>
                             </form>
                             <div className="mt-20">
-                                
+
                                 <form onChange={handleSubmit(onSubmit)}>
-                                    
+
                                     <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
-                                    
+
                                         <div className="col-span-1 p-2">
                                             <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" />
                                         </div>
@@ -191,12 +211,9 @@ const AllEmploye = () => {
                                     <div className="flex justify-center items-center">
                                         <button onClick={handeltaskPost} className="btn btn-neutral mt-5">Give His Task</button>
                                     </div>
-                                      
-                                  
+
+
                                 </form>
-
-                             
-
 
 
                             </div>
