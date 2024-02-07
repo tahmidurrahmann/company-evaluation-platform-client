@@ -34,32 +34,31 @@ const SingleCompanyDetails = () => {
             </div>
             <div>
                 <SharedHeading heading="Employee Details" />
-                {
-                    specificEmployee?.map(employee => <div className="p-12" key={employee?._id}>
-                        <div className="overflow-x-auto">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Photo</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Company Name</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th>1</th>
+                <div className="overflow-x-auto p-12">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                specificEmployee?.map((employee, index) => 
+                                    <tr key={employee?._id}>
+                                        <th>{index + 1}</th>
                                         <th><img className="h-12 w-12 rounded-full" src={employee?.imageURL} alt="" /></th>
                                         <td>{employee?.name}</td>
                                         <td>{employee?.email}</td>
                                         <td>{employee?.company}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>)
-                }
+                                    </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
