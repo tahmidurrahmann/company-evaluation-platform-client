@@ -17,13 +17,16 @@ const CompanyInfo = () => {
     const [allEmployeeTask, isEmployeeTaskPending] = useEmployeeTask();
     const [completed, setCompleted] = useState([]);
     const [employeeAgreements, isEmployee] = useEmployee();
+    const [companyName, setCompanyName] = useState([]);
     const navigate = useNavigate();
+
     useEffect(() => {
         if (allEmployeeTask?.length > 0 && hrInfo?.length > 0) {
             const completedTask = allEmployeeTask?.filter(employee => employee?.status === "completed");
             setCompleted(completedTask);
             const specificHr = hrInfo?.filter(hr => hr?.status === "checked");
             setHr(specificHr);
+            setCompanyName(hrInfo?.map(company => company.company));
         }
     }, [allEmployeeTask, employeeAgreements, hrInfo])
 
@@ -63,7 +66,7 @@ const CompanyInfo = () => {
         });
     }
 
-    console.log(taskCompletedPercentage);
+    console.log(taskCompletedPercentage, hrInfo, companyName);
 
     return (
         <div>
@@ -86,9 +89,7 @@ const CompanyInfo = () => {
                                     <th>{index + 1}</th>
                                     <td>{item?.company}</td>
                                     <td>{item?.name}</td>
-                                    <td>
-
-                                    </td>
+                                    <td></td>
                                     <td><div className="dropdown dropdown-left hover:bg-gray-100 rounded-full p-1">
                                         <div tabIndex={0} role="button" className="m-1"><HiOutlineDotsVertical size={20} /></div>
                                         <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box space-y-1">
