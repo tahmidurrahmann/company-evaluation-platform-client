@@ -6,7 +6,6 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import useEmployeeTask from "../../../hooks/useEmployeeTask";
 
 const CompanyInfo = () => {
 
@@ -14,7 +13,6 @@ const CompanyInfo = () => {
     const axiosSecure = useAxiosSecure();
     const [hr, setHr] = useState([]);
     const navigate = useNavigate();
-    const [allEmployeeTask, isEmployeeTaskPending] = useEmployeeTask();
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
@@ -23,11 +21,9 @@ const CompanyInfo = () => {
         }
     }, [hrInfo])
 
-    if (isHrPending || isEmployeeTaskPending) {
+    if (isHrPending) {
         return <Loading />
     }
-
-    console.log(allEmployeeTask);
 
     const handleSeeDetails = (id) => {
         navigate(`/dashboard/singleCompanyDetails/${id}`);
