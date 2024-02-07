@@ -27,11 +27,11 @@ const PostNotices = () => {
 
     return (
         <div className="px-8 md:px-20">
-            <div className="py-4">
+            <div className="pt-8">
                 <SharedHeading heading="Post Latest Notices & Info" />
             </div>
             <form onSubmit={handleSubmitNotice}>
-                <div className="py-6 flex flex-col space-y-8">
+                <div className="pt-20 flex flex-col space-y-8">
                     <div className="inputContainer w-full mt-6">
                         <input type="text" className="customInput" name="topic" required />
                         <label className="inputLabel">Enter Tour Topic</label>
