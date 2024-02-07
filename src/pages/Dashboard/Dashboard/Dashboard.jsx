@@ -14,7 +14,6 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import useAdmin from '../../../hooks/useAdmin';
 import Loading from '../../../shared/Loading/Loading';
 import useHr from '../../../hooks/useHr';
-import { FaUserTie } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { GoTasklist } from "react-icons/go";
 import { FaNewspaper } from "react-icons/fa";
