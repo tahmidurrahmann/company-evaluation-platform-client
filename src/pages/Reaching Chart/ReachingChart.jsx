@@ -13,10 +13,10 @@ const ReachingChart = ({data}) => {
         if (!dimensions) return;
 
         // sorting the data
-        data.sort((a, b) => b - a);
+        data.sort((a, b) => b.value - a.value);
 
         const yScale = scaleBand()
-            .paddingInner(0.1)
+            .paddingInner(0.2)
             .domain(data.map((value, index) => index)) // [0,1,2,3,4,5]
             .range([0, dimensions.height]); // [0, 200]
 
@@ -27,7 +27,7 @@ const ReachingChart = ({data}) => {
         // draw the bars
         svg
             .selectAll(".bar")
-            .data(data, (entry, index) => entry.name)
+            .data(data, (entry) => entry.name)
             .join(enter =>
                 enter.append("rect").attr("y", (entry, index) => yScale(index))
             )
@@ -42,7 +42,7 @@ const ReachingChart = ({data}) => {
         // draw the labels
         svg
             .selectAll(".label")
-            .data(data, (entry, index) => entry.name)
+            .data(data, (entry) => entry.name)
             .join(enter =>
                 enter
                     .append("text")
@@ -60,7 +60,7 @@ const ReachingChart = ({data}) => {
 
     return (
         <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
-            <svg ref={svgRef}></svg>
+            <svg className="w-full px-10 my-10" ref={svgRef}></svg>
         </div>
     );
 };
