@@ -14,11 +14,16 @@ import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import useAdmin from '../../../hooks/useAdmin';
 import Loading from '../../../shared/Loading/Loading';
 import useHr from '../../../hooks/useHr';
-import { FaUserTie } from "react-icons/fa";
 import { FaCodePullRequest } from "react-icons/fa6";
 import { GoTasklist } from "react-icons/go";
+
 import { BsListTask } from "react-icons/bs";
 import { SiSoundcharts } from "react-icons/si";
+
+import { FaNewspaper } from "react-icons/fa";
+import { ImOffice } from "react-icons/im";
+
+
 const drawerWidth = 240;
 function Dashboard(props) {
 
@@ -42,7 +47,10 @@ function Dashboard(props) {
     }
 
     const drawer = (
-        <div className='flex flex-col items-center gap-4 border-r-1  border-gray-200 justify-center pt-6'>
+
+
+        <div className='flex flex-col items-center bg-gradient-to-r from-gray-50 via-white to-gray-200 bg-base-100 gap-4 h-full pt-6'>
+
             <div className="avatar placeholder">
                 <div className="bg-neutral text-neutral-content rounded-full w-24">
                     <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
@@ -57,7 +65,7 @@ function Dashboard(props) {
             {user?.email && !isAdmin && !isHr && <NavLink
                 to="/dashboard/userProfile"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
                 <div className='flex items-center gap-2'><FaUser />Employee Profile</div>
@@ -66,7 +74,7 @@ function Dashboard(props) {
             {user?.email && !isAdmin && !isHr && <NavLink
                 to="/dashboard/userTask"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
                 <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
@@ -78,7 +86,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/hrProfile"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
@@ -86,7 +94,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/allEmploye"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><FaUsers className='text-[24px]' />All Employe</div>
@@ -103,7 +111,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/employeTask"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />Employe Taskes</div>
@@ -111,7 +119,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/employeTeamPearformence"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Employe Team pearformence</div>
@@ -125,7 +133,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/adminProfile"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><MdOutlineAdminPanelSettings /> Admin Profile</div>
@@ -133,10 +141,26 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/agreementRequest"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                         }
                     >
                         <div className='flex items-center gap-2'><FaCodePullRequest /> Agreement Request</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/notices"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><FaNewspaper />Post Notices & Info</div>
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard/companyInfo"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                        }
+                    >
+                        <div className='flex items-center gap-2'><ImOffice />Company Info</div>
                     </NavLink>
                 </div>
             }
@@ -147,7 +171,7 @@ function Dashboard(props) {
                 }
             >
 
-                
+
                 <div className='flex items-center gap-2'><IoHomeOutline /> Home</div>
             </NavLink>
         </div>
