@@ -11,6 +11,7 @@ import useUsers from '../../../hooks/useUsers';
 import useEmployee from '../../../hooks/useEmployee';
 import { useEffect, useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import Meets from '../../Meet/Meets';
 
 const HrProfile = () => {
 
@@ -50,7 +51,7 @@ const HrProfile = () => {
         return <Loading />
     }
 
-    console.log(employee);
+
 
     return (
         <>
@@ -78,6 +79,8 @@ const HrProfile = () => {
                     text="Click here to schedule!"
                 />
             </div>
+
+            
             <h1 className='text-center text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
             <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20">
                 <article>

@@ -35,7 +35,7 @@ const UserAnalysis = () => {
 
     return (
         <div>
-            <div className="py-8">
+            <div className="py-16">
                 <SharedHeading heading="Employee Current Task Analysis" />
             </div>
             <div>
