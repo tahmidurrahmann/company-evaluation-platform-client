@@ -4,6 +4,7 @@ import Logo from "../Logo/Logo";
 import Reviews from "../Reviews/Reviews";
 import OverView from "../OverView/OverView";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             />
             <Banner />
             <Logo />
+            <RachingBarMap></RachingBarMap>
             <Reviews />
             <OverView />
 
