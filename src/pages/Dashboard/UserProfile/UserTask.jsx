@@ -66,6 +66,7 @@ const UserTask = () => {
                                     <h1 className="text-blue-400">{item?.email}</h1>
                                     
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
+                                    
                                     <div className="flex justify-between ">
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
                                         <dialog id="my_modal_3" className="modal h-[80vh]">

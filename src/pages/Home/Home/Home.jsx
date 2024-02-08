@@ -6,6 +6,7 @@ import OverView from "../OverView/OverView";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 
+
 const Home = () => {
     return (
         <div>
@@ -21,7 +22,7 @@ const Home = () => {
             <RachingBarMap></RachingBarMap>
             <Reviews />
             <OverView />
-            
+
         </div>
     );
 

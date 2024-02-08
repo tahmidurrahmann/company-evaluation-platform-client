@@ -1,6 +1,27 @@
 import { PieChart, Pie, Cell } from "recharts";
+import useUsers from "../../../hooks/useUsers";
+import { useEffect, useState } from "react";
+import Loading from "../../../shared/Loading/Loading";
 
-const PieC = ({employeeLength, hrLength}) => {
+const PieC = () => {
+
+    const [allUsers, isUser] = useUsers();
+    const [hr, setHr] = useState(null);
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        if (allUsers?.length > 0) {
+            setHr(allUsers?.filter(user => user.role === "hr"));
+            setUser(allUsers?.filter(user => user?.role === "user"));
+        }
+    }, [allUsers])
+
+    if (isUser) {
+        return <Loading />
+    }
+
+    const hrLength = hr?.length;
+    const employeeLength = user?.length;
 
     const data = [
         { name: "HR's", value: hrLength },
