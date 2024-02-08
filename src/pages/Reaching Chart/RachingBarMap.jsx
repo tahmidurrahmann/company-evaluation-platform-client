@@ -7,6 +7,7 @@ const RachingBarMap = () => {
     const [completedTaskpers, setCompletedTaskpers] = useState(0)
     const axiosPublic = useAxiosPublic();
     const [filterHr, setFilterHr] = useState([])
+   
     console.log(completedTaskpers);
     useEffect(() => {
         axiosPublic
@@ -30,18 +31,15 @@ const RachingBarMap = () => {
             .catch(error => {
                 console.log(error);
             })
-    }, [axiosPublic, setFilterHr])
-    filterHr.map(element=> {
-    const taskFilter = completedTaskpers.filter(elementTask => elementTask.company === element.company)
-    console.log(taskFilter);
-    })
+        
+    }, [axiosPublic, setFilterHr,])
 
     return (
         <div>
             <RaachingHome
                 filterHr={filterHr}
                 completedTaskpers={completedTaskpers}
-                
+
             ></RaachingHome>
         </div>
     );
