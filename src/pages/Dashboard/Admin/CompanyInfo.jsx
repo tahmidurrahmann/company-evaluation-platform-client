@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import useCompany from "../../../hooks/useCompany";
 import Loading from "../../../shared/Loading/Loading";
 import PieChartTwo from "./PieChartTwo";
-import useEmployeeTask from "../../../hooks/useEmployeeTask";
-import useEmployee from "../../../hooks/useEmployee";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -14,24 +12,16 @@ const CompanyInfo = () => {
     const [hrInfo, isHrPending, refetch] = useCompany();
     const axiosSecure = useAxiosSecure();
     const [hr, setHr] = useState([]);
-    const [allEmployeeTask, isEmployeeTaskPending] = useEmployeeTask();
-    const [completed, setCompleted] = useState([]);
-    const [employeeAgreements, isEmployee] = useEmployee();
     const navigate = useNavigate();
+
     useEffect(() => {
-        if (allEmployeeTask?.length > 0 && hrInfo?.length > 0) {
-            const completedTask = allEmployeeTask?.filter(employee => employee?.status === "completed");
-            setCompleted(completedTask);
+        if (hrInfo?.length > 0) {
             const specificHr = hrInfo?.filter(hr => hr?.status === "checked");
             setHr(specificHr);
         }
-    }, [allEmployeeTask, employeeAgreements, hrInfo])
+    }, [hrInfo])
 
-    const allTaskLength = allEmployeeTask?.length;
-    const completedLength = completed?.length;
-    const taskCompletedPercentage = (completedLength / allTaskLength * 100).toFixed(2);
-
-    if (isHrPending || isEmployeeTaskPending || isEmployee) {
+    if (isHrPending) {
         return <Loading />
     }
 
@@ -63,8 +53,6 @@ const CompanyInfo = () => {
         });
     }
 
-    console.log(taskCompletedPercentage);
-
     return (
         <div>
             <PieChartTwo />
@@ -76,7 +64,7 @@ const CompanyInfo = () => {
                                 <th>#</th>
                                 <th>Company Name</th>
                                 <th>HR name</th>
-                                <th>Status</th>
+                                {/* <th>Status</th> */}
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -86,9 +74,7 @@ const CompanyInfo = () => {
                                     <th>{index + 1}</th>
                                     <td>{item?.company}</td>
                                     <td>{item?.name}</td>
-                                    <td>
-
-                                    </td>
+                                    {/* <td></td> */}
                                     <td><div className="dropdown dropdown-left hover:bg-gray-100 rounded-full p-1">
                                         <div tabIndex={0} role="button" className="m-1"><HiOutlineDotsVertical size={20} /></div>
                                         <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box space-y-1">

@@ -23,7 +23,6 @@ import { SiSoundcharts } from "react-icons/si";
 import { FaNewspaper } from "react-icons/fa";
 import { ImOffice } from "react-icons/im";
 
-
 const drawerWidth = 240;
 function Dashboard(props) {
 
@@ -50,6 +49,7 @@ function Dashboard(props) {
 
 
         <div className='flex flex-col items-center bg-gradient-to-r from-gray-50 via-white to-gray-200 bg-base-100 gap-4 h-full pt-6'>
+
 
             <div className="avatar placeholder">
                 <div className="bg-neutral text-neutral-content rounded-full w-24">
@@ -125,55 +125,140 @@ function Dashboard(props) {
                         <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Employe Team pearformence</div>
                     </NavLink>
 
-                </>}
-            </div>
-            {/* admin dashboard */}
-            {
-                user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
-                    <NavLink
-                        to="/dashboard/adminProfile"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                        }
-                    >
-                        <div className='flex items-center gap-2'><MdOutlineAdminPanelSettings /> Admin Profile</div>
-                    </NavLink>
-                    <NavLink
-                        to="/dashboard/agreementRequest"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                        }
-                    >
-                        <div className='flex items-center gap-2'><FaCodePullRequest /> Agreement Request</div>
-                    </NavLink>
-                    <NavLink
-                        to="/dashboard/notices"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                        }
-                    >
-                        <div className='flex items-center gap-2'><FaNewspaper />Post Notices & Info</div>
-                    </NavLink>
-                    <NavLink
-                        to="/dashboard/companyInfo"
-                        className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
-                        }
-                    >
-                        <div className='flex items-center gap-2'><ImOffice />Company Info</div>
-                    </NavLink>
+            <div className='flex flex-col items-center gap-4 border-r-1  border-gray-200 justify-center pt-6'>
+                <div className="avatar placeholder">
+                    <div className="bg-neutral text-neutral-content rounded-full w-24">
+                        <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
+                    </div>
                 </div>
-            }
-            <NavLink
-                to="/"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-neutral-900 " : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                <h1 className='font-bold'>{user?.displayName}</h1>
+
+                <div className="flex justify-center">
+                    <hr className="border-1  border-gray-300 w-60" />
+                </div>
+                {/* employee Dashboard */}
+                {user?.email && !isAdmin && !isHr && <NavLink
+                    to="/dashboard/userProfile"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaUser />Employee Profile</div>
+                </NavLink>}
+
+
+                {user?.email && !isAdmin && !isHr && <NavLink
+                    to="/dashboard/userTask"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+                    <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
+                </NavLink>}
+
+                {/* hr dashboard */}
+                <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>
+                    {user?.email && !isAdmin && isHr && <>
+                        <NavLink
+                            to="/dashboard/hrProfile"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/allEmploye"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><FaUsers className='text-[24px]' />All Employe</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/meet"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#4885a2] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#4885a2] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+
+                            <div className='flex items-center gap-2'><FaVideo />Contact Employe</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/employeTask"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />Employe Taskes</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/employeTeamPearformence"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Employe Team pearformence</div>
+                        </NavLink>
+
+                    </>}
+                </div>
+                {/* admin dashboard */}
+                {
+                    user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
+                        <NavLink
+                            to="/dashboard/adminProfile"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><MdOutlineAdminPanelSettings /> Admin Profile</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/agreementRequest"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><FaCodePullRequest /> Agreement Request</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/notices"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><FaNewspaper />Post Notices & Info</div>
+                        </NavLink>
+                        <NavLink
+                            to="/dashboard/companyInfo"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 px-4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            }
+                        >
+                            <div className='flex items-center gap-2'><ImOffice />Company Info</div>
+                        </NavLink>
+                    </div>
                 }
+
             >
 
 
                 <div className='flex items-center gap-2'><IoHomeOutline /> Home</div>
             </NavLink>
+
+                <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-neutral-900 " : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                    }
+                >
+
+
+                    <div className='flex items-center gap-2'><IoHomeOutline /> Home</div>
+                </NavLink>
+            </div>
+
         </div>
     );
 

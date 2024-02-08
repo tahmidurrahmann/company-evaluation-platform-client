@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+
 import HrSendMeet from '../Dashboard/Hr/HrSendMeet';
 import SharedHeading from '../../shared/SharedHeading/SharedHeading';
 import { FaAccessibleIcon, FaArrowAltCircleDown } from 'react-icons/fa';
+
 
 function randomID(len) {
     let result = '';
@@ -56,6 +58,7 @@ const Meets = () => {
 
     return (
 
+
         <div>
             <div
                 className="myCallContainer "
@@ -71,6 +74,13 @@ const Meets = () => {
                 <HrSendMeet />
             </div>
         </div>
+
+        <div
+            className="myCallContainer "
+            ref={myMeeting}
+            style={{ width: '80vw', height: '90vh' }}
+        ></div>
+
     );
 };
 

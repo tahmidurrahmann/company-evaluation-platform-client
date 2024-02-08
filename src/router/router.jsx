@@ -27,6 +27,7 @@ import Meets from "../pages/Meet/Meets";
 import PostNotices from "../pages/Dashboard/Admin/PostNotices";
 import CompanyInfo from "../pages/Dashboard/Admin/CompanyInfo";
 import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails";
+import Meets from "../pages/Meet/Meets";
 
 
 const router = createBrowserRouter([
