@@ -31,7 +31,6 @@ const EmployeTeamPearformence = () => {
             .get("/imployeeTasks")
             .then((res) => {
                 const taskFilter = res?.data?.filter(element => element.company === hrRequestCheck.company)
-                console.log('jjj', taskFilter);
                 setTask(taskFilter)
             })
             .catch((error) => {
@@ -103,8 +102,8 @@ const EmployeTeamPearformence = () => {
                             <MdTaskAlt className="text-6xl text-blue-900" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">20</h1>
-                            <p className="text-sm text-orange-950 font-semibold">Tasks</p>
+                            <h1 className="text-4xl font-bold ">{todoTasks.length}</h1>
+                            <p className="text-sm text-orange-950 font-semibold">TodoTasks</p>
                         </div>
                     </div>
                     <div className="flex justify-center items-center text-center w-1/2 py-6 space-x-3 rounded-lg shadow-md bg-white">
@@ -112,8 +111,8 @@ const EmployeTeamPearformence = () => {
                             <MdTaskAlt className="text-6xl text-blue-900" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">20</h1>
-                            <p className="text-sm text-orange-950 font-semibold">Tasks</p>
+                            <h1 className="text-4xl font-bold ">{completedTasks.length}</h1>
+                            <p className="text-sm text-orange-950 font-semibold">Compleated Task</p>
                         </div>
                     </div>
                 </div>
