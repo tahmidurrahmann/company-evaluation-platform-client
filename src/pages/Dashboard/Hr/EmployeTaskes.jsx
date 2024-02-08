@@ -14,7 +14,7 @@ const EmployeTaskes = () => {
       .get("/imployeeTasks")
       .then((res) => {
         const taskFilter = res?.data?.filter(
-          (element) => element.company === hrRequestCheck.company
+          (element) => element?.company === hrRequestCheck?.company
         );
         setTasks(taskFilter);
         setFilteredTasks(taskFilter); // Initialize filteredTasks with all tasks
@@ -25,14 +25,14 @@ const EmployeTaskes = () => {
   }, [axiosPublic, hrRequestCheck]);
 
   const handleCompletedStatus = () => {
-    setFilteredTasks(tasks.filter((task) => task.status === "completed"));
+    setFilteredTasks(tasks?.filter((task) => task?.status === "completed"));
   };
   const handleAllTask = () => {
     setFilteredTasks(tasks);
   };
 
   const handleDoingStatus = () => {
-    setFilteredTasks(tasks.filter((task) => task.status === "doing"));
+    setFilteredTasks(tasks?.filter((task) => task?.status === "doing"));
   };
 
   console.log(tasks);
@@ -71,7 +71,7 @@ const EmployeTaskes = () => {
           <table className="table ">
             <thead className="bg-gray-300 text-black font-bold">
               <tr>
-                <th>Assignee</th>
+                <th>Assignment</th>
                 <th>Task Name</th>
                 <th>Due date</th>
                 <th>Audience</th>
@@ -123,7 +123,7 @@ const EmployeTaskes = () => {
                     <h1
                       className={`${
                         element.channel === "social"
-                          ? "font-bold "
+                          ? "font-bold"
                           : element.channel === "blog"
                           ? "font-bold"
                           : element.channel === "press"

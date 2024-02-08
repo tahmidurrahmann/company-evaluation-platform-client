@@ -25,6 +25,7 @@ import PostNotices from "../pages/Dashboard/Admin/PostNotices";
 import CompanyInfo from "../pages/Dashboard/Admin/CompanyInfo";
 import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails";
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
+import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 
 
 const router = createBrowserRouter([
@@ -109,7 +110,10 @@ const router = createBrowserRouter([
         path: 'meet',
         element: <Meets />
       },
-
+      {
+        path: 'employeeRequest',
+        element: <EmployeeRequest />
+      },
       //admin
       {
         path: "adminProfile",
@@ -119,8 +123,6 @@ const router = createBrowserRouter([
         path: "agreementRequest",
         element: <AgreementRequest />
       },
-
-
       {
         path: "notices",
         element: <PostNotices />

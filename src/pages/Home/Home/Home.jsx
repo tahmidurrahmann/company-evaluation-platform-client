@@ -19,7 +19,7 @@ const Home = () => {
             />
             <Banner />
             <Logo />
-            <RachingBarMap></RachingBarMap>
+            <RachingBarMap ></RachingBarMap>
             <Reviews />
             <OverView />
 
