@@ -51,7 +51,7 @@ const ReachingChart = ({data}) => {
                         (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
                     )
             )
-            .text(entry => `🐎 ... ${entry.name} (${entry.value} meters)`)
+            .text(entry => `... ${entry.name} (${entry.value} Compleated Task)`)
             .attr("class", "label")
             .attr("x", 10)
             .transition()
