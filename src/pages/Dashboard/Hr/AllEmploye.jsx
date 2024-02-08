@@ -3,19 +3,12 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../shared/Loading/Loading";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import TeamMemberReq from "./TeamMemberReq";
 import moment from "moment-timezone";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useEmployee from "../../../hooks/useEmployee";
 import toast from "react-hot-toast";
 
-
-
-
-
 const AllEmploye = () => {
-  
-
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
     const [data, setData] = useState([]);
@@ -47,9 +40,6 @@ const AllEmploye = () => {
         console.log(giveTaskInfo);
     };
 
-
-    
-
     const [time, setTime] = useState([]);
 
     useEffect(() => {
@@ -79,37 +69,23 @@ const AllEmploye = () => {
 
     const handeltaskPost = async (e) => {
         e.preventDefault();
-
         try {
             const res = await axiosSecure.post('/imployeeTasks', postTask);
-
-            console.log(res.data);
-
             if (res.data && res.data.acknowledged) {
                 toast.success('Your Task is Submited')
             } else {
                 toast.error('error Task is not sumbited')
             }
         } catch (error) {
-            console.error(error);
-
             toast.error('something wrong Task is not submited')
         }
     };
-
-
     const handelinformation = (info) => {
         setTargetinfo(info);
     };
 
-
-
-
     return (
         <div>
-            <TeamMemberReq></TeamMemberReq>
-         
-                                    
             <div className="overflow-x-auto">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
                 <table className="table table-xs ">
@@ -124,8 +100,6 @@ const AllEmploye = () => {
                                 <th>GTask Start Date</th>
                                 <th>Task End Date</th>
                             </div>
-                        
-
                         </tr>
                     </thead>
                     <tbody className="">
@@ -150,10 +124,6 @@ const AllEmploye = () => {
                                         </td>
                                     </div>
                                 ))}
-                           
-
-                            
-
                             </tr>
                         ))}
                     </tbody>

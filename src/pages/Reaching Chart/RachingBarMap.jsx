@@ -21,19 +21,18 @@ const RachingBarMap = () => {
             .catch((error) => {
                 console.log(error);
             });
-
         axiosPublic.get("/hrAndUsers")
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 setFilterHr(res.data)
             })
             .catch(error => {
                 console.log(error);
             })
-    }, [axiosPublic, setFilterHr])
-    filterHr.map(element=> {
-    const taskFilter = completedTaskpers.filter(elementTask => elementTask.company === element.company)
-    console.log(taskFilter);
+    }, [axiosPublic])
+    filterHr.map(element => {
+        const taskFilter = completedTaskpers.filter(elementTask => elementTask.company === element.company)
+        console.log(taskFilter);
     })
 
     return (
@@ -41,7 +40,7 @@ const RachingBarMap = () => {
             <RaachingHome
                 filterHr={filterHr}
                 completedTaskpers={completedTaskpers}
-                
+
             ></RaachingHome>
         </div>
     );
