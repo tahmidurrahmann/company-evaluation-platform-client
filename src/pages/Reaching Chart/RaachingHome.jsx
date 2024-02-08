@@ -4,8 +4,8 @@ import ReachingChart from "./ReachingChart";
 const RaachingHome = ({ filterHr, completedTaskpers }) => {
     const [data, setCompanyTask] = useState([])
     useEffect(() => {
-        const data = filterHr.map(hrElement => {
-            const taskFilter = completedTaskpers.filter(taskElement => taskElement.company === hrElement.company);
+        const data = filterHr?.map(hrElement => {
+            const taskFilter = completedTaskpers?.filter(taskElement => taskElement?.company === hrElement?.company);
             const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
             return {
                 name: hrElement.company,

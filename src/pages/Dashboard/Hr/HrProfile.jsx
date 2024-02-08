@@ -11,7 +11,6 @@ import useUsers from '../../../hooks/useUsers';
 import useEmployee from '../../../hooks/useEmployee';
 import { useEffect, useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import Meets from '../../Meet/Meets';
 
 const HrProfile = () => {
 
@@ -22,22 +21,21 @@ const HrProfile = () => {
     const axiosPublic = useAxiosPublic();
     const [task, setTask] = useState([]);
     const [completedTaskpers, setCompletedTaskpers] = useState(0)
-    console.log(completedTaskpers)
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
             const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
-            const taskFilter = allEmployee?.filter(element => element.company === hrRequestCheck.company)
+            const taskFilter = allEmployee?.filter(element => element?.company === hrRequestCheck?.company)
             setEmployee(taskFilter);
         }
-    }, [employeeAgreements, hrRequestCheck.company])
+    }, [employeeAgreements, hrRequestCheck?.company])
     useEffect(() => {
         axiosPublic
             .get("/imployeeTasks")
             .then((res) => {
-                const taskFilter = res?.data?.filter(element => element.company === hrRequestCheck.company)
-                const completedFilter = taskFilter.filter(element => element.status === 'completed')
-                const persent = (completedFilter.length / taskFilter.length) *100
+                const taskFilter = res?.data?.filter(element => element?.company === hrRequestCheck?.company)
+                const completedFilter = taskFilter?.filter(element => element?.status === 'completed')
+                const persent = (completedFilter?.length / taskFilter?.length) *100
                 console.log(persent);
                 setCompletedTaskpers(persent)
                 setTask(taskFilter)
