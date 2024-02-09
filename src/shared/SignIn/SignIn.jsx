@@ -35,23 +35,21 @@ const SignIn = () => {
       <Helmet>
         <title>IONE | SignIn</title>
       </Helmet>
-      <div className=" min-h-screen" >
+      <div className="min-h-screen" >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className=" bg-black text-center text-black">
-          <div className="w-full mx-auto ">
+          <div className="w-full mx-auto">
 
             {/* from control start */}
-            <div className="md:w-full min-h-screen  ">
-              <div className=" flex justify-center  items-center bg-container min-h-screen ">
-
-                <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
+            <div className="md:w-full min-h-screen">
+              <div className=" flex justify-center items-center bg-container min-h-screen ">
+                <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl">
                   <form onSubmit={handleLogin} className="card-body">
                     <div className="form-control">
                       <input
                         type="email"
                         name="email"
                         required
-                        className="my-3"
                       />
                       <label>
                         <span style={{ transitionDelay: '0ms' }}>E</span>
@@ -69,7 +67,7 @@ const SignIn = () => {
                       </label>
                     </div>
                     <div className="form-control">
-                      <input type="password" name="password" className="my-3" required />
+                      <input type="password" name="password" required />
                       <label>
                         <span style={{ transitionDelay: '0ms' }}>P</span>
                         <span style={{ transitionDelay: '50ms' }}>a</span>
@@ -82,14 +80,11 @@ const SignIn = () => {
                       </label>
                     </div>
                     <div className="form-control mt-6">
-                      <button>Login</button>
+                      <button className="py-2 bg-[#007cc7] rounded-full text-white font-medium hover:scale-105 transition">Log In</button>
                     </div>
                   </form>
-                  <div className="flex justify-center gap-6 items-center">
-                    <h1 className="text-white font-semibold">Or</h1>
                     <SocialLogin />
-                  </div>
-                  <p className="text-center my-6 text-white">New here? <Link to={'/signUp'} className="underline font-semibold text-white">Create a New Account</Link></p>
+                  <p className="text-center mt-6 text-white">New here? <Link to={'/signUp'} className="underline font-semibold text-white">Create a New Account</Link></p>
                 </div>
               </div>
             </div>

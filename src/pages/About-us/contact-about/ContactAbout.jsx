@@ -1,10 +1,8 @@
 import aboutCompanyImg from "../../../assets/1.webp";
 import HeaderText from "./HeaderText";
 import SharedBanner from "../../../shared/SharedBanner/SharedBanner";
-import useAuth from "../../../hooks/useAuth";
 
 const ContactAbout = () => {
-  const {user} =useAuth()
   return (
     <div>
       {/* Banner Section  */}
