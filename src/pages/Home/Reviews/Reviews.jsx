@@ -6,7 +6,7 @@ import Reviews3 from "./Reviews3";
 const Reviews = () => {
 
     return (
-        <div className="bg-gray-100 py-16 md:py-32 my-6">
+        <div className="py-16 md:py-32 my-6">
             <h6 className="text-center font-semibold">User Reviews</h6>
             <h1 className="p-6 text-3xl md:text-4xl text-center xl:text-5xl font-semibold text-[#151746]">Trusted by 1500+ <br /> Human Resource Professionals</h1>
             <div className="flex flex-wrap justify-center items-center md:gap-6 xl:gap-12">

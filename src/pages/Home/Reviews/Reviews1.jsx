@@ -13,10 +13,10 @@ const Reviews1 = () => {
     return (
         <div className="hidden md:flex my-4">
                 <Marquee direction="right">
-                    <div className="flex justify-center items-center gap-6">
+                    <div className="flex  justify-center items-center gap-6">
                         {
-                            allReviews.slice(0, 10)?.map(review => <div key={review?._id}>
-                                <div className="card w-96 h-48 bg-base-100 p-6">
+                            allReviews.slice(0, 10)?.map(review => <div key={review?._id} className="">
+                                <div className="card w-96 h-48 bg-base-100 border-2 p-6">
                                     <h1 className="font-bold pb-4 text-[#151746]">{review?.review}</h1>
                                     <div className="flex items-center gap-4">
                                         <img className="rounded-full w-[45px]" src={review?.userPicture} alt="" />
