@@ -54,6 +54,9 @@ const Meets = () => {
     };
 
     return (
+
+
+        <>
         <div>
             <div
                 className="myCallContainer "
@@ -66,7 +69,9 @@ const Meets = () => {
                 <h1 className='text-5xl text-center font-bold text-black mt-5 mb-12 italic'>feel free Share the link with your<span className='text-blue-400'> employees</span></h1>
 
 
-                <HrSendMeet />
+
+                    <HrSendMeet />
+                </div>
             </div>
 
             <div
@@ -74,9 +79,10 @@ const Meets = () => {
                 ref={myMeeting}
                 style={{ width: '80vw', height: '90vh' }}
             ></div>
-        </div>
 
-    );
+        </>
+
+    )
 };
 
 export default Meets;

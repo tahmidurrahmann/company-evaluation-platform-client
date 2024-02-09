@@ -6,6 +6,8 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import useEmployee from "../../../hooks/useEmployee";
 
 const CompanyInfo = () => {
 
@@ -13,13 +15,30 @@ const CompanyInfo = () => {
     const axiosSecure = useAxiosSecure();
     const [hr, setHr] = useState([]);
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic();
+    const [filterHr, setFilterHr] = useState([])
+    const [employeeAgreements] = useEmployee()
+
+    console.log(employeeAgreements);
+    // console.log(filterHr);
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
             const specificHr = hrInfo?.filter(hr => hr?.status === "checked");
             setHr(specificHr);
         }
-    }, [hrInfo])
+
+        axiosPublic.get("/hrAndUsers")
+            .then(res => {
+
+                setFilterHr(res.data)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+    }, [hrInfo, axiosPublic])
+
 
     if (isHrPending) {
         return <Loading />
@@ -64,7 +83,7 @@ const CompanyInfo = () => {
                                 <th>#</th>
                                 <th>Company Name</th>
                                 <th>HR name</th>
-                                {/* <th>Status</th> */}
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -74,7 +93,16 @@ const CompanyInfo = () => {
                                     <th>{index + 1}</th>
                                     <td>{item?.company}</td>
                                     <td>{item?.name}</td>
-                                    {/* <td></td> */}
+                                    <td>
+                                        {/* {
+                                            filterHr.map(element => {
+                                                const spacifikEmployee = employeeAgreements.filter(employeeSpacik => employeeSpacik?.company === element?.company)
+                                                // console.log(spacifikEmployee);
+                                                spacifikEmployee.map(userPhoto => console.log(userPhoto?.imageURL))
+                                            })
+                                        } */}
+                                        {/* <img className="h-8 w-8 rounded-full" src="https://i.ibb.co/BKJ59gH/Whats-App-Image-2024-02-02-at-21-27-08-fcb6363a.jpg" alt="" /> */}
+                                    </td>
                                     <td><div className="dropdown dropdown-left hover:bg-gray-100 rounded-full p-1">
                                         <div tabIndex={0} role="button" className="m-1"><HiOutlineDotsVertical size={20} /></div>
                                         <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box space-y-1">
