@@ -34,25 +34,31 @@ const Contact = () => {
             </Helmet>
             <SharedBanner heading="Contact Us" passage="Contact Us" />
             {/* ------ first  section here ----- */}
-            <div className='pt-20 mb-12 gap-12 p-12 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
-                <div className='bg-white border-2 shadow-2xl hover:bg-blue-300 rounded-xl relative pb-4'>
-                    <FaLocationDot className='text-blue-400 text-7xl p-2 hover:bg-yellow-400 bg-gray-300 rounded-full absolute left-1/3 -top-10' />
-                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-12'>Location</h1>
-                    <p className='text-center text-gray-500'>3rd Avenue, 83 Manhattan <br /> Dhaka, Bangladesh</p>
+            <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
+                <div className='bg-white border-2 shadow-2xl rounded-xl pb-4'>
+                    <div className='flex justify-center items-center -mt-10'>
+                        <FaLocationDot className='text-blue-400 text-7xl p-2 bg-gray-300 rounded-full' />
+                    </div>
+                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-8'>Location</h1>
+                    <p className='text-center text-gray-500'>Level 4, 34, Awal Centre, Kemal Ataturk Ave,<br /> Dhaka - 1213, Bangladesh</p>
                 </div>
                 {/* 2 --------- contact  */}
-                <div className='bg-white border-2  shadow-2xl hover:bg-yellow-300   rounded-xl relative pb-4'>
-                    <IoCallSharp className='text-yellow-300  text-7xl p-2 hover:bg-yellow-100 bg-gray-300 rounded-full absolute left-1/3 -top-10' />
-                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-12'>Phones</h1>
+                <div className='bg-white border-2  shadow-2xl rounded-xl pb-4'>
+                    <div className='flex justify-center items-center -mt-10'>
+                        <IoCallSharp className='text-yellow-300  text-7xl p-2  bg-gray-300 rounded-full' />
+                    </div>
+                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-8'>Phones</h1>
                     <p className='text-center text-gray-500'>+8801882239828</p>
-                    <p className='text-center text-gray-500'>+88017723527</p>
+                    <p className='text-center text-gray-500'>+8801772352777</p>
                 </div>
                 {/* 3 --------- contact  */}
-                <div className='bg-white border-2 shadow-2xl hover:bg-orange-500  rounded-xl relative pb-4'>
-                    <IoIosMailUnread className='text-orange-600  text-7xl p-3 hover:bg-yellow-400 bg-gray-300 rounded-full absolute left-1/3 -top-10' />
-                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-12'>Email</h1>
-                    <p className='text-center text-gray-500'>icon@gmail.com</p>
-                    <p className='text-center text-gray-500'>xunaiet@gmail.com</p>
+                <div className='bg-white border-2 shadow-2xl  rounded-xl pb-4'>
+                    <div className='flex justify-center items-center -mt-10'>
+                        <IoIosMailUnread className='text-orange-600  text-7xl p-3  bg-gray-300 rounded-full' />
+                    </div>
+                    <h1 className='text-2xl text-black text-center font-bold mb-1 pt-8'>Email</h1>
+                    <p className='text-center text-gray-500'>ione@gmail.com</p>
+                    <p className='text-center text-gray-500'>evaluation@platform.com</p>
                 </div>
             </div>
             {/* second section heree  */}
