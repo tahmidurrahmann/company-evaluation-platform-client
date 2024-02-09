@@ -112,6 +112,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 }
 
 .sign svg {
@@ -128,7 +129,6 @@ body {
   right: 0%;
   width: 0%;
   opacity: 0;
-  color: black;
   font-size: 1.2em;
   font-weight: 600;
   transition-duration: 0.3s;
@@ -145,6 +145,7 @@ body {
   width: 30%;
   transition-duration: 0.3s;
   padding-left: 20px;
+  color: #fff;
 }
 
 /* hover effect button's text */
@@ -153,6 +154,7 @@ body {
   width: 70%;
   transition-duration: 0.3s;
   padding-right: 10px;
+  color: #fff;
 }
 
 /* button click effect*/
@@ -195,6 +197,7 @@ body {
   width: 70%;
   transition-duration: 0.3s;
   padding-right: 10px;
+  color: #fff;
 }
 
 /* button click effect*/
