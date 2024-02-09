@@ -6,8 +6,6 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useEmployee from "../../../hooks/useEmployee";
 
 const CompanyInfo = () => {
 
@@ -15,12 +13,6 @@ const CompanyInfo = () => {
     const axiosSecure = useAxiosSecure();
     const [hr, setHr] = useState([]);
     const navigate = useNavigate();
-    const axiosPublic = useAxiosPublic();
-    const [filterHr, setFilterHr] = useState([])
-    const [employeeAgreements] = useEmployee()
-
-    console.log(employeeAgreements);
-    // console.log(filterHr);
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
@@ -28,16 +20,7 @@ const CompanyInfo = () => {
             setHr(specificHr);
         }
 
-        axiosPublic.get("/hrAndUsers")
-            .then(res => {
-
-                setFilterHr(res.data)
-            })
-            .catch(error => {
-                console.log(error);
-            })
-
-    }, [hrInfo, axiosPublic])
+    }, [hrInfo])
 
 
     if (isHrPending) {
