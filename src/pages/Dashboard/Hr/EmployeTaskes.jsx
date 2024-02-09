@@ -38,8 +38,7 @@ const EmployeTaskes = () => {
   console.log(tasks);
   return (
     <div className="space-y-10">
-      <div className="flex justify-between">
-        <div className="flex gap-4">
+      <div className="flex justify-center items-center">
           <div className="dropdown dropdown-end">
             <button
               tabIndex={0}
@@ -63,7 +62,6 @@ const EmployeTaskes = () => {
               </li>
             </ul>
           </div>
-        </div>
       </div>
 
       <div className="">

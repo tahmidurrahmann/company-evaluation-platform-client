@@ -8,7 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { IoHomeOutline } from "react-icons/io5";
-import { FaUser, FaUsers, FaVideo } from "react-icons/fa";
+import { FaUser, FaVideo } from "react-icons/fa";
 import useAuth from '../../../hooks/useAuth';
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import useAdmin from '../../../hooks/useAdmin';
