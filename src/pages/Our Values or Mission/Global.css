@@ -1,4 +1,4 @@
-button.close {
+.close {
     width: 150px;
     height: 50px;
     cursor: pointer;
@@ -11,18 +11,12 @@ button.close {
     background: #e62222;
 }
 
-button.close,
-button.close span {
+.close,
+.close span {
     transition: 200ms;
 }
 
-button.close .text {
-    transform: translateX(35px);
-    color: white;
-    font-weight: bold;
-}
-
-button.close .icon {
+.close .icon {
     position: absolute;
     border-left: 1px solid #c41b1b;
     transform: translateX(110px);
@@ -33,29 +27,29 @@ button.close .icon {
     justify-content: center;
 }
 
-button.close svg {
+.close svg {
     width: 15px;
     fill: #eee;
 }
 
-button.close:hover {
+.close:hover {
     background: #ff3636;
 }
 
-button.close:hover .text {
+.close:hover .text {
     color: transparent;
 }
 
-button.close:hover .icon {
+.close:hover .icon {
     width: 150px;
     border-left: none;
     transform: translateX(0);
 }
 
-button.close:focus {
+.close:focus {
     outline: none;
 }
 
-button.close:active .icon svg {
+.close:active .icon svg {
     transform: scale(0.8);
 }
