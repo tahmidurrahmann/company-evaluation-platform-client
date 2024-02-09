@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
@@ -74,152 +73,11 @@ const SignUp = () => {
 
             {/* from control start */}
             <div className="md:w-full h-[100vh]">
-              <div className=" flex justify-center  items-center bg-container h-[100vh] ">
-
-                {/* <div className="w-full min-h-screen hidden lg:flex lg:flex-wrap overflow-hidden h-[100vh] ">
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                  <div className="box"></div>
-                </div> */}
-
+              <div className=" flex justify-center  items-center bg-container h-[100vh]">
                 <div className="card bg-[#4a99ca2f] p-10 lg:fixed shrink-0 w-full max-w-lg shadow-2xl ">
                   <form onSubmit={handleSubmit(onSubmit)}>
-
                     <div className="form-control">
-                      <input {...register("name", { required: true })} type="text" />
+                      <input {...register("name", { required: true })} type="text" required />
                       <label>
                         <span className="text-white" style={{ transitionDelay: '0ms' }}>Y</span>
                         <span className="text-white" style={{ transitionDelay: '50ms' }}>o</span>
@@ -236,7 +94,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="form-control">
-                      <input {...register("email", { required: true })} type="email" />
+                      <input {...register("email", { required: true })} name="email" required />
                       <label>
                         <span style={{ transitionDelay: '0ms' }}>E</span>
                         <span style={{ transitionDelay: '50ms' }}>m</span>
@@ -257,7 +115,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="form-control">
-                      <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" />
+                      <input {...register("password", { required: true, maxLength: 20, minLength: 8, pattern: /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!#$%&?])[a-zA-Z0-9!#$%&?]+$/ })} type="password" required />
                       <label>
                         <span style={{ transitionDelay: '0ms' }}>P</span>
                         <span style={{ transitionDelay: '50ms' }}>a</span>
@@ -281,38 +139,17 @@ const SignUp = () => {
                         <p className="text-red-600 text-left pt-1">Your Password should have one uppercase, one lowercase, one special character and one digit.</p>
                       )}
                     </div>
-                    <div className="input-div mt-4 py-1">
-                      <input {...register("photo", { required: true })} className="inputu" type="file" />
+                    <div className="mt-4 py-1">
+                      <input {...register("photo", { required: true })} className="file-input w-full" type="file" />
                       {errors.photo?.type === "required" && (
                         <p className="text-red-600 text-left pt-1">Photo is required.</p>
                       )}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="1em"
-                        height="1em"
-                        strokeLinejoin="round"
-                        strokeLinecap="round"
-                        viewBox="0 0 24 24"
-                        strokeWidth="2"
-                        fill="none"
-                        stroke="currentColor"
-                        className="icon"
-                      >
-                        <polyline points="16 16 12 12 8 16"></polyline>
-                        <line y2="21" x2="12" y1="12" x1="12"></line>
-                        <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path>
-                        <polyline points="16 16 12 12 8 16"></polyline>
-                      </svg>
                     </div>
-
-                    <div className="form-control mt-6">
-                      <button>SignUp</button>
+                    <div className="form-control">
+                      <button className="py-2 bg-[#007cc7] rounded-full text-white font-medium hover:scale-105 transition">Sign Up</button>
                     </div>
                   </form>
-                  <div className="flex justify-center gap-6 items-center pt-6">
-                    <h1 className="text-white font-semibold">Or</h1>
-                    <SocialLogin />
-                  </div>
+                  <SocialLogin />
                   <p className="text-center my-6">Already have an account? <Link to={'/signIn'} className="underline font-semibold text-white">Please Login</Link></p>
 
                 </div>

@@ -4,6 +4,8 @@ import { MdAssistantDirection } from "react-icons/md";
 import { FaFileArchive } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import SharedBanner from "../../shared/SharedBanner/SharedBanner";
+import "./Manage.css"
+
 
 const Management = () => {
     return (
@@ -11,14 +13,32 @@ const Management = () => {
             <Helmet>
                 <title>IONE | Management</title>
             </Helmet>
-            <SharedBanner passage="Management" heading="Management"/>
+            <SharedBanner passage="Management" heading="Management" />
             <div className="flex flex-col lg:flex-row justify-between items-center max-w-screen-2xl mx-auto">
-                <div className="ml-10 space-y-10">
+                <div className="ml-10 space-y-6">
                     <h1 className=" text-black pt-20 lg:pt-0  font-bold text-7xl">All solutions
                         <br /> in <span className="text-orange-500 ml-3"> one software</span></h1>
                     <p className="text-gray-500">Task tracking, customer support help desk, and workflow management all <br /> wrapped up into one simple issue tracker your team <br /> and customers will love.</p>
-                    <input type="email" name="" className="p-2 border-orange-500 border-2 rounded-xl shadow-xl " placeholder="Your email" id="" />
-                    <Link to={'/signin'}> <a className="bg-orange-500 py-2 px-3 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</a></Link>
+                    <div className="flex flex-col md:flex-row justify-start gap-3 items-center">
+                        <input type="email" className="px-4 py-2 border-orange-500 border-2 rounded-xl shadow-xl " placeholder="Your email" id="" />
+                        <Link to='/signin'> <button className="cssbuttons-io-button transition">
+                            Get started
+                            <div className="icon py-1.5">
+                                <svg
+                                    height="24"
+                                    width="24"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path
+                                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                        fill="currentColor"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </button> </Link>
+                    </div>
                 </div>
                 <div className="">
                     <img className="w-[600px]" src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/08/Group-2327.png" alt="" />
@@ -80,7 +100,23 @@ const Management = () => {
             <div className="bg-shadow-700 shadow-2xl hover:shadow-orange-500 mb-12 h-[50vh] rounded-tr-full container mx-auto rounded-bl-full  mt-32">
                 <h1 className=" text-center pt-20 lg:text-5xl font-bold">Connect with us. We’re ready to <br /> talk about opportunities</h1>
                 <div className="flex justify-center space-y-4 mt-4">
-                    <Link to={'/signIn'}  className="bg-orange-500 py-2 px-3 lg:mt-4 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-orange-900 border-yellow-400 ">Get Started</Link>
+                    <Link to={'/signin'}> <button className="cssbuttons-io-button transition mt-6">
+                        Get started
+                        <div className="icon py-1.5">
+                            <svg
+                                height="24"
+                                width="24"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                                    fill="currentColor"
+                                ></path>
+                            </svg>
+                        </div>
+                    </button> </Link>
                 </div>
             </div>
         </div>

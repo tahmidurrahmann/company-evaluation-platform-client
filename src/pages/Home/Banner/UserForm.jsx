@@ -63,12 +63,10 @@ const UserForm = () => {
     return (
         <div>
             <div className="inset-0 flex items-center justify-center">
-                <button
-                    type="button"
-                    onClick={openModal}
-                    className="bg-[#007cc7] py-2 px-4 rounded text-white font-medium hover:bg-[#007bc7d0]"
-                >
-                    EMPLOYEE
+                <button onClick={openModal} type="button" className="but">
+                    <div className="but-top font-medium">EMPLOYEE</div>
+                    <div className="but-bottom"></div>
+                    <div className="but-base"></div>
                 </button>
             </div>
 
@@ -123,7 +121,11 @@ const UserForm = () => {
                                             <p className="text-red-600 text-left pt-1">Photo is required</p>
                                         )}
                                         <br />
-                                        <button>Submit</button>
+                                        <button type="submit" className="but">
+                                            <div className="but-top font-medium">Submit</div>
+                                            <div className="but-bottom"></div>
+                                            <div className="but-base"></div>
+                                        </button>
                                     </form>
                                     <div className="mt-4">
                                         <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
