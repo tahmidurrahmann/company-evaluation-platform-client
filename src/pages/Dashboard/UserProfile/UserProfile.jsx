@@ -36,7 +36,7 @@ const UserProfile = () => {
                 <div className="App flex justify-center items-center pt-12">
                     <PopupButton
                         url="https://calendly.com/tahmidurrahman/30min"
-
+                        className="bg-[#007cc7] py-3 px-6 rounded-s-lg rounded-t-sm transition hover:scale-105 text-white font-medium"
                         rootElement={document.getElementById("root")}
                         text="Click here to schedule!"
                     />

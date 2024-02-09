@@ -67,7 +67,7 @@ const AllEmploye = () => {
         return <Loading />;
     }
 
-    const handeltaskPost = async (e) => {
+    const handleTaskPost = async (e) => {
         e.preventDefault();
         try {
             const res = await axiosSecure.post('/imployeeTasks', postTask);
@@ -110,8 +110,8 @@ const AllEmploye = () => {
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} >
-                                    <button onClick={() => document.getElementById('my_modal_3').showModal()}>
-                                        <span>+</span> add task
+                                    <button className="bg-[#007cc7] py-2 px-4 rounded-lg text-white transition hover:scale-105" onClick={() => document.getElementById('my_modal_3').showModal()}>
+                                        <span>+</span> Add task
                                     </button>
                                 </td>
                                 {time.map((elementss, index) => (
@@ -134,25 +134,23 @@ const AllEmploye = () => {
                         <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="bg-neutral text-white font-bold absolute right-3 px-7 py-2">✕</button>
+                                <button className="bg-red-700 text-white font-bold absolute right-3 px-7 py-2 transition hover:scale-105">✕</button>
                             </form>
                             <div className="mt-20">
-
                                 <form onChange={handleSubmit(onSubmit)}>
-
                                     <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
 
                                         <div className="col-span-1 p-2">
-                                            <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" />
+                                            <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" required/>
                                         </div>
                                         <div className="col-span-1 flex gap-5 p-2">
-                                            <select {...register("audience")} className="select select-info w-full">
+                                            <select required {...register("audience")} className="select select-info w-full">
                                                 <option>Audience</option>
                                                 <option value='primium'>primium</option>
                                                 <option value='busness'>busness</option>
                                                 <option value='Other'>Other</option>
                                             </select>
-                                            <select {...register("tags")} className="select select-info w-full">
+                                            <select required {...register("tags")} className="select select-info w-full">
                                                 <option>Tags</option>
                                                 <option value='lowProirity'>low priority</option>
                                                 <option value='highPriority'>high priority</option>
@@ -160,14 +158,14 @@ const AllEmploye = () => {
                                             </select>
                                         </div>
                                         <div className="col-span-1 flex gap-5 p-2">
-                                            <select {...register("channel")} placeholder="Chanel" className="select select-info w-full">
+                                            <select required {...register("channel")} placeholder="Chanel" className="select select-info w-full">
                                                 <option>Channel</option>
                                                 <option value='social'>social</option>
                                                 <option value='blog'>blog</option>
                                                 <option value='press'>press</option>
                                                 <option value='other'>other</option>
                                             </select>
-                                            <select {...register("effort")} placeholder="Effort" className="select select-info w-full">
+                                            <select required {...register("effort")} placeholder="Effort" className="select select-info w-full">
                                                 <option>Effort</option>
                                                 <option value='low'>low</option>
                                                 <option value='medium'>medium</option>
@@ -175,17 +173,13 @@ const AllEmploye = () => {
                                             </select>
                                         </div>
                                         <div className="col-span-1 p-2">
-                                            <textarea type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
+                                            <textarea required type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
                                         </div>
                                     </div>
                                     <div className="flex justify-center items-center">
-                                        <button onClick={handeltaskPost} className="btn btn-neutral mt-5">Give His Task</button>
+                                        <button onClick={handleTaskPost} className="py-3 px-6 rounded-lg text-white font-medium bg-[#007cc7] mt-5 transition hover:scale-105">Add Task</button>
                                     </div>
-
-
                                 </form>
-
-
                             </div>
                         </div>
                     </dialog>
