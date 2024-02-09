@@ -10,6 +10,7 @@ import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
 import { MdOutlineContacts } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
+import { BiLogOut } from "react-icons/bi";
 import useAuth from "../../hooks/useAuth";
 import { MdOutlineDashboard } from "react-icons/md";
 
@@ -158,7 +159,7 @@ const NavBar = () => {
                       >
                         <h4 className="text-neutral-600 font-bold px-2.5 py-1 flex items-center gap-1"><FaRegUser />{user?.displayName}</h4>
                         <Link className="w-full hover:bg-[#eee8e8] mb-1" to="/dashboard"><button className="text-center text-lg px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
-                        <button onClick={handleLogeOut} className="Btnuu">
+                       <button onClick={handleLogeOut} className="Btnuu">
                           <div className="sign">
                             <svg viewBox="0 0 512 512">
                               <path
