@@ -1,6 +1,7 @@
 import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import { FaUserCheck } from "react-icons/fa";
 import { TbArrowRotaryLeft } from "react-icons/tb";
+import "./Global.css"
 
 const GlobalCollection = () => {
   return (
@@ -12,7 +13,14 @@ const GlobalCollection = () => {
         <div className="">
           <p className="mt-6 pb-6">Our mission is to empower organizations with the tools they need to thrive in a dynamic<br /> business landscape. Through cutting-edge evaluation methods and a commitment to excellence,<br /> we aim to foster innovation, elevate performance, and drive success for our clients.</p>
           <div>
-            <button className="px-8  mb-20" onClick={() => document.getElementById('my_modal_1').showModal()}>SEE more</button>
+            <button onClick={() => document.getElementById('my_modal_1').showModal()} className="mb-16 relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded-md bg-sky-800 p-2 flex justify-center items-center font-extrabold">
+              <div className="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-900 delay-150 group-hover:delay-75"></div>
+              <div className="absolute z-10 w-40 h-40 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-800 delay-150 group-hover:delay-100"></div>
+              <div className="absolute z-10 w-32 h-32 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-700 delay-150 group-hover:delay-150"></div>
+              <div className="absolute z-10 w-24 h-24 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-600 delay-150 group-hover:delay-200"></div>
+              <div className="absolute z-10 w-16 h-16 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-500 delay-150 group-hover:delay-300"></div>
+              <p className="z-10">Discover More</p>
+            </button>
 
             {/* animation button  */}
 
@@ -25,17 +33,18 @@ const GlobalCollection = () => {
               {/* animation button  close*/}
             </div>
             <dialog id="my_modal_1" className="modal">
-              <div className="modal-box bg-blue-100 font-bold space-y-3">
+              <div className="modal-box font-bold space-y-3">
                 <div className="flex justify-between">
-                  <FaUserCheck className="text-4xl text-orange-500 " />
-                  <TbArrowRotaryLeft className="text-4xl text-orange-500 " />
+                  <FaUserCheck className="text-4xl text-[#007cc7]" />
+                  <TbArrowRotaryLeft className="text-4xl text-[#007cc7]" />
                 </div>
-                <p className="text-2xl text-blue-500 font-bold text-center">More Info</p>
-                <p className="">At IONE, we are dedicated to revolutionizing the way businesses evaluate and evolve. Our platform serves as a catalyst for progress, providing comprehensive solutions for performance assessment and continuous improvement. </p>
-                <p>Discover a world-class evaluation platform designed to streamline your processes, uncover actionable insights, and propel your organization to new heights. Whether it's employee performance, project outcomes, or strategic initiatives, our platform offers a comprehensive suite of tools to assess, refine, and optimize.</p>
+                <p className="text-2xl text-[#007cc7] font-bold text-center">More Info</p>
+                <p className="font-medium">At IONE, we are dedicated to revolutionizing the way businesses evaluate and evolve. Our platform serves as a catalyst for progress, providing comprehensive solutions for performance assessment and continuous improvement. </p>
+                <p className="font-medium">Discover a world-class evaluation platform designed to streamline your processes, uncover actionable insights, and propel your organization to new heights. Whether it's employee performance, project outcomes, or strategic initiatives, our platform offers a comprehensive suite of tools to assess, refine, and optimize.</p>
                 <div className="modal-action">
                   <form method="dialog">
-                    <button className="text-white">Close</button>
+                    <button className="close"><span className="x text-white pl-4 hover:text-[#e62222]">Close</span><span className="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                    {/* <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button> */}
                   </form>
                 </div>
               </div>

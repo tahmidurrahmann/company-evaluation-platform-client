@@ -39,10 +39,10 @@ const EmployeTeamPearformence = () => {
     }, [axiosPublic, hrRequestCheck,])
     useEffect(() => {
 
-        const myName = task.filter(taskElement => taskElement.name === employeeFilter[employeeIndex].name)
-        const todoFilter = myName.filter(element => element.status === 'todo')
-        const doingFilter = myName.filter(element => element.status === 'doing')
-        const completedFilter = myName.filter(element => element.status === 'completed')
+        const myName = task?.filter(taskElement => taskElement?.name === employeeFilter[employeeIndex].name)
+        const todoFilter = myName?.filter(element => element?.status === 'todo')
+        const doingFilter = myName?.filter(element => element?.status === 'doing')
+        const completedFilter = myName?.filter(element => element?.status === 'completed')
         setTodoTasks(todoFilter);
         setDoingTasks(doingFilter);
         setCompletedTasks(completedFilter);
