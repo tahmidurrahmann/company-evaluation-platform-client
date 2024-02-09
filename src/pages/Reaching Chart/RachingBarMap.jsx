@@ -4,8 +4,8 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import RaachingHome from "./RaachingHome";
 
 const RachingBarMap = () => {
-    const [completedTaskpers, setCompletedTaskpers] = useState(0)
     const axiosPublic = useAxiosPublic();
+    const [completedTaskpers, setCompletedTaskpers] = useState(0)
     const [filterHr, setFilterHr] = useState([])
    
     console.log(completedTaskpers);
@@ -14,9 +14,6 @@ const RachingBarMap = () => {
             .get("/imployeeTasks")
             .then((res) => {
                 const completedFilter = res?.data?.filter(element => element.status === 'completed')
-                // const persent = (completedFilter.length / taskFilter.length) * 100
-
-                // console.log(taskFilter);
                 setCompletedTaskpers(completedFilter)
             })
             .catch((error) => {
