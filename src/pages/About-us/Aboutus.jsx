@@ -13,7 +13,6 @@ const AboutUs = () => {
       <Helmet>
         <title>IONE | About Us</title>
       </Helmet>
-     
       <ContactAbout />
       <About_otherss />
       <About_valus/>

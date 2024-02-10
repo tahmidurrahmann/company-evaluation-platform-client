@@ -25,20 +25,40 @@ const SingleCompanyDetails = () => {
     return (
         <div>
             <SharedHeading heading="Company Details" />
-            <h1>HR Details</h1>
-            <h1>{companyData?.company}</h1>
-            <h2>{companyData?.name}</h2>
-            <img className="h-12 w-12 rounded-full" src={companyData?.imageURL} alt="" />
-            <div className="py-16">
-                <SharedHeading heading="HR under Employee Details" />
-                {
-                    specificEmployee?.map(em => <div key={em?._id}>
-                        <div className="border rounded-lg m-2">
-                            <p>{em?.name}</p>
-                            <p>{em?.email}</p>
-                        </div>
-                    </div>)
-                }
+            <div className="card w-64 bg-base-100 shadow-xl image-full m-12">
+                <figure><img src={companyData?.imageURL} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title text-white">{companyData?.name}</h2>
+                    <p className="text-white">{companyData?.company}</p>
+                </div>
+            </div>
+            <div>
+                <SharedHeading heading="Employee Details" />
+                <div className="overflow-x-auto p-12">
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                specificEmployee?.map((employee, index) => 
+                                    <tr key={employee?._id}>
+                                        <th>{index + 1}</th>
+                                        <th><img className="h-12 w-12 rounded-full" src={employee?.imageURL} alt="" /></th>
+                                        <td>{employee?.name}</td>
+                                        <td>{employee?.email}</td>
+                                        <td>{employee?.company}</td>
+                                    </tr>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import Footer from "./shared/Footer/Footer";
 
 function App() {
   return (
-    <div className="font-inter ">
+    <div className="font-raleway">
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>

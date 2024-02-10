@@ -10,8 +10,7 @@ import { FaRegUser } from "react-icons/fa";
 import useUsers from '../../../hooks/useUsers';
 import useEmployee from '../../../hooks/useEmployee';
 import { useEffect, useState } from 'react';
-import Meets from '../../Meet/Meets';
-
+import useAxiosPublic from '../../../hooks/useAxiosPublic';
 
 const HrProfile = () => {
 
@@ -19,15 +18,32 @@ const HrProfile = () => {
     const [allUsers, isUser] = useUsers();
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employee, setEmployee] = useState([]);
-
-   
+    const axiosPublic = useAxiosPublic();
+    const [task, setTask] = useState([]);
+    const [completedTaskpers, setCompletedTaskpers] = useState(0)
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
             const allEmployee = employeeAgreements?.filter(agreement => agreement?.status === "checked");
-            setEmployee(allEmployee);
+            const taskFilter = allEmployee?.filter(element => element?.company === hrRequestCheck?.company)
+            setEmployee(taskFilter);
         }
-    }, [employeeAgreements])
+    }, [employeeAgreements, hrRequestCheck?.company])
+    useEffect(() => {
+        axiosPublic
+            .get("/imployeeTasks")
+            .then((res) => {
+                const taskFilter = res?.data?.filter(element => element?.company === hrRequestCheck?.company)
+                const completedFilter = taskFilter?.filter(element => element?.status === 'completed')
+                const persent = (completedFilter?.length / taskFilter?.length) *100
+                console.log(persent);
+                setCompletedTaskpers(persent)
+                setTask(taskFilter)
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [axiosPublic, hrRequestCheck,])
 
     if (isHr || isUser || isEmployee) {
         return <Loading />
@@ -105,7 +121,7 @@ const HrProfile = () => {
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
                             <div className='text-white'>
 
-                                <CountUp start={0} end={100}>
+                                <CountUp start={0} end={task.length}>
                                 </CountUp>
                             </div>
                         </span>
@@ -120,7 +136,7 @@ const HrProfile = () => {
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
                             <div className='flex gap-3 text-white'>
 
-                                <CountUp start={0} end={1000}>
+                                <CountUp start={0} end={completedTaskpers}>
                                 </CountUp> %
                             </div>
                         </span>
