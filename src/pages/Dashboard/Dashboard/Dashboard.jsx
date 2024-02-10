@@ -223,7 +223,7 @@ function Dashboard(props) {
 
     return (
 
-       <div className='bg-black  '>
+       <div className='  '>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar
