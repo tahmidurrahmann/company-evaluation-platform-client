@@ -17,9 +17,8 @@ import useEmployee from "../../../hooks/useEmployee";
 
 const EmployeTeamPearformence = () => {
     const [todoTasks, setTodoTasks] = useState([]);
-    // const [taskShow, setTaskShow] = useState([]);
     const [task, setTask] = useState([]);
-    const [doingTasks, setDoingTasks] = useState([]);
+    const [taskShow, setTaskShow] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
     const axiosPublic = useAxiosPublic();
     const [hrRequestCheck] = useHrRequestCheckedOrNot();
@@ -36,36 +35,26 @@ const EmployeTeamPearformence = () => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [axiosPublic, hrRequestCheck,])
-    useEffect(() => {
 
+    }, [axiosPublic, hrRequestCheck])
+
+    useEffect(() => {
         const myName = task?.filter(taskElement => taskElement?.name === employeeFilter[employeeIndex].name)
         const todoFilter = myName?.filter(element => element?.status === 'todo')
         const doingFilter = myName?.filter(element => element?.status === 'doing')
         const completedFilter = myName?.filter(element => element?.status === 'completed')
         setTodoTasks(todoFilter);
-        setDoingTasks(doingFilter);
         setCompletedTasks(completedFilter);
+        const taskShow = employeeFilter.map(element => ({
+            name: element.name,
+            TodoTask: `${todoFilter.length}`,
+            DoingTask: `${doingFilter.length}`,
+            CompleatedTask: `${completedFilter.length}`
+        }));
+        setTaskShow(taskShow)
+    }, [completedTasks.length, todoTasks.length, task, employeeFilter, employeeIndex])
 
-
-    }, [completedTasks.length, todoTasks.length, doingTasks.length, task, employeeFilter, employeeIndex]);
-
-    // const taskShow = employeeFilter.map(element => ({
-    //     name: element.name,
-    //     TodoTask: `${todoTasks.length}`,
-    //     DoingTask: `${doingTasks.length}`,
-    //     CompleatedTask: `${completedTasks.length}`
-    // }));
-    const taskShow = [
-        {
-            name: 'Name',
-            TodoTask: `${todoTasks.length}`,
-            DoingTask: `${doingTasks.length}`,
-            CompleatedTask: `${completedTasks.length}`
-        }
-    ];
-
-    console.log(employeeIndex)
+    console.log(taskShow)
     const handelemployeeindex = index => {
         setEmployeeIndex(index)
         console.log(index)
@@ -94,7 +83,6 @@ const EmployeTeamPearformence = () => {
                     </div>
                 </div>
             </nav>
-
             <div className="bg-gray-100 p-4">
                 <div className="flex justify-between mx-10 gap-5">
                     <div className="flex justify-center items-center text-center w-1/2 py-6 rounded-lg shadow-md space-x-3 bg-white">
@@ -117,7 +105,6 @@ const EmployeTeamPearformence = () => {
                     </div>
                 </div>
             </div>
-
             <div className="bg-gray-100 p-4 space-y-6 w-full">
                 <h1 className="font-sans text-2xl font-bold">Performance Survey</h1>
                 <BarChart
