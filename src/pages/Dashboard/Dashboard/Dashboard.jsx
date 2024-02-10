@@ -49,14 +49,14 @@ function Dashboard(props) {
     const drawer = (
 
 
-        <div className='flex flex-col items-center bg-gradient-to-r from-gray-50 via-white to-gray-200 bg-base-100 gap-4 h-full pt-6'>
+        <div className='flex flex-col items-center bg-gradient-to-r  bg-black gap-4 h-full pt-6'>
 
             <div className="avatar placeholder">
                 <div className="bg-neutral text-neutral-content rounded-full w-24">
                     <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
                 </div>
             </div>
-            <h1 className='font-bold'>{user?.displayName}</h1>
+            <h1 className='font-bold text-white'>{user?.displayName}</h1>
 
             <div className="flex justify-center">
                 <hr className="border-1  border-gray-300 w-60" />
@@ -68,7 +68,7 @@ function Dashboard(props) {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
                 }
             >
-                <div className='flex items-center gap-2'><FaUser />Employee Profile</div>
+                <div className='flex items-center gap-2 '><FaUser />Employee Profile</div>
             </NavLink>}
 
             {user?.email && !isAdmin && !isHr && <NavLink
@@ -86,7 +86,7 @@ function Dashboard(props) {
                     <NavLink
                         to="/dashboard/hrProfile"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-neutral-400"
+                            isPending ? "pending" : isActive ? "font-semibold md:text-lg text-[#007cc7] bg-gray-100 py-2 w-3/4 rounded-lg border-l-4 border-l-[#007cc7] flex justify-center" : "font-semibold md:text-lg hover:text-neutral-900 text-white"
                         }
                     >
                         <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
@@ -174,6 +174,8 @@ function Dashboard(props) {
 
                 <div className='flex items-center gap-2'><IoHomeOutline /> Home</div>
             </NavLink>
+            
+        
         </div>
     );
 
@@ -181,75 +183,77 @@ function Dashboard(props) {
 
     return (
 
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                    backgroundColor: "#fff"
-                }}
-            >
-                <Toolbar>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' }, color: "#000" }}
+       <div >
+            <Box sx={{ display: 'flex' }}>
+                <CssBaseline />
+                <AppBar
+                    position="fixed"
+                    sx={{
+                        width: { sm: `calc(100% - ${drawerWidth}px)` },
+                        ml: { sm: `${drawerWidth}px` },
+                        backgroundColor: "#000000"
+                    }}
+                >
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, display: { sm: 'none' }, color: "#000" }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <div className="flex gap-1">
+                            <img
+                                className="w-[30px] md:w-[40px]"
+                                src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
+                                alt=""
+                            />
+                            <h1 className="text-2xl md:text-4xl font-semibold ">iONE</h1>
+                        </div>
+                    </Toolbar>
+                </AppBar>
+                <Box
+                    component="nav"
+                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                    aria-label="mailbox folders"
+                >
+                    <Drawer
+                        container={container}
+                        variant="temporary"
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true,
+                        }}
+                        sx={{
+                            display: { xs: 'block', sm: 'none' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        }}
                     >
-                        <MenuIcon />
-                    </IconButton>
-                    <div className="flex gap-1">
-                        <img
-                            className="w-[30px] md:w-[40px]"
-                            src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
-                            alt=""
-                        />
-                        <h1 className="text-2xl md:text-4xl font-semibold text-black">iONE</h1>
-                    </div>
-                </Toolbar>
-            </AppBar>
-            <Box
-                component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-                aria-label="mailbox folders"
-            >
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true,
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
+                        {drawer}
+                    </Drawer>
+                    <Drawer
+                        variant="permanent"
+                        sx={{
+                            display: { xs: 'none', sm: 'block' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        }}
+                        open
+                    >
+                        {drawer}
+                    </Drawer>
+                </Box>
+                <Box
+                    component="main"
+                    sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
                 >
-                    {drawer}
-                </Drawer>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    {drawer}
-                </Drawer>
+                    <Toolbar />
+                    <Outlet></Outlet>
+                </Box>
             </Box>
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-            >
-                <Toolbar />
-                <Outlet></Outlet>
-            </Box>
-        </Box>
+       </div>
     );
 }
 

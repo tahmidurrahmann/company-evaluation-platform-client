@@ -37,7 +37,7 @@ const HrProfile = () => {
 
     return (
         <>
-            <section className='mt-10'>
+            <section className='mt-10 bg-black rounded-xl animate-bounce ease-out duration-1000 text-white shadow-2xl shadow-blue-400'>
                 {
                     hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg border p-6">
                         <div className="avatar">
@@ -45,7 +45,7 @@ const HrProfile = () => {
                                 <img referrerPolicy="no-referrer" src={hrRequestCheck?.imageURL} />
                             </div>
                         </div>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col  gap-2">
                             <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{hrRequestCheck?.name}</h1>
                             <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {hrRequestCheck?.company}</h1>
                             <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hrRequestCheck?.email}</h2>
@@ -53,7 +53,7 @@ const HrProfile = () => {
                     </div> : <div>Please Apply For HR</div>
                 }
             </section>
-            <div className="App flex justify-center items-center py-6">
+            <div className="App flex justify-center  items-center py-6 ">
                 <PopupButton
                     url="https://calendly.com/tahmidurrahman/30min"
 

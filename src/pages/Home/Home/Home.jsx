@@ -8,7 +8,7 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <Helmet>
                 <title>IONE | Home</title>
             </Helmet>
