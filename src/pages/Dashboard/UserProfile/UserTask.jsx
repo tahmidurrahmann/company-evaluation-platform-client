@@ -123,17 +123,14 @@ const UserTask = () => {
                                         <dialog id="my_modal_3" className="modal">
                                             <div className="modal-box">
                                                 <form method="dialog">
-
-                                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                                                    <button className="bg-red-700 rounded-full text-white px-2 py-1 absolute right-2 top-2 transition hover:scale-105">✕</button>
                                                 </form>
-
-                                                <div className="flex justify-between">
+                                                <div className="flex justify-between mt-6">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
 
                                                 </div>
                                                 <h3 className="">{item?.additem}</h3>
-
                                             </div>
                                         </dialog>
                                     </div>

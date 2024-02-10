@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+import HrSendMeet from '../Dashboard/Hr/HrSendMeet';
+
 
 function randomID(len) {
     let result = '';
@@ -52,12 +54,35 @@ const Meets = () => {
     };
 
     return (
-        <div
-            className="myCallContainer "
-            ref={myMeeting}
-            style={{ width: '80vw', height: '90vh' }}
-        ></div>
-    );
+
+
+        <>
+        <div>
+            <div
+                className="myCallContainer "
+                ref={myMeeting}
+                style={{ width: '100%', height: '100vh' }}
+            ></div>
+
+            {/* meet end here  */}
+            <div>
+                <h1 className='text-5xl text-center font-bold text-black mt-5 mb-12 italic'>feel free Share the link with your<span className='text-blue-400'> employees</span></h1>
+
+
+
+                    <HrSendMeet />
+                </div>
+            </div>
+
+            <div
+                className="myCallContainer "
+                ref={myMeeting}
+                style={{ width: '80vw', height: '90vh' }}
+            ></div>
+
+        </>
+
+    )
 };
 
 export default Meets;

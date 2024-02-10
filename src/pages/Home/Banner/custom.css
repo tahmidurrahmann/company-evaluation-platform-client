@@ -1,69 +1,130 @@
 .inputContainer {
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .customInput {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #000;
-    outline: none;
-    transition: border-color 0.3s ease;
-    color: #000;
-  }
-  
-  .inputLabel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    padding: 5px;
-    font-size: 16px;
-    color: #000;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .customInput:focus + .inputLabel,
-  .customInput:not(:placeholder-shown) + .inputLabel {
-    transform: translateY(-100%) translateX(-5px) scale(0.8);
-  }
-  
-  .inputUnderline {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-  }
+  position: relative;
+  margin-bottom: 20px;
+}
 
+.customInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: #000;
+}
 
-  button {
-    border-radius: .25rem;
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: 400;
-    padding-left: 25px;
-    padding-right: 25px;
-    color: #fff;
-    -webkit-clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
-    clip-path: polygon(0 0,0 0,100% 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,15px 100%,0 100%);
-    height: 40px;
-    font-size: 0.7rem;
-    line-height: 14px;
-    letter-spacing: 1.2px;
-    transition: .2s .1s;
-    background-image: linear-gradient(90deg,#0170b5ae,#007cc7);
-    border: 0 solid;
-    overflow: hidden;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    transition: all .3s ease-in;
-    padding-right: 30px;
-    padding-left: 30px;
-  }
+.inputLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  padding: 5px;
+  font-size: 16px;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.customInput:focus+.inputLabel,
+.customInput:not(:placeholder-shown)+.inputLabel {
+  transform: translateY(-100%) translateX(-5px) scale(0.8);
+}
+
+.inputUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+}
+
+.but {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px 12px;
+  min-width: 8em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.but-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 0;
+  padding: 8px 16px;
+  transform: translateY(0);
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, .25);
+  transition-property: transform;
+  transition-duration: .2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.but:active .but-top {
+  transform: translateY(6px);
+}
+
+.but-top::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  background-image: radial-gradient(#007cc7);
+  text-align: center;
+  color: #fff;
+  box-shadow: inset 0 0 0px 1px #007cc7, 0 1px 2px 1px #007cc7;
+  transition-property: border-radius, padding, width, transform;
+  transition-duration: .2s;
+}
+
+.but:active .but-top::after {
+  border-radius: 6px;
+  padding: 0 2px;
+}
+
+.but-bottom {
+  position: absolute;
+  z-index: -1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 8px / 16px 16px 8px 8px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  box-sizing: content-box;
+  background-color: #007cc7;
+  background-image: radial-gradient(4px 8px at 4px calc(100% - 8px), #007cc7, transparent), radial-gradient(4px 8px at calc(100% - 4px) calc(100% - 8px), #007cc7, transparent), radial-gradient(16px at -4px 0, white, transparent), radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5), inset 0 -1px 3px 3px rgba(0, 0, 0, .4);
+  transition-property: border-radius, padding-top;
+  transition-duration: .2s;
+}
+
+.but:active .but-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.but-base {
+  position: absolute;
+  z-index: -2;
+  top: 4px;
+  left: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, .75), inset 0 2px 2px rgba(0, 0, 0, .25);
+}
