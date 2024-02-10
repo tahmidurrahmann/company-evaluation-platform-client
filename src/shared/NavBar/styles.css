@@ -102,7 +102,7 @@ body {
   overflow: hidden;
   transition-duration: 0.3s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background-color: #007cc7;
+  background-color: #007bc7c7;
 }
 
 /* plus sign */
@@ -129,8 +129,6 @@ body {
   right: 0%;
   width: 0%;
   opacity: 0;
-  font-size: 1.2em;
-  font-weight: 600;
   transition-duration: 0.3s;
 }
 
@@ -175,7 +173,7 @@ body {
   overflow: hidden;
   transition-duration: 0.3s;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background-color: #c70000;
+  background-color: #c70000c7;
 }
 
 /* hover effect on button width */

@@ -10,7 +10,6 @@ import Management from "../pages/Management/Management";
 import SignIn from "../shared/SignIn/SignIn";
 import SignUp from "../shared/SignUp/SignUp";
 import PrivateRoute from "../Provider/PrivateRoute";
-import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
@@ -26,6 +25,7 @@ import CompanyInfo from "../pages/Dashboard/Admin/CompanyInfo";
 import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails";
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
+import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 
 
 
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
       {
         path: "singleCompanyDetails/:id",
         element: <SingleCompanyDetails />,
-        loader: ({ params }) => fetch(`https://company-evaluation-platform-server.vercel.app/hrAndUsers/${params?.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/hrAndUsers/${params?.id}`)
       },
       {
         path: "linkNotice",
