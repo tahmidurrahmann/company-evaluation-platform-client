@@ -66,54 +66,28 @@ const EmployeTeamPearformence = () => {
         }
     ];
 
-    console.log(employeeIndex)
-    const handelemployeeindex = index => {
-        setEmployeeIndex(index)
-        console.log(index)
-    }
+  
+ 
     return (
         <div className="space-y-6">
-            <nav className="shadow-sm">
-                <div className="navbar bg-green-200 rounded-sm">
-                    <div className="flex-1 ">
-                        <FaBuromobelexperte className="text-2xl text-fuchsia-950 font-bold" />
-                        <a className="btn btn-ghost text-xl">Team Performance</a>
-                    </div>
-                    <div className="flex-none gap-2">
-                        <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                                </div>
-                            </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                {
-                                    employeeFilter.map((element, index) => <li onClick={() => handelemployeeindex(index)} key={index}><a>{element.name}</a></li>)
-                                }
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <div className="bg-gray-100 p-4">
+            <div className=" p-4">
                 <div className="flex justify-between mx-10 gap-5">
-                    <div className="flex justify-center items-center text-center w-1/2 py-6 rounded-lg shadow-md space-x-3 bg-white">
+                    <div className="flex justify-center items-center text-center w-1/2 py-6 rounded-lg  space-x-3 bg-black shadow-xl shadow-blue-500">
                         <div>
-                            <MdTaskAlt className="text-6xl text-blue-900" />
+                            <MdTaskAlt className="text-6xl text-white" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">20</h1>
-                            <p className="text-sm text-orange-950 font-semibold">Tasks</p>
+                            <h1 className="text-4xl font-bold text-white">20</h1>
+                            <p className="text-sm  font-semibold text-white">Tasks</p>
                         </div>
                     </div>
-                    <div className="flex justify-center items-center text-center w-1/2 py-6 space-x-3 rounded-lg shadow-md bg-white">
+                    <div className="flex justify-center items-center text-center w-1/2 py-6 space-x-3 rounded-lg shadow-xl bg-black shadow-blue-400">
                         <div>
-                            <MdTaskAlt className="text-6xl text-blue-900" />
+                            <MdTaskAlt className="text-6xl text-white" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">20</h1>
-                            <p className="text-sm text-orange-950 font-semibold">Tasks</p>
+                            <h1 className="text-4xl font-bold text-white">20</h1>
+                            <p className="text-sm font-semibold text-white">Tasks</p>
                         </div>
                     </div>
                 </div>

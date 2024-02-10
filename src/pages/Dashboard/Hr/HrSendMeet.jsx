@@ -63,11 +63,11 @@ const HrSendMeet = () => {
     return (
         <div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto shadow-xl shadow-gray-400">
                 <table className="table">
                     {/* head */}
-                    <thead>
-                        <tr className="bg-gray-200 text-black font-bold ">
+                    <thead className="">
+                        <tr className="bg-gray-200  text-black font-bold ">
                             <th>Image</th>
 
                             <th>Name</th>
@@ -79,7 +79,7 @@ const HrSendMeet = () => {
                     <tbody>
 
                         {
-                            myEmploye.map(item => <tr key={item._id}>
+                            myEmploye.map(item => <tr key={item._id} className="text-white">
 
                                 <td>
                                     <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ const HrSendMeet = () => {
                                     <LuSendHorizonal onClick={() => document.getElementById('my_modal_3').showModal()} className="text-2xl hover:text-blue-500 cursor-pointer" />
                                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                                     <dialog id="my_modal_3" className="modal">
-                                        <div className="modal-box">
+                                        <div className="modal-box bg-black shadow-xl  shadow-gray-500">
                                             <form method="dialog">
                                                 {/* if there is a button in form, it will close the modal */}
                                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
@@ -119,8 +119,8 @@ const HrSendMeet = () => {
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <input type="text" placeholder="Meet Link" name="link" className="input mt-3 input-bordered input-info w-full " />
-                                                <input type="date" name="date" className="textarea mb-3 textarea-info w-full mt-5" placeholder="Date and time"></input>
+                                                <input type="text" placeholder="Meet Link" name="link" className="input text-black mt-3 input-bordered input-info w-full " />
+                                                <input type="date" name="date" className="textarea text-black mb-3 textarea-info w-full mt-5" placeholder="Date and time"></input>
                                                 <Button type="submit" className="w-full  p-5" variant="contained" endIcon={<MdSendToMobile />}>
                                                     Send
                                                 </Button>

@@ -48,7 +48,7 @@ const EmployeTaskes = () => {
             <div className="">
                 <div className="overflow-x-auto">
                     <table className="table ">
-                        <thead className="bg-gray-300 text-black font-bold">
+                        <thead className="bg-gray-300 text-white font-bold">
                             <tr>
                                 <th>Assignee</th>
                                 <th>Task Name</th>
@@ -62,18 +62,10 @@ const EmployeTaskes = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="font-bold">
-                                <td className="py-3 text-xl flex">
-                                    Requirement
-                                    <span className="text-green-800 text-2xl font-bold ">
-                                        {" "}
-                                        ......
-                                    </span>
-                                </td>
-                            </tr>
+                            
 
                             {tasks.map((element, index) => (
-                                <tr className="h-24 border-b-2 border-gray-300" key={index}>
+                                <tr className="h-24 border-b-2 text-white border-gray-300" key={index}>
 
                                     <td className="flex justify-center mt-5  items-center gap-4">
                                         <div className="avatar">
@@ -106,10 +98,10 @@ const EmployeTaskes = () => {
                                     <td>
                                         <h1
                                             className={`${element.tags === "lowProirity"
-                                                ? "border-2 border-black rounded-full text-center hover:bg-blue-400 hover:text-white px-1 text-black"
+                                                ? "border-2 border-black rounded-full text-center bg-blue-400 hover:text-white px-1 text-black"
                                                 : element.tags === "highPriority"
-                                                    ? "border-2 border-black rounded-full text-center hover:bg-orange-300 hover:text-white px-1 text-black"
-                                                    : "border-2 border-black rounded-full text-center hover:bg-gray-200 hover:text-white px-1 text-black"
+                                                    ? "border-2 border-black rounded-full text-center bg-blue-300 hover:text-white px-1 text-black"
+                                                    : "border-2 border-black rounded-full text-center bg-gray-200 hover:text-white px-1 text-black"
                                                 }`}
                                         >
                                             {element.tags}
@@ -130,7 +122,7 @@ const EmployeTaskes = () => {
                                             {element.channel}*
                                         </h1>
                                     </td>
-                                    <td>
+                                    <td className="">
                                         <h1
                                             className={`${element.effort === "medium"
                                                 ? "badge badge-neutral"

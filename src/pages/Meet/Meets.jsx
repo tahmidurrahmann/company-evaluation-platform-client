@@ -65,7 +65,7 @@ const Meets = () => {
 
             {/* meet end here  */}
             <div>
-                <h1 className='text-5xl text-center font-bold text-black mt-5 mb-12 italic'>feel free Share the link with your<span className='text-blue-400'> employees</span></h1>
+                <h1 className='text-5xl text-center font-bold text-white mt-5 mb-12 italic'>feel free Share the link with your<span className='text-blue-400'> employees</span></h1>
             
 
                 <HrSendMeet />

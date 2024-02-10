@@ -37,7 +37,7 @@ const HrProfile = () => {
 
     return (
         <>
-            <section className='mt-10 bg-black rounded-xl animate-bounce ease-out duration-1000 text-white shadow-2xl shadow-blue-400'>
+            <section className='mt-10  rounded-xl animate-bounce ease-out duration-1000  bg-white  shadow-2xl shadow-blue-500'>
                 {
                     hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg border p-6">
                         <div className="avatar">
@@ -63,7 +63,7 @@ const HrProfile = () => {
             </div>
 
             
-            <h1 className='text-center text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
+            <h1 className='text-center text-white text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
             <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20">
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
@@ -71,7 +71,7 @@ const HrProfile = () => {
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
-                            <div>
+                            <div className='text-white'>
                                 <CountUp start={0} end={allUsers?.length}>
                                 </CountUp>
                             </div>
@@ -87,7 +87,7 @@ const HrProfile = () => {
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
-                            <div>
+                            <div className='text-white'>
                                 <CountUp start={0} end={employee?.length}>
                                 </CountUp>
                             </div>
@@ -103,7 +103,7 @@ const HrProfile = () => {
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
-                            <div>
+                            <div className='text-white'>
 
                                 <CountUp start={0} end={100}>
                                 </CountUp>
@@ -118,7 +118,7 @@ const HrProfile = () => {
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
-                            <div className='flex gap-3'>
+                            <div className='flex gap-3 text-white'>
 
                                 <CountUp start={0} end={1000}>
                                 </CountUp> %
