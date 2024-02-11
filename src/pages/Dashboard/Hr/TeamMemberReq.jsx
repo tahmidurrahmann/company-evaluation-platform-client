@@ -77,7 +77,7 @@ const TeamMemberReq = () => {
         <div className="max-w-screen-2xl mx-auto mb-20">
             <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">Employe User Requests</h1>
             <div className="overflow-x-auto">
-                <table className="table table-xs">
+                <table className="table table-xs ml-20 ">
                     <thead className="font-bold  h-12 text-black bg-gray-100 ">
                         <tr className="">
                             <th>Photo</th>
