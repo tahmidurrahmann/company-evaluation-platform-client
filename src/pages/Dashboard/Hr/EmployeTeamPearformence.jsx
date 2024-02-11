@@ -14,6 +14,7 @@ import {
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import useEmployee from "../../../hooks/useEmployee";
+import Loading from "../../../shared/Loading/Loading";
 
 const EmployeTeamPearformence = () => {
     const [todoTasks, setTodoTasks] = useState([]);
@@ -22,8 +23,8 @@ const EmployeTeamPearformence = () => {
     const [doingTasks, setDoingTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
     const axiosPublic = useAxiosPublic();
-    const [hrRequestCheck] = useHrRequestCheckedOrNot();
-    const [employeeAgreements] = useEmployee()
+    const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
+    const [employeeAgreements, isEmployee] = useEmployee()
     const [employeeIndex, setEmployeeIndex] = useState(0)
     const employeeFilter = employeeAgreements.filter(element => element.company === hrRequestCheck.company)
     useEffect(() => {
@@ -49,6 +50,10 @@ const EmployeTeamPearformence = () => {
 
 
     }, [completedTasks.length, todoTasks.length, doingTasks.length, task, employeeFilter, employeeIndex]);
+
+    if(isHr || isEmployee){
+        return <Loading />
+    }
 
     // const taskShow = employeeFilter.map(element => ({
     //     name: element.name,

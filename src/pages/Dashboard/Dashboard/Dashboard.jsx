@@ -197,42 +197,12 @@ const Dashboard = () => {
     </div>
 
     return (
-        <div style={{
-            backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"}} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
-            <div className="lg:w-[250px]">
-                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-black border-r p-6'>
-                    <div>{navItems}</div>
-                </div>
+        <div className='grid grid-cols-1 md:grid-cols-8 xl:grid-cols-12'>
+            <div className='md:col-span-2 xl:col-span-3 bg-black min-h-screen'>
+                {navItems}
             </div>
-            <div className='fixed z-10 bottom-12 left-4'>
-                <div
-                    className="flex lg:hidden"
-                    type="button"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    <div className='bg-gray-300 p-2 rounded-lg'>
-                        <GiHamburgerMenu className='text-3xl text-white' />
-                    </div>
-                </div>
-            </div>
-            <Drawer
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
-                position="left"
-            >
-                <div className="demo-content w-screen">
-                    <span
-                        type="button"
-                        className="hover:scale-105 hover:bg-gray-400 rounded-lg"
-                        onClick={() => setIsOpen(false)}
-                    >
-                        <IoMdClose size={30} />
-                    </span>
-                    {navItems}
-                </div>
-            </Drawer>
-            <div className='w-full min-h-screen text-white'>
-                <Outlet></Outlet>
+            <div className='md:col-span-6 xl:col-span-9'>
+                <Outlet />
             </div>
         </div>
     );
