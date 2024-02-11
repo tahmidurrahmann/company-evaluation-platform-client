@@ -1,6 +1,6 @@
 import CountUp from 'react-countup';
-import { FaUsers, FaUserGraduate, FaTasks } from "react-icons/fa";
-import { FaPersonSnowboarding } from "react-icons/fa6";
+import { FaUserGraduate, FaTasks, } from "react-icons/fa";
+import { FaPersonSnowboarding, FaUsersBetweenLines } from "react-icons/fa6";
 import { PopupButton } from 'react-calendly';
 import Loading from '../../../shared/Loading/Loading';
 import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
@@ -35,7 +35,7 @@ const HrProfile = () => {
             .then((res) => {
                 const taskFilter = res?.data?.filter(element => element?.company === hrRequestCheck?.company)
                 const completedFilter = taskFilter?.filter(element => element?.status === 'completed')
-                const persent = (completedFilter?.length / taskFilter?.length) *100
+                const persent = (completedFilter?.length / taskFilter?.length) * 100
                 console.log(persent);
                 setCompletedTaskpers(persent)
                 setTask(taskFilter)
@@ -53,11 +53,11 @@ const HrProfile = () => {
 
     return (
         <>
-            <section className='mt-10  rounded-xl animate-bounce ease-out duration-1000  bg-white  shadow-2xl shadow-blue-500'>
+            <section className='mt-10  rounded-xl  animate-bounce   ml-20  ease-out duration-1000  bg-black   shadow-2xl shadow-blue-500'>
                 {
-                    hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg border p-6">
-                        <div className="avatar">
-                            <div className="w-24 rounded-full">
+                    hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg  border p-6">
+                        <div className="avatar ">
+                            <div className="w-28 ml-16 rounded-full">
                                 <img referrerPolicy="no-referrer" src={hrRequestCheck?.imageURL} />
                             </div>
                         </div>
@@ -70,7 +70,7 @@ const HrProfile = () => {
                 }
             </section>
             <div className="App flex justify-center  items-center py-6 ">
-                <PopupButton
+                <PopupButton className='bg-black text-white p-5 shadow-xl rounded-xl hover:text-blue-400 border-b-2 hover:bg-slate-800 font-bold'
                     url="https://calendly.com/tahmidurrahman/30min"
 
                     rootElement={document.getElementById("root")}
@@ -78,12 +78,12 @@ const HrProfile = () => {
                 />
             </div>
 
-            
+
             <h1 className='text-center text-white text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
             <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20">
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <FaUsers className='text-5xl' />
+                        <FaUsersBetweenLines className='text-5xl bg-black shadow-xl shadow-blue-400' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -99,7 +99,7 @@ const HrProfile = () => {
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
 
-                        <FaUserGraduate className='text-5xl' />
+                        <FaUserGraduate className='text-5xl bg-black shadow-xl shadow-blue-400' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -115,7 +115,7 @@ const HrProfile = () => {
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
 
-                        <FaTasks className='text-5xl' />
+                        <FaTasks className='text-5xl bg-black shadow-xl shadow-blue-400' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
@@ -130,7 +130,7 @@ const HrProfile = () => {
                 </article>
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
-                        <FaPersonSnowboarding className='text-5xl' />
+                        <FaPersonSnowboarding className='text-5xl bg-black shadow-xl shadow-blue-400' />
                     </div>
                     <h2>
                         <span className="flex text-slate-900 text-5xl font-extrabold mb-2">
