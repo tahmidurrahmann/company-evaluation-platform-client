@@ -201,7 +201,7 @@ const Dashboard = () => {
             backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"
         }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
             <div className="lg:w-[300px]">
-                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-black border-r p-6'>
+                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>
                     <div>{navItems}</div>
                 </div>
             </div>
@@ -232,7 +232,7 @@ const Dashboard = () => {
                     {navItems}
                 </div>
             </Drawer>
-            <div className='w-full min-h-screen text-white'>
+            <div className='w-full min-h-screen text-white max-w-screen-xl mx-auto font-raleway'>
                 <Outlet></Outlet>
             </div>
         </div>
