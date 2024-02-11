@@ -86,7 +86,7 @@ const AllEmploye = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ml-20 mr-3">
                 <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
                 <table className="table table-xs ">
                     <thead className="bg-gray-100 text-black h-12">
@@ -106,7 +106,7 @@ const AllEmploye = () => {
                         {myEmploye.map((element, index) => (
                             <tr className="border-blue-300 border-b-2" key={index}>
                                 <th>{index + 1}</th>
-                                <td><img referrerPolicy="no-referrer" className="h-12 w-12 rounded-full" src={element.imageURL} alt="" /></td>
+                                <td><img referrerPolicy="no-referrer" className="h-12 border-2 shadow-blue-600 shadow-xl w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handelinformation(element)} >
@@ -115,7 +115,7 @@ const AllEmploye = () => {
                                     </button>
                                 </td>
                                 {time.map((elementss, index) => (
-                                    <div key={index} className="flex flex-row w-96 justify-between" >
+                                    <div key={index} className="flex flex-row w-96 justify-between " >
                                         <td >
                                             {element.email === elementss.email ? elementss.startTime : ''}
                                         </td>
@@ -131,7 +131,7 @@ const AllEmploye = () => {
                 <div>
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <dialog id="my_modal_3" className="modal ">
-                        <div className="backdrop-blur p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
+                        <div className="backdrop-blur text-black p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="bg-red-700 text-white font-bold absolute right-3 px-7 py-2 transition hover:scale-105">✕</button>

@@ -9,7 +9,7 @@ const AboutUs = () => {
 
 
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>IONE | About Us</title>
       </Helmet>
