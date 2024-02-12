@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useDragAndDrop from "../../../hooks/useDragAndDrop";
 import Loading from "../../../shared/Loading/Loading";
-import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 
 const UserAnalysis = () => {
     const [specificEmployee, isDrag] = useDragAndDrop();
@@ -36,7 +36,7 @@ const UserAnalysis = () => {
     return (
         <div>
             <div className="py-16">
-                <SharedHeading heading="Employee Current Task Analysis" />
+                <SharedHeadingDashboard heading="Employee Current Task Analysis" />
             </div>
             <div>
                 <ResponsiveContainer width="100%" height={500}>

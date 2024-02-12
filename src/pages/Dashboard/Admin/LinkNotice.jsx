@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
 import useMeet from "../../../hooks/useMeet";
 import Loading from "../../../shared/Loading/Loading";
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 
 const LinkNotice = () => {
     const [notice, setNotice] = useState([]);
@@ -27,7 +27,7 @@ const LinkNotice = () => {
                 }
             </div>
             <div className="py-6">
-                <SharedHeading heading="Notices" />
+                <SharedHeadingDashboard heading="Notices" />
             </div>
             <hr />
             <div>

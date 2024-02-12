@@ -19,7 +19,7 @@ import Drawer from '../../../shared/NavBar/Drawer';
 import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
-
+import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 
 const Dashboard = () => {
 
@@ -27,14 +27,17 @@ const Dashboard = () => {
     const [isAdmin, pending] = useAdmin();
     const [isHr, isPending] = useHr();
     const [isOpen, setIsOpen] = useState(false);
+    const [employeeRequestCheck, isEmployee] = useEmployeeProfile();
 
-    if (pending || isPending) {
+    if (pending || isPending || isEmployee) {
         return <Loading />
     }
 
     const handleLogeOut = () => {
         logOut().then().catch();
     };
+
+    console.log(employeeRequestCheck);
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -52,7 +55,7 @@ const Dashboard = () => {
         </div>
         <h1 className='font-semibold text-black lg:text-white'>{user?.displayName}</h1>
         {/* employee Dashboard */}
-        {user?.email && !isAdmin && !isHr &&
+        {user?.email && !isAdmin && !isHr && employeeRequestCheck?.status === "checked" &&
             <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/userProfile"

@@ -53,7 +53,7 @@ const HrProfile = () => {
 
     return (
         <>
-            <section className='mt-10  rounded-xl  animate-bounce   ml-20  ease-out duration-1000  bg-black   shadow-2xl shadow-blue-500'>
+            <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000  bg-black shadow-2xl shadow-blue-500'>
                 {
                     hrRequestCheck?.status === "checked" ? <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg  border p-6">
                         <div className="avatar ">
