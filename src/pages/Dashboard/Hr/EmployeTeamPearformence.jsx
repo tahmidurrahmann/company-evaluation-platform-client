@@ -88,12 +88,12 @@ return (
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <img alt="Tailwind CSS Navbar component" src={hrRequestCheck.imageURL} />
                             </div>
                         </div>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100  rounded-box w-52">
                             {
-                                employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index}><a>{element.name}</a></li>)
+                                employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index} className="hover:underline hover:text-blue-400"><a>{element.name}</a></li>)
                             }
                         </ul>
                     </div>

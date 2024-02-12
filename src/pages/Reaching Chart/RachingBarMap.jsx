@@ -39,7 +39,7 @@ const RachingBarMap = () => {
 
 
     return (
-        <div>
+        <div className="">
             <RaachingHome
                 filterHr={filterHr}
                 completedTaskpers={completedTaskpers}
