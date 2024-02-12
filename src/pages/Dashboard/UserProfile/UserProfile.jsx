@@ -17,15 +17,11 @@ const UserProfile = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000  bg-black shadow-2xl shadow-blue-500'>
+                <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000 bg-black shadow-xl shadow-black'>
                     {employeeRequestCheck?.status === "checked" ?
-                        <div className="flex flex-col md:flex-row items-center shadow-lg animate-bounce transition delay-300 3s shadow-blue-400 gap-4 md:gap-10 rounded-lg border backdrop-blur-3xl ml-20 mr-5 p-6">
-                            <div className="avatar">
-                                <div className="w-24 rounded-full">
-                                    <img referrerPolicy="no-referrer" src={employeeRequestCheck?.imageURL} />
-                                </div>
-                            </div>
-                            <div className="flex flex-col gap-2">
+                        <div className="object-cover  shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row  p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center">
+                            <img src={employeeRequestCheck?.imageURL} alt="Shoes" className='w-40' />
+                            <div>
                                 <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{employeeRequestCheck?.name}</h1>
                                 <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {employeeRequestCheck?.company}</h1>
                                 <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{employeeRequestCheck?.email}</h2>

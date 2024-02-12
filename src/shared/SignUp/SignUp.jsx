@@ -70,7 +70,6 @@ const SignUp = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className=" bg-black h-[100vh] text-center text-neutral-content">
           <div className="w-full mx-auto ">
-
             {/* from control start */}
             <div className="md:w-full h-[100vh]">
               <div className=" flex justify-center  items-center bg-container h-[100vh]">
@@ -88,7 +87,7 @@ const SignUp = () => {
                         <span className="text-white" style={{ transitionDelay: '300ms' }}>m</span>
                         <span className="text-white" style={{ transitionDelay: '350ms' }}>e</span>
                       </label>
-                      {errors.email?.type === "required" && (
+                      {errors.name?.type === "required" && (
                         <p className="text-red-600 text-left pt-1">Name is required</p>
                       )}
                     </div>

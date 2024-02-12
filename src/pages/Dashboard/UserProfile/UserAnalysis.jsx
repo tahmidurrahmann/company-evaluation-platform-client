@@ -37,7 +37,7 @@ const UserAnalysis = () => {
         <div>
             <div className="py-16">
                 <SharedHeadingDashboard heading="Employee Current Task Analysis" />
-                <div className="ml-16 font-bold">
+                <div className="font-bold">
                     <ResponsiveContainer width="100%" height={500}>
                         <LineChart
                             width={500}

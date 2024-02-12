@@ -53,25 +53,23 @@ const HrProfile = () => {
 
     return (
         <>
-            <div className='flex justify-center items-center mt-20 animate-move-down  mb-12 '>
-                {
-                    hrRequestCheck?.status === "checked" ? <div className="card w-96 h-[400px] object-cover  shadow-blue-400 bg-black text-white hover:shadow-blue-500 shadow-xl">
-                        <figure><img src={hrRequestCheck?.imageURL} alt="Shoes" className='' /></figure>
-                        <div className="card-body ">
-                            <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{hrRequestCheck?.name}</h1>
-                            <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {hrRequestCheck?.company}</h1>
-                            <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hrRequestCheck?.email}</h2>
-
+            <div>
+                <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000 bg-black shadow-xl shadow-black'>
+                    {
+                        hrRequestCheck?.status === "checked" ? <div className="object-cover  shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row  p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center">
+                            <img src={hrRequestCheck?.imageURL} alt="Shoes" className='w-40' />
+                            <div>
+                                <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{hrRequestCheck?.name}</h1>
+                                <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {hrRequestCheck?.company}</h1>
+                                <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hrRequestCheck?.email}</h2>
+                            </div>
                         </div>
-                    </div>
-                        : <div>Please Apply For HR</div>
-                }
-
+                            : <div>Please Apply For HR</div>
+                    }
+                </section>
             </div>
-
-
-            <div className="App flex justify-center  items-center py-6 ">
-                <PopupButton className='bg-black text-white p-5 shadow-xl rounded-xl hover:text-blue-400 border-b-2 hover:bg-slate-800 font-bold'
+            <div className="App flex justify-center items-center py-6 ">
+                <PopupButton className='bg-black text-white p-5 shadow-xl rounded-xl hover:text-blue-400 border-b-2 font-bold'
                     url="https://calendly.com/tahmidurrahman/30min"
 
                     rootElement={document.getElementById("root")}
