@@ -17,6 +17,7 @@ import useEmployee from "../../../hooks/useEmployee";
 
 const EmployeTeamPearformence = () => {
     const [todoTasks, setTodoTasks] = useState([]);
+    // const [taskShow, setTaskShow] = useState([]);
     const [task, setTask] = useState([]);
     const [taskShow, setTaskShow] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
@@ -83,6 +84,7 @@ const EmployeTeamPearformence = () => {
                     </div>
                 </div>
             </nav>
+
             <div className="bg-gray-100 p-4">
                 <div className="flex justify-between mx-10 gap-5">
                     <div className="flex justify-center items-center text-center w-1/2 py-6 rounded-lg shadow-md space-x-3 bg-white">
@@ -105,6 +107,7 @@ const EmployeTeamPearformence = () => {
                     </div>
                 </div>
             </div>
+
             <div className="bg-gray-100 p-4 space-y-6 w-full">
                 <h1 className="font-sans text-2xl font-bold">Performance Survey</h1>
                 <BarChart
