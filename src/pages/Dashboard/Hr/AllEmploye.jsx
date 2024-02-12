@@ -166,7 +166,6 @@ const AllEmploye = () => {
                                             <div className="flex-1">
                                                 <label className="text-white" htmlFor="channel">Channel</label>
                                                 <select {...register("channel", { required: true })} placeholder="Channel" className="select select-info w-full">
-                                                    <option disabled selected>Channel</option>
                                                     <option value='Social'>Social</option>
                                                     <option value='Blog'>Blog</option>
                                                     <option value='Press'>Press</option>
@@ -179,7 +178,6 @@ const AllEmploye = () => {
                                             <div className="flex-1">
                                                 <label className="text-white" htmlFor="effort">Effort</label>
                                                 <select {...register("effort", { required: true })} placeholder="Effort" className="select select-info w-full">
-                                                    <option disabled selected>Effort</option>
                                                     <option value='Low'>Low</option>
                                                     <option value='Medium'>Medium</option>
                                                     <option value='High'>High</option>
