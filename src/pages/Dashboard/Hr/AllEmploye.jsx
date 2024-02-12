@@ -80,7 +80,7 @@ const AllEmploye = () => {
             toast.error('something wrong Task is not submited')
         }
     };
-    const handelinformation = (info) => {
+    const handleInformation = (info) => {
         setTargetinfo(info);
     };
 
@@ -97,7 +97,7 @@ const AllEmploye = () => {
                             <th>Company Name</th>
                             <th>Give Task</th>
                             <div className="flex flex-row w-96 mt-3 justify-between">
-                                <th>GTask Start Date</th>
+                                <th>Task Start Date</th>
                                 <th>Task End Date</th>
                             </div>
                         </tr>
@@ -109,7 +109,7 @@ const AllEmploye = () => {
                                 <td><img referrerPolicy="no-referrer" className="h-12 border-2 shadow-blue-600 shadow-xl w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
-                                <td onClick={() => handelinformation(element)} >
+                                <td onClick={() => handleInformation(element)} >
                                     <button className="bg-[#007cc7] py-2 px-4 rounded-lg text-white transition hover:scale-105" onClick={() => document.getElementById('my_modal_3').showModal()}>
                                         <span>+</span> Add task
                                     </button>
@@ -134,46 +134,46 @@ const AllEmploye = () => {
                         <div className="backdrop-blur text-black p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="bg-red-700 text-white font-bold absolute right-3 px-7 py-2 transition hover:scale-105">✕</button>
+                                <button className="bg-red-600 text-white font-bold absolute right-3 px-4 py-2 transition hover:scale-105 rounded-full">✕</button>
                             </form>
-                            <div className="mt-20">
+                            <div className="mt-10">
                                 <form onChange={handleSubmit(onSubmit)}>
-                                    <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
-
+                                    <div className="">
                                         <div className="col-span-1 p-2">
+                                            <label className="text-white" htmlFor="Task Deadline Date & Time">Task Deadline Date & Time</label>
                                             <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" required/>
                                         </div>
                                         <div className="col-span-1 flex gap-5 p-2">
                                             <select required {...register("audience")} className="select select-info w-full">
-                                                <option>Audience</option>
-                                                <option value='primium'>primium</option>
-                                                <option value='busness'>busness</option>
+                                                <option disabled selected>Audience</option>
+                                                <option value='Premium'>Premium</option>
+                                                <option value='Business'>Business</option>
                                                 <option value='Other'>Other</option>
                                             </select>
                                             <select required {...register("tags")} className="select select-info w-full">
-                                                <option>Tags</option>
-                                                <option value='lowProirity'>low priority</option>
-                                                <option value='highPriority'>high priority</option>
-                                                <option value='medPriority'>Med Priority</option>
+                                                <option disabled selected>Tags</option>
+                                                <option value='Lowest Priority'>Lowest Priority</option>
+                                                <option value='Medium Priority'>Medium Priority</option>
+                                                <option value='Highest Priority'>Highest Priority</option>
                                             </select>
                                         </div>
                                         <div className="col-span-1 flex gap-5 p-2">
                                             <select required {...register("channel")} placeholder="Chanel" className="select select-info w-full">
-                                                <option>Channel</option>
-                                                <option value='social'>social</option>
-                                                <option value='blog'>blog</option>
-                                                <option value='press'>press</option>
-                                                <option value='other'>other</option>
+                                                <option disabled selected>Channel</option>
+                                                <option value='Social'>Social</option>
+                                                <option value='Blog'>Blog</option>
+                                                <option value='Press'>Press</option>
+                                                <option value='Other'>Other</option>
                                             </select>
                                             <select required {...register("effort")} placeholder="Effort" className="select select-info w-full">
-                                                <option>Effort</option>
-                                                <option value='low'>low</option>
-                                                <option value='medium'>medium</option>
-                                                <option value='high'>high</option>
+                                                <option disabled selected>Effort</option>
+                                                <option value='Low'>Low</option>
+                                                <option value='Medium'>Medium</option>
+                                                <option value='High'>High</option>
                                             </select>
                                         </div>
-                                        <div className="col-span-1 p-2">
-                                            <textarea required type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
+                                        <div className="p-2">
+                                            <textarea required type="text" placeholder="Overall Task Details" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full" cols="30" rows="5" />
                                         </div>
                                     </div>
                                     <div className="flex justify-center items-center">
