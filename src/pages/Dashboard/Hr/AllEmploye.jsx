@@ -11,19 +11,16 @@ import toast from "react-hot-toast";
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure();
     const axiosPublic = useAxiosPublic();
-    const [data, setData] = useState([]);
     const [targetinfo, setTargetinfo] = useState([]);
-    const [postTask, setPostTask] = useState([]);
     const [employeeAgreements, isEmployee] = useEmployee();
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([]);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (formdata) => {
+    const onSubmit = async (data) => {
         const startTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-        setData(formdata);
-        const additem = data.additem;
+        const addItem = data.addItem;
         const status = 'todo';
         const timeAndLocal = data.timeAndLocal;
         const audience = data.audience;
@@ -35,9 +32,17 @@ const AllEmploye = () => {
         const employImage = targetinfo.imageURL;
         const email = targetinfo.email;
         const company = hrRequestCheck?.company;
-        const giveTaskInfo = { additem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company };
-        setPostTask(giveTaskInfo);
-        console.log(giveTaskInfo);
+        const giveTaskInfo = { addItem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company };
+        try {
+            const res = await axiosSecure.post('/imployeeTasks', giveTaskInfo);
+            if (res.data && res.data.acknowledged) {
+                toast.success('Your Task is Submitted')
+            } else {
+                toast.error('error Task is not Submitted')
+            }
+        } catch (error) {
+            toast.error('something wrong Task is not Submitted')
+        }
     };
 
     const [time, setTime] = useState([]);
@@ -54,7 +59,7 @@ const AllEmploye = () => {
                     console.log(error);
                 });
         }
-    }, [employee, hrRequestCheck?.company, axiosPublic, hrRequestCheck?.status, data]);
+    }, [employee, hrRequestCheck?.company, axiosPublic, hrRequestCheck?.status]);
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
@@ -67,28 +72,15 @@ const AllEmploye = () => {
         return <Loading />;
     }
 
-    const handleTaskPost = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await axiosSecure.post('/imployeeTasks', postTask);
-            if (res.data && res.data.acknowledged) {
-                toast.success('Your Task is Submited')
-            } else {
-                toast.error('error Task is not sumbited')
-            }
-        } catch (error) {
-            toast.error('something wrong Task is not submited')
-        }
-    };
-    const handelinformation = (info) => {
+    const handleInformation = (info) => {
         setTargetinfo(info);
     };
 
     return (
         <div>
-            <div className="overflow-x-auto ml-20 mr-3">
-                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Responce Employe</h1>
-                <table className="table table-xs ">
+            <div className="overflow-x-auto">
+                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">All Response Employe</h1>
+                <table className="table table-xs">
                     <thead className="bg-gray-100 text-black h-12">
                         <tr>
                             <th>No:</th>
@@ -96,8 +88,8 @@ const AllEmploye = () => {
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
-                            <div className="flex flex-row w-96 mt-3 justify-between">
-                                <th>GTask Start Date</th>
+                            <div className="flex flex-row mt-3 justify-evenly">
+                                <th>Task Start Date</th>
                                 <th>Task End Date</th>
                             </div>
                         </tr>
@@ -109,13 +101,13 @@ const AllEmploye = () => {
                                 <td><img referrerPolicy="no-referrer" className="h-12 border-2 shadow-blue-600 shadow-xl w-12 rounded-full" src={element.imageURL} alt="" /></td>
                                 <td>{element.name}</td>
                                 <td>{element?.company}</td>
-                                <td onClick={() => handelinformation(element)} >
+                                <td onClick={() => handleInformation(element)} >
                                     <button className="bg-[#007cc7] py-2 px-4 rounded-lg text-white transition hover:scale-105" onClick={() => document.getElementById('my_modal_3').showModal()}>
                                         <span>+</span> Add task
                                     </button>
                                 </td>
                                 {time.map((elementss, index) => (
-                                    <div key={index} className="flex flex-row w-96 justify-between " >
+                                    <div key={index} className="flex flex-row  justify-evenly" >
                                         <td >
                                             {element.email === elementss.email ? elementss.startTime : ''}
                                         </td>
@@ -131,53 +123,81 @@ const AllEmploye = () => {
                 <div>
                     {/* You can open the modal using document.getElementById('ID').showModal() method */}
                     <dialog id="my_modal_3" className="modal ">
-                        <div className="backdrop-blur text-black p-5 border-2 border-blue-100 rounded-xl h-[550px] max-w-8xl mx-auto ">
+                        <div className="backdrop-blur text-black p-4 md:p-8 mx-2 md:mx-0 border-2 border-blue-100 rounded-xl">
                             <form method="dialog">
                                 {/* if there is a button in form, it will close the modal */}
-                                <button className="bg-red-700 text-white font-bold absolute right-3 px-7 py-2 transition hover:scale-105">✕</button>
+                                <button className="bg-red-500 text-white font-bold absolute right-3 py-1 px-2 transition hover:scale-105 rounded-full">✕</button>
                             </form>
-                            <div className="mt-20">
-                                <form onChange={handleSubmit(onSubmit)}>
-                                    <div className="grid max-w-4xl mx-auto w-[700px] gap-5">
-
-                                        <div className="col-span-1 p-2">
-                                            <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal")} className="input input-bordered input-info w-full" required/>
+                            <div className="mt-10">
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <div>
+                                        <div className="p-2">
+                                            <label className="text-white" htmlFor="Task Deadline Date & Time">Task Deadline Date & Time</label>
+                                            <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal", { required: true })} className="input input-bordered input-info w-full" />
+                                            {errors.timeAndLocal?.type === "required" && (
+                                                <p className="text-red-600 text-left pt-1">Deadline is required</p>
+                                            )}
                                         </div>
-                                        <div className="col-span-1 flex gap-5 p-2">
-                                            <select required {...register("audience")} className="select select-info w-full">
-                                                <option>Audience</option>
-                                                <option value='primium'>primium</option>
-                                                <option value='busness'>busness</option>
-                                                <option value='Other'>Other</option>
-                                            </select>
-                                            <select required {...register("tags")} className="select select-info w-full">
-                                                <option>Tags</option>
-                                                <option value='lowProirity'>low priority</option>
-                                                <option value='highPriority'>high priority</option>
-                                                <option value='medPriority'>Med Priority</option>
-                                            </select>
+                                        <div className="flex items-center justify-center gap-5 p-2">
+                                            <div className="flex-1">
+                                                <label className="text-white" htmlFor="audience">Audience</label>
+                                                <select {...register("audience", { required: true })} className="select select-info w-full">
+                                                    <option value='Premium'>Premium</option>
+                                                    <option value='Business'>Business</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                                                {errors.audience?.type === "required" && (
+                                                    <p className="text-red-600 text-left pt-1">Audience is required</p>
+                                                )}
+                                            </div>
+                                            <div className="flex-1">
+                                                <label className="text-white" htmlFor="tags">Tags</label>
+                                                <select {...register("tags", { required: true })} className="select select-info w-full">
+                                                    <option value='Lowest Priority'>Lowest Priority</option>
+                                                    <option value='Medium Priority'>Medium Priority</option>
+                                                    <option value='Highest Priority'>Highest Priority</option>
+                                                </select>
+                                                {errors.tags?.type === "required" && (
+                                                    <p className="text-red-600 text-left pt-1">Tags is required</p>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div className="col-span-1 flex gap-5 p-2">
-                                            <select required {...register("channel")} placeholder="Chanel" className="select select-info w-full">
-                                                <option>Channel</option>
-                                                <option value='social'>social</option>
-                                                <option value='blog'>blog</option>
-                                                <option value='press'>press</option>
-                                                <option value='other'>other</option>
-                                            </select>
-                                            <select required {...register("effort")} placeholder="Effort" className="select select-info w-full">
-                                                <option>Effort</option>
-                                                <option value='low'>low</option>
-                                                <option value='medium'>medium</option>
-                                                <option value='high'>high</option>
-                                            </select>
+                                        <div className="flex items-center justify-center gap-5 p-2">
+                                            <div className="flex-1">
+                                                <label className="text-white" htmlFor="channel">Channel</label>
+                                                <select {...register("channel", { required: true })} placeholder="Channel" className="select select-info w-full">
+                                                    <option disabled selected>Channel</option>
+                                                    <option value='Social'>Social</option>
+                                                    <option value='Blog'>Blog</option>
+                                                    <option value='Press'>Press</option>
+                                                    <option value='Other'>Other</option>
+                                                </select>
+                                                {errors.channel?.type === "required" && (
+                                                    <p className="text-red-600 text-left pt-1">Channel is required</p>
+                                                )}
+                                            </div>
+                                            <div className="flex-1">
+                                                <label className="text-white" htmlFor="effort">Effort</label>
+                                                <select {...register("effort", { required: true })} placeholder="Effort" className="select select-info w-full">
+                                                    <option disabled selected>Effort</option>
+                                                    <option value='Low'>Low</option>
+                                                    <option value='Medium'>Medium</option>
+                                                    <option value='High'>High</option>
+                                                </select>
+                                                {errors.effort?.type === "required" && (
+                                                    <p className="text-red-600 text-left pt-1">Effort is required</p>
+                                                )}
+                                            </div>
                                         </div>
-                                        <div className="col-span-1 p-2">
-                                            <textarea required type="text" placeholder="Add tasks item" name="additem" id="additem" {...register("additem")} className="textarea textarea-bordered input-info w-full " />
+                                        <div className="p-2">
+                                            <textarea {...register("addItem", { required: true })} type="text" placeholder="Overall Task Details" name="addItem" id="addItem" className="textarea textarea-bordered input-info w-full" cols="30" rows="5" />
+                                            {errors.addItem?.type === "required" && (
+                                                <p className="text-red-600 text-left pt-1">Details is required</p>
+                                            )}
                                         </div>
                                     </div>
                                     <div className="flex justify-center items-center">
-                                        <button onClick={handleTaskPost} className="py-3 px-6 rounded-lg text-white font-medium bg-[#007cc7] mt-5 transition hover:scale-105">Add Task</button>
+                                        <input type="submit" value="Add Task" className="py-3 px-6 rounded-lg text-white font-medium bg-[#007cc7] mt-5 transition hover:scale-105" />
                                     </div>
                                 </form>
                             </div>

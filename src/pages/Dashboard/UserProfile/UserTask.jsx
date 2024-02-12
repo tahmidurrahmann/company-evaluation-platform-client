@@ -49,7 +49,7 @@ const UserTask = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ml-16 mr-2">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mr-2 mt-8 px-4 2xl:px-0">
                 <div>
                     <h1 className="font-bold text-center text-xl">TO DO ({todo.length})</h1>
                     <div className="flex justify-center">
@@ -64,9 +64,9 @@ const UserTask = () => {
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
-                                    
+
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
-                                    
+
                                     <div className="flex justify-between ">
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
                                         <dialog id="my_modal_3" className="modal h-[80vh]">
@@ -84,7 +84,7 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
-                                    
+
                                     <form className="" onSubmit={handleMoveTask}>
                                         <div className="flex gap-3  text-black font-bold ">
                                             <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full  max-w-xs">
