@@ -35,10 +35,10 @@ const UserAnalysis = () => {
 
     return (
         <div>
-            <div className="py-16">
-                <SharedHeading heading="Employee Current Task Analysis" />
+            <div className="py-16 ml-20">
+                <SharedHeading  heading="Employee Current Task Analysis" />
             </div>
-            <div>
+            <div className="ml-16 font-bold">
                 <ResponsiveContainer width="100%" height={500}>
                     <LineChart
                         width={500}
@@ -46,7 +46,7 @@ const UserAnalysis = () => {
                         data={data}
                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                     >
-                        <CartesianGrid strokeDasharray="3 3" />
+                        <CartesianGrid stroke="#FFFFFF" strokeWidth={1} />
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Legend/>

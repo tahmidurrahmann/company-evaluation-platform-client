@@ -49,7 +49,7 @@ const UserTask = () => {
 
     return (
         <div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ml-16 mr-2">
                 <div>
                     <h1 className="font-bold text-center text-xl">TO DO ({todo.length})</h1>
                     <div className="flex justify-center">
@@ -86,9 +86,9 @@ const UserTask = () => {
                                     </div>
                                     
                                     <form className="" onSubmit={handleMoveTask}>
-                                        <div className="flex gap-3 ">
-                                            <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
-                                                <option value="todo">TO DO</option>
+                                        <div className="flex gap-3  text-black font-bold ">
+                                            <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full  max-w-xs">
+                                                <option value="todo ">TO DO</option>
                                                 <option value="doing">DOING</option>
                                                 <option value="completed">COMPLETED</option>
                                             </select>
@@ -106,7 +106,7 @@ const UserTask = () => {
                 <div draggable>
                     <div >
                         <h1 className="font-bold text-center text-xl">DOING ({doing.length})</h1>
-                        <div className="flex justify-center ">
+                        <div className="flex  justify-center ">
                             <hr className="border-2  border-orange-500 w-60" />
                         </div>
                         <div draggable>
@@ -135,7 +135,7 @@ const UserTask = () => {
                                         </dialog>
                                     </div>
                                     <form onSubmit={handleMoveTask}>
-                                        <div className="flex gap-3">
+                                        <div className="flex gap-3 text-black font-bold ">
                                             <select defaultValue="doing" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
                                                 <option value="todo">TO DO</option>
                                                 <option value="doing">DOING</option>
@@ -184,7 +184,7 @@ const UserTask = () => {
 
                                 </div>
                                 <form onSubmit={handleMoveTask}>
-                                    <div className="flex gap-3">
+                                    <div className="flex gap-3 text-black font-bold ">
                                         <select defaultValue="completed" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
                                             <option value="todo">TO DO</option>
                                             <option value="doing">DOING</option>
