@@ -83,7 +83,7 @@ const EmployeTaskes = () => {
                         <tbody>
                             
 
-                            {tasks.map((element, index) => (
+                            {filteredTasks.map((element, index) => (
                                 <tr className="h-24 border-b-2 text-white border-gray-300" key={index}>
 
                                     <td className="flex justify-center mt-5  items-center gap-4">

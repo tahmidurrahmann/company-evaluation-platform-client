@@ -31,33 +31,33 @@ const UserAnalysis = () => {
         { name: 'Completed', percentage: parseFloat(completed.length / specificEmployee.length * 100).toFixed(2) },
     ];
 
-  
+
 
     return (
         <div>
             <div className="py-16">
                 <SharedHeadingDashboard heading="Employee Current Task Analysis" />
-            </div>
-            <div>
-                <ResponsiveContainer width="100%" height={500}>
-                    <LineChart
-                        width={500}
-                        height={300}
-                        data={data}
-                        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Legend/>
-                        <Tooltip formatter={(value) => [`${value}%`, 'Percentage']}
-                            labelStyle={{ color: '#FF0000', fontWeight: 'bold' }}
-                        />
-                        <Line type="monotone" dataKey="percentage" stroke="#FF0000" name="To Do" strokeWidth={2} />
-                        <Line type="monotone" dataKey="percentage" stroke="#82ca9d" name="Doing" strokeWidth={2} />
-                        <Line type="monotone" dataKey="percentage" stroke="#8884d8" name="Completed" strokeWidth={2} />
-                    </LineChart>
-                </ResponsiveContainer>
+                <div className="ml-16 font-bold">
+                    <ResponsiveContainer width="100%" height={500}>
+                        <LineChart
+                            width={500}
+                            height={300}
+                            data={data}
+                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                        >
+                            <CartesianGrid stroke="#FFFFFF" strokeWidth={1} />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <Legend />
+                            <Tooltip formatter={(value) => [`${value}%`, 'Percentage']}
+                                labelStyle={{ color: '#FF0000', fontWeight: 'bold' }}
+                            />
+                            <Line type="monotone" dataKey="percentage" stroke="#FF0000" name="To Do" strokeWidth={2} />
+                            <Line type="monotone" dataKey="percentage" stroke="#82ca9d" name="Doing" strokeWidth={2} />
+                            <Line type="monotone" dataKey="percentage" stroke="#8884d8" name="Completed" strokeWidth={2} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                </div>
             </div>
         </div>
     );

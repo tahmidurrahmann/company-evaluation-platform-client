@@ -19,7 +19,7 @@ const UserProfile = () => {
             <div className="overflow-x-auto">
                 <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000  bg-black shadow-2xl shadow-blue-500'>
                     {employeeRequestCheck?.status === "checked" ?
-                        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10 rounded-lg border p-6">
+                        <div className="flex flex-col md:flex-row items-center shadow-lg animate-bounce transition delay-300 3s shadow-blue-400 gap-4 md:gap-10 rounded-lg border backdrop-blur-3xl ml-20 mr-5 p-6">
                             <div className="avatar">
                                 <div className="w-24 rounded-full">
                                     <img referrerPolicy="no-referrer" src={employeeRequestCheck?.imageURL} />
@@ -36,7 +36,7 @@ const UserProfile = () => {
                 <div className="App flex justify-center items-center pt-12">
                     <PopupButton
                         url="https://calendly.com/tahmidurrahman/30min"
-                        className="bg-[#007cc7] py-3 px-6 rounded-s-lg rounded-t-sm transition hover:scale-105 text-white font-medium"
+                        className="bg-black hover:bg-blue-500 border-b-2  py-3 px-6 rounded-s-lg rounded-t-sm transition hover:scale-105 text-white font-medium"
                         rootElement={document.getElementById("root")}
                         text="Click here to schedule!"
                     />
