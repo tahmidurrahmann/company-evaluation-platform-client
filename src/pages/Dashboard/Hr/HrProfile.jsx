@@ -53,25 +53,21 @@ const HrProfile = () => {
 
     return (
         <>
-            
-
-
             <div className='flex justify-center items-center mt-20 animate-move-down  mb-12 '>
-
                 {
-                    hrRequestCheck?.status === "checked" ? <div className="card  w-96 h-[400px] object-cover  shadow-blue-400 bg-black text-white hover:shadow-blue-500 shadow-xl">
-                        <figure><img src={hrRequestCheck?.imageURL} alt="Shoes"className='' /></figure>
+                    hrRequestCheck?.status === "checked" ? <div className="card w-96 h-[400px] object-cover  shadow-blue-400 bg-black text-white hover:shadow-blue-500 shadow-xl">
+                        <figure><img src={hrRequestCheck?.imageURL} alt="Shoes" className='' /></figure>
                         <div className="card-body ">
                             <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{hrRequestCheck?.name}</h1>
                             <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {hrRequestCheck?.company}</h1>
                             <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hrRequestCheck?.email}</h2>
-                           
+
                         </div>
                     </div>
                         : <div>Please Apply For HR</div>
                 }
-                
-</div>
+
+            </div>
 
 
             <div className="App flex justify-center  items-center py-6 ">

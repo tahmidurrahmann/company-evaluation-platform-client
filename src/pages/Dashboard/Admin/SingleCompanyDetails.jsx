@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
-import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 
 const SingleCompanyDetails = () => {
     const companyData = useLoaderData();
@@ -24,7 +24,7 @@ const SingleCompanyDetails = () => {
 
     return (
         <div>
-            <SharedHeading heading="Company Details" />
+            <SharedHeadingDashboard heading="Company Details" />
             <div className="card w-64 bg-base-100 shadow-xl image-full m-12">
                 <figure><img src={companyData?.imageURL} alt="Shoes" /></figure>
                 <div className="card-body">
@@ -33,11 +33,11 @@ const SingleCompanyDetails = () => {
                 </div>
             </div>
             <div>
-                <SharedHeading heading="Employee Details" />
+                <SharedHeadingDashboard heading="Employee Details" />
                 <div className="overflow-x-auto p-12">
                     <table className="table">
                         <thead>
-                            <tr>
+                            <tr className="text-white">
                                 <th>#</th>
                                 <th>Photo</th>
                                 <th>Name</th>

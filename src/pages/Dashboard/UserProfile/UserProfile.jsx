@@ -17,7 +17,7 @@ const UserProfile = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <section className='mt-10 '>
+                <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000  bg-black shadow-2xl shadow-blue-500'>
                     {employeeRequestCheck?.status === "checked" ?
                         <div className="flex flex-col md:flex-row items-center shadow-lg animate-bounce transition delay-300 3s shadow-blue-400 gap-4 md:gap-10 rounded-lg border backdrop-blur-3xl ml-20 mr-5 p-6">
                             <div className="avatar">
