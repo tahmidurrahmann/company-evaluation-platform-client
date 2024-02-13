@@ -5,6 +5,7 @@ import useEmployee from "../../../hooks/useEmployee";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 const TeamMemberReq = () => {
 
     const [employeeAgreements, isEmployee, refetch] = useEmployee();
@@ -74,12 +75,12 @@ const TeamMemberReq = () => {
 
 
     return (
-        <div className="max-w-screen-2xl mx-auto mb-20">
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center py-6">Employe User Requests</h1>
+        <div className="mb-20">
+                <SharedHeadingDashboard heading="Employe User Requests" />
             <div className="overflow-x-auto">
-                <table className="table table-xs">
-                    <thead className="font-bold  h-12 text-black bg-gray-100 ">
-                        <tr className="">
+                <table className="table table-xs rounded-lg">
+                    <thead className="font-bold text-black bg-gray-100 ">
+                        <tr>
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
@@ -88,9 +89,9 @@ const TeamMemberReq = () => {
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody className="mt-3 border-b-2 border-blue-300">
+                    <tbody className="border-b-2 border-blue-300">
                         {
-                            myEmploye?.map(agreement => <tr className="h-20  border-b-2 border-gray-200" key={agreement?._id}>
+                            myEmploye?.map(agreement => <tr className="h-16 border-b-2 border-gray-200" key={agreement?._id}>
                                 <th ><img referrerPolicy="no-referrer" className="w-8 md:w-16  rounded-full" src={agreement?.imageURL} alt="" /></th>
                                 <td>{agreement?.name}</td>
                                 <td>{agreement?.email}</td>

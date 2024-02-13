@@ -23,9 +23,13 @@ const RaachingHome = ({ filterHr, completedTaskpers }) => {
     console.log(data);
 
     return (
-        <div>
-            <ReachingChart data={data}></ReachingChart>
-        </div>
+       <div className="mt-16">
+        <h1 className="text-5xl font-bold text-center ">Our Top Company Evaluaotion</h1>
+            <div className="">
+                <ReachingChart data={data} ></ReachingChart>
+            </div>
+
+       </div>
     );
 };
 

@@ -59,7 +59,7 @@ const ReachingChart = ({data}) => {
     }, [data, dimensions]);
 
     return (
-        <div ref={wrapperRef} style={{ marginBottom: "2rem", paddingLeft : "6px" }}>
+        <div ref={wrapperRef} style={{ marginBottom: "2rem", paddingLeft : "6px" }} className="font-semibold">
             <svg className="w-full px-10 my-10" ref={svgRef}></svg>
         </div>
     );

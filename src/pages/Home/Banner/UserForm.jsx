@@ -69,7 +69,6 @@ const UserForm = () => {
                     <div className="but-base"></div>
                 </button>
             </div>
-
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child

@@ -1,29 +1,8 @@
-import { useEffect, useState } from "react";
-import useUsers from "../../../hooks/useUsers";
-import Loading from "../../../shared/Loading/Loading";
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-const BarChar = () => {
+const BarChar = ({hrLength, employeeLength}) => {
 
-    const [allUsers, isUser] = useUsers();
-    const [hr, setHr] = useState(null);
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        if (allUsers?.length > 0) {
-            setHr(allUsers?.filter(user => user.role === "hr"));
-            setUser(allUsers?.filter(user => user?.role === "user"));
-        }
-    }, [allUsers])
-
-    if (isUser) {
-        return <Loading />
-    }
-
-    const hrLength = hr?.length;
-    const employeeLength = user?.length;
-
-    const colors = ['#007cc7', '#FF8042'];
+    const colors = ['#FF8042', '#007cc7'];
 
     const data = [
         {
@@ -52,7 +31,7 @@ const BarChar = () => {
     return (
         <div>
             <BarChart
-                width={500}
+                width={400}
                 height={300}
                 data={data}
                 margin={{
