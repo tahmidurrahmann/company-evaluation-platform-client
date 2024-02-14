@@ -14,7 +14,7 @@ const EmployeTaskes = () => {
       .get("/imployeeTasks")
       .then((res) => {
         const taskFilter = res?.data?.filter(
-          (element) => element?.company === hrRequestCheck?.company
+          (element) => element.company === hrRequestCheck.company
         );
         setTasks(taskFilter);
         setFilteredTasks(taskFilter); // Initialize filteredTasks with all tasks
@@ -25,15 +25,16 @@ const EmployeTaskes = () => {
   }, [axiosPublic, hrRequestCheck]);
 
   const handleCompletedStatus = () => {
-    setFilteredTasks(tasks?.filter((task) => task?.status === "completed"));
+    setFilteredTasks(tasks.filter((task) => task.status === "completed"));
   };
   const handleAllTask = () => {
     setFilteredTasks(tasks);
   };
 
   const handleDoingStatus = () => {
-    setFilteredTasks(tasks?.filter((task) => task?.status === "doing"));
+    setFilteredTasks(tasks.filter((task) => task.status === "doing"));
   };
+
 
   console.log(tasks);
   return (
@@ -119,7 +120,6 @@ const EmployeTaskes = () => {
                       {element.tags}
                     </h1>
                   </td>
-
                   <td>
                     <h1
                       className={`${element.channel === "social"
