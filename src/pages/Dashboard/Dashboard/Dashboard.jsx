@@ -19,7 +19,8 @@ import Drawer from '../../../shared/NavBar/Drawer';
 import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
-
+import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
+import { FaAmazonPay } from "react-icons/fa";
 
 const Dashboard = () => {
 
@@ -27,8 +28,9 @@ const Dashboard = () => {
     const [isAdmin, pending] = useAdmin();
     const [isHr, isPending] = useHr();
     const [isOpen, setIsOpen] = useState(false);
+    const [employeeRequestCheck, isEmployee] = useEmployeeProfile();
 
-    if (pending || isPending) {
+    if (pending || isPending || isEmployee) {
         return <Loading />
     }
 
@@ -52,7 +54,7 @@ const Dashboard = () => {
         </div>
         <h1 className='font-semibold text-black lg:text-white'>{user?.displayName}</h1>
         {/* employee Dashboard */}
-        {user?.email && !isAdmin && !isHr &&
+        {user?.email && !isAdmin && !isHr && employeeRequestCheck?.status === "checked" &&
             <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/userProfile"
@@ -112,6 +114,14 @@ const Dashboard = () => {
                 }
             >
                 <div className='flex items-center gap-2'><FaUserGear className='font-bold text-[24px]' />Employee Request</div>
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/payEmployee"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><FaAmazonPay className='font-bold text-[24px]' />Pay Employee</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/meet"

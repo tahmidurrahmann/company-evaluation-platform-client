@@ -93,14 +93,15 @@ const EmployeTeamPearformence = () => {
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img alt="Tailwind CSS Navbar component" src={hrRequestCheck.imageURL} />
+
                                 </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                    {
+                                        employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index}><a>{element.name}</a></li>)
+                                    }
+                                </ul>
                             </div>
-                            <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                {
-                                    employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index}><a>{element.name}</a></li>)
-                                }
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -125,9 +126,16 @@ const EmployeTeamPearformence = () => {
                             <h1 className="text-4xl font-bold ">{completedTasks.length}</h1>
                             <p className="text-sm text-white font-semibold">Compleated Task</p>
                         </div>
-                    </div>
-                </div>
-            </div>
+
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100  rounded-box w-52">
+                            {
+                                employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index} className="hover:underline hover:text-blue-400"><a>{element.name}</a></li>)
+                            }
+                        </ul>
+
+                    </div >
+                </div >
+            </div >
 
             <div className="bg-black   text-white shadow-lg shadow-blue-300 ml-24   space-y-6 w-[1200px]">
                 <h1 className="font-sans text-2xl font-bold">Performance Survey</h1>

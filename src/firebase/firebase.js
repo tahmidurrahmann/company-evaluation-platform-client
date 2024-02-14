@@ -1,4 +1,5 @@
 
+
 import { initializeApp } from "firebase/app";
 import{getStorage} from 'firebase/storage'
 
@@ -11,6 +12,6 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_appId
 };
 
-// Initialize Firebase
+
 export const app = initializeApp(firebaseConfig);
-export const storage = getStorage(app)
+export const storage = getStorage(app);

@@ -72,18 +72,14 @@ const EmployeTaskes = () => {
               <tr>
                 <th>Assignee</th>
                 <th>Task Name</th>
-
-                <th>Due date</th>
+                <th>Deadline</th>
                 <th>Audience</th>
                 <th>Tags</th>
-
                 <th>Channel</th>
                 <th>Effort</th>
               </tr>
             </thead>
             <tbody>
-
-
               {filteredTasks.map((element, index) => (
                 <tr className="h-24 border-b-2 text-white border-gray-300" key={index}>
 
@@ -98,10 +94,7 @@ const EmployeTaskes = () => {
                     </div>
                     {element.name}
                   </td>
-
                   <td>{element.additem}</td>
-
-
                   <td className="text-blue-500 font-bold">{element.timeAndLocal}</td>
                   <td>
                     <h1
@@ -127,7 +120,6 @@ const EmployeTaskes = () => {
                       {element.tags}
                     </h1>
                   </td>
-
                   <td>
                     <h1
                       className={`${element.channel === "social"
