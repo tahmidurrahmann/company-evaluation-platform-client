@@ -18,6 +18,7 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([]);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [file, setFile] = useState({})
 
     const onSubmit = async (data) => {
         const startTime = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -33,7 +34,8 @@ const AllEmploye = () => {
         const employImage = targetinfo.imageURL;
         const email = targetinfo.email;
         const company = hrRequestCheck?.company;
-        const giveTaskInfo = { addItem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company };
+        const giveTaskInfo = { addItem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company, file };
+        console.log(giveTaskInfo);
         try {
             const res = await axiosSecure.post('/imployeeTasks', giveTaskInfo);
             if (res.data && res.data.acknowledged) {
@@ -129,6 +131,7 @@ const AllEmploye = () => {
                                 {/* if there is a button in form, it will close the modal */}
                                 <button className="bg-red-500 text-white font-bold absolute right-3 py-1 px-2 transition hover:scale-105 rounded-full">✕</button>
                             </form>
+
                             <div className="mt-10">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div>
@@ -194,6 +197,9 @@ const AllEmploye = () => {
                                                 <p className="text-red-600 text-left pt-1">Details is required</p>
                                             )}
                                         </div>
+                                        <div className="col-span-1 p-2">
+                                            <MultipleFileUploader setFile={setFile} />
+                                        </div>
                                     </div>
                                     <div className="flex justify-center items-center">
                                         <input type="submit" value="Add Task" className="py-3 px-6 rounded-lg text-white font-medium bg-[#007cc7] mt-5 transition hover:scale-105" />
@@ -204,7 +210,6 @@ const AllEmploye = () => {
                     </dialog>
                 </div>
             </div>
-            <MultipleFileUploader />
         </div>
     );
 };
