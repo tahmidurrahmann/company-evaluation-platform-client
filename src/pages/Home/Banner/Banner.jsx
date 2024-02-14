@@ -63,7 +63,7 @@ const Banner = () => {
                                             <h1 className="text-center mt-4 text-black font-semibold text-2xl py-6">What would you like to be our <span className="text-[#007cc7]">IONE?</span></h1>
                                             <div className="flex justify-evenly items-center">
                                                 <HrForm />
-                                                <UserForm />
+                                                <UserForm heading="EMPLOYEE" />
                                             </div>
                                             <div className="mt-4">
                                                 <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
