@@ -42,10 +42,12 @@ const PieChartTwo = () => {
                             },
                             value: {
                                 fontSize: '16px',
+                                color : "#fff",
                             },
                             total: {
                                 show: true,
                                 label: 'Total',
+                                color : "#fff",
                                 formatter: function () {
                                     return totalTask;
                                 },

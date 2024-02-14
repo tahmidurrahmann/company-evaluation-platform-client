@@ -9,7 +9,7 @@ import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <Helmet>
                 <title>IONE | Home</title>
             </Helmet>

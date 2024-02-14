@@ -36,7 +36,7 @@ const Dashboard = () => {
         logOut().then().catch();
     };
 
-    const navItems = <div className='flex flex-col items-center gap-4  justify-center pt-6'>
+    const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
             <img
                 className="w-[30px] h-[30px]"
@@ -87,7 +87,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
+                <div className='flex items-center gap-2'><FaUser />Hr Profile Here</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/employeTask"
@@ -95,7 +95,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />All Tasks</div>
+                <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />All Tasks Here</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/allEmploye"
@@ -103,7 +103,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><MdOutlineAdd className='text-[24px]' />Add Task</div>
+                <div className='flex items-center gap-2'><MdOutlineAdd className='text-[24px]' />Add Task Here</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/employeeRequest"
@@ -198,9 +198,10 @@ const Dashboard = () => {
 
     return (
         <div style={{
-            backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"}} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
-            <div className="lg:w-[250px]">
-                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-black border-r p-6'>
+            backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"
+        }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
+            <div className="lg:w-[300px]">
+                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>
                     <div>{navItems}</div>
                 </div>
             </div>
@@ -231,7 +232,7 @@ const Dashboard = () => {
                     {navItems}
                 </div>
             </Drawer>
-            <div className='w-full min-h-screen text-white'>
+            <div className='w-full min-h-screen text-white max-w-screen-xl mx-auto font-raleway'>
                 <Outlet></Outlet>
             </div>
         </div>

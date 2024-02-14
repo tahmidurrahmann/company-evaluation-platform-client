@@ -98,7 +98,8 @@ const Management = () => {
             </div>
             {/* five section here*/}
             <div className="bg-shadow-700 shadow-2xl hover:shadow-orange-500 mb-12 h-[50vh] rounded-tr-full container mx-auto rounded-bl-full  mt-32">
-                <h1 className=" text-center pt-20 lg:text-5xl font-bold">Connect with us. We’re ready to <br /> talk about opportunities</h1>
+                <h1 className=" text-center pt-20 italic lg:text-4xl font-bold">Connect with us. We’re ready to </h1>
+                <p className="text-center text-3xl italic font-bold">talk about opportunities</p>
                 <div className="flex justify-center space-y-4 mt-4">
                     <Link to={'/signin'}> <button className="cssbuttons-io-button transition mt-6">
                         Get started
