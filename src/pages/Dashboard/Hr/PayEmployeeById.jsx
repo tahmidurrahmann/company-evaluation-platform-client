@@ -44,10 +44,7 @@ const PayEmployeeById = () => {
     return (
         <div>
             <Link to={`/dashboard/payEmployee`}><button className="btn btn-circle btn-ghost absolute right-2 top-2 text-xl">✕</button></Link>
-            <SharedHeadingDashboard heading="Payment History" />
-            <div>
-                {/* showing payment history -- todo*/}
-            </div>
+            <SharedHeadingDashboard heading="Pay Employee" />
             <div className="py-16">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="flex flex-col md:flex-row gap-6">
