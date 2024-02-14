@@ -26,8 +26,16 @@ import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails"
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+
 import FeedbackHr from "../pages/Dashboard/Hr/FeedbackHr";
 
+
+
+import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
+import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
+import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
+import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
+import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 
 
 const router = createBrowserRouter([
@@ -76,45 +84,65 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: <PrivateRoute><Dashboard /></PrivateRoute>,
     children: [
       //user
       {
         path: "userProfile",
-        element: <UserProfile />
+        element: <PrivateRoute><UserProfile /></PrivateRoute>
       },
       {
         path: "userTask",
-        element: <UserTask />
+        element: <PrivateRoute><UserTask /></PrivateRoute>
       },
       //hr
       {
         path: "hrProfile",
-        element: <HrProfile />,
+        element: <PrivateRoute><HrProfile /></PrivateRoute>,
       },
       {
         path: "hrProfile",
-        element: <HrProfileRating></HrProfileRating>
+        element: <PrivateRoute><HrProfileRating /></PrivateRoute>
       },
       {
         path: "allEmploye",
-        element: <AllEmploye></AllEmploye>
+        element: <PrivateRoute><AllEmploye /></PrivateRoute>
       },
       {
         path: "employeTask",
-        element: <EmployeTaskes></EmployeTaskes>
+        element: <PrivateRoute><EmployeTaskes /></PrivateRoute>
       },
       {
         path: "employeTeamPearformence",
-        element: <EmployeTeamPearformence></EmployeTeamPearformence>
+        element: <PrivateRoute><EmployeTeamPearformence /></PrivateRoute>
       },
       {
         path: 'meet',
-        element: <Meets />
+        element: <PrivateRoute><Meets /></PrivateRoute>
       },
       {
         path: 'employeeRequest',
-        element: <EmployeeRequest />
+        element: <PrivateRoute><EmployeeRequest /></PrivateRoute>
+      },
+      {
+        path: 'payEmployee',
+        element: <PrivateRoute><PayEmployee /></PrivateRoute>
+      },
+      {
+        path: 'payEmployee/:id',
+        element: <PrivateRoute><PayEmployeeById /></PrivateRoute>
+      },
+      {
+        path: 'paymentSuccess/:tranId',
+        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>
+      },
+      {
+        path: 'paymentFail/:tranId',
+        element: <PrivateRoute><PaymentFail /></PrivateRoute>
+      },
+      {
+        path:'paymentHistory',
+        element:<PaymentHistory/>
       },
       {
         path: 'feedback',
@@ -123,28 +151,28 @@ const router = createBrowserRouter([
       //admin
       {
         path: "adminProfile",
-        element: <AdminProfile />
+        element: <PrivateRoute><AdminProfile /></PrivateRoute>
       },
       {
         path: "agreementRequest",
-        element: <AgreementRequest />
+        element: <PrivateRoute><AgreementRequest /></PrivateRoute>
       },
       {
         path: "notices",
-        element: <PostNotices />
+        element: <PrivateRoute><PostNotices /></PrivateRoute>
       },
       {
         path: "companyInfo",
-        element: <CompanyInfo />
+        element: <PrivateRoute><CompanyInfo /></PrivateRoute>
       },
       {
         path: "singleCompanyDetails/:id",
-        element: <SingleCompanyDetails />,
+        element: <PrivateRoute><SingleCompanyDetails /></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/hrAndUsers/${params?.id}`)
       },
       {
         path: "linkNotice",
-        element: <LinkNotice />
+        element: <PrivateRoute><LinkNotice /></PrivateRoute>
       },
     ]
   },

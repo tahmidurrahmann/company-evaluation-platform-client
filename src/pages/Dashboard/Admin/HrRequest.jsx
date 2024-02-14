@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { GoMail } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
-import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 
 const HrRequest = () => {
 
@@ -64,29 +64,29 @@ const HrRequest = () => {
             }
         });
     }
-
+    
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div>
             <div className="py-6 md:py-8">
-                <SharedHeading heading="All HR Requests" />
+                <SharedHeadingDashboard heading="All HR Requests" />
             </div>
-            <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-12">
+            <div className="flex flex-wrap justify-center items-center gap-4 px-4 xl:px-0">
                 {
-                    allAgreements?.map(agreement => <div className="p-4 bg-white shadow-xl rounded-lg" key={agreement?._id}>
-                        <div className="flex items-center justify-center gap-2 md:gap-12">
-                            <img referrerPolicy="no-referrer" className="w-12 h-12 md:h-16 md:w-16 rounded-full" src={agreement?.imageURL} alt="" />
+                    allAgreements?.map(agreement => <div key={agreement?._id}>
+                        <div className="flex items-center justify-center border rounded-lg p-4 gap-4">
+                            <img referrerPolicy="no-referrer" className="w-10 h-10 md:h-16 md:w-16 rounded-full" src={agreement?.imageURL} alt="" />
 
                             <div>
-                                <h3 className="text-sm font-semibold flex items-center justify-start gap-2"><FaRegUser />{agreement?.name}</h3>
+                                <h3 className="text-xs md:text-sm font-semibold flex items-center justify-start gap-1 md:gap-2"><FaRegUser />{agreement?.name}</h3>
 
-                                <p className="mt-0.5 text-xs font-medium text-neutral-600 flex items-center justify-start gap-2">
+                                <p className="mt-0.5 text-xs md:text-sm font-medium flex items-center justify-start gap-1 md:gap-2">
                                     <GoMail /> {agreement?.email}
                                 </p>
-                                <p className="mt-0.5 text-neutral-600 flex items-center justify-start gap-2">
+                                <p className="mt-0.5 text-xs md:text-sm flex items-center justify-start gap-1 md:gap-2">
                                     <HiOutlineBuildingOffice2 /> {agreement?.company}
                                 </p>
                             </div>
-                            <div className="flex flex-col justify-evenly items-center gap-4">
+                            <div className="flex flex-col justify-evenly items-center gap-2 md:gap-4">
                                 <td><span onClick={() => handleMakeHr(agreement?._id)} className={`${agreement?.status === "checked" ? "md:text-lg text-[#007cc7] font-semibold" : "bg-[#007cc7] p-1 hover:border hover:border-[#007cc7] hover:bg-white hover:text-[#007cc7] text-white rounded"}`}>{agreement?.status === "checked" ? "Checked" : "Accept"}</span></td>
                                 <td><span onClick={() => rejectReq(agreement?._id)} ><RiDeleteBin6Line className="text-red-600 border-red-600 border p-1 rounded hover:bg-red-600 hover:text-white" size={26} /></span></td>
                             </div>

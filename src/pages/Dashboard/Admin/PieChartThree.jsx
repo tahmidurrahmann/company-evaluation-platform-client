@@ -51,7 +51,7 @@ const PieChartThree = () => {
                             value: {
                                 offsetY: 76,
                                 fontSize: '22px',
-                                color: undefined,
+                                color: "#fff",
                                 formatter: function (val) {
                                     return val + "%";
                                 }
@@ -94,8 +94,8 @@ const PieChartThree = () => {
         <div className='border rounded-lg'>
             <div className='flex flex-col justify-center items-center md:flex-row gap-6 lg:gap-12 p-8'>
                 <div className='space-y-2'>
-                    <h1 className='text-[#2F2B3DC7] text-xl'>Task Details</h1>
-                    <p className='text-[#2F2B3D6B] text-lg'>Total {allTaskLength} Tasks</p>
+                    <h1 className='text-white text-xl'>Task Details</h1>
+                    <p className='text-white text-lg'>Total {allTaskLength} Tasks</p>
                     <div className='flex justify-start items-center gap-2 text-sm font-medium pt-4 pb-2'>
                         <SiPoly size={26} className="text-3xl text-blue-400  " />
                         <div className='flex flex-col justify-center items-start'>
@@ -116,7 +116,6 @@ const PieChartThree = () => {
                             <p>COMPLETED Tasks</p>
                             <h1>{completedLength}</h1>
                         </div>
-
                     </div>
                 </div>
                 <div id="chart"></div>
