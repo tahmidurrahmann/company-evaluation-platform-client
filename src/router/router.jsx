@@ -157,7 +157,7 @@ const router = createBrowserRouter([
       {
         path: "singleCompanyDetails/:id",
         element: <PrivateRoute><SingleCompanyDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/hrAndUsers/${params?.id}`)
+        loader: ({ params }) => fetch(`https://company-evaluation-platform-server.vercel.app/hrAndUsers/${params?.id}`)
       },
       {
         path: "linkNotice",
