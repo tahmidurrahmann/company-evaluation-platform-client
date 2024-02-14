@@ -5,6 +5,8 @@ import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import UserAnalysis from "./UserAnalysis";
+import { BiSolidLike } from "react-icons/bi";
+import { Badge } from "@mui/material";
 
 const UserProfile = () => {
 
@@ -30,7 +32,16 @@ const UserProfile = () => {
                                 <h1 className="text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {employeeRequestCheck?.company}</h1>
                                 <h2 className="font-medium text-neutral-400 flex items-center gap-2"><CgMail />{employeeRequestCheck?.email}</h2>
                             </div>
+                            <div className="ml-[700px] flex ">
+
+                                <Badge badgeContent={4} color="primary" className="px-2 py-2">
+                                    <BiSolidLike className="text-xl  hover:text-red-500" />
+                                </Badge>
+
+                            </div>
+
                         </div>
+
                         : <div className="min-h-[80vh] flex justify-center items-center font-semibold text-xl">Please Request for Employee or wait for Accept your request</div>}
                 </section>
                 <div className="App flex justify-center items-center pt-12">

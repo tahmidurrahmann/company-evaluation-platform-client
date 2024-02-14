@@ -26,6 +26,7 @@ import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails"
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import FeedbackHr from "../pages/Dashboard/Hr/FeedbackHr";
 
 
 
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: 'employeeRequest',
         element: <EmployeeRequest />
+      },
+      {
+        path: 'feedback',
+        element: <FeedbackHr/>
       },
       //admin
       {
