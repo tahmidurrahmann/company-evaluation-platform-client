@@ -7,6 +7,7 @@ import moment from "moment-timezone";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useEmployee from "../../../hooks/useEmployee";
 import toast from "react-hot-toast";
+import MultipleFileUploader from "./MultipleFileUploader";
 
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure();
@@ -203,6 +204,7 @@ const AllEmploye = () => {
                     </dialog>
                 </div>
             </div>
+            <MultipleFileUploader />
         </div>
     );
 };

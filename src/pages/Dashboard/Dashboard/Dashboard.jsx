@@ -20,6 +20,7 @@ import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
+import { FaAmazonPay } from "react-icons/fa";
 
 const Dashboard = () => {
 
@@ -36,8 +37,6 @@ const Dashboard = () => {
     const handleLogeOut = () => {
         logOut().then().catch();
     };
-
-    console.log(employeeRequestCheck);
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -115,6 +114,14 @@ const Dashboard = () => {
                 }
             >
                 <div className='flex items-center gap-2'><FaUserGear className='font-bold text-[24px]' />Employee Request</div>
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/payEmployee"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><FaAmazonPay className='font-bold text-[24px]' />Pay Employee</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/meet"
