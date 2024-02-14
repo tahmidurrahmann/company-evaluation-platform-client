@@ -208,7 +208,7 @@ const Dashboard = () => {
 
     return (
         <div style={{
-            backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"
+            backgroundImage: "url(https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg)"
         }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
             <div className="lg:w-[300px]">
                 <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>
