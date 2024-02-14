@@ -17,7 +17,8 @@ const EmployeTaskes = () => {
           (element) => element.company === hrRequestCheck.company
         );
         setTasks(taskFilter);
-        setFilteredTasks(taskFilter); // Initialize filteredTasks with all tasks
+        setFilteredTasks(taskFilter);
+        console.log('task data is ',res.data); // Initialize filteredTasks with all tasks
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +37,6 @@ const EmployeTaskes = () => {
   };
 
 
-  console.log(tasks);
   return (
     <div className="space-y-10 mt-5">
       <div className="flex justify-center  items-center">
