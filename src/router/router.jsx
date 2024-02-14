@@ -26,11 +26,11 @@ import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails"
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import FeedbackHr from "../pages/Dashboard/Hr/FeedbackHr";
 import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -132,6 +132,10 @@ const router = createBrowserRouter([
       {
         path: 'paymentFail/:tranId',
         element: <PrivateRoute><PaymentFail /></PrivateRoute>
+      },
+      {
+        path: 'feedback',
+        element: <FeedbackHr/>
       },
       //admin
       {

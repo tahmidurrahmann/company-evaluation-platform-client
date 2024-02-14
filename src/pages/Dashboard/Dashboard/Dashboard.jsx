@@ -19,8 +19,13 @@ import Drawer from '../../../shared/NavBar/Drawer';
 import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
+
+import { GiNotebook } from "react-icons/gi";
+
+
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
+
 
 const Dashboard = () => {
 
@@ -139,6 +144,15 @@ const Dashboard = () => {
                 }
             >
                 <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Team performance</div>
+            </NavLink>
+
+            <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/feedback"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><GiNotebook className='font-bold text-[24px]' />Give Feedback</div>
             </NavLink>
         </div>}
         {/* admin dashboard */}
