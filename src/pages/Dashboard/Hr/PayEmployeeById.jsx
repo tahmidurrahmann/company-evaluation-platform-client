@@ -6,6 +6,7 @@ import Loading from "../../../shared/Loading/Loading";
 import "./Payment.css"
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import usePayment from "../../../hooks/usePayment";
 
 const PayEmployeeById = () => {
 
@@ -13,6 +14,7 @@ const PayEmployeeById = () => {
     const [employeeAgreements, isEmployee] = useEmployee();
     const [employeeData, setEmployeeData] = useState({});
     const axiosSecure = useAxiosSecure();
+    const [, , refetch] = usePayment();
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
@@ -38,16 +40,15 @@ const PayEmployeeById = () => {
         const currency = data?.currency;
         const employeeDetails = { name, company, email, date, salary, currency };
         const res = await axiosSecure.post("/salary", employeeDetails);
-        window.location.replace(res?.data.url);
+        window.location.replace(res?.data?.url);
+        console.log(res?.data?.url);
+        refetch();
     }
 
     return (
         <div>
             <Link to={`/dashboard/payEmployee`}><button className="btn btn-circle btn-ghost absolute right-2 top-2 text-xl">✕</button></Link>
-            <SharedHeadingDashboard heading="Payment History" />
-            <div>
-                {/* showing payment history -- todo*/}
-            </div>
+            <SharedHeadingDashboard heading="Pay Employee" />
             <div className="py-16">
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="flex flex-col md:flex-row gap-6">
