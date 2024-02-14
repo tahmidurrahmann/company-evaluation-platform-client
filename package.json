@@ -56,7 +56,8 @@
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
     "sweetalert2": "^11.10.4",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",

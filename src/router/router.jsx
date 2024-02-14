@@ -26,6 +26,10 @@ import SingleCompanyDetails from "../pages/Dashboard/Admin/SingleCompanyDetails"
 import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
+import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
+import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
+import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 
 const router = createBrowserRouter([
   {
@@ -112,6 +116,22 @@ const router = createBrowserRouter([
       {
         path: 'employeeRequest',
         element: <PrivateRoute><EmployeeRequest /></PrivateRoute>
+      },
+      {
+        path: 'payEmployee',
+        element: <PrivateRoute><PayEmployee /></PrivateRoute>
+      },
+      {
+        path: 'payEmployee/:id',
+        element: <PrivateRoute><PayEmployeeById /></PrivateRoute>
+      },
+      {
+        path: 'paymentSuccess/:tranId',
+        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>
+      },
+      {
+        path: 'paymentFail/:tranId',
+        element: <PrivateRoute><PaymentFail /></PrivateRoute>
       },
       //admin
       {
