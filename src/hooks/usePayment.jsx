@@ -5,7 +5,7 @@ const usePayment = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const {data : allPayments, isPending : isPayment} = useQuery({
+    const {data : allPayments, isPending : isPayment, refetch} = useQuery({
         queryKey : ["payments"],
         queryFn : async () => {
             const res = await axiosSecure.get("/payments");
@@ -13,7 +13,7 @@ const usePayment = () => {
         }
     })
 
-    return [allPayments, isPayment];
+    return [allPayments, isPayment, refetch];
 };
 
 export default usePayment;

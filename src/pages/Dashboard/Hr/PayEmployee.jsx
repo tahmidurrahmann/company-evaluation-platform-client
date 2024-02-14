@@ -25,7 +25,8 @@ const PayEmployee = () => {
     const openModal = (id) => {
         setIsOpen(true);
         if (allPayments?.length > 0) {
-            const filterData = allPayments?.filter(employee => employee?.employeeInfo?._id === id);
+            const data = allPayments?.filter(item => item?.paymentSuccess === true);
+            const filterData = data?.filter(employee => employee?.employeeInfo?._id === id);
             setPayments(filterData)
         }
     }
@@ -40,8 +41,6 @@ const PayEmployee = () => {
     if (isEmployee || isPayment) {
         return <Loading />
     }
-
-    console.log(payments);
 
     return (
         <div>
@@ -94,11 +93,12 @@ const PayEmployee = () => {
                                                 >
                                                     <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                                         {/* show data here todo */}
-                                                        {payments?.map(payment => <div key={payment?._id}>
-                                                            <h1>{payment?.date}</h1>
-                                                            <p>{payment?.employeeInfo?.name}</p>
-                                                            <p>{payment?.employeeInfo?.email}</p>
-                                                            <p>{payment?.tranjectionId}</p>
+                                                        {payments?.map(payment => <div className="border p-4 mt-6 rounded-lg text-sm" key={payment?._id}>
+                                                            <h1>Salary Month : {payment?.date}</h1>
+                                                            <p>Employee Name : {payment?.employeeInfo?.name}</p>
+                                                            <p>Employee Email : {payment?.employeeInfo?.email}</p>
+                                                            <p>Payment TransactionId : {payment?.tranjectionId}</p>
+                                                            <p><span>{payment?.salary}</span> <span>{payment?.currency}</span></p>
                                                         </div>)}
                                                         <div className="mt-4">
                                                             <button onClick={closeModal} className="px-2 py-1 rounded-full hover:scale-110 transition bg-red-600 text-white absolute right-2 top-2">✕</button>
