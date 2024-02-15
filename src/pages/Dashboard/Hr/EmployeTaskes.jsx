@@ -12,6 +12,7 @@ const EmployeTaskes = () => {
   const axiosPublic = useAxiosPublic();
   const [hrRequestCheck] = useHrRequestCheckedOrNot();
 
+
   const fetchTasks = useCallback(async () => {
     try {
       const res = await axiosPublic.get("/imployeeTasks");
@@ -23,6 +24,22 @@ const EmployeTaskes = () => {
     } catch (error) {
       console.log(error);
     }
+
+  useEffect(() => {
+    axiosPublic
+      .get("/imployeeTasks")
+      .then((res) => {
+        const taskFilter = res?.data?.filter(
+          (element) => element.company === hrRequestCheck.company
+        );
+        setTasks(taskFilter);
+        setFilteredTasks(taskFilter);
+        console.log('task data is ',res.data); // Initialize filteredTasks with all tasks
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
   }, [axiosPublic, hrRequestCheck]);
 
   const handleLike = (taskId) => {
@@ -58,7 +75,7 @@ const EmployeTaskes = () => {
   }, [fetchTasks]);
 
   const handleCompletedStatus = () => {
-    setFilteredTasks(tasks?.filter((task) => task?.status === "completed"));
+    setFilteredTasks(tasks.filter((task) => task.status === "completed"));
   };
 
   const handleAllTask = () => {
@@ -66,10 +83,10 @@ const EmployeTaskes = () => {
   };
 
   const handleDoingStatus = () => {
-    setFilteredTasks(tasks?.filter((task) => task?.status === "doing"));
+    setFilteredTasks(tasks.filter((task) => task.status === "doing"));
   };
 
-  console.log(tasks);
+
   return (
     <div className="space-y-10 mt-5">
       <div className="flex justify-center  items-center">
@@ -151,6 +168,19 @@ const EmployeTaskes = () => {
                       }`}
                     >
                       {element.audience}
+                    </h1>
+                  </td>
+
+                  <td>
+                    <h1
+                      className={`${element.tags === "lowProirity"
+                        ? "border-2 border-black rounded-full -ml-5 text-center text-white hover:text-white "
+                        : element.tags === "highPriority"
+                          ? "border-2 border-blue-300 -ml-5 rounded-full text-center text-white hover:text-white "
+                          : "border-2 border-blue-300 -ml-5 rounded-full text-center bg-gray-200 hover:text-white "
+                        }`}
+                    >
+                      {element.tags}
                     </h1>
                   </td>
 

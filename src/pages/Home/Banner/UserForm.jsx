@@ -12,7 +12,7 @@ import Loading from '../../../shared/Loading/Loading';
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
-const UserForm = () => {
+const UserForm = ({ heading }) => {
 
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
@@ -64,7 +64,7 @@ const UserForm = () => {
         <div>
             <div className="inset-0 flex items-center justify-center">
                 <button onClick={openModal} type="button" className="but">
-                    <div className="but-top font-medium">EMPLOYEE</div>
+                    <div className="but-top font-medium">{heading}</div>
                     <div className="but-bottom"></div>
                     <div className="but-base"></div>
                 </button>

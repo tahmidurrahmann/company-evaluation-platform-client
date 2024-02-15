@@ -77,6 +77,8 @@ const UserTask = () => {
                                                 <div className="flex justify-between">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+                                                    <br />
+                                                    <a className="btn btn-outline btn-info mt-5"  href={item?.file} download={item?.file} >Click to show file</a>
                                                 </div>
                                                 <div className="mt-2">
                                                     <h3 className="font-bold text-lg">{item?.additem}</h3>

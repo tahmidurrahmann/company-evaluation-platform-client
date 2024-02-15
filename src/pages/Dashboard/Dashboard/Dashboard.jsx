@@ -19,7 +19,10 @@ import Drawer from '../../../shared/NavBar/Drawer';
 import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
+import { GiNotebook } from "react-icons/gi";
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
+import { FaAmazonPay } from "react-icons/fa";
+import { TbCoinTaka } from "react-icons/tb";
 
 const Dashboard = () => {
 
@@ -36,8 +39,6 @@ const Dashboard = () => {
     const handleLogeOut = () => {
         logOut().then().catch();
     };
-
-    console.log(employeeRequestCheck);
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -71,8 +72,17 @@ const Dashboard = () => {
                         isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                     }
                 >
-                    <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
+                    <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Employee Tasks</div>
                 </NavLink>
+                <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/paymentHistory"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Payment History</div>
+                </NavLink>
+
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/linkNotice"
                     className={({ isActive, isPending }) =>
@@ -80,7 +90,18 @@ const Dashboard = () => {
                     }
                 >
                     <div className='flex items-center gap-2'><TfiAnnouncement />Notices & Link</div>
-                </NavLink></div>
+                </NavLink>
+
+
+                <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/feedback"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><GiNotebook className='font-bold text-[24px]' />Give Feedback</div>
+                </NavLink>
+            </div>
         }
         {/* hr dashboard */}
         {user?.email && !isAdmin && isHr && <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>
@@ -117,6 +138,14 @@ const Dashboard = () => {
                 <div className='flex items-center gap-2'><FaUserGear className='font-bold text-[24px]' />Employee Request</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/payEmployee"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><FaAmazonPay className='font-bold text-[24px]' />Pay Employee</div>
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/meet"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
@@ -132,6 +161,15 @@ const Dashboard = () => {
                 }
             >
                 <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Team performance</div>
+            </NavLink>
+
+            <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/feedback"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><GiNotebook className='font-bold text-[24px]' />Give Feedback</div>
             </NavLink>
         </div>}
         {/* admin dashboard */}
@@ -201,7 +239,7 @@ const Dashboard = () => {
 
     return (
         <div style={{
-            backgroundImage: "url(" + "https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg" + ")"
+            backgroundImage: "url(https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg)"
         }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
             <div className="lg:w-[300px]">
                 <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>
