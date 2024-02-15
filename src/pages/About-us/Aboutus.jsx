@@ -17,7 +17,6 @@ const AboutUs = () => {
       <About_otherss />
       <About_valus/>
       <AboutInfo/>
-   
     </div>
   );
 

@@ -1,58 +1,55 @@
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-
+import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 
 const FeedbackHr = () => {
-    const axiosSecure =useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
     const { user } = useAuth()
-    console.log(user);
-    const handleSubmited = async (e) => {
+    const handleSubmitted = async (e) => {
         e.preventDefault()
         const form = e.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const textArea = form.details.value;
-        const Image = user.photoURL;
-        const feedBackDetails ={name,email,textArea,Image}
-        axiosSecure.post('/reviews',feedBackDetails)
-        .then(res =>{
-            console.log("feedback data here",res.data);
-            if (res.data.acknowledged)
-                Swal.fire({
-                    title: "Thank you",
-                    text: "Your feedback sucessfully send",
-                    icon: "success"
-                }).then(() =>{
-                    form.reset()
-                }).catch(error => {
-                    console.log(error);
+        const userName = user?.displayName;
+        const userEmail = user?.email;
+        const review = form?.review?.value;
+        const userPicture = user.photoURL;
+        const feedBackDetails = {userName, userEmail, review, userPicture };
+        axiosSecure.post('/reviews', feedBackDetails)
+            .then(res => {
+                console.log("feedback data here", res.data);
+                if (res.data.acknowledged)
                     Swal.fire({
-                        title: "Sorry",
-                        text: "Your feedback not  send",
-                        icon: "error"
-                    })
-                   
-                });
-                
-        
-        })
+                        title: "Thank you",
+                        text: "Your feedback successfully send",
+                        icon: "success"
+                    }).then(() => {
+                        form.reset();
+                    }).catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            title: "Sorry",
+                            text: "Your feedback not  send",
+                            icon: "error"
+                        })
 
+                    });
+            })
     }
+
     return (
-        <div className="ml-20">
-            <h1 className="text-4xl font-bold text-center pt-10">Give the feedback for this plateform</h1>
-            <div className="p-8 m-12">
-                <form onSubmit={handleSubmited}>
-                    <input type="text" placeholder="Type Name" defaultValue={user?.displayName} name="name" className="input mb-8  bg-black input-bordered input-info w-full " />
-                    <input type="text" placeholder="Type Email" defaultValue={user?.email} name="email" className="input mb-8 bg-black  input-bordered input-info w-full " />
-
-                    <textarea className="textarea textarea-info w-full bg-black mb-8 " name="details" placeholder="Type Review details " ></textarea>
-                
-                    <input type="submit" value="Send" className="btn w-full bg-black shadow-lg shadow-blue-400 border-dotted border-2 border-info hover:bg-info  font-bold text-white" />
-                </form>
-
+        <div className="px-8 md:px-20">
+            <div className="pt-8">
+                <SharedHeadingDashboard heading="Give Review About this Site" />
             </div>
+            <form onSubmit={handleSubmitted}>
+                <div className="pt-20 flex flex-col">
+                    <div className="inputContainer w-full mt-6">
+                        <textarea className="customInputu" name="review" cols="30" rows="10" required></textarea>
+                        <label className="inputLabelu">Enter Your Notice</label>
+                    </div>
+                    <input className="font-semibold bg-[#007cc7] rounded-lg text-white hover:scale-105 transition flex justify-center py-2 font-raleway gap-1 items-center" type="submit" value="Make Notice" />
+                </div>
+            </form>
         </div>
     );
 };
