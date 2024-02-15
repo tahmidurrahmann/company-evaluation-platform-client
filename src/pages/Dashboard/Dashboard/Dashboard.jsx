@@ -19,13 +19,10 @@ import Drawer from '../../../shared/NavBar/Drawer';
 import { useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from 'react-icons/io';
-
 import { GiNotebook } from "react-icons/gi";
-
-
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
-
+import { TbCoinTaka } from "react-icons/tb";
 
 const Dashboard = () => {
 
@@ -75,8 +72,17 @@ const Dashboard = () => {
                         isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                     }
                 >
-                    <div className='flex items-center gap-2'><GoTasklist />Employee Tasks</div>
+                    <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Employee Tasks</div>
                 </NavLink>
+                <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/paymentHistory"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Payment History</div>
+                </NavLink>
+
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/linkNotice"
                     className={({ isActive, isPending }) =>
@@ -84,7 +90,18 @@ const Dashboard = () => {
                     }
                 >
                     <div className='flex items-center gap-2'><TfiAnnouncement />Notices & Link</div>
-                </NavLink></div>
+                </NavLink>
+
+
+                <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/feedback"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><GiNotebook className='font-bold text-[24px]' />Give Feedback</div>
+                </NavLink>
+            </div>
         }
         {/* hr dashboard */}
         {user?.email && !isAdmin && isHr && <div className='flex flex-col justify-center gap-2 items-center space-y-3 mt-3 mb-5  text-center'>

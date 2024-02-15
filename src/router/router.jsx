@@ -31,6 +31,7 @@ import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
+import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
       {
         path: 'paymentFail/:tranId',
         element: <PrivateRoute><PaymentFail /></PrivateRoute>
+      },
+      {
+        path:'paymentHistory',
+        element:<PaymentHistory/>
       },
       {
         path: 'feedback',
