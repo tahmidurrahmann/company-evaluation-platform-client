@@ -23,8 +23,14 @@ import { GiNotebook } from "react-icons/gi";
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
+import usePayment from '../../../hooks/usePayment';
+import { Badge } from '@mui/material';
+import { BiSolidLike } from 'react-icons/bi';
 
 const Dashboard = () => {
+
+    const [allPayments, isPayment] = usePayment();
+
 
     const { user, logOut } = useAuth();
     const [isAdmin, pending] = useAdmin();
@@ -39,6 +45,17 @@ const Dashboard = () => {
     const handleLogeOut = () => {
         logOut().then().catch();
     };
+
+
+    if (isPayment) {
+        return <Loading />
+    }
+
+
+    const userEmail = user ? user.email : "";
+
+    const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
+
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -80,7 +97,11 @@ const Dashboard = () => {
                         isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                     }
                 >
-                    <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Payment History</div>
+                    <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Salary History <p className='text-sm  text-white'>
+                        <Badge badgeContent={filteredPayments.length} color="warning" className="px-2 py-2">
+                       
+                        </Badge>
+                        </p></div>
                 </NavLink>
 
                 <NavLink onClick={() => setIsOpen(false)}
