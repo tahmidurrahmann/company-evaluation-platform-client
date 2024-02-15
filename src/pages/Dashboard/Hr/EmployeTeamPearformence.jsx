@@ -103,7 +103,7 @@ const EmployeTeamPearformence = () => {
                 </div >
             </div >
 
-            <div className="bg-gray-100 p-4 space-y-6 w-full">
+            <div className=" border p-4 space-y-6 w-full">
                 <h1 className="font-sans text-2xl font-bold">Performance Survey</h1>
 
                 <BarChart
