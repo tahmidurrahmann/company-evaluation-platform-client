@@ -38,12 +38,40 @@ const EmployeTaskes = () => {
       if (result.isConfirmed) {
         try {
           await axiosPublic.post(`/likeTask/${taskId}`);
-          console.log("like");
           await fetchTasks(); // Refetch tasks after successfully liking the task
+          console.log("like");
 
           Swal.fire({
             title: "Liked!",
             text: "Your Liked This Task.",
+            icon: "success",
+          });
+        } catch (error) {
+          console.error("Error liking task:", error);
+        }
+      }
+    });
+  };
+
+  const handleDisLike = async (taskId) => {
+    console.log(taskId);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to Dis-Like this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Dis-Like It!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axiosPublic.post(`/disLikeTask/${taskId}`);
+
+          await fetchTasks();
+          Swal.fire({
+            title: "Dis-Liked!",
+            text: "Your Dis-Liked This Task.",
             icon: "success",
           });
         } catch (error) {
@@ -170,19 +198,32 @@ const EmployeTaskes = () => {
                     </h1>
                   </td>
                   <td className="">
-                    <h1
-                      className={`${
-                        element.effort === "medium"
-                          ? "text-white font-bold"
-                          : element.tags === "low"
-                          ? "text-white font-bold"
-                          : element.effort === "high"
-                          ? "text-white font-bold"
-                          : "text-white font-bold"
-                      }`}
-                    >
-                      {element.effort}
-                    </h1>
+                    {element.status === "completed" ? (
+                      <>
+                        {element.disLiked ? (
+                          <button className="bg-pink-950 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition">
+                            <AiOutlineDislike className="text-3xl" />
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleDisLike(element._id)}
+                            className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
+                          >
+                            <AiOutlineDislike className="text-3xl" />
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <p className="flex flex-col items-center gap-1">
+                        <button className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400">
+                          <SiTodoist className="text-3xl mb-2" />
+                        </button>
+
+                        <span className="badge badge-primary">
+                          {element.status}
+                        </span>
+                      </p>
+                    )}
                   </td>
                   <td className="">
                     <h1
@@ -201,7 +242,7 @@ const EmployeTaskes = () => {
                           {element.liked ? (
                             <button
                               disabled
-                              className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
+                              className="bg-pink-950 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
                             >
                               <AiOutlineLike className="text-3xl" />
                             </button>
@@ -210,7 +251,7 @@ const EmployeTaskes = () => {
                               onClick={() => handleLike(element._id)}
                               className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
                             >
-                              <AiOutlineDislike className="text-3xl" />
+                              <AiOutlineLike className="text-3xl" />
                             </button>
                           )}
                         </>
