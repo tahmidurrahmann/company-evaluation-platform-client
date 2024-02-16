@@ -5,11 +5,12 @@ import Reviews from "../Reviews/Reviews";
 import OverView from "../OverView/OverView";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 import RachingBarMap from "../../Reaching Chart/RachingBarMap";
-
+import EvaluationBg from "../Evaluation/EvaluationBg";
+import HomeDetails from "../HomeDetails/HomeDetails";
 
 const Home = () => {
     return (
-        <div className="">
+        <div>
             <Helmet>
                 <title>IONE | Home</title>
             </Helmet>
@@ -18,11 +19,12 @@ const Home = () => {
                 appId="1019541442448361"
             />
             <Banner />
+            <HomeDetails />
             <Logo />
             <RachingBarMap ></RachingBarMap>
+            <EvaluationBg />
             <Reviews />
             <OverView />
-
         </div>
     );
 

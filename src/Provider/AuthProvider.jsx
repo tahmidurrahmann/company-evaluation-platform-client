@@ -41,16 +41,16 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
             setUser(currentUser)
             console.log(currentUser, "currentUser");
-            const userEmail = user?.email || user?.email;
-            const loggedUser = { email: userEmail }
-            axiosSecure.post('/jwt', loggedUser)
-                .then(res => {
-                    console.log(res)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-            setUser(currentUser)
+            // const userEmail = user?.email || user?.email;
+            // const loggedUser = { email: userEmail }
+            // axiosSecure.post('/jwt', loggedUser)
+            //     .then(res => {
+            //         console.log(res)
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
+            // setUser(currentUser)
         })
         return () => {
             unSubscribe()

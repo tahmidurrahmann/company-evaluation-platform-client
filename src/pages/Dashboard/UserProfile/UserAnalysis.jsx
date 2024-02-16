@@ -31,8 +31,6 @@ const UserAnalysis = () => {
         { name: 'Completed', percentage: parseFloat(completed.length / specificEmployee.length * 100).toFixed(2) },
     ];
 
-
-
     return (
         <div>
             <div className="py-16">

@@ -5,9 +5,8 @@ import RaachingHome from "./RaachingHome";
 const RachingBarMap = () => {
     const axiosPublic = useAxiosPublic();
     const [completedTaskpers, setCompletedTaskpers] = useState(0)
-    const [filterHr, setFilterHr] = useState([])
+    const [filterHr, setFilterHr] = useState([]);
 
-    console.log(completedTaskpers);
     useEffect(() => {
         axiosPublic
             .get("/imployeeTasks")
@@ -21,7 +20,6 @@ const RachingBarMap = () => {
             });
         axiosPublic.get("/hrAndUsers")
             .then(res => {
-                console.log(res?.data)
                 setFilterHr(res?.data)
             })
             .catch(error => {
@@ -36,10 +34,8 @@ const RachingBarMap = () => {
         })
     }
 
-
-
     return (
-        <div className="">
+        <div className="px-6 xl:px-0 max-w-screen-2xl mx-auto">
             <RaachingHome
                 filterHr={filterHr}
                 completedTaskpers={completedTaskpers}

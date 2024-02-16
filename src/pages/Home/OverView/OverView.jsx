@@ -10,7 +10,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
@@ -48,7 +47,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
@@ -87,7 +85,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
@@ -127,7 +124,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
@@ -164,7 +160,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
@@ -201,7 +196,6 @@ const OverView = () => {
                     <div className="space-y-4 shadow-xl hover:shadow-gray-400 rounded-lg">
                         <details
                             className="group p-6 [&_summary::-webkit-details-marker]:hidden"
-                            open
                         >
                             <summary className="flex cursor-pointer items-center justify-between gap-1.5">
                                 <div className="flex items-center gap-4">
