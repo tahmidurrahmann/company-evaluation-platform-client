@@ -4,28 +4,34 @@ import useMeet from "../../../hooks/useMeet";
 import Loading from "../../../shared/Loading/Loading";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import { MdOutlineAutoDelete } from "react-icons/md";
+import useAuth from "../../../hooks/useAuth";
 
 const LinkNotice = () => {
+    const { user } = useAuth();
     const [notice, setNotice] = useState([]);
+    const [meetLink , setMeetLink] = useState({})
     const axiosPublic = useAxiosPublic();
     const [allMeetLink, isMeetLink] = useMeet();
 
     useEffect(() => {
-        axiosPublic.get("/notice").then((res) => setNotice(res.data));
-    }, [axiosPublic]);
+        axiosPublic?.get("/notice").then((res) => setNotice(res.data));
+        allMeetLink?.map(element => element.email === user.email ? setMeetLink(element) : '')
+    }, [axiosPublic, allMeetLink, user.email]);
 
     if (isMeetLink) {
         return <Loading />
     }
 
+    console.log(meetLink);
+
     return (
         <div>
             <div className="flex justify-end pt-2 md:pt-6">
-                {
-                    allMeetLink?.map(meet => <div key={meet?._id}>
-                        <a className="bg-[#007cc7] p-3 rounded-lg text-white" href={meet?.Link}>Join Meet</a>
-                    </div>)
-                }
+
+                <div >
+                    <a className="bg-[#007cc7] p-3 rounded-lg text-white" href={meetLink?.Link}>Join Meet</a>
+                </div>
+
             </div>
             <div className="py-6">
                 <SharedHeadingDashboard heading="Notices" />
