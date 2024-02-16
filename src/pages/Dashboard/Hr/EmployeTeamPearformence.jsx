@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaBuromobelexperte } from "react-icons/fa";
 import { MdTaskAlt } from "react-icons/md";
 
@@ -11,75 +11,47 @@ import {
     Tooltip,
     Legend,
 } from "recharts";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
+import useEmployeeTask from "../../../hooks/useEmployeeTask";
+
 
 const EmployeTeamPearformence = () => {
-    const [todoTasks, setTodoTasks] = useState([]);
-    // const [taskShow, setTaskShow] = useState([]);
-    const [task, setTask] = useState([]);
-    const [taskShow, setTaskShow] = useState([]);
-    const [completedTasks, setCompletedTasks] = useState([]);
-    const axiosPublic = useAxiosPublic();
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employeeAgreements, isEmployee] = useEmployee()
-    const [employeeIndex, setEmployeeIndex] = useState(0)
-    const employeeFilter = employeeAgreements.filter(element => element.company === hrRequestCheck.company)
-    useEffect(() => {
-        axiosPublic
-            .get("/imployeeTasks")
-            .then((res) => {
-                const taskFilter = res?.data?.filter(element => element.company === hrRequestCheck.company)
-                setTask(taskFilter)
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+    const [employeeIndex, handleEmployeeIndex] = useState(0)
+    const employeeFilter = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company)
+    const [allEmployeeTask] = useEmployeeTask()
+    console.log(allEmployeeTask);
+    const taskFilter = allEmployeeTask?.filter(element => element?.company === hrRequestCheck?.company)
+    const myName = taskFilter?.filter(taskElement => taskElement?.name === employeeFilter[employeeIndex]?.name)
+    const todoFilter = myName?.filter(element => element?.status === 'todo')
+    const doingFilter = myName?.filter(element => element?.status === 'doing')
+    const completedFilter = myName?.filter(element => element?.status === 'completed')
 
-    }, [axiosPublic, hrRequestCheck])
-
-    useEffect(() => {
-        const myName = task?.filter(taskElement => taskElement?.name === employeeFilter[employeeIndex].name)
-        const todoFilter = myName?.filter(element => element?.status === 'todo')
-        const doingFilter = myName?.filter(element => element?.status === 'doing')
-        const completedFilter = myName?.filter(element => element?.status === 'completed')
-        setTodoTasks(todoFilter);
-        setCompletedTasks(completedFilter);
-        const taskShow = employeeFilter.map(element => ({
-            name: element.name,
-            TodoTask: `${todoFilter.length}`,
-            DoingTask: `${doingFilter.length}`,
-            CompleatedTask: `${completedFilter.length}`
-        }));
-        setTaskShow(taskShow)
-    }, [completedTasks.length, todoTasks.length, task, employeeFilter, employeeIndex])
 
     if (isHr || isEmployee) {
         return <Loading />
     }
 
-    // const taskShow = employeeFilter.map(element => ({
+    // const taskShows = employeeFilter.map(element => ({
     //     name: element.name,
-    //     TodoTask: ${todoTasks.length},
-    //     DoingTask: ${doingTasks.length},
-    //     CompleatedTask: ${completedTasks.length}
+    //     TodoTask: todoFilter.length,
+    //     DoingTask: doingFilter.length,
+    //     CompleatedTask: completedFilter.length
     // }));
-    // const taskShow = [
-    //     {
-    //         name: 'Name',
-    //         TodoTask: ` ${todoTasks.length}`,
-    //         DoingTask: ` ${doingTasks.length}`,
-    //         CompleatedTask: `${completedTasks.length}`
-    //     }
-    // ];
+    // setTaskShow(taskShows)
+    const taskShow = [
+        {
+            name: 'element.name',
+            TodoTask: todoFilter?.length,
+            DoingTask: doingFilter?.length,
+            CompleatedTask: completedFilter?.length
+        }
+    ];
 
-    console.log(employeeIndex)
-    const handleEmployeeIndex = index => {
-        setEmployeeIndex(index)
-        console.log(index)
-    }
+    console.log(taskShow);
 
     return (
         <div className="space-y-6">
@@ -93,12 +65,12 @@ const EmployeTeamPearformence = () => {
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src={hrRequestCheck.imageURL} />
+                                    <img alt="Tailwind CSS Navbar component" src={hrRequestCheck?.imageURL} />
 
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                                     {
-                                        employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index}><a>{element.name}</a></li>)
+                                        employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index}><a>{element?.name}</a></li>)
                                     }
                                 </ul>
                             </div>
@@ -114,7 +86,7 @@ const EmployeTeamPearformence = () => {
                             <MdTaskAlt className="text-6xl text-blue-400" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">{todoTasks.length}</h1>
+                            <h1 className="text-4xl font-bold ">{todoFilter?.length}</h1>
                             <p className="text-sm text-white font-semibold">TodoTasks</p>
                         </div>
                     </div>
@@ -123,29 +95,22 @@ const EmployeTeamPearformence = () => {
                             <MdTaskAlt className="text-6xl text-blue-400" />
                         </div>
                         <div className="">
-                            <h1 className="text-4xl font-bold ">{completedTasks.length}</h1>
+                            <h1 className="text-4xl font-bold ">{completedFilter?.length}</h1>
                             <p className="text-sm text-white font-semibold">Compleated Task</p>
                         </div>
-
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100  rounded-box w-52">
-                            {
-                                employeeFilter?.map((element, index) => <li onClick={() => handleEmployeeIndex(index)} key={index} className="hover:underline hover:text-blue-400"><a>{element.name}</a></li>)
-                            }
-                        </ul>
 
                     </div >
                 </div >
             </div >
 
-            <div className="bg-black   text-white shadow-lg shadow-blue-300 ml-24   space-y-6 w-[1200px]">
+            <div className=" border p-4 space-y-6 w-full">
                 <h1 className="font-sans text-2xl font-bold">Performance Survey</h1>
+
                 <BarChart
-                    className="items-center text mx-auto"
                     width={window.innerWidth / 1.5}
                     height={400}
                     data={taskShow}
                     margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
-                    barSize={30}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />

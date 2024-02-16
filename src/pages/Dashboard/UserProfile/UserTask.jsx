@@ -67,6 +67,8 @@ const UserTask = () => {
 
                                     <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
 
+
+
                                     <div className="flex justify-between ">
                                         <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
                                         <dialog id="my_modal_3" className="modal h-[80vh]">
@@ -77,8 +79,8 @@ const UserTask = () => {
                                                 <div className="flex justify-between">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-                                                    <br />
-                                                    <a className="btn btn-outline btn-info mt-5"  href={item?.file} download={item?.file} >Click to show file</a>
+                                                   
+
                                                 </div>
                                                 <div className="mt-2">
                                                     <h3 className="font-bold text-lg">{item?.additem}</h3>
@@ -86,6 +88,10 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
+                                    
+                                    <a href={item?.file} download={item?.file}>
+                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                    </a>
 
                                     <form className="" onSubmit={handleMoveTask}>
                                         <div className="flex gap-3  text-black font-bold ">
