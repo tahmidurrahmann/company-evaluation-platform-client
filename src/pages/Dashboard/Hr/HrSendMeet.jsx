@@ -78,9 +78,6 @@ const HrSendMeet = () => {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-5 lg:gap-0 max-w-screen-2xl mx-auto ">
             {
                 myEmploye.map(item => <div key={item._id} className="card  lg:ml-20 mb-5   h-[350px] card-compact backdrop-blur-3xl  shadow-xl">
-                    {/* {
-                        console.log(item.email)
-                    } */}
                     <figure><img src={item?.imageURL} alt="Shoes" className="transform transition duration-500 hover:scale-150" /></figure>
 
                     <div className="card-body hover:bg-black  bg-gradient-to-l hover:from-blue-300  hover:to-black rounded-b-xl">
