@@ -1,22 +1,11 @@
-import { useEffect, useState } from "react";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import { storage } from "../../../firebase/firebase";
 import './uplodFile.css'
 
 const MultipleFileUploader = ({setFile}) => {
-    const [imgUrl, setImgUrl] = useState([])
 
-    useEffect(() => {
-        listAll(ref(storage, "files")).then(imgs => {
-            console.log(imgs)
-            imgs.items.forEach(val => {
-                getDownloadURL(val).then(url => {
-                    setImgUrl(data => [...data, url])
-                })
-            })
-        })
-    }, [])
 
     const handelFileUplod = (e) => {
         // (e) => setImg()
@@ -29,13 +18,12 @@ const MultipleFileUploader = ({setFile}) => {
                 getDownloadURL(value.ref).then(url => {
                     console.log(url);
                     setFile(url)
-                    setImgUrl(data => [...data, url])
                 })
             })
         }
     }
 
-    console.log(imgUrl);
+    // console.log(imgUrl);
 
     return (
         <div className="App">
