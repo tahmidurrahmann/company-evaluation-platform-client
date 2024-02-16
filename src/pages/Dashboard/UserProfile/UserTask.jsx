@@ -79,7 +79,7 @@ const UserTask = () => {
                                                 <div className="flex justify-between">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-                                                   
+
 
                                                 </div>
                                                 <div className="mt-2">
@@ -88,7 +88,7 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
-                                    
+
                                     <a href={item?.file} download={item?.file}>
                                         <button className="btn btn-outline btn-info mb-2">Show Task File</button>
                                     </a>
@@ -142,6 +142,9 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
+                                    <a href={item?.file} download={item?.file}>
+                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                    </a>
                                     <form onSubmit={handleMoveTask}>
                                         <div className="flex gap-3 text-black font-bold ">
                                             <select defaultValue="doing" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
@@ -191,6 +194,9 @@ const UserTask = () => {
                                     </dialog>
 
                                 </div>
+                                <a href={item?.file} download={item?.file}>
+                                    <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                </a>
                                 <form onSubmit={handleMoveTask}>
                                     <div className="flex gap-3 text-black font-bold ">
                                         <select defaultValue="completed" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
