@@ -1,18 +1,19 @@
-import banner from "../../../assets/184941 (Original).mp4"
+import React from 'react';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import HrForm from "./HrForm";
 import UserForm from "./UserForm";
+import banner from "../../../assets/184941 (Original).mp4";
 
-const Banner = () => {
+const Banner: React.FC = () => {
 
-    let [isOpen, setIsOpen] = useState(false);
+    let [isOpen, setIsOpen] = useState<boolean>(false);
 
-    function closeModal() {
+    const closeModal = () => {
         setIsOpen(false)
     }
 
-    function openModal() {
+    const openModal = () => {
         setIsOpen(true)
     }
 
@@ -26,7 +27,6 @@ const Banner = () => {
                     {/* ------ modal starts here ----- */}
                     <div className="inset-0 flex items-center justify-center">
                         <span
-                            type="button"
                             onClick={openModal}
                             className="font-semibold bg-[#007cc7] px-4 md:px-5 py-2 rounded-md text-xs md:text-base text-white hover:scale-105 transition"
                         >

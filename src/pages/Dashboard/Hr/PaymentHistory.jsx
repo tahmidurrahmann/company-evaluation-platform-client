@@ -6,7 +6,6 @@ import { LuCalendarClock } from "react-icons/lu";
 import { MdMarkEmailRead } from "react-icons/md";
 import UserAmount from "../UserProfile/UserAmount";
 
-
 const PaymentHistory = () => {
     const { user } = useAuth();
     const [allPayments, isPayment] = usePayment();
@@ -18,10 +17,10 @@ const PaymentHistory = () => {
     const userEmail = user ? user.email : "";
 
     const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
-    return (
-        <div className="p-28">
 
-            <div className="flex justify-end backdrop-blur-3xl">
+    return (
+        <div className="pt-12">
+            <div className="flex justify-center lg:justify-end">
                 <button className="btn  border-b-2 bg-black text-white border-blue-400" onClick={() => document.getElementById('my_modal_3').showModal()}>See Amount</button>
                 <dialog id="my_modal_3" className="modal">
                     <div className="modal-box bg-black animate-bounce border-2 border-blue-400">
@@ -35,12 +34,8 @@ const PaymentHistory = () => {
 
             </div>
 
-            <h1 className="text-4xl text-white font-bold text-center">Your Salary History {filteredPayments.length}</h1>
-
-
-
-
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-2 gap-7 mt-12">
+            <h1 className="text-4xl py-6 text-white font-bold text-center">Your Salary History {filteredPayments.length}</h1>
+            <div className="grid px-4 xl:px-0 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7 mt-12">
                 {
                     filteredPayments.map(item => <div key={item._id} className="card  hover:shadow-xl hover:shadow-blue-500 border-2 border-blue-300 card-compact  shadow-lg  backdrop-blur">
                         <figure><img src={item?.employeeInfo?.imageURL} alt="Shoes" className="w-full bg-cover" /></figure>
