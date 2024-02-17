@@ -8,6 +8,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useEmployee from "../../../hooks/useEmployee";
 import toast from "react-hot-toast";
 import MultipleFileUploader from "./MultipleFileUploader";
+import useEmployeeTask from "../../../hooks/useEmployeeTask";
 
 const AllEmploye = () => {
     const axiosSecure = useAxiosSecure();
@@ -17,6 +18,7 @@ const AllEmploye = () => {
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([]);
+    const [,, refetch] = useEmployeeTask();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [file, setFile] = useState({})
 
@@ -40,6 +42,7 @@ const AllEmploye = () => {
             const res = await axiosSecure.post('/imployeeTasks', giveTaskInfo);
             if (res.data && res.data.acknowledged) {
                 toast.success('Your Task is Submitted')
+                refetch();
             } else {
                 toast.error('error Task is not Submitted')
             }
