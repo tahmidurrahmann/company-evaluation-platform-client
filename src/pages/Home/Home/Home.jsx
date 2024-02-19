@@ -8,6 +8,7 @@ import EvaluationBg from "../Evaluation/EvaluationBg";
 import HomeDetails from "../HomeDetails/HomeDetails";
 import Banner from "../Banner/Banner";
 
+
 const Home = () => {
     return (
         <div>
@@ -23,6 +24,7 @@ const Home = () => {
             <Logo />
             <RachingBarMap ></RachingBarMap>
             <EvaluationBg />
+       
             <Reviews />
             <OverView />
         </div>
