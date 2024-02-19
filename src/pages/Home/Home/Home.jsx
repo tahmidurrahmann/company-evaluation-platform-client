@@ -8,6 +8,7 @@ import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 import EvaluationBg from "../Evaluation/EvaluationBg";
 import HomeDetails from "../HomeDetails/HomeDetails";
 
+
 const Home = () => {
     return (
         <div>
@@ -23,6 +24,7 @@ const Home = () => {
             <Logo />
             <RachingBarMap ></RachingBarMap>
             <EvaluationBg />
+       
             <Reviews />
             <OverView />
         </div>
