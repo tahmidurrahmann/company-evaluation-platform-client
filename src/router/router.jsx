@@ -34,6 +34,7 @@ import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
 import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
+import Companies from "../pages/Companies/Companies";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/applyForHr",
         element: <ApplyForHr />,
+      },
+      {
+        path: "/companies",
+        element: <Companies />,
       },
       {
         path: "/applyForEmployee",

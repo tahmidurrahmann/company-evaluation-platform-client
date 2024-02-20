@@ -16,7 +16,7 @@ const ApplyForEmployee = () => {
     const { user } = useAuth();
 
     const {
-        register, handleSubmit, formState: { errors } } = useForm()
+        register, handleSubmit, reset, formState: { errors } } = useForm()
 
     const onSubmit = async (data) => {
         const company = data?.company;
@@ -28,9 +28,11 @@ const ApplyForEmployee = () => {
         const res = await axiosSecure.post("/employee", formDetails);
         if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
+            reset();
         }
         else {
-            toast.error("You Cannot Post Twice")
+            toast.error("You Cannot Post Twice");
+            reset();
         }
     }
 

@@ -17,7 +17,7 @@ const ApplyForHr = () => {
     const [, , refetch] = useAgreement();
 
     const {
-        register, handleSubmit, formState: { errors } } = useForm()
+        register, handleSubmit, reset, formState: { errors } } = useForm()
 
     const onSubmit = async (data) => {
         const company = data?.company;
@@ -41,9 +41,11 @@ const ApplyForHr = () => {
         if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
             refetch();
+            reset()
         }
         else {
             toast.error("You Cannot Post Twice")
+            reset();
         }
     }
 
