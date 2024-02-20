@@ -15,6 +15,7 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
 import { RiUser6Line } from "react-icons/ri";
+import { ImOffice } from "react-icons/im";
 
 const NavBar = () => {
 
@@ -93,6 +94,22 @@ const NavBar = () => {
         <span className="flex gap-2 items-center">
           <RxValue className="text-[#007cc7]" />
           Missions
+        </span>
+      </NavLink>
+      <NavLink
+        onClick={() => setIsOpen(false)}
+        to="/companies"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+        }
+      >
+        <span className="flex gap-2 items-center">
+          <ImOffice className="text-[#007cc7]" />
+          Companies
         </span>
       </NavLink>
       <NavLink

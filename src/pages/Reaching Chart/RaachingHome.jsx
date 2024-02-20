@@ -22,7 +22,7 @@ const RaachingHome = ({ filterHr, completedTaskpers }) => {
 
     return (
        <div className="mt-16">
-        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center">Our Top Company Evaluaotion</h1>
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center">Our Top Company Evaluation</h1>
             <div className="">
                 <ReachingChart data={data} ></ReachingChart>
             </div>
