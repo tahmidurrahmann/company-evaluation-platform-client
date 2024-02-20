@@ -40,38 +40,38 @@ const Innovation = () => {
     slidesToScroll: 1,
   };
   return (
-    <div className="font-serif space-y-6 mb-24">
+    <div className="mb-24 space-y-6 font-serif">
       <Helmet>
         <title>IONE | Innovation</title>
       </Helmet>
       {/* banner  */}
-      <SharedBanner heading="Innovation" passage="Innovation"/>
+      <SharedBanner heading="Innovation" passage="Innovation" />
 
       {/* title  */}
       <MyTitle text={` Best Reasons to Choose Our Services.`} />
 
       {/* Cards .. */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:m-0">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 sm:m-0">
         {service.map((item) => (
           <div
             key={item._id}
-            className="group flex flex-col justify-between bg-base-100 shadow-xl transition-transform transform-gpu hover:shadow-purple-400 md:w-full lg:w-full p-2"
+            className="flex flex-col justify-between p-2 transition-transform shadow-xl group bg-base-100 transform-gpu hover:shadow-purple-400 md:w-full lg:w-full"
           >
-            <div className="flex justify-between items-center group-hover:shadow-green-800">
-              <div className="card-body w-1/3">
+            <div className="flex items-center justify-between group-hover:shadow-green-800">
+              <div className="w-1/3 card-body">
                 <h2 className="card-title">01.{item.title}</h2>
                 <p>- 01 {item.subtitle}</p>
               </div>
 
               <div>
-                <button className="btn group-hover:bg-purple-500 transition-colors">
+                <button className="transition-colors btn group-hover:bg-purple-500">
                   <IoIosArrowForward />
                 </button>
               </div>
             </div>
 
             <figure className="md:w-full lg:w-full">
-              <img className="h-40 w-full" src={item?.imgUrl} alt="" />
+              <img className="w-full h-52" src={item?.imgUrl} alt="" />
             </figure>
           </div>
         ))}
@@ -93,10 +93,10 @@ const Innovation = () => {
           </div>
         </div>
 
-        <div className="flex justify-center items-center mt-24">
+        <div className="flex items-center justify-center mt-24">
           <div>
-            <div className="mb-10 items-center text-center mx-auto w-full md:w-3/4">
-              <h4 className="text-xl text-orange-600 font-semibold mb-5">
+            <div className="items-center w-full mx-auto mb-10 text-center md:w-3/4">
+              <h4 className="mb-5 text-xl font-semibold text-orange-600">
                 OUR WORKING PROCESS
               </h4>
               <MyTitle
@@ -104,9 +104,9 @@ const Innovation = () => {
               />
             </div>
 
-            <div className="grid gap-14 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center mx-auto justify-center">
+            <div className="grid items-center justify-center grid-cols-1 mx-auto gap-14 md:grid-cols-2 lg:grid-cols-3">
               <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px] ">
-                <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
+                <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                   <HiMiniViewfinderCircle className="text-4xl" />
                 </div>
                 <div className="card-body">
@@ -118,7 +118,7 @@ const Innovation = () => {
                 </div>
               </div>
               <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
-                <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
+                <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                   <FaUsersViewfinder className="text-4xl" />
                 </div>
                 <div className="card-body">
@@ -130,7 +130,7 @@ const Innovation = () => {
                 </div>
               </div>
               <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
-                <div className="rounded-sm ml-10 p-6 hover:bg-orange-400 border border-gray-400 ">
+                <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                   <TbBrandFinder className="text-4xl" />
                 </div>
                 <div className="card-body">
@@ -149,27 +149,27 @@ const Innovation = () => {
       {/* client say .. */}
 
       <div className="">
-        <div className="items-center text-center mx-auto mb-10 mt-24">
-          <h4 className="text-xl text-orange-600 font-semibold mb-5">
+        <div className="items-center mx-auto mt-24 mb-10 text-center">
+          <h4 className="mb-5 text-xl font-semibold text-orange-600">
             OUR TESTIMONIALS
           </h4>
           <MyTitle text={"What's our Client Say"} />
         </div>
-        <div className="flex flex-col gap-4 lg:flex-row">
-          <div className="w-full lg:w-1/2 md:w-full rounded-md">
+        <div className="flex flex-col gap-4 lg:flex-row border-green-950 bg-[#fbfbfb]">
+          <div className="w-full lg:w-1/2 md:w-full">
             <img
-              className="w-full border border-amber-900 rounded-md"
-              src="https://i.ibb.co/8bJ7fqD/client.jpg"
+              className="w-full"
+              src="https://i.ibb.co/17v8VBz/client.jpg"
               alt=""
             />
           </div>
-          <div className="h-full w-full lg:w-1/2 border border-green-950  md:w-full rounded-md">
+          <div className="w-full h-full border rounded-md lg:w-1/2 md:w-full">
             {" "}
-            <div className="bg-yellow-200 h-full items-center p-5 ">
-              <Slider {...settings} className="border text-black bg-gray-200 ">
+            <div className="items-center h-full p-5 bg-[#fbfbfb]">
+              <Slider {...settings} className="text-black border ">
                 {reviews.map((item) => (
                   <div key={item._id} className="p-8 mt-6">
-                    <GrStatusGood className="text-6xl mb-6" />
+                    <GrStatusGood className="mb-6 text-6xl" />
 
                     <p className="text-2xl">{item.review}</p>
                     <h2 className="mt-4">{item.name}</h2>

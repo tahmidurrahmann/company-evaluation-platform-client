@@ -99,13 +99,13 @@ const EmployeTaskes = () => {
 
   console.log(tasks);
   return (
-    <div className="space-y-10 mt-5">
-      <div className="flex justify-center  items-center">
+    <div className="mt-5 space-y-10">
+      <div className="flex items-center justify-center">
         <div className="dropdown dropdown-end">
           <button
             tabIndex={0}
             role="button"
-            className="flex items-center  gap-2 border px-2 font-semibold text-xl"
+            className="flex items-center gap-2 px-2 text-xl font-semibold border"
           >
             Filter <IoFilterSharp />
           </button>
@@ -136,9 +136,9 @@ const EmployeTaskes = () => {
       </div>
 
       <div className="">
-        <div className="overflow-x-auto ml-24 mr-2">
+        <div className="ml-24 mr-2 overflow-x-auto">
           <table className="table ">
-            <thead className="bg-gray-300 text-black font-bold">
+            <thead className="font-bold text-black bg-gray-300">
               <tr>
                 <th>Assignee</th>
                 <th>Task Name</th>
@@ -153,19 +153,19 @@ const EmployeTaskes = () => {
             <tbody>
               {filteredTasks.map((element, index) => (
                 <tr
-                  className="h-24 border-b-2 text-white border-gray-300"
+                  className="h-24 text-white border-b-2 border-gray-300"
                   key={index}
                 >
-                  <td className="flex justify-center mt-5  items-center gap-4">
-                    <div className="avatar -ml-10">
-                      <div className="w-8 rounded-full  border-2">
+                  <td className="flex items-center justify-center gap-4 mt-5">
+                    <div className="-ml-10 avatar">
+                      <div className="w-8 border-2 rounded-full">
                         <img src={element.employImage} alt="User Avatar" />
                       </div>
                     </div>
                     {element.name}
                   </td>
                   <td> {element.addItem}</td>
-                  <td className="text-blue-500 font-bold">
+                  <td className="font-bold text-blue-500">
                     {element.timeAndLocal}
                   </td>
                   <td>
@@ -201,13 +201,13 @@ const EmployeTaskes = () => {
                     {element.status === "completed" ? (
                       <>
                         {element.disLiked ? (
-                          <button className="bg-pink-950 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition">
+                          <button className="px-6 py-2 ml-1 font-semibold text-white transition border-2 border-blue-400 shadow-xl bg-pink-950 rounded-xl shadow-blue-900 hover:scale-105">
                             <AiOutlineDislike className="text-3xl" />
                           </button>
                         ) : (
                           <button
                             onClick={() => handleDisLike(element._id)}
-                            className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
+                            className="px-6 py-2 ml-1 font-semibold text-white transition bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900 hover:scale-105"
                           >
                             <AiOutlineDislike className="text-3xl" />
                           </button>
@@ -215,8 +215,8 @@ const EmployeTaskes = () => {
                       </>
                     ) : (
                       <p className="flex flex-col items-center gap-1">
-                        <button className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400">
-                          <SiTodoist className="text-3xl mb-2" />
+                        <button className="px-6 py-2 ml-1 font-semibold text-white bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900">
+                          <SiTodoist className="mb-2 text-3xl" />
                         </button>
 
                         <span className="badge badge-primary">
@@ -242,14 +242,14 @@ const EmployeTaskes = () => {
                           {element.liked ? (
                             <button
                               disabled
-                              className="bg-pink-950 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
+                              className="px-6 py-2 ml-1 font-semibold text-white transition border-2 border-blue-400 shadow-xl bg-pink-950 rounded-xl shadow-blue-900 hover:scale-105"
                             >
                               <AiOutlineLike className="text-3xl" />
                             </button>
                           ) : (
                             <button
                               onClick={() => handleLike(element._id)}
-                              className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition"
+                              className="px-6 py-2 ml-1 font-semibold text-white transition bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900 hover:scale-105"
                             >
                               <AiOutlineLike className="text-3xl" />
                             </button>
@@ -260,9 +260,9 @@ const EmployeTaskes = () => {
                           <button
                             onClick={() => handleLike(element._id)}
                             disabled
-                            className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400"
+                            className="px-6 py-2 ml-1 font-semibold text-white bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900"
                           >
-                            <SiTodoist className="text-3xl mb-2" />
+                            <SiTodoist className="mb-2 text-3xl" />
                           </button>
 
                           <span className="badge badge-primary">
