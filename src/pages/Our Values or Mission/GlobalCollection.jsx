@@ -4,12 +4,17 @@ import { TbArrowRotaryLeft } from "react-icons/tb";
 import "./Global.css"
 
 const GlobalCollection = () => {
+  
   return (
-    <div className="mt-10 md:mt-32 lg:mt-40 px-4 2xl:px-0 max-w-screen-2xl mx-auto">
-      <SharedHeading heading="INNOVATION UNLEASHED - TOGETHER " />
-      <SharedHeading heading="WE THRIVE " />
+    <div className="mt-10 md:mt-32 lg:mt-40 px-4  2xl:px-0 max-w-screen-2xl mx-auto">
+     <div className="">
+        <SharedHeading heading="INNOVATION UNLEASHED - TOGETHER " /> 
+        <SharedHeading heading="WE THRIVE " />
+     </div>
+    
 
-      <div className="flex lg:flex-row flex-col gap-0 md:gap-10">
+
+      <div className="flex lg:flex-row flex-col gap-0  md:gap-10">
         <div className="">
           <p className="mt-6 pb-6">Our mission is to empower organizations with the tools they need to thrive in a dynamic<br /> business landscape. Through cutting-edge evaluation methods and a commitment to excellence,<br /> we aim to foster innovation, elevate performance, and drive success for our clients.</p>
           <div>
@@ -22,7 +27,7 @@ const GlobalCollection = () => {
               <p className="z-10">Discover More</p>
             </button>
 
-            {/* animation button  */}
+              {/* animation button  */}
 
             <div className="absolute lg:top-0 md:top-[780px] top-[680px] lg:-bottom-[320px] lg:left-[80px]">
               <span className="relative flex h-7 w-7">
@@ -53,7 +58,7 @@ const GlobalCollection = () => {
         </div>
         <div>
           <div className="relative  mb-12">
-            <img className="bg-gray-200 md:ml-12 shadow-xl" src="https://i.ibb.co/X5b33fs/image-removebg-preview-36.png" alt="" />
+            <img className=" md:ml-12 shadow-xl rounded-xl" src="https://i.ibb.co/Hg0vmBs/image.png" alt="" />
           </div>
           {/* <div className="absolute lg:-bottom-[220px] md:-bottom-[990px] -bottom-[750px] left-[220px] md:left-[415px] lg:left-[1125px] shadow-xl lg:right-8">
 

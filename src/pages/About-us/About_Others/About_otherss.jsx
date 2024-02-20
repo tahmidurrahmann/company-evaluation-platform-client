@@ -1,4 +1,7 @@
+import UserForm from "../../Home/Banner/UserForm";
+
 const About_otherss = () => {
+
   return (
     <div className="mb-32 pt-12">
       <h1 className="text-5xl text-center font-bold">
@@ -19,6 +22,7 @@ const About_otherss = () => {
           <button className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition">
             Join us
           </button>
+
         </div>
         <div>
           <img

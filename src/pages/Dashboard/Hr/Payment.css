@@ -1,0 +1,58 @@
+.inputContainerr {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .customInputt {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+    color: #fff;
+  }
+  
+  .inputLabell {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .customInputt:focus + .inputLabell,
+  .customInputt:not(:placeholder-shown) + .inputLabell {
+    transform: translateY(-100%) translateX(-5px) scale(0.8);
+  }
+
+  .customInputtt {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    transition: 0.3s ease;
+    color: #fff;
+  }
+
+  .customInputtt:focus + .inputLabelll,
+  .customInputtt:not(:placeholder-shown) + .inputLabelll {
+    transform: translateY(-100%) translateX(-5px) scale(0.8);
+  }
+  
+  .inputUnderlinee {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+  }
