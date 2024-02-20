@@ -43,9 +43,8 @@ const UserProfile = () => {
     return (
         <div>
             <div className="overflow-x-auto">
-                <section className='mt-10 rounded-xl animate-bounce mx-6 xl:mx-0 ease-out duration-1000 bg-black shadow-xl shadow-black'>
                     {employeeRequestCheck?.status === "checked" ?
-                        <div className="object-cover shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center justify-between">
+                        <div className="object-cover shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center justify-between my-10">
                             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                                 <img src={employeeRequestCheck?.imageURL} alt="Shoes" className='w-40' />
                                 <div>
@@ -93,7 +92,7 @@ const UserProfile = () => {
                                                         <div className="mt-2">
                                                             <h1 className="text-center font-semibold">All tasks liked by your HR</h1>
                                                             {
-                                                                completedTask?.map(task => <div className="border p-4 mt-6 rounded-lg text-sm flex justify-between items-center" key={task?._id}>
+                                                                completedTask?.map(task => <div className="border p-4 mt-6 rounded-lg text-sm flex justify-between items-center gap-12" key={task?._id}>
                                                                     <h1 className="flex items-center gap-1"><HiOutlineOfficeBuilding />{task?.company}</h1>
                                                                     <h1 className="flex items-center gap-1"><MdOutlineTaskAlt />{task?.addItem}</h1>
                                                                 </div>)
@@ -111,7 +110,6 @@ const UserProfile = () => {
                             </div>
                         </div>
                         : <div className="min-h-[80vh] flex justify-center items-center font-semibold text-xl">Please Request for Employee or wait for Accept your request</div>}
-                </section>
                 <div className="App flex justify-center items-center pt-12">
                     <PopupButton
                         url="https://calendly.com/tahmidurrahman/30min"
