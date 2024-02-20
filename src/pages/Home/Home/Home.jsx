@@ -24,7 +24,6 @@ const Home = () => {
             <Logo />
             <RachingBarMap ></RachingBarMap>
             <EvaluationBg />
-       
             <Reviews />
             <OverView />
         </div>

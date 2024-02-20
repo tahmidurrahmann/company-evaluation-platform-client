@@ -78,8 +78,6 @@ const EvaluationBg = () => {
                         </div>
                     </div>
 
-
-
                     <div>
                         <Evelotionchart1 />
                     </div>
@@ -93,15 +91,15 @@ const EvaluationBg = () => {
 
                 {/* ************       2nd line data  here  1st table  ***************** */}
                 <div>
-                    
-        <Evaluationchart3/>
+
+                    <Evaluationchart3 />
 
                 </div>
 
                 {/* ************       2nd line data  here  2nd chart  ***************** */}
 
                 <div>
-                    <Evaluationchart4/>
+                    <Evaluationchart4 />
                 </div>
 
 
@@ -109,7 +107,7 @@ const EvaluationBg = () => {
 
 
 
-          
+
 
 
 
