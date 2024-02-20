@@ -43,7 +43,7 @@ const EmployeTeamPearformence = () => {
                     <div className="flex-none gap-2">
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
+                                <div className="border-2 rounded-full">
                                     <img alt="Tailwind CSS Navbar component" src={hrRequestCheck?.imageURL} />
                                 </div>
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 text-black font-bold uppercase shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -80,21 +80,21 @@ const EmployeTeamPearformence = () => {
             </div>
             <div className="mx-4 xl:mx-0 border rounded-lg">
                 <h1 className="font-sans text-center text-xl md:text-2xl font-bold py-4">Performance Survey</h1>
-                    <BarChart
-                        width={window.innerWidth / 1.5}
-                        height={400}
-                        data={taskShow}
-                        margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
-                    >
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis />
-                        <Tooltip />
-                        <Legend />
-                        <Bar dataKey="TodoTask" fill="#C92502" />
-                        <Bar dataKey="DoingTask" fill="#007cc7" />
-                        <Bar dataKey="CompletedTask" fill="#FF8042" />
-                    </BarChart>
+                <BarChart
+                    width={window.innerWidth / 1.5}
+                    height={400}
+                    data={taskShow}
+                    margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
+                >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="TodoTask" fill="#C92502" />
+                    <Bar dataKey="DoingTask" fill="#007cc7" />
+                    <Bar dataKey="CompletedTask" fill="#FF8042" />
+                </BarChart>
             </div>
         </div >
     );

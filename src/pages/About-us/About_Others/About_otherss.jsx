@@ -19,10 +19,9 @@ const About_otherss = () => {
             impactful solutions with collaborative
             <br /> precision and shared dedication.
           </p>
-          <button className="bg-blue-400 py-2 px-6 rounded-xl text-white font-semibold ml-1 border-2 shadow-xl shadow-blue-900 border-blue-400 hover:scale-105 transition">
-            Join us
-          </button>
-
+          <div className="flex justify-start">
+            <UserForm heading="Join Us" />
+          </div>
         </div>
         <div>
           <img

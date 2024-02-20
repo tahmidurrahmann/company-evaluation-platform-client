@@ -32,6 +32,8 @@ import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
+import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
+import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/ourValuesOrMission",
         element: <OurValuesOrMission></OurValuesOrMission>,
+      },
+      {
+        path: "/applyForHr",
+        element: <ApplyForHr />,
+      },
+      {
+        path: "/applyForEmployee",
+        element: <ApplyForEmployee />,
       },
       {
         path: "/innovation",
