@@ -5,7 +5,6 @@ import './uplodFile.css'
 
 const MultipleFileUploader = ({setFile}) => {
 
-
     const handelFileUplod = (e) => {
         // (e) => setImg()
         const eValue = e.target.files[0]

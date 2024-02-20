@@ -76,7 +76,7 @@ const TeamMemberReq = () => {
 
     return (
         <div className="mb-20">
-                <SharedHeadingDashboard heading="Employe User Requests" />
+            <SharedHeadingDashboard heading="Employe User Requests" />
             <div className="overflow-x-auto">
                 <table className="table table-xs rounded-lg">
                     <thead className="font-bold text-black bg-gray-100 ">
@@ -84,7 +84,7 @@ const TeamMemberReq = () => {
                             <th>Photo</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>company</th>
+                            <th>Resume</th>
                             <th>Action</th>
                             <th>Action</th>
                         </tr>
@@ -95,7 +95,9 @@ const TeamMemberReq = () => {
                                 <th ><img referrerPolicy="no-referrer" className="w-8 md:w-16  rounded-full" src={agreement?.imageURL} alt="" /></th>
                                 <td>{agreement?.name}</td>
                                 <td>{agreement?.email}</td>
-                                <td>{agreement?.company}</td>
+                                <td><a href={agreement?.file} download={agreement?.file}>
+                                    <button className="py-1 px-3 border rounded-lg hover:scale-105 transition">View Resume</button>
+                                </a></td>
                                 <td><span onClick={() => handleMakeUser(agreement?._id)} className={`${agreement?.status === "checked" ? "text-lg text-[#007cc7] font-semibold" : "bg-[#007cc7] px-2 py-1 hover:border hover:border-[#007cc7] hover:bg-white hover:text-[#007cc7] text-white font-semibold rounded"}`}>{agreement?.status === "checked" ? "Checked" : "Accept"}</span></td>
                                 <td><span onClick={() => rejectReq(agreement?._id)} ><RiDeleteBin6Line className="text-red-600 border-red-600 border p-1 rounded hover:bg-red-600 hover:text-white" size={26} /></span></td>
                             </tr>)

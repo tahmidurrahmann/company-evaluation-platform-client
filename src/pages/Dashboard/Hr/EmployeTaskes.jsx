@@ -2,9 +2,13 @@ import { IoFilterSharp } from "react-icons/io5";
 import { useCallback, useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
-import { SiTodoist } from "react-icons/si";
+import { SiPoly } from "react-icons/si";
 import Swal from "sweetalert2";
+import { RiLoaderFill } from "react-icons/ri";
+import { BiLike } from "react-icons/bi";
+import { AiFillLike } from "react-icons/ai";
+import { BiSolidDislike } from "react-icons/bi";
+import { BiDislike } from "react-icons/bi";
 
 const EmployeTaskes = () => {
   const [tasks, setTasks] = useState([]);
@@ -67,7 +71,6 @@ const EmployeTaskes = () => {
       if (result.isConfirmed) {
         try {
           await axiosPublic.post(`/disLikeTask/${taskId}`);
-
           await fetchTasks();
           Swal.fire({
             title: "Dis-Liked!",
@@ -97,7 +100,8 @@ const EmployeTaskes = () => {
     setFilteredTasks(tasks?.filter((task) => task?.status === "doing"));
   };
 
-  console.log(tasks);
+  console.log(filteredTasks);
+
   return (
     <div className="mt-5 space-y-10">
       <div className="flex items-center justify-center">
@@ -135,19 +139,17 @@ const EmployeTaskes = () => {
         </div>
       </div>
 
-      <div className="">
+      <div>
         <div className="ml-24 mr-2 overflow-x-auto">
-          <table className="table ">
+          <table className="table">
             <thead className="font-bold text-black bg-gray-300">
               <tr>
-                <th>Assignee</th>
+                <th>Name</th>
                 <th>Task Name</th>
                 <th>Deadline</th>
-                <th>Audience</th>
-                {/* <th>Tags</th> */}
-                <th>Channel</th>
                 <th>Effort</th>
-                <th>Vote</th>
+                <th>Up Vote</th>
+                <th>Down Vote</th>
               </tr>
             </thead>
             <tbody>
@@ -156,76 +158,27 @@ const EmployeTaskes = () => {
                   className="h-24 text-white border-b-2 border-gray-300"
                   key={index}
                 >
-                  <td className="flex items-center justify-center gap-4 mt-5">
-                    <div className="-ml-10 avatar">
-                      <div className="w-8 border-2 rounded-full">
-                        <img src={element.employImage} alt="User Avatar" />
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="w-12 h-12 mask mask-squircle">
+                          <img src={element.employImage} />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{element?.name}</div>
+                        <div className="text-sm opacity-50">
+                          {element?.email}
+                        </div>
                       </div>
                     </div>
-                    {element.name}
                   </td>
                   <td> {element.addItem}</td>
-                  <td className="font-bold text-blue-500">
+                  <td className="font-bold text-white">
                     {element.timeAndLocal}
                   </td>
+                  <td>{element.effort}</td>
                   <td>
-                    <h1
-                      className={`${
-                        element.audience === "primium"
-                          ? "text-white font-bold"
-                          : element.audience === "busness"
-                          ? "text-white font-bold"
-                          : "font-bold text-white"
-                      }`}
-                    >
-                      {element.audience}
-                    </h1>
-                  </td>
-
-                  <td>
-                    <h1
-                      className={`${
-                        element.channel === "social"
-                          ? "font-bold "
-                          : element.channel === "blog"
-                          ? "font-bold"
-                          : element.channel === "press"
-                          ? "font-bold"
-                          : "font-bold"
-                      }`}
-                    >
-                      {element.channel}*
-                    </h1>
-                  </td>
-                  <td className="">
-                    {element.status === "completed" ? (
-                      <>
-                        {element.disLiked ? (
-                          <button className="px-6 py-2 ml-1 font-semibold text-white transition border-2 border-blue-400 shadow-xl bg-pink-950 rounded-xl shadow-blue-900 hover:scale-105">
-                            <AiOutlineDislike className="text-3xl" />
-                          </button>
-                        ) : (
-                          <button
-                            onClick={() => handleDisLike(element._id)}
-                            className="px-6 py-2 ml-1 font-semibold text-white transition bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900 hover:scale-105"
-                          >
-                            <AiOutlineDislike className="text-3xl" />
-                          </button>
-                        )}
-                      </>
-                    ) : (
-                      <p className="flex flex-col items-center gap-1">
-                        <button className="px-6 py-2 ml-1 font-semibold text-white bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900">
-                          <SiTodoist className="mb-2 text-3xl" />
-                        </button>
-
-                        <span className="badge badge-primary">
-                          {element.status}
-                        </span>
-                      </p>
-                    )}
-                  </td>
-                  <td className="">
                     <h1
                       className={`${
                         element.effort === "medium"
@@ -240,37 +193,60 @@ const EmployeTaskes = () => {
                       {element.status === "completed" ? (
                         <>
                           {element.liked ? (
-                            <button
-                              disabled
-                              className="px-6 py-2 ml-1 font-semibold text-white transition border-2 border-blue-400 shadow-xl bg-pink-950 rounded-xl shadow-blue-900 hover:scale-105"
-                            >
-                              <AiOutlineLike className="text-3xl" />
+                            <button disabled>
+                              <AiFillLike className="text-3xl" />
                             </button>
                           ) : (
-                            <button
-                              onClick={() => handleLike(element._id)}
-                              className="px-6 py-2 ml-1 font-semibold text-white transition bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900 hover:scale-105"
-                            >
-                              <AiOutlineLike className="text-3xl" />
+                            <button onClick={() => handleLike(element._id)}>
+                              <BiLike className="text-3xl" />
                             </button>
                           )}
                         </>
                       ) : (
                         <p className="flex flex-col items-center gap-1">
-                          <button
-                            onClick={() => handleLike(element._id)}
-                            disabled
-                            className="px-6 py-2 ml-1 font-semibold text-white bg-blue-400 border-2 border-blue-400 shadow-xl rounded-xl shadow-blue-900"
-                          >
-                            <SiTodoist className="mb-2 text-3xl" />
+                          <button className="font-semibold text-white">
+                            {element?.status === "todo" && (
+                              <SiPoly
+                                className="text-3xl text-blue-400"
+                                size={22}
+                              ></SiPoly>
+                            )}
+                            {element?.status === "doing" && (
+                              <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
+                            )}
                           </button>
-
-                          <span className="badge badge-primary">
-                            {element.status}
-                          </span>
                         </p>
                       )}
                     </h1>
+                  </td>
+                  <td>
+                    {element.status === "completed" ? (
+                      <>
+                        {element.disLiked ? (
+                          <button>
+                            <BiSolidDislike className="text-3xl" />
+                          </button>
+                        ) : (
+                          <button onClick={() => handleDisLike(element._id)}>
+                            <BiDislike className="text-3xl" />
+                          </button>
+                        )}
+                      </>
+                    ) : (
+                      <p className="flex flex-col items-center gap-1">
+                        <button className="font-semibold text-white">
+                          {element?.status === "todo" && (
+                            <SiPoly
+                              className="text-3xl text-blue-400"
+                              size={22}
+                            ></SiPoly>
+                          )}
+                          {element?.status === "doing" && (
+                            <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
+                          )}
+                        </button>
+                      </p>
+                    )}
                   </td>
                 </tr>
               ))}
