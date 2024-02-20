@@ -4,7 +4,6 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Loading from "../../shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
-import SharedBanner from "../../shared/SharedBanner/SharedBanner";
 import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import MultipleFileUploader from "../Dashboard/Hr/MultipleFileUploader";
 import { useState } from "react";
@@ -45,7 +44,6 @@ const ApplyForEmployee = () => {
     return (
         <div>
             <div className="pt-16">
-                <SharedBanner passage="Apply For Employee" heading="Apply For Employee" />
                 <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                     <div className="my-6 md:my-8 lg:my-12">
                         <SharedHeading heading="Apply For Employee" />

@@ -33,7 +33,6 @@ import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
-import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
 import Companies from "../pages/Companies/Companies";
 const router = createBrowserRouter([
   {
@@ -58,16 +57,12 @@ const router = createBrowserRouter([
         element: <OurValuesOrMission></OurValuesOrMission>,
       },
       {
-        path: "/applyForHr",
+        path: "/jobHub",
         element: <ApplyForHr />,
       },
       {
         path: "/companies",
         element: <Companies />,
-      },
-      {
-        path: "/applyForEmployee",
-        element: <ApplyForEmployee />,
       },
       {
         path: "/innovation",
