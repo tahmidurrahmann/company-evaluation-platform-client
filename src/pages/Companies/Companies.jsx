@@ -56,7 +56,7 @@ const Companies = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
                     <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {companies?.map(company => (
-                            <div className="border rounded-lg my-12 p-6" key={company?._id}>
+                            <div className="border rounded-lg my-2 lg:my-6 p-6" key={company?._id}>
                                 <h1>{company?.company}</h1>
                                 <h1>{company?.companySize}</h1>
                                 <h1>{company?.industrySector}</h1>
@@ -92,12 +92,9 @@ const Companies = () => {
                         <div className="flex flex-col flex-1">
                             <label className="font-semibold">Company Size</label>
                             <select {...register("companySize", { required: true })} className="select select-bordered w-full flex-1">
-                                <option value="Less Than 10 Employee">Less Than 10 Employee</option>
-                                <option value="10 ~ 50 Employee">10 ~ 50 Employee</option>
-                                <option value="50 ~ 200 Employee">50 ~ 200 Employee</option>
-                                <option value="200 ~ 500 Employee">200 ~ 500 Employee</option>
-                                <option value="500 ~ 2000 Employee">500 ~ 2000 Employee</option>
-                                <option value="More Than 2000 Employee">More Than 2000 Employee</option>
+                                {
+                                   hrInfo?.map((agreement, index) => <option key={index} value={agreement?.companySize}>{agreement?.companySize}</option>)
+                                }
                             </select>
                         </div>
                         {errors.companySize?.type === "required" && (

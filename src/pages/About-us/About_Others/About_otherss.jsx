@@ -1,4 +1,4 @@
-import UserForm from "../../Home/Banner/UserForm";
+import { Link } from "react-router-dom";
 
 const About_otherss = () => {
 
@@ -20,7 +20,7 @@ const About_otherss = () => {
             <br /> precision and shared dedication.
           </p>
           <div className="flex justify-start">
-            <UserForm heading="Join Us" />
+            <Link to={`/applyForEmployee`}><button>Join</button></Link>
           </div>
         </div>
         <div>

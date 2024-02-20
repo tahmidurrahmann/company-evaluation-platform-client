@@ -1,9 +1,8 @@
 import React from 'react';
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import HrForm from "./HrForm";
-import UserForm from "./UserForm";
+import { Fragment, useState } from 'react';
 import banner from "../../../assets/184941 (Original).mp4";
+import { Link } from 'react-router-dom';
 
 const Banner: React.FC = () => {
 
@@ -62,8 +61,16 @@ const Banner: React.FC = () => {
                                         <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                                             <h1 className="text-center mt-4 text-black font-semibold text-2xl py-6">What would you like to be our <span className="text-[#007cc7]">IONE?</span></h1>
                                             <div className="flex justify-evenly items-center">
-                                                <HrForm />
-                                                <UserForm heading="EMPLOYEE" />
+                                                <Link to={`/applyForHr`}><button className="but">
+                                                    <div className="but-top font-medium">HR</div>
+                                                    <div className="but-bottom"></div>
+                                                    <div className="but-base"></div>
+                                                </button></Link>
+                                                <Link to={`/applyForEmployee`}><button className="but">
+                                                    <div className="but-top font-medium">Employee</div>
+                                                    <div className="but-bottom"></div>
+                                                    <div className="but-base"></div>
+                                                </button></Link>
                                             </div>
                                             <div className="mt-4">
                                                 <span onClick={closeModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 hover:bg-red-600 hover:text-white">✕</span>
