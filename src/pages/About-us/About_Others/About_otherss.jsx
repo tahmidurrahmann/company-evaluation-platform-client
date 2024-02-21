@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 
 const About_otherss = () => {
+
   return (
-    <div className="pt-12 mb-32">
-      <h1 className="text-5xl font-bold text-center">
+    <div className="mb-32 pt-12">
+      <h1 className="text-5xl text-center font-bold">
         Keeping the principles to{" "}
       </h1>
-      <p className="text-5xl font-bold text-center ">
+      <p className="text-5xl text-center font-bold ">
         support your <span className="text-blue-500">enterprise</span>
       </p>
-      <div className="flex flex-col-reverse items-center px-6 mt-12 md:flex-row justify-evenly">
+      <div className="flex flex-col-reverse md:flex-row items-center px-6 justify-evenly mt-12">
         <div className="mt-20 space-y-5">
           <h1 className="text-4xl font-bold text-blue-500">Team Work</h1>
           <p className="text-xl">
@@ -19,9 +20,11 @@ const About_otherss = () => {
             <br /> precision and shared dedication.
           </p>
           <div className="flex justify-start">
-            <Link to={`/applyForEmployee`}>
-              <button>Join</button>
-            </Link>
+            <Link to={`/applyForEmployee`}><button className="but">
+              <div className="but-top font-medium">Join</div>
+              <div className="but-bottom"></div>
+              <div className="but-base"></div>
+            </button></Link>
           </div>
         </div>
         <div>

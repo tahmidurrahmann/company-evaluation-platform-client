@@ -80,21 +80,21 @@ const Banner: React.FC = () => {
                         <span className="text-[#007cc7]">IONE?</span>
                       </h1>
                       <div className="flex items-center justify-evenly">
-                        <Link to={`/applyForHr`}>
+                        <Link to={/applyForHr}>
                           <button className="but">
                             <div className="font-medium but-top">HR</div>
                             <div className="but-bottom"></div>
                             <div className="but-base"></div>
                           </button>
                         </Link>
-                        <Link to={`/applyForEmployee`}>
+                        <Link to={/applyForEmployee}>
                           <button className="but">
                             <div className="font-medium but-top">Employee</div>
                             <div className="but-bottom"></div>
                             <div className="but-base"></div>
                           </button>
                         </Link>
-                                  
+                                  
                       </div>
                       <div className="mt-4">
                         <span
