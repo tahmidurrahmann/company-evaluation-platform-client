@@ -24,10 +24,9 @@ const Banner: React.FC = () => {
           <div className="absolute flex flex-col items-center justify-center space-y-4 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 lg:space-y-4 xl:space-y-10">
             <h1
               className="font-semibold text-center text-white md:text-4xl"
-              style={{ textShadow: "2px 2px 4px rgba(255, 255, 0, 0.5)" }}
             >
-              Boost Your IT <span className="text-[#F72798]">Skills</span> with
-              Accurate <span className="text-[#F72798]">Assessments</span>
+              Boost Your IT <span className="text-[#007cc7]">Skills</span> with
+              Accurate <span className="text-[#007cc7]">Assessments</span>
             </h1>
 
             <p className="text-sm text-center text-white">
@@ -74,7 +73,7 @@ const Banner: React.FC = () => {
                     leaveTo="opacity-0 scale-95"
                   >
                     <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                      <h1 className="py-6 mt-4 text-2xl font-semibold text-center text-black">
+                      <h1 className="py-6 mt-4 text-xl font-semibold text-center text-black">
                         What would you like to be our{" "}
                         <span className="text-[#007cc7]">IONE?</span>
                       </h1>

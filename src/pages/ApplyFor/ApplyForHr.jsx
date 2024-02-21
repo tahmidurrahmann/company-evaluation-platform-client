@@ -54,11 +54,11 @@ const ApplyForHr = () => {
     return (
         <div className="pt-16">
             <SharedBanner passage="Company Job Hub" heading="Company Job Hub" />
-            <div className="max-w-screen-2xl mx-auto">
+            <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                 <div className="my-6 md:my-8 lg:my-12">
                     <SharedHeading heading="Apply For Human Resource" />
                 </div>
-                <form className='flex flex-col justify-center items-center py-12 space-y-8 px-6 xl:px-0' onSubmit={handleSubmit(onSubmit)}>
+                <form className='flex flex-col justify-center items-center py-12 space-y-8' onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full">
                         <div className="inputContainer w-full flex-1">
                             <input defaultValue={user?.displayName} readOnly name="user_name" required className="customInput py-3" type="name" />
