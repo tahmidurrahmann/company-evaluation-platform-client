@@ -20,7 +20,11 @@ const About_otherss = () => {
             <br /> precision and shared dedication.
           </p>
           <div className="flex justify-start">
-            <Link to={`/applyForEmployee`}><button>Join</button></Link>
+            <Link to={`/applyForEmployee`}><button className="but">
+              <div className="but-top font-medium">Join</div>
+              <div className="but-bottom"></div>
+              <div className="but-base"></div>
+            </button></Link>
           </div>
         </div>
         <div>

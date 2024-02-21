@@ -32,8 +32,10 @@ import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
-import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
 import Companies from "../pages/Companies/Companies";
+import Apply from "../pages/ApplyFor/Apply";
+import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
+import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,7 +60,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobHub",
+        element: <Apply />,
+      },
+      {
+        path: "/applyForHr",
         element: <ApplyForHr />,
+      },
+      {
+        path: "/applyForEmployee",
+        element: <ApplyForEmployee />,
       },
       {
         path: "/companies",

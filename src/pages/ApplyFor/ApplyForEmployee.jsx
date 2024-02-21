@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import useAgreement from "../../hooks/useAgreement";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Loading from "../../shared/Loading/Loading";
 import useAuth from "../../hooks/useAuth";
@@ -7,15 +6,21 @@ import { useForm } from "react-hook-form";
 import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import MultipleFileUploader from "../Dashboard/Hr/MultipleFileUploader";
 import { useState } from "react";
+import useAgreement from "../../hooks/useAgreement";
 
 const ApplyForEmployee = () => {
 
     const axiosSecure = useAxiosSecure();
     const [file, setFile] = useState({});
     const { user } = useAuth();
+    const [allAgreements, isAgreement] = useAgreement();
 
     const {
         register, handleSubmit, reset, formState: { errors } } = useForm()
+
+    if (isAgreement) {
+        return <Loading />
+    }
 
     const onSubmit = async (data) => {
         const company = data?.company;
@@ -33,12 +38,6 @@ const ApplyForEmployee = () => {
             toast.error("You Cannot Post Twice");
             reset();
         }
-    }
-
-    const [allAgreements, isAgreement] = useAgreement();
-
-    if (isAgreement) {
-        return <Loading />
     }
 
     return (
