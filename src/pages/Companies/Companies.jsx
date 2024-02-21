@@ -9,6 +9,16 @@ import "./companies.css"
 const Companies = () => {
     const [hrInfo, isHrPending] = useCompany();
     const [companies, setCompanies] = useState([]);
+    const [showMoreData, setShowMoreData] = useState(2);
+
+    const toggleShowMore = () => {
+        if (showMoreData === 2) {
+            setShowMoreData(companies.length);
+        } else if (showMoreData > 2) {
+            setShowMoreData(2);
+        }
+    };
+
     const {
         register, handleSubmit } = useForm();
 
@@ -73,54 +83,253 @@ const Companies = () => {
                         </svg>
                     </div>
                 </form>
-                <div className="my-6 md:my-8 lg:my-12">
+                <div className="mt-6 mb-4 md:mt-8">
                     <SharedHeading heading="All Companies" />
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-                    <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {companies?.map(company => (
-                            <div className="border rounded-lg my-2 lg:my-6 p-6" key={company?._id}>
-                                <h1>{company?.company}</h1>
-                                <h1>{company?.companySize}</h1>
-                                <h1>{company?.industrySector}</h1>
-                                <h1>{company?.location}</h1>
-                                <h1>Year Founded: {company?.yearFounded?.split("-")[0]}, Month: {company?.monthName}</h1>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="col-span-1">
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 col-span-1">
+                            <h1 className="text-xl lg:text-2xl font-semibold">Search Company</h1>
+                            <div className="flex flex-col flex-1">
+                                <label className="font-semibold">Category</label>
+                                <select {...register("category")} className="select select-bordered w-full flex-1">
+                                    {
+                                        hrInfo?.map((agreement, index) => <option key={index} value={agreement?.industrySector}>{agreement?.industrySector}</option>)
+                                    }
+                                </select>
                             </div>
-                        ))}
+                            <div className="flex flex-col flex-1">
+                                <label className="font-semibold">Location</label>
+                                <select {...register("location")} className="select select-bordered w-full flex-1">
+                                    {
+                                        hrInfo?.map((agreement, index) => <option key={index} value={agreement?.location}>{agreement?.location}</option>)
+                                    }
+                                </select>
+                            </div>
+                            <div className="flex flex-col flex-1">
+                                <label className="font-semibold">Company Size</label>
+                                <select {...register("companySize")} className="select select-bordered w-full flex-1">
+                                    {
+                                        hrInfo?.map((agreement, index) => <option key={index} value={agreement?.companySize}>{agreement?.companySize}</option>)
+                                    }
+                                </select>
+                            </div>
+                            <button type="submit" className="but">
+                                <div className="but-top font-medium">Submit</div>
+                                <div className="but-bottom"></div>
+                                <div className="but-base"></div>
+                            </button>
+                        </form>
                     </div>
-                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 col-span-1">
-                        <h1 className="text-xl lg:text-2xl font-semibold">Search Company</h1>
-                        <div className="flex flex-col flex-1">
-                            <label className="font-semibold">Category</label>
-                            <select {...register("category")} className="select select-bordered w-full flex-1">
-                                {
-                                    hrInfo?.map((agreement, index) => <option key={index} value={agreement?.industrySector}>{agreement?.industrySector}</option>)
-                                }
-                            </select>
-                        </div>
-                        <div className="flex flex-col flex-1">
-                            <label className="font-semibold">Location</label>
-                            <select {...register("location")} className="select select-bordered w-full flex-1">
-                                {
-                                    hrInfo?.map((agreement, index) => <option key={index} value={agreement?.location}>{agreement?.location}</option>)
-                                }
-                            </select>
-                        </div>
-                        <div className="flex flex-col flex-1">
-                            <label className="font-semibold">Company Size</label>
-                            <select {...register("companySize")} className="select select-bordered w-full flex-1">
-                                {
-                                    hrInfo?.map((agreement, index) => <option key={index} value={agreement?.companySize}>{agreement?.companySize}</option>)
-                                }
-                            </select>
-                        </div>
-                        <button type="submit" className="but">
-                            <div className="but-top font-medium">Submit</div>
-                            <div className="but-bottom"></div>
-                            <div className="but-base"></div>
-                        </button>
-                    </form>
+                    <div className="col-span-2 ">
+                        {
+                            companies?.length > 2 ? <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                                {companies?.slice(0, showMoreData).map(company => (
+                                    <div key={company?._id} className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+                                        <img
+                                            alt=""
+                                            src={company?.imageURL}
+                                            className="h-56 w-full rounded-md object-cover"
+                                        />
+
+                                        <div className="mt-2">
+                                            <dl>
+                                                <div>
+                                                    <dt className="sr-only">Company Name</dt>
+
+                                                    <dd className="text-sm text-gray-500">{company?.company}</dd>
+                                                </div>
+
+                                                <div>
+                                                    <dt className="sr-only">Address</dt>
+
+                                                    <dd className="font-medium">{company?.location}</dd>
+                                                </div>
+                                            </dl>
+
+                                            <div className="mt-6 flex items-center gap-8 text-xs">
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Company Size</p>
+
+                                                        <p className="font-medium">{company?.companySize}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Year Founded</p>
+
+                                                        <p className="font-medium">{company?.monthName},{company?.yearFounded?.split("-")[0]}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Industry Sector</p>
+
+                                                        <p className="font-medium">{company?.industrySector}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div> : <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                                {companies?.map(company => (
+                                    <div key={company?._id} className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
+                                        <img
+                                            alt=""
+                                            src={company?.imageURL}
+                                            className="h-56 w-full rounded-md object-cover"
+                                        />
+
+                                        <div className="mt-2">
+                                            <dl>
+                                                <div>
+                                                    <dt className="sr-only">Company Name</dt>
+
+                                                    <dd className="text-sm text-gray-500">{company?.company}</dd>
+                                                </div>
+
+                                                <div>
+                                                    <dt className="sr-only">Address</dt>
+
+                                                    <dd className="font-medium">{company?.location}</dd>
+                                                </div>
+                                            </dl>
+
+                                            <div className="mt-6 flex items-center gap-8 text-xs">
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Company Size</p>
+
+                                                        <p className="font-medium">{company?.companySize}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Year Founded</p>
+
+                                                        <p className="font-medium">{company?.monthName},{company?.yearFounded?.split("-")[0]}</p>
+                                                    </div>
+                                                </div>
+
+                                                <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                                                    <svg
+                                                        className="size-4 text-indigo-700"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth="2"
+                                                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                                                        />
+                                                    </svg>
+
+                                                    <div className="mt-1.5 sm:mt-0">
+                                                        <p className="text-gray-500">Industry Sector</p>
+
+                                                        <p className="font-medium">{company?.industrySector}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                    </div>
                 </div>
+            </div>
+            <div className="flex justify-center items-center">
+                {companies.length > 2 && (
+                    <button onClick={toggleShowMore} type="button" className="but my-6 md:my-8 lg:my-12">
+                    <div className="but-top font-medium">{showMoreData > 2 ? 'Show less' : 'Show More'}</div>
+                    <div className="but-bottom"></div>
+                    <div className="but-base"></div>
+                </button>
+                )}
             </div>
         </div>
     );
