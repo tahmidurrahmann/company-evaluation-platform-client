@@ -4,7 +4,7 @@ import Drawer from "./Drawer";
 import "./styles.css";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { FaAngleDown, FaHome } from "react-icons/fa";
+import { FaHome, FaInnosoft } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
@@ -13,14 +13,14 @@ import { FaRegUser } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
-import { GrUserManager } from "react-icons/gr";
-import { RiUser6Line } from "react-icons/ri";
+import { ImOffice } from "react-icons/im";
+import { GiCircularSaw } from "react-icons/gi";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+
   const [scrolled, setScrolled] = useState(false);
-  const [applyForOpen, setApplyForOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,82 +73,24 @@ const NavBar = () => {
           About
         </span>
       </NavLink>
-      <NavLink className="w-full dropdown dropdown-hover lg:w-auto">
-        <div
-          tabIndex={0}
-          role="button"
-          className={`px-4 py-2 text-center rounded-[30px font-semibold w-full md:w-3/4 lg:w-auto mx-auto z-10 ${
-            applyForOpen ? "" : ""
-          }`}
-          onClick={() => setApplyForOpen(!applyForOpen)}
-        >
-          <span className="flex items-center justify-center gap-1">
-            <FaAngleDown />
-            ApplyFor
-          </span>
-        </div>
-        <ul
-          tabIndex={0}
-          className={`dropdown-content z-[1] menu w-40 bg-base-100 shadow space-y-0.5 ${
-            scrolled ? "text-black" : "text-black"
-          }`}
-        >
-          <NavLink
-            onClick={() => setIsOpen(false)}
-            to="/applyForHr"
-            isActive={() => false} // Explicitly set isActive to false for this NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-                : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
-            }
-          >
-            <span className="flex items-center gap-2">
-              <FcAbout className="text-[#007cc7]" />
-              HR
-            </span>
-          </NavLink>
 
-          {/* <NavLink
-            onClick={(e) => {
-              e.stopPropagation(); // Prevent event propagation to parent elements
-              setIsOpen(false); // Close the dropdown after clicking the NavLink
-            }}
-            to="/applyForHr"
-            exact={true} // Add exact prop to ensure exact URL match
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-center text-black font-medium text-[13px] p-2"
-                : "p-2 text-center font-medium text-[13px] text-[#333333]"
-            }
-          >
-            <span className="flex items-center justify-evenly">
-              <GrUserManager size={20} />
-              Human Resource
-            </span>
-          </NavLink> */}
-          {/* <NavLink
-            onClick={() => setIsOpen(false)}
-            to="/applyForEmployee"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-center text-white font-medium text-[13px] p-2"
-                : "hover:bg-[#0098dc] p-2 text-center font-medium text-[13px] text-[#333333]"
-            }
-          >
-            <span className="flex items-center justify-evenly">
-              <RiUser6Line size={20} />
-              Employee
-            </span>
-          </NavLink> */}
-        </ul>
+      <NavLink
+        onClick={() => setIsOpen(false)}
+        to="/jobHub"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+        }
+      >
+        <span className="flex items-center gap-2">
+          <GiCircularSaw className="text-[#007cc7]" />
+          Company Job Hub
+        </span>
       </NavLink>
+
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/ourValuesOrMission"
@@ -163,6 +105,22 @@ const NavBar = () => {
         <span className="flex items-center gap-2">
           <RxValue className="text-[#007cc7]" />
           Missions
+        </span>
+      </NavLink>
+      <NavLink
+        onClick={() => setIsOpen(false)}
+        to="/companies"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+        }
+      >
+        <span className="flex items-center gap-2">
+          <ImOffice className="text-[#007cc7]" />
+          Companies
         </span>
       </NavLink>
       <NavLink
@@ -193,7 +151,7 @@ const NavBar = () => {
         }
       >
         <span className="flex items-center gap-2">
-          <MdAssessment className="text-[#007cc7]" />
+          <FaInnosoft className="text-[#007cc7]" />
           Innovation
         </span>
       </NavLink>
@@ -221,12 +179,12 @@ const NavBar = () => {
   };
 
   return (
-    <div className="fixed z-10 w-full bg-white">
-      <div
-        className={`fixed z-10 w-full ${
-          scrolled ? "bg-white text-black" : "text-white"
-        }`}
-      >
+    <div
+      className={`fixed z-10 w-full ${
+        scrolled ? "bg-white text-black" : "bg-[#1515154D] text-white"
+      }`}
+    >
+      <div className="mx-auto max-w-screen-2xl">
         <div className="py-0.5">
           <div className="flex items-center px-4 justify-evenly xl:px-0">
             <Link to="/">

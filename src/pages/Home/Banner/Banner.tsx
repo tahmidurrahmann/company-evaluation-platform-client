@@ -1,10 +1,10 @@
 import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import HrForm from "./HrForm";
-import UserForm from "./UserForm";
+
 import banner from "../../../assets/184941 (Original).mp4";
 import { GiJourney } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 const Banner: React.FC = () => {
   let [isOpen, setIsOpen] = useState<boolean>(false);
@@ -80,8 +80,21 @@ const Banner: React.FC = () => {
                         <span className="text-[#007cc7]">IONE?</span>
                       </h1>
                       <div className="flex items-center justify-evenly">
-                        <HrForm />
-                        <UserForm heading="EMPLOYEE" />
+                        <Link to={`/applyForHr`}>
+                          <button className="but">
+                            <div className="font-medium but-top">HR</div>
+                            <div className="but-bottom"></div>
+                            <div className="but-base"></div>
+                          </button>
+                        </Link>
+                        <Link to={`/applyForEmployee`}>
+                          <button className="but">
+                            <div className="font-medium but-top">Employee</div>
+                            <div className="but-bottom"></div>
+                            <div className="but-base"></div>
+                          </button>
+                        </Link>
+                                  
                       </div>
                       <div className="mt-4">
                         <span

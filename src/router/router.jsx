@@ -33,7 +33,7 @@ import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
-import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
+import Companies from "../pages/Companies/Companies";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
         element: <OurValuesOrMission></OurValuesOrMission>,
       },
       {
-        path: "/applyForHr",
+        path: "/jobHub",
         element: <ApplyForHr />,
       },
       {
-        path: "/applyForEmployee",
-        element: <ApplyForEmployee />,
+        path: "/companies",
+        element: <Companies />,
       },
       {
         path: "/innovation",
@@ -88,99 +88,181 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
     children: [
       //user
       {
         path: "userProfile",
-        element: <PrivateRoute><UserProfile /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "userTask",
-        element: <PrivateRoute><UserTask /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <UserTask />
+          </PrivateRoute>
+        ),
       },
       //hr
       {
         path: "hrProfile",
-        element: <PrivateRoute><HrProfile /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <HrProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "hrProfile",
-        element: <PrivateRoute><HrProfileRating /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <HrProfileRating />
+          </PrivateRoute>
+        ),
       },
       {
         path: "allEmploye",
-        element: <PrivateRoute><AllEmploye /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <AllEmploye />
+          </PrivateRoute>
+        ),
       },
       {
         path: "employeTask",
-        element: <PrivateRoute><EmployeTaskes /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <EmployeTaskes />
+          </PrivateRoute>
+        ),
       },
       {
         path: "employeTeamPearformence",
-        element: <PrivateRoute><EmployeTeamPearformence /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <EmployeTeamPearformence />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'meet',
-        element: <PrivateRoute><Meets /></PrivateRoute>
+        path: "meet",
+        element: (
+          <PrivateRoute>
+            <Meets />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'employeeRequest',
-        element: <PrivateRoute><EmployeeRequest /></PrivateRoute>
+        path: "employeeRequest",
+        element: (
+          <PrivateRoute>
+            <EmployeeRequest />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'payEmployee',
-        element: <PrivateRoute><PayEmployee /></PrivateRoute>
+        path: "payEmployee",
+        element: (
+          <PrivateRoute>
+            <PayEmployee />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'payEmployee/:id',
-        element: <PrivateRoute><PayEmployeeById /></PrivateRoute>
+        path: "payEmployee/:id",
+        element: (
+          <PrivateRoute>
+            <PayEmployeeById />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'paymentSuccess/:tranId',
-        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>
+        path: "paymentSuccess/:tranId",
+        element: (
+          <PrivateRoute>
+            <PaymentSuccess />
+          </PrivateRoute>
+        ),
       },
       {
-        path: 'paymentFail/:tranId',
-        element: <PrivateRoute><PaymentFail /></PrivateRoute>
+        path: "paymentFail/:tranId",
+        element: (
+          <PrivateRoute>
+            <PaymentFail />
+          </PrivateRoute>
+        ),
       },
       {
-        path:'paymentHistory',
-        element:<PaymentHistory/>
+        path: "paymentHistory",
+        element: <PaymentHistory />,
       },
       {
-        path: 'feedback',
-        element: <FeedbackHr/>
+        path: "feedback",
+        element: <FeedbackHr />,
       },
       //admin
       {
         path: "adminProfile",
-        element: <PrivateRoute><AdminProfile /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <AdminProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "agreementRequest",
-        element: <PrivateRoute><AgreementRequest /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <AgreementRequest />
+          </PrivateRoute>
+        ),
       },
       {
         path: "notices",
-        element: <PrivateRoute><PostNotices /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <PostNotices />
+          </PrivateRoute>
+        ),
       },
       {
         path: "companyInfo",
-        element: <PrivateRoute><CompanyInfo /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <CompanyInfo />
+          </PrivateRoute>
+        ),
       },
       {
         path: "singleCompanyDetails/:id",
-        element: <PrivateRoute><SingleCompanyDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://company-evaluation-platform-server.vercel.app/hrAndUsers/${params?.id}`)
+        element: (
+          <PrivateRoute>
+            <SingleCompanyDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://company-evaluation-platform-server.vercel.app/hrAndUsers/${params?.id}`
+          ),
       },
       {
         path: "linkNotice",
-        element: <PrivateRoute><LinkNotice /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <LinkNotice />
+          </PrivateRoute>
+        ),
       },
-    ]
+    ],
   },
 ]);
-
 
 export default router;
