@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import "../Home/Banner/custom.css"
 import useAgreement from "../../hooks/useAgreement";
+
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
@@ -52,7 +53,7 @@ const ApplyForHr = () => {
 
     return (
         <div className="pt-16">
-            <SharedBanner passage="Apply For Human Resource" heading="Apply For Human Resource" />
+            <SharedBanner passage="Company Job Hub" heading="Company Job Hub" />
             <div className="max-w-screen-2xl mx-auto">
                 <div className="my-6 md:my-8 lg:my-12">
                     <SharedHeading heading="Apply For Human Resource" />

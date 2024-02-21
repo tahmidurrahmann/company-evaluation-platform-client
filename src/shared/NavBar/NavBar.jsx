@@ -4,7 +4,7 @@ import Drawer from "./Drawer";
 import "./styles.css";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { FaAngleDown, FaHome } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
@@ -13,9 +13,8 @@ import { FaRegUser } from "react-icons/fa";
 import useAuth from "../../hooks/useAuth";
 import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
-import { GrUserManager } from "react-icons/gr";
-import { RiUser6Line } from "react-icons/ri";
 import { ImOffice } from "react-icons/im";
+import { GiCircularSaw } from "react-icons/gi";
 
 const NavBar = () => {
 
@@ -57,29 +56,23 @@ const NavBar = () => {
           About
         </span>
       </NavLink>
-      <div className="dropdown dropdown-hover w-full lg:w-auto">
-        <div tabIndex={0} role="button" className="text-[#333333] hover:bg-[#0098dc] px-4 py-2 text-center rounded-[30px] hover:text-white font-semibold w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center items-center gap-1"><FaAngleDown />ApplyFor</span></div>
-        <ul tabIndex={0} className="dropdown-content z-[1] menu w-40 bg-base-100 shadow space-y-0.5">
-          <NavLink
-            onClick={() => setIsOpen(false)}
-            to="/applyForHr"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "bg-[#0098dc] text-center text-white font-medium text-[13px] p-2" : "hover:bg-[#0098dc] p-2 text-center hover:text-white font-medium text-[13px] text-[#333333]"
-            }
-          >
-            <span className="flex justify-evenly items-center"><GrUserManager size={20} />Human Resource</span>
-          </NavLink>
-          <NavLink
-            onClick={() => setIsOpen(false)}
-            to="/applyForEmployee"
-            className={({ isActive, isPending }) =>
-              isPending ? "pending" : isActive ? "bg-[#0098dc] text-center text-white font-medium text-[13px] p-2" : "hover:bg-[#0098dc] p-2 text-center hover:text-white font-medium text-[13px] text-[#333333]"
-            }
-          >
-            <span className="flex justify-evenly items-center"><RiUser6Line size={20} />Employee</span>
-          </NavLink>
-        </ul>
-      </div>
+      <NavLink
+        onClick={() => setIsOpen(false)}
+        to="/jobHub"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+        }
+      >
+        <span className="flex gap-2 items-center">
+          <GiCircularSaw className="text-[#007cc7]" />
+          Company Job Hub
+        </span>
+      </NavLink>
+
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/ourValuesOrMission"
