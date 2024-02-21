@@ -48,7 +48,7 @@ const Innovation = () => {
       <SharedBanner heading="Innovation" passage="Innovation" />
 
       {/* title  */}
-      <MyTitle text={Best Reasons to Choose Our Services} />
+      <MyTitle text={`Best Reasons to Choose Our Services`} />
 
       <div className="mx-auto max-w-screen-2xl">
         <div className="grid grid-cols-1 gap-6 px-4 my-12 md:grid-cols-2 lg:grid-cols-4 md:gap-8 xl:px-0">
