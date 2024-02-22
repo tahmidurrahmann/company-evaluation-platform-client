@@ -8,7 +8,7 @@ const Innovation = () => {
                 <SharedHeading heading="Discover Your Innovation Potential" />
             </div>
             <div className="py-10 grid lg:grid-cols-2 grid-cols-1">
-                <div className="col-span-1 mx-auto flex ">
+                <div className="col-span-1 mx-auto flex">
                     <img src="https://i.ibb.co/NC3QxGd/Thisinopaige.png" alt="" />
                 </div>
                 <div>

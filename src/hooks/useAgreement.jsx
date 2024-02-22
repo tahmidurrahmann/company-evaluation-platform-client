@@ -6,7 +6,7 @@ const useAgreement = () => {
     const axiosSecure = useAxiosSecure();
 
     const {data : allAgreements = [], isPending : isAgreement, refetch} = useQuery({
-        queryKey : ["allAgreements"],
+        queryKey : ["allAgreementsOfEmployee"],
         queryFn : async () => {
             const res = await axiosSecure.get("/allAgreements");
             return res?.data;
