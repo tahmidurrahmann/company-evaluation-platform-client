@@ -4,8 +4,15 @@ import Evelotionchart1 from "./Evelotionchart1";
 import Evaluationchart2 from "./Evaluationchart2";
 import Evaluationchart3 from "./Evaluationchart3";
 import Evaluationchart4 from "./Evaluationchart4";
+import useAgreement from "../../../hooks/useAgreement";
+import useEmployee from "../../../hooks/useEmployee";
+import useUsers from "../../../hooks/useUsers";
 
 const EvaluationBg = () => {
+    const [allAgreement]= useAgreement()
+    const [employeeAgreements] =useEmployee();
+    const [allUser] =useUsers();
+   
     return (
         <div className="max-w-screen-2xl mx-auto px-4 py-16 2xl:px-0">
 
@@ -29,14 +36,14 @@ const EvaluationBg = () => {
                         <div className="stats shadow lg:ml-8 mt-5">
 
                             <div className="stat place-items-center">
-                                <div className="stat-title">Downloads</div>
-                                <div className="stat-value">31K</div>
+                                <div className="stat-title">Hr</div>
+                                <div className="stat-value">{allAgreement?.length}</div>
                                 <div className="stat-desc">From January 1st to February 1st</div>
                             </div>
 
                             <div className="stat place-items-center">
-                                <div className="stat-title">Users</div>
-                                <div className="stat-value ">4,200</div>
+                                <div className="stat-title">Employ</div>
+                                <div className="stat-value ">{employeeAgreements?.length}</div>
                                 <div className="stat-desc ">↗︎ 40 (2%)</div>
                             </div>
 
@@ -49,13 +56,13 @@ const EvaluationBg = () => {
 
                             <div className="stat place-items-center">
                                 <div className="stat-title">Downloads</div>
-                                <div className="stat-value">31K</div>
+                                <div className="stat-value">31</div>
                                 <div className="stat-desc">From January 1st to February 1st</div>
                             </div>
 
                             <div className="stat place-items-center">
                                 <div className="stat-title">Users</div>
-                                <div className="stat-value ">4,200</div>
+                                <div className="stat-value ">{allUser?.length}</div>
                                 <div className="stat-desc ">↗︎ 40 (2%)</div>
                             </div>
 

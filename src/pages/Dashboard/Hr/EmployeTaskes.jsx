@@ -5,6 +5,7 @@ import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { SiTodoist } from "react-icons/si";
 import Swal from "sweetalert2";
+import OnlineOfline from "./OnlineOfline";
 
 const EmployeTaskes = () => {
   const [tasks, setTasks] = useState([]);
@@ -131,12 +132,14 @@ const EmployeTaskes = () => {
                 <tr>
                   <th>Assignee</th>
                   <th>Task Name</th>
+                  <th>Active</th>
                   <th>Deadline</th>
                   <th>Audience</th>
                   <th>Tags</th> 
                   <th>Channel</th>
                   <th>Effort</th>
                   <th>Vote</th>
+                 
                 </tr>
               </thead>
               <tbody>
@@ -154,6 +157,7 @@ const EmployeTaskes = () => {
                       {element.name}
                     </td>
                     <td> {element.addItem}</td>
+                    <td><OnlineOfline/></td>
                     <td className="text-blue-500 font-bold">
                       {element.timeAndLocal}
                     </td>
