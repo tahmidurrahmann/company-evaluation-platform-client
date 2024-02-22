@@ -32,6 +32,7 @@ import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
+import UserPerformance from "../pages/Dashboard/UserProfile/UserPerformance";
 import Companies from "../pages/Companies/Companies";
 import Apply from "../pages/ApplyFor/Apply";
 import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
@@ -109,6 +110,10 @@ const router = createBrowserRouter([
         path: "userTask",
         element: <PrivateRoute><UserTask /></PrivateRoute>
       },
+      {
+        path: "userPerformance",
+        element: <PrivateRoute> <UserPerformance></UserPerformance> </PrivateRoute>
+      },
       //hr
       {
         path: "hrProfile",
@@ -155,12 +160,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute><PaymentFail /></PrivateRoute>
       },
       {
-        path:'paymentHistory',
-        element:<PaymentHistory/>
+        path: 'paymentHistory',
+        element: <PaymentHistory />
       },
       {
         path: 'feedback',
-        element: <FeedbackHr/>
+        element: <FeedbackHr />
       },
       //admin
       {
