@@ -7,9 +7,13 @@ const ContactAbout = () => {
     <div>
       {/* Banner Section  */}
 
-      <SharedBanner  passage="About Us" heading="About Us"/>
+      <SharedBanner
+        passage="About Us"
+        heading="About Us"
+        bannerImg="https://i.ibb.co/HHmxCL9/Untitled-design-1.png"
+      />
       {/* About Company Section  */}
-      <div className="container mx-auto py-24 px-12 flex flex-col md:flex-row lg:flex-row justify-between space-y-6">
+      <div className="container flex flex-col justify-between px-12 py-24 mx-auto space-y-6 md:flex-row lg:flex-row">
         {/* Image */}
         <div className="w-full md:w-[40%]">
           <img className="w-full " src={aboutCompanyImg} alt="" />
@@ -19,31 +23,29 @@ const ContactAbout = () => {
         <div className="w-full md:w-[40%] ">
           <HeaderText text={"ABOUT COMPANY"} />
           <h1
-            className="text-2xl lg:text-5xl font-bold text-black lg:text-start md:text-start text-center"
+            className="text-2xl font-bold text-center text-black lg:text-5xl lg:text-start md:text-start"
             style={{ lineHeight: 1.2 }}
           >
-            Discover all 
+            Discover all
             <br /> <span className="text-blue-500"> our features </span>
-          
-            
           </h1>
-          <p className="font-medium text-sm text-slate-600 mt-6 mb-10 lg:ml-0 md:ml-0 lg:text-start text-center">
+          <p className="mt-6 mb-10 text-sm font-medium text-center text-slate-600 lg:ml-0 md:ml-0 lg:text-start">
             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
             impedit quo minus id quod maxime placeat facere possimus, omnis
             voluptas assumenda est.
           </p>
           {/* Income increasing */}
           {/* Sales expansion */}
-          <div className="stats lg:stats-horizontal ml-12 lg:ml-0 shadow-2xl">
+          <div className="ml-12 shadow-2xl stats lg:stats-horizontal lg:ml-0">
             <div className="stat">
               <div className="stat-title">Downloads</div>
-              <div className="stat-value text-blue-500">31K</div>
+              <div className="text-blue-500 stat-value">31K</div>
               <div className="stat-desc">Jan 1st - Feb 1st</div>
             </div>
 
             <div className="stat">
               <div className="stat-title">New Users</div>
-              <div className="stat-value text-orange-500">4,200</div>
+              <div className="text-orange-500 stat-value">4,200</div>
               <div className="stat-desc">↗︎ 400 (22%)</div>
             </div>
           </div>

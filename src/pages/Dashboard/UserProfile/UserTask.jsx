@@ -60,7 +60,7 @@ const UserTask = () => {
                             todo?.map(item => <>
                                 <div key={item?._id} className=" border-blue-400  border-l-4 hover:border mt-5 shadow-blue-200 hover:shadow-blue-500 p-4 shadow-xl rounded-lg" draggable>
                                     <div className="flex  justify-end">
-                                        <SiPoly className="text-3xl text-blue-400  " />
+                                        <SiPoly className="text-3xl text-blue-400" />
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
@@ -79,7 +79,7 @@ const UserTask = () => {
                                                 <div className="flex justify-between">
                                                     <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
                                                     <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-                                                   
+
 
                                                 </div>
                                                 <div className="mt-2">
@@ -88,7 +88,7 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
-                                    
+
                                     <a href={item?.file} download={item?.file}>
                                         <button className="btn btn-outline btn-info mb-2">Show Task File</button>
                                     </a>
@@ -120,7 +120,7 @@ const UserTask = () => {
                         <div draggable>
                             {
                                 doing?.map(item => <div key={item?._id} className="mt-5 border-orange-500 border-l-4 hover:border shadow-orange-200 hover:shadow-orange-500 p-4 shadow-xl rounded-lg" draggable>
-                                    <div className="flex  justify-end">
+                                    <div className="flex justify-end">
                                         <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
@@ -142,6 +142,9 @@ const UserTask = () => {
                                             </div>
                                         </dialog>
                                     </div>
+                                    <a href={item?.file} download={item?.file}>
+                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                    </a>
                                     <form onSubmit={handleMoveTask}>
                                         <div className="flex gap-3 text-black font-bold ">
                                             <select defaultValue="doing" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
@@ -191,16 +194,9 @@ const UserTask = () => {
                                     </dialog>
 
                                 </div>
-                                <form onSubmit={handleMoveTask}>
-                                    <div className="flex gap-3 text-black font-bold ">
-                                        <select defaultValue="completed" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
-                                            <option value="todo">TO DO</option>
-                                            <option value="doing">DOING</option>
-                                            <option value="completed">COMPLETED</option>
-                                        </select>
-                                        <input type="submit" value="Move" className="btn rounded-xl hover:bg-green-500 hover:text-white border-green-400 border-2" />
-                                    </div>
-                                </form>
+                                <a href={item?.file} download={item?.file}>
+                                    <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                </a>
                             </div>)
                         }
                     </div>

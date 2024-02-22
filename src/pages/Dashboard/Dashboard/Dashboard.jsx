@@ -25,13 +25,10 @@ import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
 import usePayment from '../../../hooks/usePayment';
 import { Badge } from '@mui/material';
-import { BiSolidLike } from 'react-icons/bi';
 
 const Dashboard = () => {
 
     const [allPayments, isPayment] = usePayment();
-
-
     const { user, logOut } = useAuth();
     const [isAdmin, pending] = useAdmin();
     const [isHr, isPending] = useHr();
@@ -46,16 +43,13 @@ const Dashboard = () => {
         logOut().then().catch();
     };
 
-
     if (isPayment) {
         return <Loading />
     }
 
-
     const userEmail = user ? user.email : "";
 
     const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
-
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -90,6 +84,14 @@ const Dashboard = () => {
                     }
                 >
                     <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Employee Tasks</div>
+                </NavLink>
+                <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/userPerformance"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Your Performance</div>
                 </NavLink>
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/paymentHistory"
@@ -260,7 +262,7 @@ const Dashboard = () => {
 
     return (
         <div style={{
-            backgroundImage: "url(https://i.ibb.co/vcpR9qw/light-blue-3d-abstract-wave-pattern.jpg)"
+            backgroundImage: "url(https://i.ibb.co/0JhhR4N/light-blue-3d-abstract-wave-pattern-1.jpg)"
         }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
             <div className="lg:w-[300px]">
                 <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>

@@ -3,8 +3,6 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStat
 import { useState } from "react";
 import { createContext } from "react";
 import { app } from "../firebase/firebase";
-import useAxiosSecure from "../hooks/useAxiosSecure";
-
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider()
@@ -13,8 +11,7 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    const [loading, setLoading] = useState(true)
-    const axiosSecure = useAxiosSecure();
+    const [loading, setLoading] = useState(true);
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -40,23 +37,12 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setLoading(false)
             setUser(currentUser)
-            console.log(currentUser, "currentUser");
-            // const userEmail = user?.email || user?.email;
-            // const loggedUser = { email: userEmail }
-            // axiosSecure.post('/jwt', loggedUser)
-            //     .then(res => {
-            //         console.log(res)
-            //     })
-            //     .catch(error => {
-            //         console.log(error)
-            //     })
-            // setUser(currentUser)
         })
         return () => {
             unSubscribe()
         }
 
-    }, [axiosSecure, user?.email])
+    }, [])
 
 
     const authInfo = {
