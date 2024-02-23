@@ -136,17 +136,14 @@ const EmployeTaskes = () => {
       </div>
 
       <div className="">
-        <div className="overflow-x-auto mr-2 w-full">
-          <table className="table ">
+        <div className="overflow-x-auto w-full">
+          <table className="table">
             <thead className="bg-gray-300 text-black font-bold">
-              <tr>
-                <th>Assignee</th>
+              <tr className='text-xs'>
+                <th>Name</th>
                 <th>Task Name</th>
                 <th>Active</th>
                 <th>Deadline</th>
-                <th>Audience</th>
-                <th>Tags</th>
-                <th>Channel</th>
                 <th>Effort</th>
                 <th>Like</th>
                 <th>Dislike</th>
@@ -155,7 +152,7 @@ const EmployeTaskes = () => {
             <tbody>
               {filteredTasks.map((element, index) => (
                 <tr
-                  className="h-24 border-b-2 text-white border-gray-300"
+                  className="h-24 border-b-2 text-white text-xs border-gray-300"
                   key={index}
                 >
                   <td>
@@ -175,46 +172,6 @@ const EmployeTaskes = () => {
                   <td><OnlineOfline /></td>
                   <td className="text-blue-500 font-bold">
                     {element.timeAndLocal}
-                  </td>
-                  <td>
-                    <h1
-                      className={`${element.audience === "primium"
-                        ? "text-white font-bold"
-                        : element.audience === "busness"
-                          ? "text-white font-bold"
-                          : "font-bold text-white"
-                        }`}
-                    >
-                      {element.audience}
-                    </h1>
-                  </td>
-
-                  <td>
-                    <h1
-                      className={`${element.tags === "lowProirity"
-                        ? "border-2 border-black rounded-full -ml-5 text-center text-white hover:text-white "
-                        : element.tags === "highPriority"
-                          ? "border-2 -ml-5 rounded-full text-center border-blue-300 text-white hover:text-white "
-                          : "border-2  -ml-5 rounded-full text-center border-white  hover:text-white "
-                        }`}
-                    >
-                      {element.tags}
-                    </h1>
-                  </td>
-
-                  <td>
-                    <h1
-                      className={`${element.channel === "social"
-                        ? "font-bold "
-                        : element.channel === "blog"
-                          ? "font-bold"
-                          : element.channel === "press"
-                            ? "font-bold"
-                            : "font-bold"
-                        }`}
-                    >
-                      {element.channel}*
-                    </h1>
                   </td>
                   <td className="">
                     <h1

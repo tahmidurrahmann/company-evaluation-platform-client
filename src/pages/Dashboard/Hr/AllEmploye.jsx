@@ -18,7 +18,7 @@ const AllEmploye = () => {
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([]);
-    const [,, refetch] = useEmployeeTask();
+    const [, , refetch] = useEmployeeTask();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [file, setFile] = useState({})
 
@@ -89,8 +89,6 @@ const AllEmploye = () => {
                 <table className="table table-xs">
                     <thead className="bg-gray-100 text-black h-12">
                         <tr>
-                            <th>No:</th>
-                            <th>Image</th>
                             <th>Name</th>
                             <th>Company Name</th>
                             <th>Give Task</th>
@@ -103,9 +101,19 @@ const AllEmploye = () => {
                     <tbody className="">
                         {myEmploye.map((element, index) => (
                             <tr className="border-blue-300 border-b-2" key={index}>
-                                <th>{index + 1}</th>
-                                <td><img referrerPolicy="no-referrer" className="h-12 border-2 shadow-blue-600 shadow-xl w-12 rounded-full" src={element.imageURL} alt="" /></td>
-                                <td>{element.name}</td>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img referrerPolicy="no-referrer" src={element.imageURL} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{element?.name}</div>
+                                            <div className="text-sm opacity-50">{element?.email}</div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{element?.company}</td>
                                 <td onClick={() => handleInformation(element)} >
                                     <button className="bg-[#007cc7] py-2 px-4 rounded-lg text-white transition hover:scale-105" onClick={() => document.getElementById('my_modal_3').showModal()}>

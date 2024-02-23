@@ -47,9 +47,7 @@ const PayEmployee: React.FC = () => {
                 <table className="table table-xs rounded-lg">
                     <thead className="font-bold text-black bg-gray-100">
                         <tr>
-                            <th>Photo</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>company</th>
                             <th>Action</th>
                             <th>Action</th>
@@ -58,9 +56,19 @@ const PayEmployee: React.FC = () => {
                     <tbody className="border-b-2 border-blue-300">
                         {myEmployee?.map(agreement => (
                             <tr className="h-16 border-b-2 border-gray-200" key={agreement?._id}>
-                                <th><img referrerPolicy="no-referrer" className="w-8 md:w-16 rounded-full" src={agreement?.imageURL} alt="" /></th>
-                                <td>{agreement?.name}</td>
-                                <td>{agreement?.email}</td>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img referrerPolicy="no-referrer" src={agreement.imageURL} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{agreement?.name}</div>
+                                            <div className="text-sm opacity-50">{agreement?.email}</div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>{agreement?.company}</td>
                                 <td><Link to={`/dashboard/payEmployee/${agreement?._id}`}><span className="bg-[#007cc7] px-2 py-1 text-white font-semibold rounded">PAY</span></Link></td>
                                 <td onClick={() => openModal(agreement?._id)} className="cursor-pointer hover:text-[#007cc7]"><FaEye size={16} /></td>
