@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import Loading from "../../../shared/Loading/Loading";
@@ -51,18 +51,16 @@ const PayEmployeeById = (): JSX.Element => {
         refetch();
     };
 
-    console.log(allPayments);
-
     return (
         <div>
             <Link to={`/dashboard/payEmployee`}><button className="btn btn-circle btn-ghost absolute right-2 top-2 text-xl">✕</button></Link>
-            <SharedHeadingDashboard heading="Pay Employee" />
-            <div className="py-16">
+            <div className="flex flex-col gap-8 md:gap-24 lg:gap-32 min-h-screen justify-center items-center px-6 xl:px-0">
+                <SharedHeadingDashboard heading="Pay Employee" />
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="flex flex-col md:flex-row gap-6">
                         <div className="inputContainerr w-full">
                             <input {...register("name")} defaultValue={employeeData?.name} readOnly className="customInputt" type="text" />
-                            <label className="inputLabell font-semibold">FULL Name</label>
+                            <label className="inputLabell font-semibold">FULL NAME</label>
                             <div className="inputUnderlinee"></div>
                         </div>
                         <div className="inputContainerr w-full">
