@@ -19,9 +19,11 @@ const UserPerformance = () => {
     const myTask = allEmployeeTask?.filter(element => element.company === employeeRequestCheck.company)
     console.log(myTask);
 
+    
+
     const data = myTask ? myTask.map((taskElement, index) => ({
         "name": taskElement.startTime,
-        "uv": 4,
+        "uv": index + 1,
         "pv": index,
         "cv": 2,
         "amt": 2400
