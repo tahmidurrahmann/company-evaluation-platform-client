@@ -86,6 +86,14 @@ const Dashboard = () => {
                     <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Employee Tasks</div>
                 </NavLink>
                 <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/userPerformance"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Your Performance</div>
+                </NavLink>
+                <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/paymentHistory"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
