@@ -23,8 +23,8 @@ import { GiNotebook } from "react-icons/gi";
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
-import usePayment from '../../../hooks/usePayment';
 import { Badge } from '@mui/material';
+import usePayment from '../../../hooks/usePayment';
 
 const Dashboard = () => {
 

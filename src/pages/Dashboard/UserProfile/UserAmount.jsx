@@ -1,10 +1,15 @@
 import usePayment from "../../../hooks/usePayment";
-
+import Loading from "../../../shared/Loading/Loading";
 
 const UserAmount = () => {
     const [allPayments, isPayment] = usePayment();
+
+    if(isPayment){
+        return <Loading />
+    }
+
     const totalAmount = allPayments.reduce((total, item) => total + item.salary, 0)
-    console.log("Allamount", totalAmount);
+    
     return (
         <div className="text-white m-5 flex justify-center items-center gap-2 ">
             <div className="mb-8">
