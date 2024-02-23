@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Drawer from "./Drawer";
 import "./styles.css";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaInnosoft } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { RxValue } from "react-icons/rx";
 import { MdAssessment } from "react-icons/md";
@@ -17,13 +17,30 @@ import { ImOffice } from "react-icons/im";
 import { GiCircularSaw } from "react-icons/gi";
 
 const NavBar = () => {
-
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 200) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const navItems = (
-    <div className="flex flex-col lg:flex-row items-center justify-center my-6 lg:my-0 gap-6 lg:gap-2 xl:gap-6 py-24 md:py-36 lg:py-0 ">
+    <div className="flex flex-col items-center justify-center gap-6 py-24 my-6 lg:flex-row lg:my-0 lg:gap-2 xl:gap-6 md:py-36 lg:py-0 ">
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/"
@@ -31,11 +48,11 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <FaHome className="text-[#007cc7]" />
           Home
         </span>
@@ -47,15 +64,16 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <FcAbout className="text-[#007cc7]" />
           About
         </span>
       </NavLink>
+
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/jobHub"
@@ -63,11 +81,11 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <GiCircularSaw className="text-[#007cc7]" />
           Company Job Hub
         </span>
@@ -80,11 +98,11 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <RxValue className="text-[#007cc7]" />
           Missions
         </span>
@@ -96,11 +114,11 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <ImOffice className="text-[#007cc7]" />
           Companies
         </span>
@@ -112,11 +130,11 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <MdAssessment className="text-[#007cc7]" />
           Management
         </span>
@@ -128,12 +146,12 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
-          <MdAssessment className="text-[#007cc7]" />
+        <span className="flex items-center gap-2">
+          <FaInnosoft className="text-[#007cc7]" />
           Innovation
         </span>
       </NavLink>
@@ -144,16 +162,15 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
         }
       >
-        <span className="flex gap-2 items-center">
+        <span className="flex items-center gap-2">
           <MdOutlineContacts className="text-[#007cc7]" />
           Contact
         </span>
       </NavLink>
-
     </div>
   );
 
@@ -162,19 +179,25 @@ const NavBar = () => {
   };
 
   return (
-    <div className="bg-white w-full fixed z-10">
-      <div className="max-w-screen-2xl mx-auto">
+    <div
+      className={`fixed z-10 w-full ${
+        scrolled ? "bg-white text-black" : "bg-[#1515154D] text-white"
+      }`}
+    >
+      <div className="mx-auto max-w-screen-2xl">
         <div className="py-0.5">
-          <div className="flex justify-evenly items-center px-4 xl:px-0">
-            <Link to="/"><div className="flex gap-1">
-              <img
-                className="w-[30px] md:w-[40px]"
-                src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
-                alt=""
-              />
-              <h1 className="text-2xl md:text-4xl font-semibold">IONE</h1>
-            </div></Link>
-            <div className="hidden lg:flex gap-4">{navItems}</div>
+          <div className="flex items-center px-4 justify-evenly xl:px-0">
+            <Link to="/">
+              <div className="flex gap-1">
+                <img
+                  className="w-[30px] md:w-[40px]" referrerPolicy="no-referrer"
+                  src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
+                  alt=""
+                />
+                <h1 className="text-2xl font-semibold md:text-4xl">IONE</h1>
+              </div>
+            </Link>
+            <div className="hidden gap-4 lg:flex">{navItems}</div>
             <div className="">
               {user ? (
                 <div className="flex items-center">
@@ -191,10 +214,24 @@ const NavBar = () => {
                       tabIndex={0}
                       className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                      <h4 className="text-neutral-600 font-bold px-2.5 py-1 flex items-center gap-1"><FaRegUser />{user?.displayName}</h4>
-                      <Link className="w-full hover:bg-[#eee8e8] mb-1 pt-2 pb-1 font-bold" to="/dashboard"><button className="text-center lg:text-base xl:text-lg px-2.5 pb-1 flex justify-center items-center gap-1"><MdOutlineDashboard />Dashboard</button></Link>
+                      <h4 className="text-neutral-600 font-bold px-2.5 py-1 flex items-center gap-1">
+                        <FaRegUser />
+                        {user?.displayName}
+                      </h4>
+                      <Link
+                        className="w-full hover:bg-[#eee8e8] mb-1 pt-2 pb-1 font-bold"
+                        to="/dashboard"
+                      >
+                        <button className="text-center lg:text-base xl:text-lg px-2.5 pb-1 flex justify-center items-center gap-1">
+                          <MdOutlineDashboard />
+                          Dashboard
+                        </button>
+                      </Link>
                       <button onClick={handleLogeOut} className="Btnuu">
-                        <MdOutlineLogout size={34} className="pl-3 text-white" />
+                        <MdOutlineLogout
+                          size={34}
+                          className="pl-3 text-white"
+                        />
                         <div className="text">LOGOUT</div>
                       </button>
                     </ul>
@@ -221,10 +258,10 @@ const NavBar = () => {
               onClose={() => setIsOpen(false)}
               position="right"
             >
-              <div className="demo-content w-screen">
+              <div className="w-screen demo-content">
                 <span
                   type="button"
-                  className="hover:scale-105 hover:bg-gray-400 rounded-lg"
+                  className="rounded-lg hover:scale-105 hover:bg-gray-400"
                   onClick={() => setIsOpen(false)}
                 >
                   <IoMdClose size={30} />
