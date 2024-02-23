@@ -1,10 +1,10 @@
 import useAuth from "../../../hooks/useAuth";
-import usePayment from "../../../hooks/usePayment";
 import Loading from "../../../shared/Loading/Loading";
 import { GiMoneyStack } from "react-icons/gi";
 import { LuCalendarClock } from "react-icons/lu";
 import { MdMarkEmailRead } from "react-icons/md";
 import UserAmount from "../UserProfile/UserAmount";
+import usePayment from "../../../hooks/usePayment";
 
 const PaymentHistory = () => {
     const { user } = useAuth();

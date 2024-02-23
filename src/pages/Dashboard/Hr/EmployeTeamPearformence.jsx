@@ -2,10 +2,10 @@ import { useState } from "react";
 import { FaBuromobelexperte } from "react-icons/fa";
 import { MdTaskAlt } from "react-icons/md";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
+import useEmployee from "../../../hooks/useEmployee";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 
 const EmployeTeamPearformence = () => {
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();

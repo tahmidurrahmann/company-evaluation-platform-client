@@ -28,7 +28,7 @@ const Stats = ({ hrLength, employeeLength }) => {
     return (
         <div className="mt-10 lg:max-w-screen-sm xl:max-w-screen-xl mx-auto">
             <div className="flex flex-wrap justify-center items-center gap-6">
-                <div className="rounded-xl animate-bounce ease-out duration-1000 shadow-2xl shadow-[#007cc7]">
+                <div className="rounded-xl shadow-2xl shadow-[#007cc7]">
                     <article className="flex items-center gap-4 rounded-lg bg-black p-6">
                         <span className="rounded-full bg-blue-100 p-3 text-blue-600">
                             <GrUserManager size={26} />
@@ -39,7 +39,7 @@ const Stats = ({ hrLength, employeeLength }) => {
                         </div>
                     </article>
                 </div>
-                <div className="rounded-xl animate-bounce ease-out duration-1000 shadow-2xl shadow-[#007cc7]">
+                <div className="rounded-xl shadow-2xl shadow-[#007cc7]">
                     <article className="flex items-center gap-4 rounded-lg bg-black p-6">
                         <span className="rounded-full bg-blue-100 p-3 text-blue-600">
                             <TbUserPentagon size={26} />
@@ -50,7 +50,7 @@ const Stats = ({ hrLength, employeeLength }) => {
                         </div>
                     </article>
                 </div>
-                <div className="rounded-xl animate-bounce ease-out duration-1000 shadow-2xl shadow-[#007cc7]">
+                <div className="rounded-xl shadow-2xl shadow-[#007cc7]">
                     <article className="flex items-center gap-4 rounded-lg bg-black p-6">
                         <span className="rounded-full bg-blue-100 p-3 text-blue-600">
                             <SiPoly size={26} className="text-3xl text-blue-400" />
@@ -61,7 +61,7 @@ const Stats = ({ hrLength, employeeLength }) => {
                         </div>
                     </article>
                 </div>
-                <div className="rounded-xl animate-bounce ease-out duration-1000 shadow-2xl shadow-[#007cc7]">
+                <div className="rounded-xl shadow-2xl shadow-[#007cc7]">
                     <article className="flex items-center gap-4 rounded-lg bg-black p-6">
                         <span className="rounded-full bg-blue-100 p-3 text-blue-600">
                             <RiVerifiedBadgeFill size={26} className="text-3xl text-green-400" />

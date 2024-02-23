@@ -1,49 +1,57 @@
+import React,{ useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
-import { useEffect, useState } from "react";
-import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
-import "./Payment.css"
+import "./Payment.css";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useEmployee, { EmployeeAgreement } from "../../../hooks/useEmployee";
 import usePayment from "../../../hooks/usePayment";
 
-const PayEmployeeById = () => {
+interface FormData {
+    name: string;
+    company: string;
+    email: string;
+    date: string;
+    salary: number;
+    currency: string;
+}
 
-    const { id } = useParams();
+const PayEmployeeById = (): JSX.Element => {
+    const { id } = useParams<{ id: string }>();
     const [employeeAgreements, isEmployee] = useEmployee();
-    const [employeeData, setEmployeeData] = useState({});
+    const [employeeData, setEmployeeData] = useState<EmployeeAgreement | undefined>();
     const axiosSecure = useAxiosSecure();
-    const [, , refetch] = usePayment();
+    const [allPayments, , refetch] = usePayment();
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
-            const filterEmployee = employeeAgreements?.find(item => item?._id === id);
-            setEmployeeData(filterEmployee)
+            const filterEmployee = employeeAgreements.find(item => item?._id === id);
+            setEmployeeData(filterEmployee);
         }
-    }, [employeeAgreements, id])
+    }, [employeeAgreements, id]);
 
-    const {
-        register, handleSubmit } = useForm();
-
+    const { register, handleSubmit } = useForm<FormData>();
 
     if (isEmployee) {
-        return <Loading />
+        return <Loading />;
     }
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (data: FormData) => {
         const name = employeeData?.name;
         const company = employeeData?.company;
         const email = employeeData?.email;
-        const date = data?.date;
-        const salary = data?.salary;
-        const currency = data?.currency;
+        const date = data.date;
+        const salary = data.salary;
+        const currency = data.currency;
         const employeeDetails = { name, company, email, date, salary, currency };
         const res = await axiosSecure.post("/salary", employeeDetails);
         window.location.replace(res?.data?.url);
         console.log(res?.data?.url);
         refetch();
-    }
+    };
+
+    console.log(allPayments);
 
     return (
         <div>

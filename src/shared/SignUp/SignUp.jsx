@@ -1,6 +1,4 @@
 import "./SignUp.css"
-import { useContext, } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
@@ -9,20 +7,28 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 const apiKey = import.meta.env.VITE_IMGBB_API_KEY;
 const apiURL = `https://api.imgbb.com/1/upload?key=${apiKey}`;
 
 const SignUp = () => {
 
-  const { createUser } = useContext(AuthContext)
+  const authInfo = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
-  const location = useLocation();
-  const navigate = useNavigate();
+
   let from = location.state?.from?.pathname || "/";
 
   const {
     register, handleSubmit, formState: { errors } } = useForm()
+
+  if (!authInfo) {
+    return [undefined, true];
+  }
+
+  const { createUser } = authInfo;
 
   const onSubmit = async (data) => {
     const name = data.name;
