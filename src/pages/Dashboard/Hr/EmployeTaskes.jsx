@@ -4,15 +4,11 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import { SiPoly } from "react-icons/si";
 import Swal from "sweetalert2";
-
-import OnlineOfline from "./OnlineOfline";
-
 import { RiLoaderFill } from "react-icons/ri";
 import { BiLike } from "react-icons/bi";
 import { AiFillLike } from "react-icons/ai";
 import { BiSolidDislike } from "react-icons/bi";
 import { BiDislike } from "react-icons/bi";
-
 
 const EmployeTaskes = () => {
   const [tasks, setTasks] = useState([]);
@@ -143,101 +139,6 @@ const EmployeTaskes = () => {
         </div>
       </div>
 
-
-        <div className="">
-          <div className="overflow-x-auto  mr-2 w-full">
-            <table className="table ">
-              <thead className="bg-gray-300 text-black font-bold">
-                <tr>
-                  <th>Assignee</th>
-                  <th>Task Name</th>
-                  <th>Active</th>
-                  <th>Deadline</th>
-                  <th>Audience</th>
-                  <th>Tags</th> 
-                  <th>Channel</th>
-                  <th>Effort</th>
-                  <th>Vote</th>
-                 
-                </tr>
-              </thead>
-              <tbody>
-                {filteredTasks.map((element, index) => (
-                  <tr
-                    className="h-24 border-b-2 text-white border-gray-300"
-                    key={index}
-                  >
-                    <td className="flex justify-center mt-5  items-center gap-4">
-                      <div className="avatar -ml-10">
-                        <div className="w-8 rounded-full  border-2">
-                          <img src={element.employImage} alt="User Avatar" />
-                        </div>
-                      </div>
-                      {element.name}
-                    </td>
-                    <td> {element.addItem}</td>
-                    <td><OnlineOfline/></td>
-                    <td className="text-blue-500 font-bold">
-                      {element.timeAndLocal}
-                    </td>
-                    <td>
-                      <h1
-                        className={`${element.audience === "primium"
-                            ? "text-white font-bold"
-                            : element.audience === "busness"
-                              ? "text-white font-bold"
-                              : "font-bold text-white"
-                          }`}
-                      >
-                        {element.audience}
-                      </h1>
-                    </td>
-
-                    <td>
-                      <h1
-                        className={`${element.tags === "lowProirity"
-                          ? "border-2 border-black rounded-full -ml-5 text-center text-white hover:text-white "
-                          : element.tags === "highPriority"
-                            ? "border-2 -ml-5 rounded-full text-center border-blue-300 text-white hover:text-white "
-                            : "border-2  -ml-5 rounded-full text-center border-white  hover:text-white "
-                          }`}
-                      >
-                        {element.tags}
-                      </h1>
-                    </td>
-
-                    <td>
-                      <h1
-                        className={`${element.channel === "social"
-                            ? "font-bold "
-                            : element.channel === "blog"
-                              ? "font-bold"
-                              : element.channel === "press"
-                                ? "font-bold"
-                                : "font-bold"
-                          }`}
-                      >
-                        {element.channel}*
-                      </h1>
-                    </td>
-                    <td className="">
-                      <h1
-                        className={`${element.effort === "medium"
-                            ? "text-white font-bold"
-                            : element.tags === "low"
-                              ? "text-white font-bold"
-                              : element.effort === "high"
-                                ? "text-white font-bold"
-                                : "text-white font-bold"
-                          }`}
-                      >
-                        {element.effort}
-                      </h1>
-                    </td>
-                    <td className="">
-                      <h1
-                        className={`${element.effort === "medium"
-
       <div>
         <div className="overflow-x-auto ml-24 mr-2">
           <table className="table">
@@ -261,7 +162,7 @@ const EmployeTaskes = () => {
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={element.employImage} />
+                          <img referrerPolicy="no-referrer" src={element.employImage} />
                         </div>
                       </div>
                       <div>
@@ -284,7 +185,6 @@ const EmployeTaskes = () => {
                         : element.tags === "low"
                           ? "text-white font-bold"
                           : element.effort === "high"
-
                             ? "text-white font-bold"
                             : "text-white font-bold"
                         }`}

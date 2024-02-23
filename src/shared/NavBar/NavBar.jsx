@@ -190,7 +190,7 @@ const NavBar = () => {
             <Link to="/">
               <div className="flex gap-1">
                 <img
-                  className="w-[30px] md:w-[40px]"
+                  className="w-[30px] md:w-[40px]" referrerPolicy="no-referrer"
                   src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                   alt=""
                 />
