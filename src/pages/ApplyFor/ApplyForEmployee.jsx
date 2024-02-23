@@ -41,7 +41,7 @@ const ApplyForEmployee = () => {
     }
 
     return (
-        <div>
+        <div className="">
             <div className="pt-16">
                 <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                     <div className="my-6 md:my-8 lg:my-12">
