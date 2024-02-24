@@ -2,28 +2,24 @@ import React, { useEffect, useRef } from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import HrSendMeet from '../Dashboard/Hr/HrSendMeet';
 
-function randomID(len) {
+function randomID(len: number): string {
     let result = '';
-    var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
-        maxPos = chars.length,
-        i;
-    len = len || 5;
-    for (i = 0; i < len; i++) {
+    const chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP';
+    const maxPos = chars.length;
+    for (let i = 0; i < len; i++) {
         result += chars.charAt(Math.floor(Math.random() * maxPos));
     }
     return result;
 }
 
-export function getUrlParams(
-    url = window.location.href
-) {
-    let urlStr = url.split('?')[1];
+export function getUrlParams(url: string = window.location.href): URLSearchParams {
+    const urlStr = url.split('?')[1];
     return new URLSearchParams(urlStr);
 }
 
-const Meets = () => {
+const Meets: React.FC = () => {
     const roomID = getUrlParams().get('roomID') || randomID(5);
-    const myMeetingRef = useRef(null);
+    const myMeetingRef = useRef < HTMLDivElement > (null);
 
     useEffect(() => {
         const startMeeting = async () => {
@@ -36,7 +32,7 @@ const Meets = () => {
             const zp = ZegoUIKitPrebuilt.create(kitToken);
             // start the call
             zp.joinRoom({
-                container: myMeetingRef.current,
+                container: myMeetingRef.current!,
                 sharedLinks: [
                     {
                         name: 'Copy link',
@@ -76,7 +72,7 @@ const Meets = () => {
                 style={{ width: '80vw', height: '90vh' }}
             ></div>
         </>
-    )
+    );
 };
 
 export default Meets;

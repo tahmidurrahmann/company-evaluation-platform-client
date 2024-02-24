@@ -111,7 +111,9 @@ const HrSendMeet = () => {
                                                 </span>
                                             </div>
                                         </div>
-                                        <input type="text" placeholder="Meet Link" name="link" className="input text-black mt-3 input-bordered input-info w-full " />
+                                       
+                                        <input type="url" name="link" placeholder="Meet link" className="input text-black  mt-3 input-bordered input-info w-full" id="" />
+                                      
                                         <input type="date" name="date" className="textarea text-black mb-3 textarea-info w-full mt-5" placeholder="Date and time"></input>
                                         <Button onClick={() => handelEmailSubmit(item.email)} type="submit" className="w-full  p-5" variant="contained" endIcon={<MdSendToMobile />}>
                                             Send
