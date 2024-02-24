@@ -1,7 +1,5 @@
-
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
 import Swal from 'sweetalert2';
 import OnlineOfline from './OnlineOfline';
 import { IoFilterSharp } from 'react-icons/io5';
@@ -9,29 +7,13 @@ import { RiLoaderFill } from 'react-icons/ri';
 import { BiLike, BiDislike, BiSolidDislike } from 'react-icons/bi';
 import { AiFillLike } from 'react-icons/ai';
 import { SiPoly } from 'react-icons/si';
-
-import { IoFilterSharp } from "react-icons/io5";
-import { useCallback, useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import { SiPoly } from "react-icons/si";
-import Swal from "sweetalert2";
-import { RiLoaderFill } from "react-icons/ri";
-import { BiLike } from "react-icons/bi";
-import { AiFillLike } from "react-icons/ai";
-import { BiSolidDislike } from "react-icons/bi";
-import { BiDislike } from "react-icons/bi";
-
+import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
 
 const EmployeTaskes = () => {
   const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const axiosPublic = useAxiosPublic();
   const [hrRequestCheck] = useHrRequestCheckedOrNot();
-
-  useEffect(() => {
-    fetchTasks();
-  }, []);
 
   const fetchTasks = useCallback(async () => {
     try {
@@ -46,6 +28,10 @@ const EmployeTaskes = () => {
     }
   }, [axiosPublic, hrRequestCheck]);
 
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
+
   const handleLike = async (taskId) => {
     Swal.fire({
       title: "Are you sure?",
@@ -58,7 +44,7 @@ const EmployeTaskes = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axiosPublic.post(`/likeTask/${ taskId }`);
+          await axiosPublic.post(`/likeTask/${taskId}`);
           await fetchTasks();
           console.log("like");
 
@@ -86,7 +72,7 @@ const EmployeTaskes = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axiosPublic.post(`/disLikeTask/${ taskId }`);
+          await axiosPublic.post(`/disLikeTask/${taskId}`);
           await fetchTasks();
           Swal.fire({
             title: "Dis-Liked!",
@@ -148,38 +134,27 @@ const EmployeTaskes = () => {
           </ul>
         </div>
       </div>
+
       <div className="">
-        <div className="overflow-x-auto mr-2 w-full">
-          <table className="table ">
-
-      <div>
-        <div className="overflow-x-auto ml-24 mr-2">
+        <div className="overflow-x-auto w-full">
           <table className="table">
-
             <thead className="bg-gray-300 text-black font-bold">
-              <tr>
-                <th>Assignee</th>
+              <tr className='text-xs'>
+                <th>Name</th>
                 <th>Task Name</th>
                 <th>Active</th>
                 <th>Deadline</th>
-                <th>Audience</th>
-                <th>Tags</th>
-                <th>Channel</th>
                 <th>Effort</th>
-                <th>Vote</th>
+                <th>Like</th>
+                <th>Dislike</th>
               </tr>
             </thead>
             <tbody>
               {filteredTasks.map((element, index) => (
                 <tr
-                  className="h-24 border-b-2 text-white border-gray-300"
+                  className="h-24 border-b-2 text-white text-xs border-gray-300"
                   key={index}
                 >
-
-                  <td className="flex justify-center mt-5 items-center gap-4">
-                    <div className="avatar -ml-10">
-                      <div className="w-8 rounded-full  border-2">
-                        <img src={element.employImage} alt="User Avatar" />
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
@@ -192,52 +167,11 @@ const EmployeTaskes = () => {
                         <div className="text-sm opacity-50">{element?.email}</div>
                       </div>
                     </div>
-                    {element.name}
                   </td>
                   <td> {element.addItem}</td>
                   <td><OnlineOfline /></td>
                   <td className="text-blue-500 font-bold">
                     {element.timeAndLocal}
-                  </td>
-                  <td>
-                    <h1
-                      className={`${element.audience === "primium"
-                        ? "text-white font-bold"
-                        : element.audience === "busness"
-                          ? "text-white font-bold"
-                          : "font-bold text-white"
-                        }`}
-                    >
-                      {element.audience}
-                    </h1>
-                  </td>
-
-                  <td>
-                    <h1
-                      className={`${element.tags === "lowProirity"
-                        ? "border-2 border-black rounded-full -ml-5 text-center text-white hover:text-white "
-                        : element.tags === "highPriority"
-                          ? "border-2 -ml-5 rounded-full text-center border-blue-300 text-white hover:text-white "
-                          : "border-2  -ml-5 rounded-full text-center border-white  hover:text-white "
-                        }`}
-                    >
-                      {element.tags}
-                    </h1>
-                  </td>
-
-                  <td>
-                    <h1
-                      className={`${element.channel === "social"
-                        ? "font-bold "
-                        : element.channel === "blog"
-                          ? "font-bold"
-                          : element.channel === "press"
-                            ? "font-bold"
-                            : "font-bold"
-                        }`}
-                    >
-                      {element.channel}*
-                    </h1>
                   </td>
                   <td className="">
                     <h1

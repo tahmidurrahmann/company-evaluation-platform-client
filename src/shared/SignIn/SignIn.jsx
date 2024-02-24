@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -7,12 +5,20 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 // import animation from "../../assets/Animation - 1705910044429.json"
 // import Lottie from "lottie-react";
 import "./SignIn.css"
+import useAuth from "../../hooks/useAuth";
 
 const SignIn = () => {
 
-  const { signIn } = useContext(AuthContext)
   const navigate = useNavigate();
   const location = useLocation();
+  
+  const authInfo = useAuth();
+  if (!authInfo) {
+    return [undefined, true];
+  }
+  const { signIn } = authInfo;
+
+  
   let from = location?.state?.from?.pathname || "/";
 
   const handleLogin = e => {
@@ -83,7 +89,7 @@ const SignIn = () => {
                       <button className="py-2 bg-[#007cc7] rounded-full text-white font-medium hover:scale-105 transition">Log In</button>
                     </div>
                   </form>
-                    <SocialLogin />
+                  <SocialLogin />
                   <p className="text-center mt-6 text-white">New here? <Link to={'/signUp'} className="underline font-semibold text-white">Create a New Account</Link></p>
                 </div>
               </div>

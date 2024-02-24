@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useDragAndDrop from "../../../hooks/useDragAndDrop";
 import Loading from "../../../shared/Loading/Loading";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -6,9 +6,9 @@ import toast from "react-hot-toast";
 import { SiPoly } from "react-icons/si";
 import { RiLoaderFill } from "react-icons/ri";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+import useAuth from "../../../hooks/useAuth";
 
 const UserTask = () => {
 
@@ -19,7 +19,6 @@ const UserTask = () => {
     const [completed, setCompleted] = useState([]);
     const axiosSecure = useAxiosSecure();
     const [selectedValue, setSelectedValue] = useState("");
-    const { user } = useContext(AuthContext)
 
     const handleMoveTask = async (e) => {
         e.preventDefault();
@@ -32,6 +31,9 @@ const UserTask = () => {
         }
     }
 
+    const authInfo = useAuth();
+    const { user } = authInfo;
+
     useEffect(() => {
         if (specificEmployee?.length > 0) {
             const todoTask = specificEmployee?.filter(employee => employee?.status === "todo" && employee.email === user.email);
@@ -42,6 +44,10 @@ const UserTask = () => {
             setCompleted(completedTask);
         }
     }, [specificEmployee, hrRequestCheck, user.email])
+
+    if (!authInfo) {
+        return [undefined, true];
+    }
 
     if (isDrag) {
         return <Loading />

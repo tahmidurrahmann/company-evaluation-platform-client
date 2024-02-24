@@ -23,8 +23,8 @@ import { GiNotebook } from "react-icons/gi";
 import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
-import usePayment from '../../../hooks/usePayment';
 import { Badge } from '@mui/material';
+import usePayment from '../../../hooks/usePayment';
 
 const Dashboard = () => {
 
@@ -263,9 +263,9 @@ const Dashboard = () => {
     return (
         <div style={{
             backgroundImage: "url(https://i.ibb.co/0JhhR4N/light-blue-3d-abstract-wave-pattern-1.jpg)"
-        }} className='flex flex-col lg:flex-row relative bg-cover bg-fixed bg-center bg-no-repeat'>
-            <div className="lg:w-[300px]">
-                <div className='hidden lg:flex fixed z-10 md:min-h-screen justify-center bg-[#0D0F11CC] border-r xl:p-6'>
+        }} className='grid grid-cols-1 lg:grid-cols-12 bg-cover bg-fixed bg-center bg-no-repeat'>
+            <div className="grid-cols-1 lg:col-span-3 2xl:col-span-2">
+                <div className='hidden lg:flex overflow-y-auto h-full justify-center bg-[#0D0F11CC] border-r'>
                     <div>{navItems}</div>
                 </div>
             </div>
@@ -296,7 +296,7 @@ const Dashboard = () => {
                     {navItems}
                 </div>
             </Drawer>
-            <div className='w-full min-h-screen text-white max-w-screen-xl mx-auto font-raleway'>
+            <div className='w-full min-h-screen text-white max-w-screen-xl mx-auto font-raleway grid-cols-1 lg:col-span-9 2xl:col-span-10'>
                 <Outlet></Outlet>
             </div>
         </div>
