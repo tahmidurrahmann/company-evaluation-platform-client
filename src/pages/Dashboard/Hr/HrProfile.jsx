@@ -3,14 +3,14 @@ import { FaUserGraduate, FaTasks, } from "react-icons/fa";
 import { FaPersonSnowboarding, FaUsersBetweenLines } from "react-icons/fa6";
 import { PopupButton } from 'react-calendly';
 import Loading from '../../../shared/Loading/Loading';
-import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
 import useUsers from '../../../hooks/useUsers';
-import useEmployee from '../../../hooks/useEmployee';
 import { useEffect, useState } from 'react';
 import useAxiosPublic from '../../../hooks/useAxiosPublic';
+import useEmployee from '../../../hooks/useEmployee';
+import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
 
 const HrProfile = () => {
 

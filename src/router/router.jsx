@@ -27,16 +27,16 @@ import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import FeedbackHr from "../pages/Dashboard/Hr/FeedbackHr";
-import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
-import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
-import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
 import UserPerformance from "../pages/Dashboard/UserProfile/UserPerformance";
 import Companies from "../pages/Companies/Companies";
 import Apply from "../pages/ApplyFor/Apply";
 import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
 import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
+import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
+import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
+import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 const router = createBrowserRouter([
   {
     path: "/",

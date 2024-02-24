@@ -1,11 +1,11 @@
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../../shared/Loading/Loading";
 import Swal from "sweetalert2";
-import useEmployee from "../../../hooks/useEmployee";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useEffect, useState } from "react";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
+import useEmployee from "../../../hooks/useEmployee";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 const TeamMemberReq = () => {
 
     const [employeeAgreements, isEmployee, refetch] = useEmployee();
@@ -81,9 +81,7 @@ const TeamMemberReq = () => {
                 <table className="table table-xs rounded-lg">
                     <thead className="font-bold text-black bg-gray-100 ">
                         <tr>
-                            <th>Photo</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Resume</th>
                             <th>Action</th>
                             <th>Action</th>
@@ -92,9 +90,19 @@ const TeamMemberReq = () => {
                     <tbody className="border-b-2 border-blue-300">
                         {
                             myEmploye?.map(agreement => <tr className="h-16 border-b-2 border-gray-200" key={agreement?._id}>
-                                <th ><img referrerPolicy="no-referrer" className="w-8 md:w-16  rounded-full" src={agreement?.imageURL} alt="" /></th>
-                                <td>{agreement?.name}</td>
-                                <td>{agreement?.email}</td>
+                                <td>
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="mask mask-squircle w-12 h-12">
+                                                <img referrerPolicy="no-referrer" src={agreement.imageURL} />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div className="font-bold">{agreement?.name}</div>
+                                            <div className="text-sm opacity-50">{agreement?.email}</div>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td><a href={agreement?.file} download={agreement?.file}>
                                     <button className="py-1 px-3 border rounded-lg hover:scale-105 transition">View Resume</button>
                                 </a></td>

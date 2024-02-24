@@ -1,60 +1,66 @@
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
-import { useEffect, useState } from "react";
-import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
-import "./Payment.css"
+import "./Payment.css";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useEmployee, { EmployeeAgreement } from "../../../hooks/useEmployee";
 import usePayment from "../../../hooks/usePayment";
 
-const PayEmployeeById = () => {
+interface FormData {
+    name: string;
+    company: string;
+    email: string;
+    date: string;
+    salary: number;
+    currency: string;
+}
 
-    const { id } = useParams();
+const PayEmployeeById = (): JSX.Element => {
+    const { id } = useParams<{ id: string }>();
     const [employeeAgreements, isEmployee] = useEmployee();
-    const [employeeData, setEmployeeData] = useState({});
+    const [employeeData, setEmployeeData] = useState<EmployeeAgreement | undefined>();
     const axiosSecure = useAxiosSecure();
-    const [, , refetch] = usePayment();
+    const [allPayments, , refetch] = usePayment();
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
-            const filterEmployee = employeeAgreements?.find(item => item?._id === id);
-            setEmployeeData(filterEmployee)
+            const filterEmployee = employeeAgreements.find(item => item?._id === id);
+            setEmployeeData(filterEmployee);
         }
-    }, [employeeAgreements, id])
+    }, [employeeAgreements, id]);
 
-    const {
-        register, handleSubmit } = useForm();
-
+    const { register, handleSubmit } = useForm<FormData>();
 
     if (isEmployee) {
-        return <Loading />
+        return <Loading />;
     }
 
-    const onSubmit = async (data) => {
+    const onSubmit = async (data: FormData) => {
         const name = employeeData?.name;
         const company = employeeData?.company;
         const email = employeeData?.email;
-        const date = data?.date;
-        const salary = data?.salary;
-        const currency = data?.currency;
+        const date = data.date;
+        const salary = data.salary;
+        const currency = data.currency;
         const employeeDetails = { name, company, email, date, salary, currency };
         const res = await axiosSecure.post("/salary", employeeDetails);
         window.location.replace(res?.data?.url);
         console.log(res?.data?.url);
         refetch();
-    }
+    };
 
     return (
         <div>
             <Link to={`/dashboard/payEmployee`}><button className="btn btn-circle btn-ghost absolute right-2 top-2 text-xl">✕</button></Link>
-            <SharedHeadingDashboard heading="Pay Employee" />
-            <div className="py-16">
+            <div className="flex flex-col gap-8 md:gap-24 lg:gap-32 min-h-screen justify-center items-center px-6 xl:px-0">
+                <SharedHeadingDashboard heading="Pay Employee" />
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full">
                     <div className="flex flex-col md:flex-row gap-6">
                         <div className="inputContainerr w-full">
                             <input {...register("name")} defaultValue={employeeData?.name} readOnly className="customInputt" type="text" />
-                            <label className="inputLabell font-semibold">FULL Name</label>
+                            <label className="inputLabell font-semibold">FULL NAME</label>
                             <div className="inputUnderlinee"></div>
                         </div>
                         <div className="inputContainerr w-full">

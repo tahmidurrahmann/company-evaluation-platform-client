@@ -1,23 +1,24 @@
-import { useState } from "react";
+import React from 'react';
 import { FaBuromobelexperte } from "react-icons/fa";
 import { MdTaskAlt } from "react-icons/md";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
+import useEmployee from "../../../hooks/useEmployee";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+import { useState } from "react";
 
 const EmployeTeamPearformence = () => {
     const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
     const [employeeAgreements, isEmployee] = useEmployee()
-    const [employeeIndex, handleEmployeeIndex] = useState(0)
-    const employeeFilter = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company)
+    const [employeeIndex, handleEmployeeIndex] = useState<number>(0)
+    const employeeFilter = employeeAgreements.filter((element: any) => element?.company === hrRequestCheck?.company)
     const [allEmployeeTask] = useEmployeeTask();
-    const taskFilter = allEmployeeTask?.filter(element => element?.company === hrRequestCheck?.company)
-    const myName = taskFilter?.filter(taskElement => taskElement?.name === employeeFilter[employeeIndex]?.name)
-    const todoFilter = myName?.filter(element => element?.status === 'todo')
-    const doingFilter = myName?.filter(element => element?.status === 'doing')
-    const completedFilter = myName?.filter(element => element?.status === 'completed')
+    const taskFilter = allEmployeeTask?.filter((element: any) => element?.company === hrRequestCheck?.company)
+    const myName = taskFilter?.filter((taskElement: any) => taskElement?.name === employeeFilter[employeeIndex]?.name)
+    const todoFilter = myName?.filter((element: any)=> element?.status === 'todo')
+    const doingFilter = myName?.filter((element: any) => element?.status === 'doing')
+    const completedFilter = myName?.filter((element: any) => element?.status === 'completed')
 
     if (isHr || isEmployee) {
         return <Loading />

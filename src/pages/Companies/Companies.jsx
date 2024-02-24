@@ -74,7 +74,7 @@ const Companies = () => {
             <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                 <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
                     <div className="input-containerr">
-                        <input placeholder="Search by Company Name" className="input" name="companyName" type="text" />
+                        <input placeholder="Search by Company Name" className="inputy" name="companyName" type="text" />
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="iconn">
                             <g strokeWidth="0" id="SVGRepo_bgCarrier"></g>
                             <g strokeLinejoin="round" strokeLinecap="round" id="SVGRepo_tracerCarrier"></g>
