@@ -138,7 +138,7 @@ const AllEmploye = () => {
                             <div className="mt-10">
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div>
-                                        <div className="p-2">
+                                        <div className="p-2 flex flex-col">
                                             <label className="text-white" htmlFor="Task Deadline Date & Time">Task Deadline Date & Time</label>
                                             <input type="datetime-local" name="timeAndLocal" id="timeAndLocal" {...register("timeAndLocal", { required: true })} className="input input-bordered input-info w-full" />
                                             {errors.timeAndLocal?.type === "required" && (

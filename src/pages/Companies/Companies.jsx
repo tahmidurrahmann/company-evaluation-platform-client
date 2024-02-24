@@ -5,6 +5,7 @@ import useCompany from "../../hooks/useCompany";
 import Loading from "../../shared/Loading/Loading";
 import { useForm } from "react-hook-form";
 import "./companies.css"
+import { Helmet } from "react-helmet";
 
 const Companies = () => {
     const [hrInfo, isHrPending] = useCompany();
@@ -64,10 +65,11 @@ const Companies = () => {
         return <Loading />;
     }
 
-    console.log(companies);
-
     return (
-        <div className="pt-16">
+        <div>
+            <Helmet>
+                <title>IONE | Companies</title>
+            </Helmet>
             <SharedBanner heading="All Companies" passage="All Companies" />
             <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                 <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
@@ -325,10 +327,10 @@ const Companies = () => {
             <div className="flex justify-center items-center">
                 {companies.length > 2 && (
                     <button onClick={toggleShowMore} type="button" className="but my-6 md:my-8 lg:my-12">
-                    <div className="but-top font-medium">{showMoreData > 2 ? 'Show less' : 'Show More'}</div>
-                    <div className="but-bottom"></div>
-                    <div className="but-base"></div>
-                </button>
+                        <div className="but-top font-medium">{showMoreData > 2 ? 'Show less' : 'Show More'}</div>
+                        <div className="but-bottom"></div>
+                        <div className="but-base"></div>
+                    </button>
                 )}
             </div>
         </div>
