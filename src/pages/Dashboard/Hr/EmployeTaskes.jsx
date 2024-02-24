@@ -10,18 +10,6 @@ import { BiLike, BiDislike, BiSolidDislike } from 'react-icons/bi';
 import { AiFillLike } from 'react-icons/ai';
 import { SiPoly } from 'react-icons/si';
 
-import { IoFilterSharp } from "react-icons/io5";
-import { useCallback, useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
-import { SiPoly } from "react-icons/si";
-import Swal from "sweetalert2";
-import { RiLoaderFill } from "react-icons/ri";
-import { BiLike } from "react-icons/bi";
-import { AiFillLike } from "react-icons/ai";
-import { BiSolidDislike } from "react-icons/bi";
-import { BiDislike } from "react-icons/bi";
-
 
 const EmployeTaskes = () => {
   const [tasks, setTasks] = useState([]);
@@ -58,7 +46,7 @@ const EmployeTaskes = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axiosPublic.post(`/likeTask/${ taskId }`);
+          await axiosPublic.post(`/likeTask/${taskId}`);
           await fetchTasks();
           console.log("like");
 
@@ -86,7 +74,7 @@ const EmployeTaskes = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axiosPublic.post(`/disLikeTask/${ taskId }`);
+          await axiosPublic.post(`/disLikeTask/${taskId}`);
           await fetchTasks();
           Swal.fire({
             title: "Dis-Liked!",
@@ -148,14 +136,10 @@ const EmployeTaskes = () => {
           </ul>
         </div>
       </div>
+
       <div className="">
         <div className="overflow-x-auto mr-2 w-full">
           <table className="table ">
-
-      <div>
-        <div className="overflow-x-auto ml-24 mr-2">
-          <table className="table">
-
             <thead className="bg-gray-300 text-black font-bold">
               <tr>
                 <th>Assignee</th>
@@ -175,21 +159,10 @@ const EmployeTaskes = () => {
                   className="h-24 border-b-2 text-white border-gray-300"
                   key={index}
                 >
-
                   <td className="flex justify-center mt-5 items-center gap-4">
                     <div className="avatar -ml-10">
                       <div className="w-8 rounded-full  border-2">
                         <img src={element.employImage} alt="User Avatar" />
-                  <td>
-                    <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img referrerPolicy="no-referrer" src={element.employImage} />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold">{element?.name}</div>
-                        <div className="text-sm opacity-50">{element?.email}</div>
                       </div>
                     </div>
                     {element.name}
