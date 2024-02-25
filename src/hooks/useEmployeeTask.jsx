@@ -5,7 +5,7 @@ const useEmployeeTask = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: allEmployeeTask, isPending: isEmployeeTaskPending } = useQuery({
+    const { data: allEmployeeTask, isPending: isEmployeeTaskPending, refetch } = useQuery({
         queryKey: ["allEmployeeInfo"],
         queryFn: async () => {
             const res = await axiosSecure.get("/imployeeTasks");
@@ -13,7 +13,7 @@ const useEmployeeTask = () => {
         }
     })
 
-    return [allEmployeeTask, isEmployeeTaskPending]
+    return [allEmployeeTask, isEmployeeTaskPending, refetch];
 };
 
 export default useEmployeeTask;

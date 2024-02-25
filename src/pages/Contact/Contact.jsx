@@ -8,14 +8,11 @@ import toast from 'react-hot-toast';
 import { useRef } from 'react';
 import SharedBanner from '../../shared/SharedBanner/SharedBanner';
 
-
 const Contact = () => {
 
     const form = useRef();
-
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm('service_1g9pr3n', 'template_sbprd1h', form.current, 'kM2ZZ-I4QiQPp3W81')
             .then((result) => {
                 if (result.text) {

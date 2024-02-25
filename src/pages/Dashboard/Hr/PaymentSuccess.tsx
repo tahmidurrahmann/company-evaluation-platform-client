@@ -1,23 +1,22 @@
-import { Link, useParams } from "react-router-dom";
-import usePayment from "../../../hooks/usePayment";
+import React, { Link, useParams } from "react-router-dom";
 import Loading from "../../../shared/Loading/Loading";
 import { useEffect, useState } from "react";
+import usePayment, { PaymentAgreement } from "../../../hooks/usePayment";
 
-const PaymentSuccess = () => {
-
-    const { tranId } = useParams();
+const PaymentSuccess = (): JSX.Element => {
+    const { tranId } = useParams<{ tranId: string }>();
     const [allPayments, isPayment] = usePayment();
-    const [payment, setPayment] = useState({});
+    const [payment, setPayment] = useState<PaymentAgreement | undefined>();
 
     useEffect(() => {
-        if(allPayments?.length > 0){
-            const specificPayment = allPayments?.find(payment => payment?.tranjectionId === tranId)
+        if (allPayments?.length > 0) {
+            const specificPayment = allPayments.find(payment => payment?.tranjectionId === tranId);
             setPayment(specificPayment);
         }
-    }, [allPayments, tranId])
+    }, [allPayments, tranId]);
 
     if (isPayment) {
-        return <Loading />
+        return <Loading />;
     }
 
     console.log(payment);

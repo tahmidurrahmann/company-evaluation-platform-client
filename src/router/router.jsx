@@ -14,7 +14,7 @@ import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
-import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
+import HrProfileRating from "../pages/Dashboard/Hr/MessageEmployee";
 import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
@@ -27,11 +27,19 @@ import LinkNotice from "../pages/Dashboard/Admin/LinkNotice";
 import EmployeeRequest from "../pages/Dashboard/Hr/EmployeeRequest";
 import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
 import FeedbackHr from "../pages/Dashboard/Hr/FeedbackHr";
-import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PayEmployeeById from "../pages/Dashboard/Hr/PayEmployeeById";
+import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
+import UserPerformance from "../pages/Dashboard/UserProfile/UserPerformance";
+import Companies from "../pages/Companies/Companies";
+import Apply from "../pages/ApplyFor/Apply";
+import ApplyForHr from "../pages/ApplyFor/ApplyForHr";
+import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
+import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
-import PaymentHistory from "../pages/Dashboard/Hr/PaymentHistory";
+import MessageEmployee from "../pages/Dashboard/Hr/MessageEmployee";
+import MessageEmployeeById from "../pages/Dashboard/Hr/MessageEmployeeById";
+import MessageHr from "../pages/Dashboard/Hr/MessageHr";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +61,22 @@ const router = createBrowserRouter([
       {
         path: "/ourValuesOrMission",
         element: <OurValuesOrMission></OurValuesOrMission>,
+      },
+      {
+        path: "/jobHub",
+        element: <Apply />,
+      },
+      {
+        path: "/applyForHr",
+        element: <ApplyForHr />,
+      },
+      {
+        path: "/applyForEmployee",
+        element: <ApplyForEmployee />,
+      },
+      {
+        path: "/companies",
+        element: <Companies />,
       },
       {
         path: "/innovation",
@@ -89,6 +113,10 @@ const router = createBrowserRouter([
         path: "userTask",
         element: <PrivateRoute><UserTask /></PrivateRoute>
       },
+      {
+        path: "userPerformance",
+        element: <PrivateRoute> <UserPerformance></UserPerformance> </PrivateRoute>
+      },
       //hr
       {
         path: "hrProfile",
@@ -97,6 +125,18 @@ const router = createBrowserRouter([
       {
         path: "hrProfile",
         element: <PrivateRoute><HrProfileRating /></PrivateRoute>
+      },
+      {
+        path: "messageEmployee",
+        element: <PrivateRoute><MessageEmployee /></PrivateRoute>
+      },
+      {
+        path: "messageHr",
+        element: <PrivateRoute><MessageHr /></PrivateRoute>
+      },
+      {
+        path: "messageEmployee/:id",
+        element: <PrivateRoute><MessageEmployeeById /></PrivateRoute>
       },
       {
         path: "allEmploye",
@@ -135,12 +175,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute><PaymentFail /></PrivateRoute>
       },
       {
-        path:'paymentHistory',
-        element:<PaymentHistory/>
+        path: 'paymentHistory',
+        element: <PaymentHistory />
       },
       {
         path: 'feedback',
-        element: <FeedbackHr/>
+        element: <FeedbackHr />
       },
       //admin
       {

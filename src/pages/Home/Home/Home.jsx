@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import Banner from "../Banner/Banner";
 import Logo from "../Logo/Logo";
 import Reviews from "../Reviews/Reviews";
 import OverView from "../OverView/OverView";
@@ -7,6 +6,8 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 import EvaluationBg from "../Evaluation/EvaluationBg";
 import HomeDetails from "../HomeDetails/HomeDetails";
+import Banner from "../Banner/Banner";
+
 
 const Home = () => {
     return (

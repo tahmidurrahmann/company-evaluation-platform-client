@@ -26,12 +26,10 @@ const LinkNotice = () => {
 
     return (
         <div>
-            <div className="flex justify-end pt-2 md:pt-6">
-
-                <div >
+            <div className="flex justify-center lg:justify-end pt-6 md:pt-6">
+                <div>
                     <a className="bg-[#007cc7] p-3 rounded-lg text-white" href={meetLink?.Link}>Join Meet</a>
                 </div>
-
             </div>
             <div className="py-6">
                 <SharedHeadingDashboard heading="Notices" />
@@ -40,7 +38,7 @@ const LinkNotice = () => {
                     {/* notice card  */}
                     <div>
                         {/* <img src="https://i.ibb.co/1KgGNBb/yulk-idgl-140704.jpg" alt="" /> */}
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ml-16">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:ml-16">
                             {notice.map((item) => (
                                 <div key={item._id} className="relative">
                                     <img

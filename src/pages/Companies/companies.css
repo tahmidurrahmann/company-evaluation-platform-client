@@ -1,0 +1,58 @@
+.input-containerr {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .inputy {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 18px 16px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+  }
+  
+  .inputy::placeholder {
+    color: transparent;
+  }
+  
+  .inputy:focus::placeholder {
+    color: rgb(131, 128, 128);
+  }
+  
+  .inputy:focus,.inputy:not(:placeholder-shown) {
+    background-color: #fff;
+    border: 1px solid rgb(98, 0, 255);
+    width: 290px;
+    cursor: none;
+    padding: 18px 16px 18px 40px;
+  }
+  
+  .iconn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: -1;
+    fill: rgb(98, 0, 255);
+    border: 1px solid rgb(98, 0, 255);
+  }
+  
+  .inputy:hover + .iconn {
+    transform: rotate(360deg);
+    transition: .2s ease-in-out;
+  }
+  
+  .inputy:focus + .iconn,.inputy:not(:placeholder-shown) + .iconn {
+    z-index: 0;
+    background-color: transparent;
+    border: none;
+  }
+  

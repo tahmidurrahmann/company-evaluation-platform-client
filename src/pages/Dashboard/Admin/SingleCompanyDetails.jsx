@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
-import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
+import useEmployee from "../../../hooks/useEmployee";
 
 const SingleCompanyDetails = () => {
     const companyData = useLoaderData();
