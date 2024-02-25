@@ -1,14 +1,23 @@
+import { useEffect } from "react";
+import useAuth from "../../../hooks/useAuth";
 import usePayment from "../../../hooks/usePayment";
 import Loading from "../../../shared/Loading/Loading";
 
-const UserAmount = () => {
+const UserAmount = ({employID}) => {
+    const {user} =useAuth()
     const [allPayments, isPayment] = usePayment();
+    console.log(allPayments,"hellow world");
 
+  
     if(isPayment){
         return <Loading />
     }
+  
+    const userEmail = user ? user.email : "";
 
-    const totalAmount = allPayments.reduce((total, item) => total + item.salary, 0)
+    const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
+
+    const totalAmount = filteredPayments.reduce((total, item) => total + item.salary, 0)
     
     return (
         <div className="text-white m-5 flex justify-center items-center gap-2 ">
