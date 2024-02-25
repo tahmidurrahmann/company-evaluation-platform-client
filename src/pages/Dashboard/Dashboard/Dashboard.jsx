@@ -25,6 +25,7 @@ import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
 import { Badge } from '@mui/material';
 import usePayment from '../../../hooks/usePayment';
+import { FaMessage } from "react-icons/fa6";
 
 const Dashboard = () => {
 
@@ -94,6 +95,14 @@ const Dashboard = () => {
                     <div className='flex items-center gap-2'><GoTasklist className='text-xl' />Your Performance</div>
                 </NavLink>
                 <NavLink onClick={() => setIsOpen(false)}
+                    to="/dashboard/messageHr"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                    }
+                >
+                    <div className='flex items-center gap-2'><FaMessage className='font-bold text-[16px]' />Message HR</div>
+                </NavLink>
+                <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/paymentHistory"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
@@ -101,9 +110,9 @@ const Dashboard = () => {
                 >
                     <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Salary History <p className='text-sm  text-white'>
                         <Badge badgeContent={filteredPayments.length} color="warning" className="px-2 py-2">
-                       
+
                         </Badge>
-                        </p></div>
+                    </p></div>
                 </NavLink>
 
                 <NavLink onClick={() => setIsOpen(false)}
@@ -134,7 +143,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><FaUser />Hr Profile Here</div>
+                <div className='flex items-center gap-2'><FaUser />Hr Profile</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/employeTask"
@@ -142,7 +151,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />All Tasks Here</div>
+                <div className='flex items-center gap-2'><BsListTask className='font-bold text-[24px]' />All Tasks</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/allEmploye"
@@ -150,7 +159,7 @@ const Dashboard = () => {
                     isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
                 }
             >
-                <div className='flex items-center gap-2'><MdOutlineAdd className='text-[24px]' />Add Task Here</div>
+                <div className='flex items-center gap-2'><MdOutlineAdd className='text-[24px]' />Add Task</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/employeeRequest"
@@ -159,6 +168,14 @@ const Dashboard = () => {
                 }
             >
                 <div className='flex items-center gap-2'><FaUserGear className='font-bold text-[24px]' />Employee Request</div>
+            </NavLink>
+            <NavLink onClick={() => setIsOpen(false)}
+                to="/dashboard/messageEmployee"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "font-semibold md:text-lg text-white p-2 rounded-lg bg-[#007cc7]  flex justify-center" : "font-semibold md:text-lg text-black lg:text-white hover:bg-[#007cc7] p-2 rounded-lg"
+                }
+            >
+                <div className='flex items-center gap-2'><FaMessage className='font-bold text-[16px]' />Message Employee</div>
             </NavLink>
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/payEmployee"
