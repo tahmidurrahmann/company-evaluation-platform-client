@@ -19,7 +19,7 @@ export function getUrlParams(url: string = window.location.href): URLSearchParam
 
 const Meets: React.FC = () => {
     const roomID = getUrlParams().get('roomID') || randomID(5);
-    const myMeetingRef = useRef < HTMLDivElement > (null);
+    const myMeetingRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const startMeeting = async () => {
@@ -36,11 +36,7 @@ const Meets: React.FC = () => {
                 sharedLinks: [
                     {
                         name: 'Copy link',
-                        url:
-                            window.location.protocol + '//' +
-                            window.location.host + window.location.pathname +
-                            '?roomID=' +
-                            roomID,
+                        url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
                     },
                 ],
                 scenario: {
@@ -53,25 +49,15 @@ const Meets: React.FC = () => {
     }, [roomID]);
 
     return (
-        <>
-            <div>
-                <div
-                    className="myCallContainer "
-                    ref={myMeetingRef}
-                    style={{ width: '100%', height: '100vh' }}
-                ></div>
-
-                <div>
-                    <h1 className='text-5xl text-center font-bold text-white mt-5 mb-12 italic'>feel free Share the link with your<span className='text-blue-400'> employees</span></h1>
-                    <HrSendMeet />
-                </div>
+        <div className="flex flex-col h-full">
+            <div className="flex-1 ">
+                <div className="myCallContainer w-full py-32" ref={myMeetingRef}></div>
             </div>
-
-            <div
-                className="myCallContainer "
-                style={{ width: '80vw', height: '90vh' }}
-            ></div>
-        </>
+            <div className="flex-initial">
+                <h1 className='text-5xl text-center font-bold text-white mb-8'>Feel free to share the link with your<span className='text-blue-400'> employees</span></h1>
+                <HrSendMeet />
+            </div>
+        </div>
     );
 };
 
