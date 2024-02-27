@@ -190,7 +190,8 @@ const NavBar = () => {
             <Link to="/">
               <div className="flex gap-1">
                 <img
-                  className="w-[30px] md:w-[40px]" referrerPolicy="no-referrer"
+                  className="w-[30px] md:w-[40px]"
+                  referrerPolicy="no-referrer"
                   src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                   alt=""
                 />
@@ -200,7 +201,13 @@ const NavBar = () => {
             <div className="hidden gap-4 lg:flex">{navItems}</div>
             <div className="">
               {user ? (
-                <div className="flex items-center">
+                <div
+                  className={`flex items-center ${
+                    scrolled
+                      ? "bg-white text-black"
+                      : "bg-[#1515154D] text-black"
+                  }`}
+                >
                   <div className="dropdown dropdown-end">
                     <label
                       tabIndex={0}
