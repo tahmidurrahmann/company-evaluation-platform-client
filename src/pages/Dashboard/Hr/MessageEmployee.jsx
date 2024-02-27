@@ -33,8 +33,6 @@ const MessageEmployee = () => {
     return <Loading />
   }
 
-  console.log(employee);
-
   return (
     <div>
       <SharedHeadingDashboard heading="Send Message to your Employees" />
