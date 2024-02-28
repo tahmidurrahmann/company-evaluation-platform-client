@@ -1,16 +1,13 @@
 import useAuth from "../../../hooks/useAuth";
-import Loading from "../../../shared/Loading/Loading";
 import { GiMoneyStack } from "react-icons/gi";
 import { LuCalendarClock } from "react-icons/lu";
 import { MdMarkEmailRead } from "react-icons/md";
 import UserAmount from "../UserProfile/UserAmount";
-import usePayment from "../../../hooks/usePayment";
 import { useCallback, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
-  const [allPayments, isPayment] = usePayment();
 
   const axiosSecure = useAxiosSecure();
   const [asc, setAsc] = useState(true);
@@ -33,10 +30,7 @@ const PaymentHistory = () => {
   useEffect(() => {
     fetchPayments();
   }, [fetchPayments]);
-
-  if (isPayment) {
-    return <Loading />;
-  }
+  
   const handleFilter = () => {
     const sortedShorts = [...shorts]; // Create a copy of shorts array
 

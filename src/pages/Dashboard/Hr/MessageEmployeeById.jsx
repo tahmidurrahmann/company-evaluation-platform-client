@@ -1,28 +1,47 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
 import { useEffect, useState } from "react";
-import "./message.css"
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
-import { io } from "socket.io-client";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useHrMessages from "../../../hooks/useHrMessages";
-
-const ENDPOINT = "http://localhost:5000";
-var socket, selectedChatCompare;
+import Message from "./Message";
+import useMessage from "../../../hooks/useMessage";
+// import io from "socket.io-client";
 
 const MessageEmployeeById = () => {
 
     const { id } = useParams();
     const [employeeAgreements, isEmployee] = useEmployee();
     const { user } = useAuth();
-    const [hrMessages, isMessages, refetch] = useHrMessages();
     const axiosSecure = useAxiosSecure();
     const [employee, setEmployee] = useState({});
-    const [socketConnected, setSocketConnected] = useState(false);
-    const [messages, setMessages] = useState([]);
-    const [employeeMessages, setEmployeeMessages] = useState([]);
+    const [message, isMessage, refetch] = useMessage();
+    const [allMessage, setAllMessage] = useState([]);
+    // const [sendMessage, setSendMessage] = useState(null);
+    // const [receiveMessage, setReceiveMessage] = useState(null);
+    // const [onlineUsers, setOnlineUsers] = useState([]);
+    // const socket = useRef();
+
+    // useEffect(() => {
+    //     if (sendMessage !== null) {
+    //         socket.current.emit("send-message", sendMessage)
+    //     }
+    // }, [sendMessage])
+
+    // useEffect(() => {
+    //     if (receiveMessage !== null) {
+    //         socket.current.on("receive-message", receiveMessage)
+    //     }
+    // }, [receiveMessage])
+
+    // useEffect(() => {
+    //     socket.current = io("http://localhost:8800")
+    //     socket.current.emit("new-user-add", user)
+    //     socket.current.on("get-users", (users) => {
+    //         setOnlineUsers(users);
+    //     })
+    // }, [user])
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
@@ -31,100 +50,49 @@ const MessageEmployeeById = () => {
         }
     }, [employeeAgreements, id])
 
+    useEffect(() => {
+        if (message?.length > 0) {
+            const allMessage = message?.filter(m => (m?.senderEmail === user?.email && m?.receiverEmail === employee?.email) | (m?.senderEmail === employee?.email && m?.receiverEmail === user?.email));
+            setAllMessage(allMessage)
+        }
+    }, [employee?.email, message, user?.email])
+
     const handleSendMessage = async (e) => {
         e.preventDefault();
         const form = e.target;
         const fullMessage = form.message.value;
         const userEmail = user?.email;
-        const employeeId = id;
-        const message = { message: fullMessage, email: userEmail, employeeId };
-        const res = await axiosSecure.post("/hrMessages", message);
+        const message = { message: fullMessage, senderEmail: userEmail, receiverEmail: employee?.email, image: user?.photoURL, name: user?.displayName };
+        const res = await axiosSecure.post("/messages", message);
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
+            // setSendMessage(message);
+            // setReceiveMessage(message);
         }
     }
 
-    useEffect(() => {
-        if (employee) {
-            socket = io(ENDPOINT);
-            socket.emit("setup", employee)
-            socket.on("connection", () => setSocketConnected(true))
-        }
-        else {
-            // Object does not have a value
-            console.log('Object does not have a value');
-        }
-    }, [employee])
-
-    useEffect(() => {
-        if (hrMessages?.length > 0) {
-            const specificMessages = hrMessages?.filter(item => item?.email === user?.email);
-            setMessages(specificMessages);
-            const employeeMessages = hrMessages?.filter(item => item?.email === employee?.email);
-            setEmployeeMessages(employeeMessages);
-        }
-    }, [hrMessages, user?.email, employee?.email]);
-
-    if (isEmployee || isMessages) {
+    if (isEmployee || isMessage) {
         return <Loading />
     }
 
-    console.log(hrMessages, messages);
-
     return (
-        <div className="px-6 2xl:px-0">
+        <div>
             <SharedHeadingDashboard heading="Send Message" />
-            {
-                employeeMessages?.map(item => <div key={item?._id}>
-                    <div className="chat chat-start">
-                        <div className="chat-image avatar">
-                            <div className="w-10 rounded-full">
-                                <img alt="Chat bubble component's Sender photo" src={employee?.imageURL} />
-                            </div>
-                        </div>
-                        <div className="chat-header">
-                            {employee?.name}
-                        </div>
-                        <div className="chat-bubble">{item?.message}</div>
-                    </div>
-                </div>)
-            }
-            <div className="flex flex-col gap-6 mb-16">
-                {
-                    messages?.map(item => <div key={item?._id} className="chat chat-end">
-                        <div className="chat-image avatar">
-                            <div className="w-10 rounded-full">
-                                <img referrerPolicy="no-referrer" alt="Chat bubble component's Sender photo" src={user?.photoURL} />
-                            </div>
-                        </div>
-                        <div className="chat-header">
-                            {user?.displayName}
-                        </div>
-                        <div className="chat-bubble">{item?.message}</div>
-                    </div>)
-                }
-            </div>
-            <form onSubmit={handleSendMessage} className="fixed bottom-1 w-4/5 lg:w-3/4 mx-auto">
-                <div className="messageBox">
-                    <input className="w-4/5 mx-auto" required placeholder="Message..." type="text" name="message" id="messageInput" />
-                    <button className="" id="sendButton">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 664 663">
-                            <path
-                                fill="none"
-                                d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
-                            ></path>
-                            <path
-                                strokeLinejoin="round"
-                                strokeLinecap="round"
-                                strokeWidth="33.67"
-                                stroke="#6c6c6c"
-                                d="M646.293 331.888L17.7538 17.6187L155.245 331.888M646.293 331.888L17.753 646.157L155.245 331.888M646.293 331.888L318.735 330.228L155.245 331.888"
-                            ></path>
-                        </svg>
-                    </button>
+            <Link to="/dashboard/messageEmployee"><button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-lg">✕</button></Link>
+            <div className="">
+                <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
+                    {allMessage?.map((m) => (
+                        <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
+                    ))}
                 </div>
-            </form>
+                <form onSubmit={handleSendMessage} className="fixed bottom-4 w-full mx-6">
+                    <div className="flex justify-start items-center gap-2 md:gap-4">
+                        <textarea placeholder="Write your message..." className="p-4 rounded-lg w-3/4 lg:w-1/2 chat-bubble" name="message" rows="4"></textarea>
+                        <input type="submit" className="md:px-6 px-2 py-1 md:py-2 bg-[#007cc7] rounded-lg hover:scale-105 transition" value="Send" />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

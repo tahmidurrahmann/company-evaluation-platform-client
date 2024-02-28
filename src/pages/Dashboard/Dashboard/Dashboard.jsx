@@ -61,7 +61,7 @@ const Dashboard = () => {
             />
             <h1 className="font-semibold text-2xl text-black lg:text-white">IONE</h1>
         </div></Link>
-        <div className="avatar placeholder mt-6 lg:mt-12">
+        <div className="avatar placeholder mt-6">
             <div className="bg-neutral text-neutral-content rounded-lg w-24">
                 <img referrerPolicy="no-referrer" src={user?.photoURL} alt="" />
             </div>
@@ -202,7 +202,6 @@ const Dashboard = () => {
             >
                 <div className='flex items-center gap-2'><SiSoundcharts className='font-bold text-[24px]' />Team performance</div>
             </NavLink>
-
             <NavLink onClick={() => setIsOpen(false)}
                 to="/dashboard/feedback"
                 className={({ isActive, isPending }) =>
@@ -282,11 +281,11 @@ const Dashboard = () => {
             backgroundImage: "url(https://i.ibb.co/0JhhR4N/light-blue-3d-abstract-wave-pattern-1.jpg)"
         }} className='grid grid-cols-1 lg:grid-cols-12 bg-cover bg-fixed bg-center bg-no-repeat'>
             <div className="grid-cols-1 lg:col-span-3 2xl:col-span-2">
-                <div className='hidden lg:flex overflow-y-auto h-full justify-center bg-[#0D0F11CC] border-r'>
+                <div className='hidden lg:flex max-h-screen min-h-screen fixed z-10 overflow-y-scroll justify-center bg-[#0D0F11CC] border-r'>
                     <div>{navItems}</div>
                 </div>
             </div>
-            <div className='fixed z-10 bottom-12 left-4'>
+            <div className='fixed z-10 bottom-24 left-4'>
                 <div
                     className="flex lg:hidden"
                     type="button"

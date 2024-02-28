@@ -15,7 +15,6 @@ import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
 import HrProfileRating from "../pages/Dashboard/Hr/MessageEmployee";
-import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import UserTask from "../pages/Dashboard/UserProfile/UserTask";
@@ -37,9 +36,14 @@ import ApplyForEmployee from "../pages/ApplyFor/ApplyForEmployee";
 import PayEmployee from "../pages/Dashboard/Hr/PayEmployee";
 import PaymentSuccess from "../pages/Dashboard/Hr/PaymentSuccess";
 import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
+import HrprivateRoute from "../pages/Dashboard/Hr/HrprivateRoute";
+import AdminprivateRoute from "../pages/Dashboard/Admin/AdminprivateRoute";
+import Perfomence from "../pages/Perfomence/Perfomence";
 import MessageEmployee from "../pages/Dashboard/Hr/MessageEmployee";
 import MessageEmployeeById from "../pages/Dashboard/Hr/MessageEmployeeById";
 import MessageHr from "../pages/Dashboard/Hr/MessageHr";
+import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -90,6 +94,10 @@ const router = createBrowserRouter([
         path: "/management",
         element: <Management />,
       },
+      {
+        path:'/Perfomence',
+        element:<Perfomence/>
+      }
     ],
   },
   {
@@ -120,11 +128,11 @@ const router = createBrowserRouter([
       //hr
       {
         path: "hrProfile",
-        element: <PrivateRoute><HrProfile /></PrivateRoute>,
+        element: <HrprivateRoute><PrivateRoute><HrProfile /></PrivateRoute></HrprivateRoute>,
       },
       {
         path: "hrProfile",
-        element: <PrivateRoute><HrProfileRating /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><HrProfileRating /></PrivateRoute></HrprivateRoute>
       },
       {
         path: "messageEmployee",
@@ -140,39 +148,39 @@ const router = createBrowserRouter([
       },
       {
         path: "allEmploye",
-        element: <PrivateRoute><AllEmploye /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><AllEmploye /></PrivateRoute></HrprivateRoute>
       },
       {
         path: "employeTask",
-        element: <PrivateRoute><EmployeTaskes /></PrivateRoute>
+        element: <HrprivateRoute> <PrivateRoute><EmployeTaskes /></PrivateRoute></HrprivateRoute>
       },
       {
         path: "employeTeamPearformence",
-        element: <PrivateRoute><EmployeTeamPearformence /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><EmployeTeamPearformence /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'meet',
-        element: <PrivateRoute><Meets /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><Meets /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'employeeRequest',
-        element: <PrivateRoute><EmployeeRequest /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><EmployeeRequest /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'payEmployee',
-        element: <PrivateRoute><PayEmployee /></PrivateRoute>
+        element: <HrprivateRoute> <PrivateRoute><PayEmployee /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'payEmployee/:id',
-        element: <PrivateRoute><PayEmployeeById /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><PayEmployeeById /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'paymentSuccess/:tranId',
-        element: <PrivateRoute><PaymentSuccess /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><PaymentSuccess /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'paymentFail/:tranId',
-        element: <PrivateRoute><PaymentFail /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><PaymentFail /></PrivateRoute></HrprivateRoute>
       },
       {
         path: 'paymentHistory',
@@ -185,23 +193,23 @@ const router = createBrowserRouter([
       //admin
       {
         path: "adminProfile",
-        element: <PrivateRoute><AdminProfile /></PrivateRoute>
+        element: <AdminprivateRoute><PrivateRoute><AdminProfile /></PrivateRoute></AdminprivateRoute>
       },
       {
         path: "agreementRequest",
-        element: <PrivateRoute><AgreementRequest /></PrivateRoute>
+        element: <AdminprivateRoute><PrivateRoute><AgreementRequest /></PrivateRoute></AdminprivateRoute>
       },
       {
         path: "notices",
-        element: <PrivateRoute><PostNotices /></PrivateRoute>
+        element: <AdminprivateRoute><PrivateRoute><PostNotices /></PrivateRoute></AdminprivateRoute>
       },
       {
         path: "companyInfo",
-        element: <PrivateRoute><CompanyInfo /></PrivateRoute>
+        element: <AdminprivateRoute> <PrivateRoute><CompanyInfo /></PrivateRoute></AdminprivateRoute>
       },
       {
         path: "singleCompanyDetails/:id",
-        element: <PrivateRoute><SingleCompanyDetails /></PrivateRoute>,
+        element: <AdminprivateRoute><PrivateRoute><SingleCompanyDetails /></PrivateRoute></AdminprivateRoute>,
         loader: ({ params }) => fetch(`https://company-evaluation-platform-server.vercel.app/hrAndUsers/${params?.id}`)
       },
       {

@@ -21,6 +21,7 @@ interface Task {
   status: string;
   liked: boolean;
   disLiked: boolean;
+  tags : string;
 }
 
 const EmployeTaskes: React.FC = () => {

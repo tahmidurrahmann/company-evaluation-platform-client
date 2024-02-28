@@ -65,7 +65,12 @@ const ApplyForHr = () => {
 
   return (
     <div>
-      <SharedBanner passage="Company Job Hub" heading="Company Job Hub" />
+      <SharedBanner
+        bannerImg="https://i.ibb.co/dKphgbm/image.png"
+        passage="Company Job Hub"
+        heading="Company Job Hub"
+      />
+
       <div className="px-6 mx-auto max-w-screen-2xl xl:px-0">
         <div className="my-6 md:my-8 lg:my-12">
           <SharedHeading heading="Apply For Human Resource" />

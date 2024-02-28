@@ -1,5 +1,5 @@
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
 const data01 = [
     { name: 'Group A', value: 400 },
@@ -23,7 +23,7 @@ const data02 = [
 
 const Evaluationchart2 = () => {
     return (
-        <div className="bg-white shadow-2xl pl-5 lg:h-[50vh] h-[90vh]  rounded-xl">
+        <div className="bg-white shadow-2xl pl-5 lg:h-[60vh] h-[90vh]  rounded-xl">
             <h1 className="text-3xl py-2 font-semibold">Sentiment Analysis</h1>
             <ResponsiveContainer width="100%" height="70%">
                 <PieChart width={400} height={400}>
