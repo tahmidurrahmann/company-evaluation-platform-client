@@ -45,7 +45,7 @@ const Innovation = () => {
         <title>IONE | Innovation</title>
       </Helmet>
       {/* banner  */}
-      <SharedBanner heading="Innovation" passage="Innovation" />
+      <SharedBanner bannerImg="https://i.ibb.co/bBn8nQS/image.png" heading="Innovation" passage="Innovation" />
 
       {/* title  */}
       <MyTitle text={`Best Reasons to Choose Our Services`} />

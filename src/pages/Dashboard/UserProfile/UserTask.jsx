@@ -74,36 +74,35 @@ const UserTask = () => {
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-blue-400">{item?.email}</h1>
 
-                                    <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
+                                    <div className="">
+                                        <h1 className="text-sm mt-2 font-bold mb-2">{item?.tags}</h1>
 
-
-
-                                    <div className="flex justify-between ">
-                                        <Link className="border-2 hover:bg-blue-300  mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
-                                        <dialog id="my_modal_3" className="modal h-[80vh]">
-                                            <div className="modal-box bg-blue-100 ">
-                                                <form method="dialog" className="p-5 ">
-                                                    <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                                </form>
-                                                <div className="flex justify-between">
-                                                    <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                                    <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-
-
-                                                </div>
-                                                <div className="mt-2">
-                                                    <h3 className="font-bold text-lg">{item?.additem}</h3>
-                                                </div>
-                                            </div>
-                                        </dialog>
+                                      
                                     </div>
 
-                                    <a href={item?.file} download={item?.file}>
-                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
-                                    </a>
+                                <div className="flex justify-between">
 
+                                        <div>
+                                            <a href={item?.file} download={item?.file}>
+                                                <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                            </a>
+
+                                        </div>
+
+                                        <div className="flex-col ">
+                                            <h1 className="text-sm font-bold text-gray-500">S : {item?.startTime}</h1>
+                                            <h1 className="text-sm  font-bold text-gray-500">E: {item?.timeAndLocal}</h1>
+
+                                        </div>
+
+                                     
+
+
+                                </div>
+
+                                   
                                     <form className="" onSubmit={handleMoveTask}>
-                                        <div className="flex gap-3  text-black font-bold ">
+                                        <div className="flex gap-3  text-black font-bold mt-2">
                                             <select defaultValue="todo" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full  max-w-xs">
                                                 <option value="todo ">TO DO</option>
                                                 <option value="doing">DOING</option>
@@ -134,28 +133,22 @@ const UserTask = () => {
                                     </div>
                                     <h1 className="text-xl font-bold">{item?.company}</h1>
                                     <h1 className="text-orange-500">{item?.email}</h1>
-                                    <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
-                                    <div className="flex justify-between ">
-                                        <Link className="border-2 hover:bg-orange-300 mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
-                                        <dialog id="my_modal_3" className="modal">
-                                            <div className="modal-box">
-                                                <form method="dialog">
-                                                    <button className="bg-red-700 rounded-full text-white px-2 py-1 absolute right-2 top-2 transition hover:scale-105">✕</button>
-                                                </form>
-                                                <div className="flex justify-between mt-6">
-                                                    <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                                    <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
+                                    <h1 className="text-sm mt-2 font-bold mb-2">{item?.tags}</h1>
+                                  
+                                  <div className="flex justify-between">
+                                        <a href={item?.file} download={item?.file}>
+                                            <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                        </a>
 
-                                                </div>
-                                                <h3 className="">{item?.additem}</h3>
-                                            </div>
-                                        </dialog>
-                                    </div>
-                                    <a href={item?.file} download={item?.file}>
-                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
-                                    </a>
+                                        <div className="flex-col ">
+                                            <h1 className="text-sm font-bold text-gray-500">S : {item?.startTime}</h1>
+                                            <h1 className="text-sm  font-bold text-gray-500">E: {item?.timeAndLocal}</h1>
+
+                                        </div>
+                                  </div>
+                                   
                                     <form onSubmit={handleMoveTask}>
-                                        <div className="flex gap-3 text-black font-bold ">
+                                        <div className="flex gap-3 text-black font-bold mt-2">
                                             <select defaultValue="doing" onClick={() => setSelectedValue(item?._id)} name="status" className="select select-bordered w-full max-w-xs">
                                                 <option value="todo">TO DO</option>
                                                 <option value="doing">DOING</option>
@@ -182,30 +175,21 @@ const UserTask = () => {
                                 </div>
                                 <h1 className="text-xl font-bold">{item?.company}</h1>
                                 <h1 className="text-green-500">{item?.email}</h1>
-                                <h1 className="text-sm mt-2 font-bold mb-2">Tags :{item?.tags}</h1>
-                                <div className="flex justify-between ">
+                                <h1 className="text-sm mt-2 font-bold mb-2">{item?.tags}</h1>
+                             
+                                <div className="flex justify-between">
 
-                                    <Link className="border-2 hover:bg-green-300 mb-3 mt-1 rounded-lg p-1 " onClick={() => document.getElementById('my_modal_3').showModal()}>See Task</Link>
-                                    <dialog id="my_modal_3" className="modal">
-                                        <div className="modal-box">
-                                            <form method="dialog">
+                                    <a href={item?.file} download={item?.file}>
+                                        <button className="btn btn-outline btn-info mb-2">Show Task File</button>
+                                    </a>
+                                    <div className="flex-col ">
+                                        <h1 className="text-sm font-bold text-gray-500">S : {item?.startTime}</h1>
+                                        <h1 className="text-sm  font-bold text-gray-500">E: {item?.timeAndLocal}</h1>
 
-                                                <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                                            </form>
-                                            <div className="flex justify-between">
-                                                <h1 className="text-sm font-bold text-gray-500">Start : {item?.startTime}</h1>
-                                                <h1 className="text-sm font-bold text-gray-500">End : {item?.timeAndLocal}</h1>
-
-                                            </div>
-                                            <h3 className="font-bold  text-lg">{item?.additem}</h3>
-
-                                        </div>
-                                    </dialog>
-
+                                    </div>
                                 </div>
-                                <a href={item?.file} download={item?.file}>
-                                    <button className="btn btn-outline btn-info mb-2">Show Task File</button>
-                                </a>
+                                <button className="btn w-full font-bold mt-2 disabled backdrop-blur-3xl">Completed task</button>
+                              
                             </div>)
                         }
                     </div>

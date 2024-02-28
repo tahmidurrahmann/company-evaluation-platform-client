@@ -7,6 +7,10 @@ import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import MultipleFileUploader from "../Dashboard/Hr/MultipleFileUploader";
 import { useState } from "react";
 import useAgreement from "../../hooks/useAgreement";
+import { Helmet } from "react-helmet";
+import SharedBanner from "../../shared/SharedBanner/SharedBanner";
+import { Link } from "react-router-dom";
+import { FaChevronRight } from "react-icons/fa";
 
 const ApplyForEmployee = () => {
 
@@ -42,6 +46,13 @@ const ApplyForEmployee = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>IONE | Apply-Employee</title>
+            </Helmet>
+            <SharedBanner
+                bannerImg="https://i.ibb.co/dKphgbm/image.png"
+                passage="Company Job Hub" heading="Company Job Hub" />
+        
             <div className="pt-16">
                 <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                     <div className="my-6 md:my-8 lg:my-12">
