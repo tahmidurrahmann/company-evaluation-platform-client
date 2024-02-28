@@ -11,11 +11,12 @@ const HrprivateRoute = ({children}) => {
     if(loading || isPending){
         return <Loading/>
     }
+    
     if(user && isHr){
         return children
     }
 
-    return <Navigate   state={{ from: location }} replace />;
+    return <Navigate state={{ from: location }} replace />;
 };
 
 export default HrprivateRoute;
