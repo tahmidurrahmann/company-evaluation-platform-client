@@ -73,14 +73,14 @@ const Evelotionchart1 = () => {
                     }}
                 >
                     <CartesianGrid />
-                    <XAxis type="number" dataKey="x" name="stature" unit="" />
-                    <YAxis type="number" dataKey="y" name="weight" unit="" />
+                    <XAxis type="number" dataKey="x" name="CompanyNo" unit="" />
+                    <YAxis type="number" dataKey="y" name="Perfomence" unit="" />
                     <ZAxis type="number" range={[100]} />
                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                     <Legend />
                     <Scatter name="New" data={data01} fill="#8884d8" line shape="cross" />
                     <Scatter name="Doing" data={data02} fill="#FF33F3" line shape="diamond" />
-                    <Scatter name="Done" data={data03} fill="#6BFF33" line shape="diamond" />
+                    <Scatter name="Done" data={data03} fill="#6BFF33" line shape="star" />
                 </ScatterChart>
             </ResponsiveContainer>
         </div>

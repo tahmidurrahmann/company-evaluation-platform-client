@@ -8,12 +8,15 @@ import {
 } from 'recharts';
 import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 
 const UserPerformance = () => {
     const [date, setDate] = useState(7)
+    const {user} = useContext(AuthContext)
+    console.log(user.email);
     const {
         register,
         handleSubmit,
@@ -41,7 +44,8 @@ const UserPerformance = () => {
     // console.log(myTask);
 
     useEffect(() => {
-        const myTask = allEmployeeTask?.filter(element => element.company === employeeRequestCheck.company)
+        const myTaskCompany = allEmployeeTask?.filter(element => element.company === employeeRequestCheck.company)
+        const myTask = myTaskCompany.filter(element => element.email ===  user.email)
         console.log(myTask);
         if (myTask) {
             myTask?.map(taseElement => {
@@ -100,11 +104,7 @@ const UserPerformance = () => {
                 const taskDueDate = deffreanceYear * 365 + deffreanceMonth * 30 + deffreanceDay
                 const taskEndDateTime = taskEndDateTimeYear * 365 + taskEndDateTimeMonth * 30 + taskEndDateTimeDay
                 const deffrance = taskDueDate - taskEndDateTime
-                console.log(deffrance);
-                // console.log(taskDueDate);
-                // console.log(taskEndDateTimeYear);
-                // console.log(startMonths);
-                // console.log(taskEndDateTimeDay);
+                // console.log(deffrance);
 
                 const data = myTask ? myTask.map((taskElement) => ({
                     "name": taskElement.startTime,
