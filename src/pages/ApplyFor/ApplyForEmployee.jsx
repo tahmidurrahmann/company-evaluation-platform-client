@@ -7,97 +7,116 @@ import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import MultipleFileUploader from "../Dashboard/Hr/MultipleFileUploader";
 import { useState } from "react";
 import useAgreement from "../../hooks/useAgreement";
-import { Helmet } from "react-helmet";
-import SharedBanner from "../../shared/SharedBanner/SharedBanner";
-import { Link } from "react-router-dom";
-import { FaChevronRight } from "react-icons/fa";
 
 const ApplyForEmployee = () => {
+  const axiosSecure = useAxiosSecure();
+  const [file, setFile] = useState({});
+  const { user } = useAuth();
+  const [allAgreements, isAgreement] = useAgreement();
 
-    const axiosSecure = useAxiosSecure();
-    const [file, setFile] = useState({});
-    const { user } = useAuth();
-    const [allAgreements, isAgreement] = useAgreement();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-    const {
-        register, handleSubmit, reset, formState: { errors } } = useForm()
+  if (isAgreement) {
+    return <Loading />;
+  }
 
-    if (isAgreement) {
-        return <Loading />
+  const onSubmit = async (data) => {
+    const company = data?.company;
+    const role = "user";
+    const name = user?.displayName;
+    const email = user?.email;
+    const imageURL = user?.photoURL;
+    const formDetails = { company, role, name, email, imageURL, file };
+    const res = await axiosSecure.post("/employee", formDetails);
+    if (res?.data?.insertedId) {
+      toast.success("Your Form Submitted");
+      reset();
+    } else {
+      toast.error("You Cannot Post Twice");
+      reset();
     }
+  };
 
-    const onSubmit = async (data) => {
-        const company = data?.company;
-        const role = "user";
-        const name = user?.displayName;
-        const email = user?.email;
-        const imageURL = user?.photoURL;
-        const formDetails = { company, role, name, email, imageURL, file };
-        const res = await axiosSecure.post("/employee", formDetails);
-        if (res?.data?.insertedId) {
-            toast.success("Your Form Submitted");
-            reset();
-        }
-        else {
-            toast.error("You Cannot Post Twice");
-            reset();
-        }
-    }
+  const checkedAgreements = allAgreements.filter(
+    (agreement) => agreement.status === "checked"
+  );
 
-    return (
-        <div className="">
-            <Helmet>
-                <title>IONE | Apply-Employee</title>
-            </Helmet>
-            <SharedBanner
-                bannerImg="https://i.ibb.co/dKphgbm/image.png"
-                passage="Company Job Hub" heading="Company Job Hub" />
-        
-            <div className="pt-16">
-                <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
-                    <div className="my-6 md:my-8 lg:my-12">
-                        <SharedHeading heading="Apply For Employee" />
-                    </div>
-                    <form className='flex flex-col justify-center items-center py-12 space-y-8' onSubmit={handleSubmit(onSubmit)}>
-                        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full">
-                            <div className="inputContainer w-full flex-1">
-                                <input defaultValue={user?.displayName} readOnly name="user_name" required className="customInput py-3" type="name" />
-                                <label className="inputLabel font-semibold">NAME</label>
-                                <div className="inputUnderline"></div>
-                            </div>
-                            <div className="inputContainer w-full flex-1">
-                                <input defaultValue={user?.email} readOnly name="user_email" required className="customInput py-3" type="email" />
-                                <label className="inputLabel font-semibold">EMAIL</label>
-                                <div className="inputUnderline"></div>
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-between gap-8 w-full">
-                            <div className="flex flex-col flex-1">
-                                <label className="font-semibold">Select Your Company</label>
-                                <select {...register("company", { required: true })} className="select select-bordered w-full flex-1">
-                                    {
-                                        allAgreements?.map((agreement, index) => <option key={index} value={agreement?.company}>{agreement?.company}</option>)
-                                    }
-                                </select>
-                                {errors.company?.type === "required" && (
-                                    <p className="text-red-600 text-left pt-1">Company is required</p>
-                                )}
-                            </div>
-                            <div className="flex flex-col text-xl flex-1">
-                                <label className="font-semibold">Upload Resume</label>
-                                <MultipleFileUploader setFile={setFile} />
-                            </div>
-                        </div>
-                        <button type="submit" className="but">
-                            <div className="but-top font-medium">Submit</div>
-                            <div className="but-bottom"></div>
-                            <div className="but-base"></div>
-                        </button>
-                    </form>
-                </div>
+  return (
+    <div className="">
+      <div className="pt-16">
+        <div className="px-6 mx-auto max-w-screen-2xl xl:px-0">
+          <div className="my-6 md:my-8 lg:my-12">
+            <SharedHeading heading="Apply For Employee" />
+          </div>
+          <form
+            className="flex flex-col items-center justify-center py-12 space-y-8"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
+              <div className="flex-1 w-full inputContainer">
+                <input
+                  defaultValue={user?.displayName}
+                  readOnly
+                  name="user_name"
+                  required
+                  className="py-3 customInput"
+                  type="name"
+                />
+                <label className="font-semibold inputLabel">NAME</label>
+                <div className="inputUnderline"></div>
+              </div>
+              <div className="flex-1 w-full inputContainer">
+                <input
+                  defaultValue={user?.email}
+                  readOnly
+                  name="user_email"
+                  required
+                  className="py-3 customInput"
+                  type="email"
+                />
+                <label className="font-semibold inputLabel">EMAIL</label>
+                <div className="inputUnderline"></div>
+              </div>
             </div>
+            <div className="flex items-center justify-between w-full gap-8">
+              <div className="flex flex-col flex-1">
+                <label className="font-semibold">Select Your Company</label>
+                <select
+                  {...register("company", { required: true })}
+                  className="flex-1 w-full select select-bordered"
+                >
+                  {checkedAgreements?.map((agreement, index) => (
+                    <option key={index} value={agreement?.company}>
+                      {agreement?.company}
+                    </option>
+                  ))}
+                </select>
+                {errors.company?.type === "required" && (
+                  <p className="pt-1 text-left text-red-600">
+                    Company is required
+                  </p>
+                )}
+              </div>
+              <div className="flex flex-col flex-1 text-xl">
+                <label className="font-semibold">Upload Resume</label>
+                <MultipleFileUploader setFile={setFile} />
+              </div>
+            </div>
+            <button type="submit" className="but">
+              <div className="font-medium but-top">Submit</div>
+              <div className="but-bottom"></div>
+              <div className="but-base"></div>
+            </button>
+          </form>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default ApplyForEmployee;

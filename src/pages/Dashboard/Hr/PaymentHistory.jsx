@@ -18,7 +18,7 @@ const PaymentHistory = () => {
     try {
       if (user && !paymentsFetched) {
         const res = await axiosSecure(`/payments?email=${user.email}`);
-        console.log(res.data);
+
         setShorts(res.data);
         setPaymentsFetched(true);
       }
