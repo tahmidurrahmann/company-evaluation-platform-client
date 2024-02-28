@@ -7,11 +7,17 @@ import Evaluationchart4 from "./Evaluationchart4";
 import useAgreement from "../../../hooks/useAgreement";
 import useUsers from "../../../hooks/useUsers";
 import useEmployee from "../../../hooks/useEmployee";
+import UseeAllmployee from "../../../hooks/UseeAllmployee";
+
+
+
 
 const EvaluationBg = () => {
     const [allAgreement]= useAgreement()
     const [employeeAgreements] =useEmployee();
     const [allUser] =useUsers();
+    const [isEmployee, isPending] =UseeAllmployee()
+    console.log("here is all employess",isEmployee);
    
     return (
         <div className="max-w-screen-2xl mx-auto px-4 py-16 2xl:px-0">
