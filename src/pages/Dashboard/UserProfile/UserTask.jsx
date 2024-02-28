@@ -9,6 +9,7 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import useAuth from "../../../hooks/useAuth";
+import moment from "moment";
 
 const UserTask = () => {
 
@@ -24,7 +25,9 @@ const UserTask = () => {
         e.preventDefault();
         const form = e.target;
         const status = form.status.value;
-        const res = await axiosSecure.put(`/moveTask?task=${status}&id=${selectedValue}`)
+        console.log(status);
+        const taskEndTime = status === 'completed' ? moment().format('MMMM Do YYYY, h:mm:ss a') : '';
+        const res = await axiosSecure.put(`/moveTask?task=${status}&id=${selectedValue}&taskEndT=${taskEndTime}`)
         if (res.data?.modifiedCount) {
             toast.success(`Your task moved to ${status}`)
             refetch()

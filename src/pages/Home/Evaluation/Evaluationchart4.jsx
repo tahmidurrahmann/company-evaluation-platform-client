@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -49,7 +49,7 @@ const data = [
 
 const Evaluationchart4 = () => {
     return (
-        <div className="bg-white shadow-2xl pl-5 lg:h-[45vh] rounded-xl">
+        <div className="bg-white shadow-2xl pl-5 lg:h-[60vh] rounded-xl">
             <div className="flex justify-between">
                 <h1 className="text-3xl font-semibold pl-5 py-3">Total Impression</h1>
                 <p className="text-2xl font-bold pr-4 py-5 font-mono">26.27M</p>
