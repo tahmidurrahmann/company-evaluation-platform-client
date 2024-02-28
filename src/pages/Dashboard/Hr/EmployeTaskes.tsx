@@ -1,17 +1,31 @@
-import { useState, useCallback, useEffect } from 'react';
-import useAxiosPublic from '../../../hooks/useAxiosPublic';
-import Swal from 'sweetalert2';
-import OnlineOfline from './OnlineOfline';
-import { IoFilterSharp } from 'react-icons/io5';
-import { RiLoaderFill } from 'react-icons/ri';
-import { BiLike, BiDislike, BiSolidDislike } from 'react-icons/bi';
-import { AiFillLike } from 'react-icons/ai';
-import { SiPoly } from 'react-icons/si';
-import useHrRequestCheckedOrNot from '../../../hooks/useHrRequestCheckedOrNot';
+import React, { useState, useCallback, useEffect } from "react";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+import OnlineOfline from "./OnlineOfline";
+import { IoFilterSharp } from "react-icons/io5";
+import { RiLoaderFill } from "react-icons/ri";
+import { BiLike, BiDislike, BiSolidDislike } from "react-icons/bi";
+import { AiFillLike } from "react-icons/ai";
+import { SiPoly } from "react-icons/si";
+import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 
-const EmployeTaskes = () => {
-  const [tasks, setTasks] = useState([]);
-  const [filteredTasks, setFilteredTasks] = useState([]);
+interface Task {
+  _id: string;
+  company: string;
+  name: string;
+  email: string;
+  addItem: string;
+  employImage: string;
+  timeAndLocal: string;
+  effort: string;
+  status: string;
+  liked: boolean;
+  disLiked: boolean;
+}
+
+const EmployeTaskes: React.FC = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
   const axiosPublic = useAxiosPublic();
   const [hrRequestCheck] = useHrRequestCheckedOrNot();
 
@@ -19,7 +33,7 @@ const EmployeTaskes = () => {
     try {
       const res = await axiosPublic.get("/imployeeTasks");
       const taskFilter = res?.data?.filter(
-        (element) => element?.company === hrRequestCheck?.company
+        (element: Task) => element?.company === hrRequestCheck?.company
       );
       setTasks(taskFilter);
       setFilteredTasks(taskFilter);
@@ -32,7 +46,7 @@ const EmployeTaskes = () => {
     fetchTasks();
   }, [fetchTasks]);
 
-  const handleLike = async (taskId) => {
+  const handleLike = async (taskId: string) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to Like this!",
@@ -60,7 +74,7 @@ const EmployeTaskes = () => {
     });
   };
 
-  const handleDisLike = async (taskId) => {
+  const handleDisLike = async (taskId: string) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to Dis-Like this!",
@@ -99,13 +113,13 @@ const EmployeTaskes = () => {
   };
 
   return (
-    <div className="space-y-10 mt-5">
-      <div className="flex justify-center items-center">
+    <div className="mt-5 space-y-10">
+      <div className="flex items-center justify-center">
         <div className="dropdown dropdown-end">
           <button
             tabIndex={0}
             role="button"
-            className="flex items-center gap-2 border px-2 font-semibold text-xl"
+            className="flex items-center gap-2 px-2 text-xl font-semibold border"
           >
             Filter <IoFilterSharp />
           </button>
@@ -136,10 +150,10 @@ const EmployeTaskes = () => {
       </div>
 
       <div className="">
-        <div className="overflow-x-auto w-full">
+        <div className="w-full overflow-x-auto">
           <table className="table">
-            <thead className="bg-gray-300 text-black font-bold">
-              <tr className='text-xs'>
+            <thead className="font-bold text-black bg-gray-300">
+              <tr className="text-xs">
                 <th>Name</th>
                 <th>Task Name</th>
                 <th>Active</th>
@@ -152,51 +166,61 @@ const EmployeTaskes = () => {
             <tbody>
               {filteredTasks.map((element, index) => (
                 <tr
-                  className="h-24 border-b-2 text-white text-xs border-gray-300"
+                  className="h-24 text-xs text-white border-b-2 border-gray-300"
                   key={index}
                 >
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img referrerPolicy="no-referrer" src={element.employImage} />
+                        <div className="w-12 h-12 mask mask-squircle">
+                          <img
+                            referrerPolicy="no-referrer"
+                            src={element.employImage}
+                            alt={element.name}
+                          />
                         </div>
                       </div>
                       <div>
                         <div className="font-bold">{element?.name}</div>
-                        <div className="text-sm opacity-50">{element?.email}</div>
+                        <div className="text-sm opacity-50">
+                          {element?.email}
+                        </div>
                       </div>
                     </div>
                   </td>
                   <td> {element.addItem}</td>
-                  <td><OnlineOfline /></td>
-                  <td className="text-blue-500 font-bold">
+                  <td>
+                    <OnlineOfline />
+                  </td>
+                  <td className="font-bold text-blue-500">
                     {element.timeAndLocal}
                   </td>
                   <td className="">
                     <h1
-                      className={`${element.effort === "medium"
-                        ? "text-white font-bold"
-                        : element.tags === "low"
+                      className={`${
+                        element.effort === "medium"
+                          ? "text-white font-bold"
+                          : element.tags === "low"
                           ? "text-white font-bold"
                           : element.effort === "high"
-                            ? "text-white font-bold"
-                            : "text-white font-bold"
-                        }`}
+                          ? "text-white font-bold"
+                          : "text-white font-bold"
+                      }`}
                     >
                       {element.effort}
                     </h1>
                   </td>
                   <td className="">
                     <h1
-                      className={`${element.effort === "medium"
-                        ? "text-white font-bold"
-                        : element.tags === "low"
+                      className={`${
+                        element.effort === "medium"
+                          ? "text-white font-bold"
+                          : element.tags === "low"
                           ? "text-white font-bold"
                           : element.effort === "high"
-                            ? "text-white font-bold"
-                            : "text-white font-bold"
-                        }`}
+                          ? "text-white font-bold"
+                          : "text-white font-bold"
+                      }`}
                     >
                       {element.status === "completed" ? (
                         <>
@@ -212,9 +236,16 @@ const EmployeTaskes = () => {
                         </>
                       ) : (
                         <p className="flex flex-col items-center gap-1">
-                          <button className="text-white font-semibold">
-                            {element?.status === "todo" && <SiPoly className="text-3xl text-blue-400" size={22}></SiPoly>}
-                            {element?.status === "doing" && <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />}
+                          <button className="font-semibold text-white">
+                            {element?.status === "todo" && (
+                              <SiPoly
+                                className="text-3xl text-blue-400"
+                                size={22}
+                              ></SiPoly>
+                            )}
+                            {element?.status === "doing" && (
+                              <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
+                            )}
                           </button>
                         </p>
                       )}
@@ -222,14 +253,15 @@ const EmployeTaskes = () => {
                   </td>
                   <td className="">
                     <h1
-                      className={`${element.effort === "medium"
-                        ? "text-white font-bold"
-                        : element.tags === "low"
+                      className={`${
+                        element.effort === "medium"
+                          ? "text-white font-bold"
+                          : element.tags === "low"
                           ? "text-white font-bold"
                           : element.effort === "high"
-                            ? "text-white font-bold"
-                            : "text-white font-bold"
-                        }`}
+                          ? "text-white font-bold"
+                          : "text-white font-bold"
+                      }`}
                     >
                       {element.status === "completed" ? (
                         <>
@@ -245,9 +277,16 @@ const EmployeTaskes = () => {
                         </>
                       ) : (
                         <p className="flex flex-col items-center gap-1">
-                          <button className="text-white font-semibold">
-                            {element?.status === "todo" && <SiPoly className="text-3xl text-blue-400" size={22}></SiPoly>}
-                            {element?.status === "doing" && <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />}
+                          <button className="font-semibold text-white">
+                            {element?.status === "todo" && (
+                              <SiPoly
+                                className="text-3xl text-blue-400"
+                                size={22}
+                              ></SiPoly>
+                            )}
+                            {element?.status === "doing" && (
+                              <RiLoaderFill className="text-3xl text-orange-500 6s animate-spin" />
+                            )}
                           </button>
                         </p>
                       )}
