@@ -22,13 +22,20 @@ const LinkNotice = () => {
         return <Loading />
     }
 
-    console.log(meetLink);
+    const getMonthName = (dateString) => {
+        const dateObj = new Date(dateString);
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return monthNames[dateObj.getMonth()];
+    };
+
+    console.log();
 
     return (
         <div>
             <div className="flex justify-center lg:justify-end pt-6 md:pt-6">
-                <div>
+                <div className="chat-header">
                     <a className="bg-[#007cc7] p-3 rounded-lg text-white" href={meetLink?.Link}>Join Meet</a>
+                    <p className="">{meetLink?.Date?.split("-")[2]}, {getMonthName(meetLink?.Date)}, {meetLink?.Date?.split("-")[0]}</p>
                 </div>
             </div>
             <div className="py-6">
