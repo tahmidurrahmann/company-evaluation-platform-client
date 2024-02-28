@@ -19,7 +19,7 @@ const AllEmploye = () => {
     const [employee, setEmployee] = useState([]);
     const [myEmploye, setMyEmploye] = useState([]);
     const [, , refetch] = useEmployeeTask();
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } ,reset} = useForm();
     const [file, setFile] = useState({})
 
     const onSubmit = async (data) => {
@@ -37,12 +37,16 @@ const AllEmploye = () => {
         const email = targetinfo.email;
         const company = hrRequestCheck?.company;
         const giveTaskInfo = { addItem, status, timeAndLocal, employImage, audience, tags, number, channel, effort, name, email, startTime, company, file };
-        console.log(giveTaskInfo);
+       
         try {
             const res = await axiosSecure.post('/imployeeTasks', giveTaskInfo);
             if (res.data && res.data.acknowledged) {
                 toast.success('Your Task is Submitted')
                 refetch();
+                reset();
+              setFile({})
+              setTargetinfo({})
+            
             } else {
                 toast.error('error Task is not Submitted')
             }

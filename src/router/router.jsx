@@ -42,8 +42,8 @@ import Perfomence from "../pages/Perfomence/Perfomence";
 import MessageEmployee from "../pages/Dashboard/Hr/MessageEmployee";
 import MessageEmployeeById from "../pages/Dashboard/Hr/MessageEmployeeById";
 import MessageHr from "../pages/Dashboard/Hr/MessageHr";
+import Userprivaterepo from "../pages/Dashboard/UserProfile/Userprivaterepo";
 import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -95,8 +95,8 @@ const router = createBrowserRouter([
         element: <Management />,
       },
       {
-        path:'/Perfomence',
-        element:<Perfomence/>
+        path: '/Perfomence',
+        element: <Perfomence />
       }
     ],
   },
@@ -115,15 +115,15 @@ const router = createBrowserRouter([
       //user
       {
         path: "userProfile",
-        element: <PrivateRoute><UserProfile /></PrivateRoute>
+        element: <Userprivaterepo><PrivateRoute><UserProfile /></PrivateRoute></Userprivaterepo>
       },
       {
         path: "userTask",
-        element: <PrivateRoute><UserTask /></PrivateRoute>
+        element: <Userprivaterepo><PrivateRoute><UserTask /></PrivateRoute></Userprivaterepo>
       },
       {
         path: "userPerformance",
-        element: <PrivateRoute> <UserPerformance></UserPerformance> </PrivateRoute>
+        element: <Userprivaterepo><PrivateRoute> <UserPerformance></UserPerformance> </PrivateRoute></Userprivaterepo>
       },
       //hr
       {
@@ -136,11 +136,11 @@ const router = createBrowserRouter([
       },
       {
         path: "messageEmployee",
-        element: <PrivateRoute><MessageEmployee /></PrivateRoute>
+        element: <HrprivateRoute><PrivateRoute><MessageEmployee /></PrivateRoute></HrprivateRoute>
       },
       {
         path: "messageHr",
-        element: <PrivateRoute><MessageHr /></PrivateRoute>
+        element: <Userprivaterepo><PrivateRoute><MessageHr /></PrivateRoute></Userprivaterepo>
       },
       {
         path: "messageEmployee/:id",
@@ -184,7 +184,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'paymentHistory',
-        element: <PaymentHistory />
+
+        element: <Userprivaterepo><PrivateRoute><PaymentHistory /></PrivateRoute></Userprivaterepo>
+
+
+
       },
       {
         path: 'feedback',
@@ -214,7 +218,9 @@ const router = createBrowserRouter([
       },
       {
         path: "linkNotice",
-        element: <PrivateRoute><LinkNotice /></PrivateRoute>
+        element: <Userprivaterepo><PrivateRoute><LinkNotice /></PrivateRoute></Userprivaterepo>
+      
+
       },
     ]
   },
