@@ -2,12 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Message from "./Message";
 import useMessage from "../../../hooks/useMessage";
-import io from "socket.io-client";
+// import io from "socket.io-client";
 
 const MessageEmployeeById = () => {
 
@@ -18,30 +18,30 @@ const MessageEmployeeById = () => {
     const [employee, setEmployee] = useState({});
     const [message, isMessage, refetch] = useMessage();
     const [allMessage, setAllMessage] = useState([]);
-    const [sendMessage, setSendMessage] = useState(null);
-    const [receiveMessage, setReceiveMessage] = useState(null);
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const socket = useRef();
+    // const [sendMessage, setSendMessage] = useState(null);
+    // const [receiveMessage, setReceiveMessage] = useState(null);
+    // const [onlineUsers, setOnlineUsers] = useState([]);
+    // const socket = useRef();
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
-        }
-    }, [sendMessage])
+    // useEffect(() => {
+    //     if (sendMessage !== null) {
+    //         socket.current.emit("send-message", sendMessage)
+    //     }
+    // }, [sendMessage])
 
-    useEffect(() => {
-        if (receiveMessage !== null) {
-            socket.current.on("receive-message", receiveMessage)
-        }
-    }, [receiveMessage])
+    // useEffect(() => {
+    //     if (receiveMessage !== null) {
+    //         socket.current.on("receive-message", receiveMessage)
+    //     }
+    // }, [receiveMessage])
 
-    useEffect(() => {
-        socket.current = io("http://localhost:8800")
-        socket.current.emit("new-user-add", user)
-        socket.current.on("get-users", (users) => {
-            setOnlineUsers(users);
-        })
-    }, [user])
+    // useEffect(() => {
+    //     socket.current = io("http://localhost:8800")
+    //     socket.current.emit("new-user-add", user)
+    //     socket.current.on("get-users", (users) => {
+    //         setOnlineUsers(users);
+    //     })
+    // }, [user])
 
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
@@ -67,8 +67,8 @@ const MessageEmployeeById = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(message);
-            setReceiveMessage(message);
+            // setSendMessage(message);
+            // setReceiveMessage(message);
         }
     }
 
