@@ -20,7 +20,7 @@ const Message = ({ message, own }) => {
                 <div className="chat-header">
                     {message?.name}
                 </div>
-                <div className={own ? "chat-bubble chat-bubble-info" : "chat-bubble"}>{message?.message}</div>
+                <div className={own ? "chat-bubble chat-bubble-info text-white" : "chat-bubble"}>{message?.message}</div>
             </div>
         </div>
     );
