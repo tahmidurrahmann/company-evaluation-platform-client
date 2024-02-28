@@ -3,7 +3,6 @@ import "./message.css"
 
 const Message = ({ message, own }) => {
 
-
     const scroll = useRef();
     useEffect(() => {
         scroll.current?.scrollIntoView({ behavior: "smooth" })

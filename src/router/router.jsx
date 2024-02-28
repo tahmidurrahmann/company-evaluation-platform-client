@@ -184,11 +184,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'paymentHistory',
-
         element: <Userprivaterepo><PrivateRoute><PaymentHistory /></PrivateRoute></Userprivaterepo>
-
-
-
       },
       {
         path: 'feedback',
@@ -219,8 +215,6 @@ const router = createBrowserRouter([
       {
         path: "linkNotice",
         element: <Userprivaterepo><PrivateRoute><LinkNotice /></PrivateRoute></Userprivaterepo>
-      
-
       },
     ]
   },

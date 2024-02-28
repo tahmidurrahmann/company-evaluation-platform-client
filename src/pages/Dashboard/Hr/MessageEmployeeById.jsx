@@ -90,6 +90,8 @@ const MessageEmployeeById = () => {
         return <Loading />
     }
 
+    refetch();
+
     console.log(hrRequestCheck);
 
     return (

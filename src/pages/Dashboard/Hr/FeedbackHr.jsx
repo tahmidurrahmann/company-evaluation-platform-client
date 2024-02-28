@@ -45,7 +45,7 @@ const FeedbackHr = () => {
                 <div className="pt-20 flex flex-col">
                     <div className="inputContainer w-full mt-6">
                         <textarea className="customInputu" name="review" cols="30" rows="10" required></textarea>
-                        <label className="inputLabelu">Enter Your Notice</label>
+                        <label className="inputLabelu">Enter Your Feedback</label>
                     </div>
                     <input className="font-semibold bg-[#007cc7] rounded-lg text-white hover:scale-105 transition flex justify-center py-2 font-raleway gap-1 items-center" type="submit" value="Make Notice" />
                 </div>
