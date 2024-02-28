@@ -1,38 +1,41 @@
-import { useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import usePayment from "../../../hooks/usePayment";
 import Loading from "../../../shared/Loading/Loading";
 
-const UserAmount = ({employID}) => {
-    const {user} =useAuth()
-    const [allPayments, isPayment] = usePayment();
-    console.log(allPayments,"hellow world");
+const UserAmount = ({ employID }) => {
+  const { user } = useAuth();
+  const [allPayments, isPayment] = usePayment();
 
-  
-    if(isPayment){
-        return <Loading />
-    }
-  
-    const userEmail = user ? user.email : "";
+  if (isPayment) {
+    return <Loading />;
+  }
 
-    const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
+  const userEmail = user ? user.email : "";
 
-    const totalAmount = filteredPayments.reduce((total, item) => total + item.salary, 0)
-    
-    return (
-        <div className="text-white m-5 flex justify-center items-center gap-2 ">
-            <div className="mb-8">
-                <span className="relative flex h-8 w-8">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-                </span>
-            </div>
+  const filteredPayments = allPayments?.filter(
+    (item) => item.employeeInfo.email === userEmail
+  );
 
-            <h1 className="text-2xl text-center font-bold text-white">Your Total Amount Is <span className="text-red-400">$ {totalAmount}</span></h1>
-           
+  const totalAmount = filteredPayments.reduce(
+    (total, item) => total + item.salary,
+    0
+  );
 
-        </div>
-    );
+  return (
+    <div className="flex items-center justify-center gap-2 m-5 text-white ">
+      <div className="mb-8">
+        <span className="relative flex w-8 h-8">
+          <span className="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
+          <span className="relative inline-flex w-3 h-3 rounded-full bg-sky-500"></span>
+        </span>
+      </div>
+
+      <h1 className="text-2xl font-bold text-center text-white">
+        Your Total Amount Is
+        <span className="text-red-400">$ {totalAmount}</span>
+      </h1>
+    </div>
+  );
 };
 
 export default UserAmount;

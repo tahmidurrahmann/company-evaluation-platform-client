@@ -15,7 +15,6 @@ import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
 import HrProfileRating from "../pages/Dashboard/Hr/MessageEmployee";
-import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import UserTask from "../pages/Dashboard/UserProfile/UserTask";
@@ -44,7 +43,7 @@ import MessageEmployee from "../pages/Dashboard/Hr/MessageEmployee";
 import MessageEmployeeById from "../pages/Dashboard/Hr/MessageEmployeeById";
 import MessageHr from "../pages/Dashboard/Hr/MessageHr";
 import Userprivaterepo from "../pages/Dashboard/UserProfile/Userprivaterepo";
-
+import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -185,7 +184,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'paymentHistory',
+
         element: <Userprivaterepo><PrivateRoute><PaymentHistory /></PrivateRoute></Userprivaterepo>
+
+
+
       },
       {
         path: 'feedback',
@@ -216,6 +219,8 @@ const router = createBrowserRouter([
       {
         path: "linkNotice",
         element: <Userprivaterepo><PrivateRoute><LinkNotice /></PrivateRoute></Userprivaterepo>
+      
+
       },
     ]
   },
