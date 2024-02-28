@@ -70,7 +70,7 @@ const Companies = () => {
             <Helmet>
                 <title>IONE | Companies</title>
             </Helmet>
-            <SharedBanner heading="All Companies" passage="All Companies" />
+            <SharedBanner bannerImg="https://i.ibb.co/K6vCyYW/image.png" heading="All Companies" passage="All Companies" />
             <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
                 <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
                     <div className="input-containerr">
