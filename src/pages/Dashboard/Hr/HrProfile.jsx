@@ -36,7 +36,6 @@ const HrProfile = () => {
                 const taskFilter = res?.data?.filter(element => element?.company === hrRequestCheck?.company)
                 const completedFilter = taskFilter?.filter(element => element?.status === 'completed')
                 const persent = (completedFilter?.length / taskFilter?.length) * 100
-                console.log(persent);
                 setCompletedTaskpers(persent)
                 setTask(taskFilter)
             })

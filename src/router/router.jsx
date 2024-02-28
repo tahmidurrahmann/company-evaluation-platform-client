@@ -14,7 +14,7 @@ import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
 import HrProfile from "../pages/Dashboard/Hr/HrProfile";
 import AllEmploye from "../pages/Dashboard/Hr/AllEmploye";
-import HrProfileRating from "../pages/Dashboard/Hr/HrProfileRating";
+import HrProfileRating from "../pages/Dashboard/Hr/MessageEmployee";
 import EmployeTaskes from "../pages/Dashboard/Hr/EmployeTaskes";
 import EmployeTeamPearformence from "../pages/Dashboard/Hr/EmployeTeamPearformence";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
@@ -40,6 +40,10 @@ import PaymentFail from "../pages/Dashboard/Hr/PaymentFail";
 import HrprivateRoute from "../pages/Dashboard/Hr/HrprivateRoute";
 import AdminprivateRoute from "../pages/Dashboard/Admin/AdminprivateRoute";
 import Perfomence from "../pages/Perfomence/Perfomence";
+import MessageEmployee from "../pages/Dashboard/Hr/MessageEmployee";
+import MessageEmployeeById from "../pages/Dashboard/Hr/MessageEmployeeById";
+import MessageHr from "../pages/Dashboard/Hr/MessageHr";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -129,6 +133,18 @@ const router = createBrowserRouter([
       {
         path: "hrProfile",
         element: <HrprivateRoute><PrivateRoute><HrProfileRating /></PrivateRoute></HrprivateRoute>
+      },
+      {
+        path: "messageEmployee",
+        element: <PrivateRoute><MessageEmployee /></PrivateRoute>
+      },
+      {
+        path: "messageHr",
+        element: <PrivateRoute><MessageHr /></PrivateRoute>
+      },
+      {
+        path: "messageEmployee/:id",
+        element: <PrivateRoute><MessageEmployeeById /></PrivateRoute>
       },
       {
         path: "allEmploye",

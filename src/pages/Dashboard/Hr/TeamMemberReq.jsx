@@ -17,7 +17,6 @@ const TeamMemberReq = () => {
         if (hrRequestCheck?.status === "checked") {
             const findEmployeMatch = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company)
             setMyEmploye(findEmployeMatch)
-            console.log(findEmployeMatch)
         }
     }, [employeeAgreements, hrRequestCheck?.company, hrRequestCheck?.status])
 

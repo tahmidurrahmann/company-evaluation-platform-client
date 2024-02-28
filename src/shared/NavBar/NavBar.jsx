@@ -111,7 +111,7 @@ const NavBar = () => {
       >
         <span className="flex items-center gap-2">
           <GiCircularSaw className="text-[#007cc7]" />
-          Company Job Hub
+          Apply Job Hub
         </span>
       </NavLink>
 
