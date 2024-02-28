@@ -3,11 +3,12 @@ import { select, scaleBand, scaleLinear, max } from "d3";
 import { useEffect, useRef } from "react";
 import useResizeObserver from "./useResizeObserver";
 
-const ReachingChart = ({data}) => {
+const ReachingChart = ({ data }) => {
     const svgRef = useRef();
     const wrapperRef = useRef();
     const dimensions = useResizeObserver(wrapperRef);
     // will be called initially and on every data change
+    console.log(data);
     useEffect(() => {
         const svg = select(svgRef.current);
         if (!dimensions) return;
@@ -51,18 +52,28 @@ const ReachingChart = ({data}) => {
                         (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
                     )
             )
-            .text(entry => `${entry.name} (${entry.value} Completed Task)`)
+            .text(entry => ` ${entry.name} (${entry.value} Completed Task)`)
             .attr("class", "label")
-            .attr("x", 10)
+            .attr("x", 60)
             .transition()
             .attr("y", (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5);
+        // draw the images
+        svg
+            .selectAll(".image")
+            .data(data)
+            .join("image")
+            .attr("xlink:href", entry => entry.image)
+            .attr("class", "image")
+            .attr("x", 0) // adjust as needed
+            .attr("y", (entry, index) => yScale(index)) // adjust as needed
+            .attr("width", 30) // adjust as needed
+            .attr("height", 29) // adjust as needed
     }, [data, dimensions]);
 
     return (
-        <div ref={wrapperRef} style={{ marginBottom: "2rem", paddingLeft : "6px" }} className="font-semibold">
-            <svg className="w-full px-10 my-10" ref={svgRef}></svg>
+        <div ref={wrapperRef} className="font-semibold">
+            <svg className="w-full  p-10 my-10 h-72" ref={svgRef}></svg>
         </div>
     );
 };
-
 export default ReachingChart;

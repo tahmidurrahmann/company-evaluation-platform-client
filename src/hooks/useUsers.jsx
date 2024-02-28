@@ -5,6 +5,8 @@ const useUsers = () => {
 
     const axiosSecure = useAxiosSecure();
 
+ 
+
     const { data: allUsers = [], isPending: isUser, refetch } = useQuery({
         queryKey: ["allUser"],
         queryFn: async () => {

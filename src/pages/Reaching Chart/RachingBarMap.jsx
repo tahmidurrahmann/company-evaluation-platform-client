@@ -41,14 +41,16 @@ const RachingBarMap = () => {
     });
   }
 
-  return (
-    <div className="px-6 mx-auto xl:px-0 max-w-screen-2xl">
-      <RaachingHome
-        filterHr={filterHr}
-        completedTaskpers={completedTaskpers}
-      ></RaachingHome>
-    </div>
-  );
+
+    return (
+        <div className="px-6 xl:px-0 max-w-screen-2xl mx-auto">
+            <RaachingHome
+                filterHr={filterHr}
+                completedTaskpers={completedTaskpers}
+            ></RaachingHome>
+        </div>
+    );
+
 };
 
 export default RachingBarMap;
