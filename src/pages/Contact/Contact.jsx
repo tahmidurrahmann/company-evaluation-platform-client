@@ -29,7 +29,7 @@ const Contact = () => {
             <Helmet>
                 <title>IONE | Contact</title>
             </Helmet>
-            <SharedBanner heading="Contact Us" passage="Contact Us" />
+            <SharedBanner bannerImg={"https://i.ibb.co/HCrfTHz/image.png"} heading="Contact Us" passage="Contact Us" />
             {/* ------ first  section here ----- */}
             <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
                 <div className='bg-white border-2 shadow-2xl rounded-xl pb-4'>

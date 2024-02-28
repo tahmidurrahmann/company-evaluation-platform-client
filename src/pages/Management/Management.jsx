@@ -14,7 +14,7 @@ const Management = () => {
                 <title>IONE | Management</title> 
             
             </Helmet>
-            <SharedBanner passage="Management" heading="Management" />
+            <SharedBanner  bannerImg="https://i.ibb.co/PjRxN0s/image.png" passage="Management" heading="Management" />
             <div className="flex flex-col lg:flex-row justify-between items-center max-w-screen-2xl mx-auto">
                 <div className="ml-10 space-y-6">
                     <h1 className=" text-black pt-20 lg:pt-0  font-bold text-7xl">All solutions
@@ -99,7 +99,7 @@ const Management = () => {
             
             </div>
             {/* five section here*/}
-            <div className="bg-shadow-700 shadow-2xl hover:shadow-blue -500 mb-12 h-[50vh] rounded-tr-full container mx-auto rounded-bl-full  mt-32">
+            <div className="bg-shadow-700 bg-gray-100 rounded-t-full shadow-2xl hover:shadow-blue -500  h-[50vh]    mt-32">
                 <h1 className=" text-center pt-20 italic lg:text-4xl font-bold">Connect with us. We’re ready to </h1>
                 <p className="text-center text-3xl italic font-bold">talk about opportunities</p>
                 <div className="flex justify-center space-y-4 mt-4">

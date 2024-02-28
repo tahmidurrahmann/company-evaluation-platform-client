@@ -9,7 +9,7 @@ import useAuth from "../../../hooks/useAuth";
 const LinkNotice = () => {
     const { user } = useAuth();
     const [notice, setNotice] = useState([]);
-    const [meetLink , setMeetLink] = useState({})
+    const [meetLink, setMeetLink] = useState({})
     const axiosPublic = useAxiosPublic();
     const [allMeetLink, isMeetLink] = useMeet();
 
