@@ -23,7 +23,7 @@ const MessageEmployee = () => {
   }, [hrInfo, user?.email])
 
   useEffect(() => {
-    if (employeeAgreements?.length > 0 && Object.keys(hr).length > 0) {
+    if (employeeAgreements?.length > 0) {
       const specifCompanyBasedEmployee = employeeAgreements?.filter(item => item.company === hr?.company && item?.status === "checked")
       setEmployee(specifCompanyBasedEmployee)
     }
