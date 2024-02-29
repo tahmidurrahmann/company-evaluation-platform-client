@@ -10,13 +10,14 @@ import { Helmet } from "react-helmet";
 const Companies = () => {
   const [hrInfo, isHrPending] = useCompany();
   const [companies, setCompanies] = useState([]);
-  const [showMoreData, setShowMoreData] = useState(2);
+  const [myData, setMyData] = useState(2);
+  const [allCompanyInfo, setAllCompanyInfo] = useState([]);
 
   const toggleShowMore = () => {
-    if (showMoreData === 2) {
-      setShowMoreData(companies.length);
-    } else if (showMoreData > 2) {
-      setShowMoreData(2);
+    if (myData === 2) {
+      setMyData(allCompanyInfo.length);
+    } else if (myData > 2) {
+      setMyData(2);
     }
   };
 
@@ -49,6 +50,10 @@ const Companies = () => {
 
   useEffect(() => {
     if (hrInfo?.length > 0) {
+      const allCompanyInfo = hrInfo?.filter((hr) => hr?.status === "checked");
+
+      setAllCompanyInfo(allCompanyInfo);
+
       const uniqueCompanies = [];
       const seenIndustrySectors = new Set();
       hrInfo.forEach((company) => {
@@ -182,7 +187,7 @@ const Companies = () => {
                   {...register("companySize")}
                   className="flex-1 w-full select select-bordered"
                 >
-                  {hrInfo?.map((agreement, index) => (
+                  {companies?.map((agreement, index) => (
                     <option key={index} value={agreement?.companySize}>
                       {agreement?.companySize}
                     </option>
@@ -197,9 +202,9 @@ const Companies = () => {
             </form>
           </div>
           <div className="col-span-2 ">
-            {companies?.length > 2 ? (
+            {allCompanyInfo?.length > 2 ? (
               <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                {companies?.slice(0, showMoreData).map((company) => (
+                {allCompanyInfo?.slice(0, myData).map((company) => (
                   <div
                     key={company?._id}
                     className="block p-4 rounded-lg shadow-sm shadow-indigo-100"
@@ -310,7 +315,7 @@ const Companies = () => {
               </div>
             ) : (
               <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-                {companies?.map((company) => (
+                {allCompanyInfo?.map((company) => (
                   <div
                     key={company?._id}
                     className="block p-4 rounded-lg shadow-sm shadow-indigo-100"
@@ -431,7 +436,7 @@ const Companies = () => {
             className="my-6 but md:my-8 lg:my-12"
           >
             <div className="font-medium but-top">
-              {showMoreData > 2 ? "Show less" : "Show More"}
+              {myData > 2 ? "Show less" : "Show More"}
             </div>
             <div className="but-bottom"></div>
             <div className="but-base"></div>
