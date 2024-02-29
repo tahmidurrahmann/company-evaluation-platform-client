@@ -97,7 +97,7 @@ const MessageEmployeeById = () => {
     console.log(employee);
 
     return (
-        <div>
+        <div className="px-6 2xl:px-0">
             <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
                 <img src={employee?.imageURL} alt="Shoes" className='w-12 rounded-full' />
                 <div>
@@ -107,7 +107,7 @@ const MessageEmployeeById = () => {
                 </div>
             </div>
             <Link to="/dashboard/messageEmployee"><button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-lg">✕</button></Link>
-            <div className="px-6 2xl:px-0">
+            <div>
                 <div>
                     {
                         allMessage?.length > 0 ? <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">

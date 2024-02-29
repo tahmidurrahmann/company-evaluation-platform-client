@@ -17,8 +17,8 @@ const Banner: React.FC = () => {
   };
 
   return (
-    <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 pt-20 lg:pt-52 px-6 lg:px-16 2xl:px-0">
-      <div className="lg:w-1/3 space-y-3 lg:space-y-6 pt-4">
+    <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 pt-20 lg:pt-52 px-6 md:px-16">
+      <div className="2xl:w-1/3 space-y-3 lg:space-y-6 lg:-mt-16 2xl:-mt-4">
         <h1 className="text-[#151746] text-[40px] lg:text-5xl font-bold w-full text-center lg:text-left">Achieve Your <br />High Performance Culture</h1>
         <p className="text-[#737490] w-full text-center lg:text-left font-medium">One platform to streamline and formalize your process for performance reviews, goals, and continuous feedback.</p>
         <div className="flex items-center justify-center lg:justify-start">

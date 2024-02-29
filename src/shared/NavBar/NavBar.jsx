@@ -204,7 +204,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-white text-black"
+      className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-[#1515154D] text-white"
         }`}
     >
       <div>

@@ -94,7 +94,7 @@ const MessageHr = () => {
     console.log(hr);
 
     return (
-        <div>
+        <div className="px-6 2xl:px-0">
             <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
                 <img src={hr?.imageURL} alt="Shoes" className='w-12 rounded-full' />
                 <div>
@@ -103,15 +103,14 @@ const MessageHr = () => {
                     <h2 className="text-xs lg:text-xl font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hr?.email}</h2>
                 </div>
             </div>
-            <div className="px-6 2xl:px-0">
+            <div>
                 {
                     allMessage?.length > 0 ? <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
                         {allMessage?.map((m) => (
                             <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
                         ))}
-                    </div> : <div className="max-h-[calc(100vh-280px)]">
-                        <h1>please message</h1>
-                    </div>
+                    </div> : <div className="flex justify-center items-center">
+                        <h1 className="py-6">Start a conversation! Say hello to get things rolling.</h1> </div>
                 }
             </div>
             <form onSubmit={handleSendMessage} className="fixed bottom-4 w-full mx-6">
