@@ -1,29 +1,18 @@
-import {
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    AreaChart,
-    Area,
-} from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Area } from 'recharts';
 import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
 import { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { AuthContext } from '../../../Provider/AuthProvider';
 
-
 const UserPerformance = () => {
+
     const [date, setDate] = useState(7)
-    const {user} = useContext(AuthContext)
-    console.log(user.email);
-    const {
-        register,
-        handleSubmit,
-    } = useForm()
+    const { user } = useContext(AuthContext)
+
+    const { register, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data.daySelect)
         if (data.daySelect === 'oneMonth') {
             setDate(30)
         }
@@ -41,21 +30,16 @@ const UserPerformance = () => {
     const [allEmployeeTask] = useEmployeeTask()
     const [taskEndMonth, setTaskEndMonth] = useState(0)
 
-    // console.log(myTask);
-
     useEffect(() => {
         const myTaskCompany = allEmployeeTask?.filter(element => element.company === employeeRequestCheck.company)
-        const myTask = myTaskCompany.filter(element => element.email ===  user.email)
-        console.log(myTask);
+        const myTask = myTaskCompany?.filter(element => element.email === user.email)
         if (myTask) {
             myTask?.map(taseElement => {
-
                 const startTime = taseElement.startTime?.split(' ')
                 const taskEndTime = taseElement.taskEndTime?.split(" ")
                 const startYear = parseFloat(startTime[2])
-                const taskEndTimeYear = parseFloat(taskEndTime && taskEndTime.length > 0 ? taskEndTime[2] : null);
-                // console.log(taskEndTimeYear);
-                const taskEndTimeMonth = parseFloat(taskEndTime && taskEndTime.length > 0 ? taskEndTime[0] : null);
+                const taskEndTimeYear = parseFloat(taskEndTime && taskEndTime?.length > 0 ? taskEndTime[2] : null);
+                const taskEndTimeMonth = parseFloat(taskEndTime && taskEndTime?.length > 0 ? taskEndTime[0] : null);
                 const startMonth = startTime[0]
 
                 // this data is Start Month booking
@@ -82,7 +66,7 @@ const UserPerformance = () => {
                 }
 
                 const startDay = parseFloat(startTime[1])
-                const taskEndTimeDay = parseFloat(taskEndTime && taskEndTime.length > 0 ? taskEndTime[1] : null);
+                const taskEndTimeDay = parseFloat(taskEndTime && taskEndTime?.length > 0 ? taskEndTime[1] : null);
 
                 // TODO :
 
@@ -90,8 +74,8 @@ const UserPerformance = () => {
                 // Compleated : 2. kirakom effort dica
                 // 3. effort ar performance kamon HufCompleated
 
-                const endTime = taseElement.timeAndLocal.split('T')
-                const endSpacikTime = endTime[0].split('-')
+                const endTime = taseElement?.timeAndLocal?.split('T')
+                const endSpacikTime = endTime[0]?.split('-')
                 const endYear = parseFloat(endSpacikTime[0])
                 const endMonth = parseFloat(endSpacikTime[1])
                 const endDay = parseFloat(endSpacikTime[2])
@@ -99,20 +83,20 @@ const UserPerformance = () => {
                 const deffreanceMonth = endMonth - startMonths
                 const deffreanceDay = endDay - startDay
                 const taskEndDateTimeYear = taskEndTimeYear - startYear
-                const taskEndDateTimeMonth =  taskEndMonth - startMonths
+                const taskEndDateTimeMonth = taskEndMonth - startMonths
                 const taskEndDateTimeDay = taskEndTimeDay - startDay
                 const taskDueDate = deffreanceYear * 365 + deffreanceMonth * 30 + deffreanceDay
                 const taskEndDateTime = taskEndDateTimeYear * 365 + taskEndDateTimeMonth * 30 + taskEndDateTimeDay
                 const deffrance = taskDueDate - taskEndDateTime
                 // console.log(deffrance);
 
-                const data = myTask ? myTask.map((taskElement) => ({
-                    "name": taskElement.startTime,
+                const data = myTask ? myTask?.map((taskElement) => ({
+                    "name": taskElement?.startTime,
                     // "uv": taskDueDate,
                     "Days": date,
-                    "Effort": taskElement.effort === 'High' ? date : taskElement.effort === 'Medium' ? date / 2 : taskElement.effort === 'Low' ? 0 : '',
+                    "Effort": taskElement.effort === 'High' ? date : taskElement?.effort === 'Medium' ? date / 2 : taskElement?.effort === 'Low' ? 0 : '',
                     // "cv": index + 1,
-                    "performance": taseElement._id === taskElement._id ? taskDueDate * deffrance / 100 : '',
+                    "performance": taseElement?._id === taskElement?._id ? taskDueDate * deffrance / 100 : '',
                     "amt": 2400
                 })) : [];
                 setData(data)
@@ -122,7 +106,7 @@ const UserPerformance = () => {
         else {
             setData([])
         }
-    }, [startMonths, date, allEmployeeTask, employeeRequestCheck, taskEndMonth])
+    }, [startMonths, date, allEmployeeTask, employeeRequestCheck, taskEndMonth, user?.email])
 
     return (
         <div>

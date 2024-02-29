@@ -13,7 +13,7 @@ const useMessage = () => {
         }
     })
 
-    return [message, isMessage, refetch]
+    return [message, isMessage, refetch];
 };
 
 export default useMessage;
