@@ -285,7 +285,7 @@ const Dashboard = () => {
                     <div>{navItems}</div>
                 </div>
             </div>
-            <div className='fixed z-10 bottom-24 left-4'>
+            <div className='fixed z-10 bottom-40 left-4'>
                 <div
                     className="flex lg:hidden"
                     type="button"
