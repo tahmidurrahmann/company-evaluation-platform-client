@@ -98,6 +98,8 @@ const Companies = () => {
     return <Loading />;
   }
 
+  console.log(companies);
+
   return (
     <div>
       <Helmet>

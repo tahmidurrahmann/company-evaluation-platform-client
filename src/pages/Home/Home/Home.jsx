@@ -8,7 +8,9 @@ import EvaluationBg from "../Evaluation/EvaluationBg";
 import HomeDetails from "../HomeDetails/HomeDetails";
 import Banner from "../Banner/Banner";
 
+
 const Home = () => {
+
     return (
         <div>
             <Helmet>
@@ -19,6 +21,7 @@ const Home = () => {
                 appId="1019541442448361"
             />
             <Banner />
+         
             <HomeDetails />
             <Logo />
             <RachingBarMap ></RachingBarMap>

@@ -207,7 +207,7 @@ const NavBar = () => {
       className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-[#1515154D] text-white"
         }`}
     >
-      <div className="mx-auto max-w-screen-2xl">
+      <div>
         <div className="py-0.5">
           <div className="flex items-center px-4 justify-evenly xl:px-0">
             <Link to="/">
@@ -218,7 +218,7 @@ const NavBar = () => {
                   src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                   alt=""
                 />
-                <h1 className="text-2xl font-semibold md:text-4xl">IONE</h1>
+                <h1 className="text-2xl font-bold text-[#151746] md:text-4xl">IONE</h1>
               </div>
             </Link>
             <div className="hidden gap-4 lg:flex">{navItems}</div>

@@ -7,6 +7,7 @@ import SharedHeading from "../../shared/SharedHeading/SharedHeading";
 import MultipleFileUploader from "../Dashboard/Hr/MultipleFileUploader";
 import { useState } from "react";
 import useAgreement from "../../hooks/useAgreement";
+import SharedBanner from "../../shared/SharedBanner/SharedBanner";
 
 const ApplyForEmployee = () => {
   const axiosSecure = useAxiosSecure();
@@ -48,6 +49,11 @@ const ApplyForEmployee = () => {
 
   return (
     <div className="">
+      <SharedBanner
+        bannerImg="https://i.ibb.co/dKphgbm/image.png"
+        passage="Apply For Employee"
+        heading="Apply For Employee"
+      />
       <div className="pt-16">
         <div className="px-6 mx-auto max-w-screen-2xl xl:px-0">
           <div className="my-6 md:my-8 lg:my-12">

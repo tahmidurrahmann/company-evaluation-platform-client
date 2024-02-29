@@ -28,7 +28,7 @@ const LinkNotice = () => {
         return monthNames[dateObj.getMonth()];
     };
 
-    console.log();
+    console.log(meetLink);
 
     return (
         <div>

@@ -43,7 +43,7 @@ const Evaluationchart3 = () => {
     // console.log(hrData);
 
     return (
-        <div className="bg-white lg:h-[60vh] shadow-2xl">
+        <div>
             <h1 className="text-3xl font-semibold pl-5 pt-3">Audiance lookalikes</h1>
             <div>
                 <div className="overflow-x-auto">

@@ -3,12 +3,14 @@ import useAuth from "../../../hooks/useAuth";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
 import { useEffect, useRef, useState } from "react";
-import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Message from "./Message";
 import useMessage from "../../../hooks/useMessage";
 import io from "socket.io-client";
 import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+import { CgMail } from "react-icons/cg";
+import { PiMediumLogoFill } from "react-icons/pi";
+import { FaRegUser } from "react-icons/fa";
 
 const MessageEmployeeById = () => {
 
@@ -25,53 +27,6 @@ const MessageEmployeeById = () => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const socket = useRef();
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
-        }
-    }, [sendMessage])
-
-    useEffect(() => {
-        socket.current?.on("receive-message", (data) => {
-            setReceiveMessage(data);
-        })
-    }, [])
-
-    useEffect(() => {
-        if (receiveMessage !== null && id) {
-            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-        }
-    }, [id, receiveMessage]);
-
-
-    useEffect(() => {
-        // Connect to Socket.io server
-        socket.current = io("http://localhost:8800");
-        socket.current.emit("new-user-add", hrRequestCheck?._id);
-        socket.current?.on("get-users", (users) => {
-            setOnlineUsers(users);
-        });
-
-        return () => {
-            // Disconnect from Socket.io when component unmounts
-            socket.current.disconnect();
-        };
-    }, [hrRequestCheck]);
-
-    useEffect(() => {
-        if (employeeAgreements?.length > 0) {
-            const employeeDetails = employeeAgreements?.find(item => item?._id === id);
-            setEmployee(employeeDetails);
-        }
-    }, [employeeAgreements, id])
-
-    useEffect(() => {
-        if (message?.length > 0) {
-            const allMessage = message?.filter(m => (m?.senderEmail === user?.email && m?.receiverEmail === employee?.email) | (m?.senderEmail === employee?.email && m?.receiverEmail === user?.email));
-            setAllMessage(allMessage)
-        }
-    }, [employee?.email, message, user?.email])
-
     const handleSendMessage = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -82,27 +37,93 @@ const MessageEmployeeById = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(...message, id);
+            setSendMessage(message, id);
         }
     }
+
+    useEffect(() => {
+        // Connect to Socket.io server
+        socket.current = io("http://localhost:8800");
+        socket.current.emit("new-user-add", user?.email);
+        socket.current?.on("get-users", (users) => {
+            setOnlineUsers(users);
+        });
+
+        return () => {
+            // Disconnect from Socket.io when component unmounts
+            socket.current.disconnect();
+        };
+    }, [hrRequestCheck, user?.email]);
+
+    useEffect(() => {
+        if (sendMessage !== null) {
+            socket.current.emit("send-message", sendMessage)
+        }
+    }, [sendMessage])
+
+    useEffect(() => {
+        socket.current?.on("receive-message", (data) => {
+            console.log(data);
+            setReceiveMessage(data);
+        })
+    }, [])
+    
+    console.log(receiveMessage);
+
+    useEffect(() => {
+        if (receiveMessage === null) {
+            refetch();
+        }
+        refetch()
+        if (receiveMessage !== null && id) {
+            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+        }
+    }, [id, receiveMessage, refetch]);
+    
+    useEffect(() => {
+        if (employeeAgreements?.length > 0) {
+            const employeeDetails = employeeAgreements?.find(item => item?._id === id);
+            setEmployee(employeeDetails);
+        }
+    }, [employeeAgreements, id])
+
+    useEffect(() => {  
+        if (message?.length > 0) {
+            const allMessage = message?.filter(m => (m?.senderEmail === user?.email && m?.receiverEmail === employee?.email) | (m?.senderEmail === employee?.email && m?.receiverEmail === user?.email));
+            setAllMessage(allMessage)
+        }
+    }, [employee?.email, message, user?.email])
+
+    
 
     if (isEmployee || isMessage || isHr) {
         return <Loading />
     }
 
-    refetch();
-
-    console.log(hrRequestCheck);
+    console.log(employee);
 
     return (
-        <div>
-            <SharedHeadingDashboard heading="Send Message" />
+        <div className="px-6 2xl:px-0">
+            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
+                <img src={employee?.imageURL} alt="Shoes" className='w-12 rounded-full' />
+                <div>
+                    <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><FaRegUser />{employee?.name}</h1>
+                    <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {employee?.company}</h1>
+                    <h2 className="text-xs lg:text-xl font-medium text-neutral-400 flex items-center gap-2"><CgMail />{employee?.email}</h2>
+                </div>
+            </div>
             <Link to="/dashboard/messageEmployee"><button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-lg">✕</button></Link>
-            <div className="">
-                <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
-                    {allMessage?.map((m) => (
-                        <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
-                    ))}
+            <div>
+                <div>
+                    {
+                        allMessage?.length > 0 ? <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
+                            {allMessage?.map((m) => (
+                                <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
+                            ))}
+                        </div> : <div className="flex justify-center items-center">
+                            <h1 className="py-6">Start a conversation! Say hello to get things rolling.</h1>
+                        </div>
+                    }
                 </div>
                 <form onSubmit={handleSendMessage} className="fixed bottom-4 w-full mx-6">
                     <div className="flex justify-start items-center gap-2 md:gap-4">
