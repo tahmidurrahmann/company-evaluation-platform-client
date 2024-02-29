@@ -15,8 +15,8 @@ import { MdOutlineDashboard } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
 import { ImOffice } from "react-icons/im";
 import { GiCircularSaw } from "react-icons/gi";
-import { IoIosArrowDown } from "react-icons/io";
 import { GiPieChart } from "react-icons/gi";
+import { FaAngleDown } from "react-icons/fa";
 
 const NavBar = () => {
   const { user, logOut } = useAuth();
@@ -59,45 +59,43 @@ const NavBar = () => {
           Home
         </span>
       </NavLink>
-      <NavLink
-        onClick={() => setIsOpen(false)}
-        to="/aboutUs"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending"
-            : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] dropdown  dropdown-hover transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] dropdown-hover dropdown transition lg:text-base xl:text-lg"
-        }
-      >
-        <span className="flex items-center gap-2">
-          <FcAbout className="text-[#007cc7]" />
-          About <IoIosArrowDown />
-        </span>
-
-        <ul className="p-2 shadow menu dropdown-content z-[1] bg-white text-black rounded-box w-52">
-          <li>  <NavLink
+      <div className="dropdown dropdown-hover w-full lg:w-auto">
+        <div tabIndex={0} role="button" className=" hover:border-b-[#007cc7] px-4 py-2 text-center rounded-[30px] w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center lg:text-base xl:text-lg items-center gap-1 font-semibold"><FaAngleDown />About Us</span></div>
+        <ul tabIndex={0} className="dropdown-content z-[1] menu w-40 bg-base-100 shadow space-y-0.5">
+          <NavLink
+            onClick={() => setIsOpen(false)}
+            to="/aboutUs"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
+                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+            }
+          >
+            <span className="flex items-center gap-2">
+              <FcAbout className="text-[#007cc7]" />
+              About 
+            </span>
+          </NavLink>
+          <NavLink
             onClick={() => setIsOpen(false)}
             to="/Perfomence"
             className={({ isActive, isPending }) =>
               isPending
                 ? "pending"
                 : isActive
-                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] hover:bg-white transition lg:text-base xl:text-lg"
-                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] hover:bg-white transition lg:text-base xl:text-lg"
+                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
+                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
             }
           >
             <span className="flex items-center gap-2">
               <GiPieChart className="text-[#007cc7]" />
               performance
             </span>
-          </NavLink></li>
-         
+          </NavLink>
         </ul>
-
-
-      </NavLink>
-
+      </div>
       <NavLink
         onClick={() => setIsOpen(false)}
         to="/jobHub"
@@ -218,18 +216,17 @@ const NavBar = () => {
                   src="https://i.ibb.co/FH8Vn5d/1-156-removebg-preview.png"
                   alt=""
                 />
-                <h1 className="text-2xl font-bold text-[#151746] md:text-4xl">IONE</h1>
+                <h1 className="text-2xl font-bold md:text-4xl">IONE</h1>
               </div>
             </Link>
             <div className="hidden gap-4 lg:flex">{navItems}</div>
             <div className="">
               {user ? (
                 <div
-                  className={`flex items-center ${
-                    scrolled
-                      ? "bg-white text-black"
-                      : "bg-[#1515154D] text-black"
-                  }`}
+                  className={`flex items-center ${scrolled
+                    ? "bg-white text-black"
+                    : "bg-[#1515154D] text-black"
+                    }`}
                 >
                   <div className="dropdown dropdown-end">
                     <label

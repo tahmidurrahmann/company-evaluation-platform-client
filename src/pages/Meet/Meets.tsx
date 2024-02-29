@@ -35,7 +35,7 @@ const Meets: React.FC = () => {
                 container: myMeetingRef.current!,
                 sharedLinks: [
                     {
-                        name: 'Copy link',
+                        name: 'Copy URL',
                         url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
                     },
                 ],
@@ -50,11 +50,11 @@ const Meets: React.FC = () => {
 
     return (
         <div className="flex flex-col h-full">
-            <div className="flex-1 ">
+            <div className="flex-1">
                 <div className="myCallContainer w-full py-32" ref={myMeetingRef}></div>
             </div>
             <div className="flex-initial">
-                <h1 className='text-5xl text-center font-bold text-white mb-8'>Feel free to share the link with your<span className='text-blue-400'> employees</span></h1>
+                <h1 className='text-5xl text-center font-bold text-white mb-8'>Share the Link with Your<span className='text-blue-400'> Team</span></h1>
                 <HrSendMeet />
             </div>
         </div>

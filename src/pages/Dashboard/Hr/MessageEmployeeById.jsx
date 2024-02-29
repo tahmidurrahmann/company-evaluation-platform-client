@@ -2,12 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import useEmployee from "../../../hooks/useEmployee";
 import Loading from "../../../shared/Loading/Loading";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Message from "./Message";
 import useMessage from "../../../hooks/useMessage";
-import io from "socket.io-client";
-import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
+// import io from "socket.io-client";
+// import useHrRequestCheckedOrNot from "../../../hooks/useHrRequestCheckedOrNot";
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
@@ -21,11 +21,11 @@ const MessageEmployeeById = () => {
     const [employee, setEmployee] = useState({});
     const [message, isMessage, refetch] = useMessage();
     const [allMessage, setAllMessage] = useState([]);
-    const [sendMessage, setSendMessage] = useState(null);
-    const [receiveMessage, setReceiveMessage] = useState(null);
-    const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const socket = useRef();
+    // const [sendMessage, setSendMessage] = useState(null);
+    // const [receiveMessage, setReceiveMessage] = useState(null);
+    // const [hrRequestCheck, isHr] = useHrRequestCheckedOrNot();
+    // const [onlineUsers, setOnlineUsers] = useState([]);
+    // const socket = useRef();
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
@@ -37,48 +37,48 @@ const MessageEmployeeById = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(message, id);
+            // setSendMessage(message, id);
         }
     }
 
-    useEffect(() => {
-        // Connect to Socket.io server
-        socket.current = io("http://localhost:8800");
-        socket.current.emit("new-user-add", user?.email);
-        socket.current?.on("get-users", (users) => {
-            setOnlineUsers(users);
-        });
+    // useEffect(() => {
+    //     // Connect to Socket.io server
+    //     socket.current = io("http://localhost:8800");
+    //     socket.current.emit("new-user-add", user?.email);
+    //     socket.current?.on("get-users", (users) => {
+    //         setOnlineUsers(users);
+    //     });
 
-        return () => {
-            // Disconnect from Socket.io when component unmounts
-            socket.current.disconnect();
-        };
-    }, [hrRequestCheck, user?.email]);
+    //     return () => {
+    //         // Disconnect from Socket.io when component unmounts
+    //         socket.current.disconnect();
+    //     };
+    // }, [hrRequestCheck, user?.email]);
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
-        }
-    }, [sendMessage])
+    // useEffect(() => {
+    //     if (sendMessage !== null) {
+    //         socket.current.emit("send-message", sendMessage)
+    //     }
+    // }, [sendMessage])
 
-    useEffect(() => {
-        socket.current?.on("receive-message", (data) => {
-            console.log(data);
-            setReceiveMessage(data);
-        })
-    }, [])
+    // useEffect(() => {
+    //     socket.current?.on("receive-message", (data) => {
+    //         console.log(data);
+    //         setReceiveMessage(data);
+    //     })
+    // }, [])
     
-    console.log(receiveMessage);
+    // console.log(receiveMessage);
 
-    useEffect(() => {
-        if (receiveMessage === null) {
-            refetch();
-        }
-        refetch()
-        if (receiveMessage !== null && id) {
-            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-        }
-    }, [id, receiveMessage, refetch]);
+    // useEffect(() => {
+    //     if (receiveMessage === null) {
+    //         refetch();
+    //     }
+    //     refetch()
+    //     if (receiveMessage !== null && id) {
+    //         setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+    //     }
+    // }, [id, receiveMessage, refetch]);
     
     useEffect(() => {
         if (employeeAgreements?.length > 0) {
@@ -94,17 +94,13 @@ const MessageEmployeeById = () => {
         }
     }, [employee?.email, message, user?.email])
 
-    
-
-    if (isEmployee || isMessage || isHr) {
+    if (isEmployee || isMessage) {
         return <Loading />
     }
 
-    console.log(employee);
-
     return (
         <div className="px-6 2xl:px-0">
-            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
+            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center justify-center py-3">
                 <img src={employee?.imageURL} alt="Shoes" className='w-12 rounded-full' />
                 <div>
                     <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><FaRegUser />{employee?.name}</h1>
