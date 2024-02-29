@@ -1,4 +1,3 @@
-import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCompany from "../../../hooks/useCompany";
@@ -8,6 +7,9 @@ import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useMessage from "../../../hooks/useMessage";
 import Message from "./Message";
 import { io } from "socket.io-client";
+import { CgMail } from "react-icons/cg";
+import { PiMediumLogoFill } from "react-icons/pi";
+import { FaRegUser } from "react-icons/fa";
 
 const MessageHr = () => {
 
@@ -89,15 +91,27 @@ const MessageHr = () => {
         }
     }
 
-    console.log(employeeRequestCheck);
+    console.log(hr);
 
     return (
-        <div>
-            <SharedHeadingDashboard heading="Send Message" />
-            <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
-                {allMessage?.map((m) => (
-                    <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
-                ))}
+        <div className="px-6 2xl:px-0">
+            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
+                <img src={hr?.imageURL} alt="Shoes" className='w-12 rounded-full' />
+                <div>
+                    <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><FaRegUser />{hr?.name}</h1>
+                    <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><PiMediumLogoFill /> {hr?.company}</h1>
+                    <h2 className="text-xs lg:text-xl font-medium text-neutral-400 flex items-center gap-2"><CgMail />{hr?.email}</h2>
+                </div>
+            </div>
+            <div>
+                {
+                    allMessage?.length > 0 ? <div className="max-h-[calc(100vh-280px)] overflow-y-scroll">
+                        {allMessage?.map((m) => (
+                            <Message key={m?._id} message={m} own={m.senderEmail === user?.email} />
+                        ))}
+                    </div> : <div className="flex justify-center items-center">
+                        <h1 className="py-6">Start a conversation! Say hello to get things rolling.</h1> </div>
+                }
             </div>
             <form onSubmit={handleSendMessage} className="fixed bottom-4 w-full mx-6">
                 <div className="flex justify-start items-center gap-2 md:gap-4">
