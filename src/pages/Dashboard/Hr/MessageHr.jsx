@@ -2,11 +2,11 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCompany from "../../../hooks/useCompany";
 import Loading from "../../../shared/Loading/Loading";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useMessage from "../../../hooks/useMessage";
 import Message from "./Message";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
@@ -20,10 +20,10 @@ const MessageHr = () => {
     const [employeeRequestCheck, isEmployee] = useEmployeeProfile();
     const [message, isMessage, refetch] = useMessage();
     const [allMessage, setAllMessage] = useState([]);
-    const [sendMessage, setSendMessage] = useState(null);
-    const [receiveMessage, setReceiveMessage] = useState(null);
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const socket = useRef();
+    // const [sendMessage, setSendMessage] = useState(null);
+    // const [receiveMessage, setReceiveMessage] = useState(null);
+    // const [onlineUsers, setOnlineUsers] = useState([]);
+    // const socket = useRef();
 
     const handleSendMessage = async (e) => {
         e.preventDefault();
@@ -36,48 +36,46 @@ const MessageHr = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(message, hr?._id);
+            // setSendMessage(message, hr?._id);
         }
     }
 
-    useEffect(() => {
-        // Connect to Socket.io server
-        socket.current = io("http://localhost:8800"); // Use correct server URL
-        socket.current.emit("new-user-add", employeeRequestCheck._id);
-        socket.current.on("get-users", (users) => {
-            setOnlineUsers(users);
-        });
+    // useEffect(() => {
+    //     // Connect to Socket.io server
+    //     socket.current = io("http://localhost:8800"); // Use correct server URL
+    //     socket.current.emit("new-user-add", employeeRequestCheck._id);
+    //     socket.current.on("get-users", (users) => {
+    //         setOnlineUsers(users);
+    //     });
 
-        return () => {
-            // Disconnect from Socket.io when component unmounts
-            socket.current.disconnect();
-        };
-    }, [employeeRequestCheck]);
+    //     return () => {
+    //         // Disconnect from Socket.io when component unmounts
+    //         socket.current.disconnect();
+    //     };
+    // }, [employeeRequestCheck]);
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
-        }
-    }, [sendMessage])
+    // useEffect(() => {
+    //     if (sendMessage !== null) {
+    //         socket.current.emit("send-message", sendMessage)
+    //     }
+    // }, [sendMessage])
 
-    useEffect(() => {
-        socket.current?.on("receive-message", (data) => {
-            console.log(data);
-            setReceiveMessage(data);
-        })
-    }, [])
+    // useEffect(() => {
+    //     socket.current?.on("receive-message", (data) => {
+    //         console.log(data);
+    //         setReceiveMessage(data);
+    //     })
+    // }, [])
 
-    useEffect(() => {
-        if (receiveMessage === null) {
-            refetch();
-        }
-        refetch()
-        if (receiveMessage !== null && hr?._id) {
-            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-        }
-    }, [receiveMessage, hr?._id, refetch]);
-
-
+    // useEffect(() => {
+    //     if (receiveMessage === null) {
+    //         refetch();
+    //     }
+    //     refetch()
+    //     if (receiveMessage !== null && hr?._id) {
+    //         setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+    //     }
+    // }, [receiveMessage, hr?._id, refetch]);
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
@@ -99,7 +97,7 @@ const MessageHr = () => {
 
     return (
         <div className="px-6 2xl:px-0">
-            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center py-3">
+            <div className="object-cover bg-glass text-white shadow-xl flex mx-4 xl:mx-0 rounded-xl gap-6 lg:gap-12 items-center justify-center py-3">
                 <img src={hr?.imageURL} alt="Shoes" className='w-12 rounded-full' />
                 <div>
                     <h1 className="text-xs lg:text-xl font-semibold flex items-center gap-2"><FaRegUser />{hr?.name}</h1>
