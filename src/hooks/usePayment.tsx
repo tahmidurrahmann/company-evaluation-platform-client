@@ -23,7 +23,7 @@ const usePayment = (): [PaymentAgreement[], boolean, () => void] => {
     const axiosSecure = useAxiosSecure();
 
     const { data: allPayments, isPending: isPayment, refetch } = useQuery({
-        queryKey: ["paymentss"],
+        queryKey: ["payments"],
         queryFn: async () => {
             const res = await axiosSecure.get("/payments");
             return res?.data;

@@ -17,7 +17,7 @@ const PaymentHistory = () => {
   const fetchPayments = useCallback(async () => {
     try {
       if (user && !paymentsFetched) {
-        const res = await axiosSecure(`/paymentss?email=${user.email}`);
+        const res = await axiosSecure.get(`/paymentss?email=${user.email}`);
         setShorts(res.data);
         setPaymentsFetched(true);
       }
@@ -29,6 +29,8 @@ const PaymentHistory = () => {
   useEffect(() => {
     fetchPayments();
   }, [fetchPayments]);
+
+  console.log(shorts);
   
   const handleFilter = () => {
     const sortedShorts = [...shorts]; // Create a copy of shorts array
