@@ -42,10 +42,8 @@ const AllEmploye = () => {
             const res = await axiosSecure.post('/imployeeTasks', giveTaskInfo);
             if (res.data && res.data.acknowledged) {
                 toast.success('Your Task is Submitted')
-                refetch();
                 reset();
-              setFile({})
-              setTargetinfo({})
+                refetch();
             
             } else {
                 toast.error('error Task is not Submitted')

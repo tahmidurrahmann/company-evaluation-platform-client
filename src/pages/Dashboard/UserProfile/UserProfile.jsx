@@ -44,9 +44,9 @@ const UserProfile = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ">
                     {employeeRequestCheck?.status === "checked" ?
-                        <div className="object-cover shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center justify-between my-10">
+                        <div className="object-cover shadow-black glass bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center justify-between my-10">
                             <div className="flex flex-col md:flex-row justify-center items-center gap-4">
                                 <img src={employeeRequestCheck?.imageURL} alt="Shoes" className='w-40' />
                                 <div>

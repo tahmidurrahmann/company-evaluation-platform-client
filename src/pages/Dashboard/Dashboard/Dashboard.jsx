@@ -213,7 +213,7 @@ const Dashboard = () => {
         </div>}
         {/* admin dashboard */}
         {
-            user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center items-center'>
+            user?.email && isAdmin && <div className='flex flex-col gap-3 justify-center space-y-2 mt-7 items-center'>
                 <NavLink onClick={() => setIsOpen(false)}
                     to="/dashboard/adminProfile"
                     className={({ isActive, isPending }) =>
