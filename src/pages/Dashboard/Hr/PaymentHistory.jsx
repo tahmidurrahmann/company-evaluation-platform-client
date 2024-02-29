@@ -17,8 +17,7 @@ const PaymentHistory = () => {
   const fetchPayments = useCallback(async () => {
     try {
       if (user && !paymentsFetched) {
-        const res = await axiosSecure(`/payments?email=${user.email}`);
-
+        const res = await axiosSecure(`/paymentss?email=${user.email}`);
         setShorts(res.data);
         setPaymentsFetched(true);
       }
