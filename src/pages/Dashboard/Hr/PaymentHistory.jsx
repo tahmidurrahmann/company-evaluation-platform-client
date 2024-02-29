@@ -13,14 +13,17 @@ const PaymentHistory = () => {
   const [asc, setAsc] = useState(true);
   const [shorts, setShorts] = useState([]);
   const [paymentsFetched, setPaymentsFetched] = useState(false);
+  
 
   const fetchPayments = useCallback(async () => {
     try {
       if (user && !paymentsFetched) {
         const res = await axiosSecure.get(`/paymentss?email=${user.email}`);
         setShorts(res.data);
+      
         setPaymentsFetched(true);
       }
+
     } catch (error) {
       console.error("Error fetching payment history:", error);
     }
@@ -28,10 +31,10 @@ const PaymentHistory = () => {
 
   useEffect(() => {
     fetchPayments();
+    
   }, [fetchPayments]);
 
-  console.log(shorts);
-  
+
   const handleFilter = () => {
     const sortedShorts = [...shorts]; // Create a copy of shorts array
 
@@ -58,7 +61,7 @@ const PaymentHistory = () => {
             onClick={handleFilter}
             className="text-white bg-black border-b-2 border-blue-400 btn"
           >
-            {asc ? "High Price" : "Low price"}
+            {asc ? "Low Balance" : "High Balance"}
           </button>
         </div>
         <div className="flex justify-center lg:justify-end">
@@ -95,7 +98,7 @@ const PaymentHistory = () => {
               <img
                 src={item?.employeeInfo?.imageURL}
                 alt="Shoes"
-                className="w-full bg-cover"
+                className="w-full bg-cover h-[300px]"
               />
             </figure>
             <div className="card-body">
