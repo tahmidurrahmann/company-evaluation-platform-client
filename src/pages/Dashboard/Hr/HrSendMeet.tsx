@@ -150,13 +150,13 @@ const HrSendMeet: React.FC = () => {
                       name="link"
                       placeholder="Meet link"
                       className="w-full mt-3 text-black input input-bordered input-info"
-                      id=""
+                      id="" required
                     />
                     <input
                       type="date"
                       name="date"
                       className="w-full mt-5 mb-3 text-black textarea textarea-info"
-                      placeholder="Date and time"
+                      placeholder="Date and time" required
                     />
                     <Button
                       onClick={() => handelEmailSubmit(item.email)}

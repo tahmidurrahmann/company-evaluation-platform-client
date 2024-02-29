@@ -85,7 +85,7 @@ const MessageHr = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(...message, hr?._id);
+            setSendMessage(message, hr?._id);
         }
     }
 
