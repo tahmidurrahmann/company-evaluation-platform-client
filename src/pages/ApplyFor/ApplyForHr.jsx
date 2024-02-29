@@ -174,9 +174,6 @@ const ApplyForHr = () => {
                 {...register("companySize", { required: true })}
                 className="flex-1 w-full select select-bordered"
               >
-                <option disabled selected>
-                  Company Size
-                </option>
                 <option value="Less Than 10 Employee">
                   Less Than 10 Employee
                 </option>

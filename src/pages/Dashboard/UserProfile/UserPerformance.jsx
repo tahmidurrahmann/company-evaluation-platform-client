@@ -1,4 +1,4 @@
-import { XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Area } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, AreaChart, Area, ResponsiveContainer } from 'recharts';
 import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
 import { useContext, useEffect, useState } from 'react';
@@ -41,7 +41,6 @@ const UserPerformance = () => {
                 const taskEndTimeYear = parseFloat(taskEndTime && taskEndTime?.length > 0 ? taskEndTime[2] : null);
                 const taskEndTimeMonth = parseFloat(taskEndTime && taskEndTime?.length > 0 ? taskEndTime[0] : null);
                 const startMonth = startTime[0]
-
                 // this data is Start Month booking
                 const monthMap = {
                     January: 1,
@@ -110,9 +109,9 @@ const UserPerformance = () => {
 
     return (
         <div>
-            <div className='text-black'>
+            <div className='text-black flex justify-center items-center'>
                 <form onChange={handleSubmit(onSubmit)}>
-                    <select className="select select-info w-full max-w-xs" name='daySelect' {...register("daySelect")}>
+                    <select className="select select-info my-6" name='daySelect' {...register("daySelect")}>
                         <option disabled selected>Select Days</option>
                         <option value='oneWeek' >One Week</option>
                         <option value='oneMonth'>One Month</option>
@@ -120,30 +119,37 @@ const UserPerformance = () => {
                     </select>
                 </form>
             </div>
-            <AreaChart width={1040} height={600} data={data}
-                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-                <defs>
-                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-                    </linearGradient>
-                    <linearGradient id="colorcv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#FF33E0" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#FF33E0" stopOpacity={0} />
-                    </linearGradient>
-                </defs>
-                <XAxis dataKey="name" />
-                <YAxis />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Area type="monotone" dataKey="Days" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="Effort" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
-                <Area type="monotone" dataKey="performance" stroke="#FF33E0" fillOpacity={1} fill="url(#colorcv)" unit="%" />
-            </AreaChart>
+            <div className='py-16'>
+                <ResponsiveContainer width="100%" height={600}>
+                    <AreaChart
+                        data={data}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    >
+                        <defs>
+                            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                                <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                            </linearGradient>
+                            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+                                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+                            </linearGradient>
+                            <linearGradient id="colorcv" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#FF33E0" stopOpacity={0.8} />
+                                <stop offset="95%" stopColor="#FF33E0" stopOpacity={0} />
+                            </linearGradient>
+                        </defs>
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <Tooltip />
+                        <Area type="monotone" dataKey="Days" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                        <Area type="monotone" dataKey="Effort" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                        <Area type="monotone" dataKey="performance" stroke="#FF33E0" fillOpacity={1} fill="url(#colorcv)" unit="%" />
+                    </AreaChart>
+                </ResponsiveContainer>
+
+            </div>
         </div>
     );
 };

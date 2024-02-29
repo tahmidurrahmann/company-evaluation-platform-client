@@ -1,5 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
-const PieChartStyle = ({hrLength,employeeLength }) => {
+const PieChartStyle = ({ hrLength, employeeLength }) => {
 
     const COLORS = ['#FF8042', '#007cc7'];
 
@@ -43,8 +43,8 @@ const PieChartStyle = ({hrLength,employeeLength }) => {
     };
 
     return (
-        <ResponsiveContainer width="100%" height={500} className="p-20 md:p-16">
-            <PieChart width={500} height={500}>
+        <ResponsiveContainer width="100%" height={500}>
+            <PieChart>
                 <Pie
                     data={data}
                     cx="50%"
@@ -59,7 +59,7 @@ const PieChartStyle = ({hrLength,employeeLength }) => {
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                 </Pie>
-                <Legend ></Legend>
+                <Legend />
             </PieChart>
         </ResponsiveContainer>
     );
