@@ -65,20 +65,13 @@ const AdminProfile = () => {
                                 <MdDriveFileRenameOutline className="text-xl" />
                                 <p className="text-xl text-gray-400">{adminInfo?.name}</p>
                             </div>
-
-                           
-
                         </div>
                         <p className="text-xl text-end text-blue-400">Admin</p>
                     </div>
                 </div>
-
-
-
-
-
                 <PieChartThree />
                 <PieChartStyle hrLength={hrLength} employeeLength={employeeLength} />
+
             </div>
         </div>
     );

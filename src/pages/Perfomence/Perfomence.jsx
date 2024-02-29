@@ -2,6 +2,7 @@ import { LuBarChart4 } from "react-icons/lu";
 import { MdStackedBarChart } from "react-icons/md";
 import { TbChartDotsFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
+
 const Perfomence = () => {
     return (
         <>
@@ -10,8 +11,14 @@ const Perfomence = () => {
                     <div className="">
                         <h1 className="lg:text-7xl text-4xl md:text-5xl lg:text-start text-center  p-5 font-bold ">Make Better People <br /> Decisions with <br />  Better Performance <br />  Data</h1>
                         <p className="text-gray-600 p-5 ">One place to automatically track performance data and analyze results across time, teams, roles, or any other factor.</p>
-                    <div className="flex lg:justify-start justify-center">
-                            <button className="btn bg-blue-500  text-white border-b-2 border-b-white px-7 ml-3 ">Join Us</button>
+                        <div className="flex lg:justify-start justify-center">
+                            <Link to={`/applyForEmployee`}>
+                                <button className="but">
+                                    <div className="font-medium but-top">Join</div>
+                                    <div className="but-bottom"></div>
+                                    <div className="but-base"></div>
+                                </button>
+                            </Link>
 
                         </div>
                     </div>
@@ -65,8 +72,8 @@ const Perfomence = () => {
 
 
 
-                <div className="flex lg:flex-row flex-col  justify-between  gap-8 items-center mt-20 mb-12">
-                  
+                <div className="flex lg:flex-row flex-col-reverse  justify-between  gap-8 items-center mt-20 mb-12">
+
                     <div className="mt-12">
                         <img className="w-[900px] relative" src="https://i.ibb.co/X7tQpcG/image.png" alt="" />
                         <div className="absolute -bottom-[1260px] left-[600px]">
@@ -77,23 +84,26 @@ const Perfomence = () => {
                         <h1 className="text-5xl font-bold text-black text-center lg:text-start">Connect Performance  &<br /> People Data</h1>
                         <p className="text-gray-400 text-center lg:text-start">Bring together your performance data with employee data to answer<br /> the questions you care about most.</p>
                     </div>
-                    
+
                 </div>
 
 
 
-                <div className="flex flex-col lg:flex-row justify-between items-center mt-80">
-
-                    <div>
-
-                        <h1 className="text-6xl font-bold text-center lg:text-start">The Best Support in Performance Management</h1>
-                        <p className="text-gray-500 mt-5 text-center">Account setup, live training sessions, a dedicated success manager, and phone support are always included. You <br /> will never be on your own with PerformYard.</p>
-
+                <div className="flex flex-col lg:flex-row justify-between items-center my-16 gap-6 lg:gap-12 lg:mt-96">
+                    <div className="2xl:w-1/3 space-y-3 lg:space-y-6">
+                        <h1 className="text-[#151746] text-[40px] lg:text-5xl font-bold w-full text-center lg:text-left">The Best Support in Performance Management</h1>
+                        <p className="text-[#737490] w-full text-center lg:text-left font-medium">Account setup, live training sessions, a dedicated success manager, and phone support are always included. You <br /> will never be on your own with PerformYard.</p>
+                        <div className="flex flex-col items-center lg:items-start  justify-center">
+                            <p className="text-[#737490] font-medium">From 700+ Reviews on</p>
+                            <div className="flex items-center  gap-4 lg:gap-6">
+                                <img className="w-16 lg:w-20" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63ddb709c6567a07bd269885_g2crowd-2_min.webp" alt="" />
+                                <img className="w-16 lg:w-20" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63eac554f001b87191f60c7b_capterra2x_min.webp" alt="" />
+                                <img className="w-16 lg:w-20" src="https://assets-global.website-files.com/5ec8332c2b50b6c3e1066975/63eac554b9631f23a2e28eaa_trust-radius2x_min.webp" alt="" />
+                            </div>
+                        </div>
                     </div>
-
-
                     <div>
-                        <img src="https://i.ibb.co/YLtFjTT/image.png" className="p-5" alt="" />
+                        <img src="https://i.ibb.co/YLtFjTT/image.png" className="w-4/5 mx-auto" alt="" />
                     </div>
                 </div>
 
@@ -101,8 +111,8 @@ const Perfomence = () => {
 
             </div>
 
-            <div className="bg-gray-100 mt-60 h-[30vh] rounded-t-full p-4">
-                <h1 className="lg:text-5xl md:text-3xl  text-center font-bold text-white pt-12">Streamline your performance management today</h1>
+            <div className="bg-gray-100 lg:mt-60 h-[30vh] rounded-t-full p-4">
+                <h1 className="px-12 lg:text-5xl md:text-3xl  text-center font-bold text-black pt-12">Streamline Your Performance Management Today</h1>
                 <div className="flex justify-center space-y-4 mt-4">
                     <Link to={'/signin'}> <button className="cssbuttons-io-button transition mt-6">
                         Get started

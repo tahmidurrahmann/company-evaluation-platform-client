@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBuromobelexperte } from "react-icons/fa";
 import { MdTaskAlt } from "react-icons/md";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import Loading from "../../../shared/Loading/Loading";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
 import useEmployee from "../../../hooks/useEmployee";
@@ -16,7 +16,7 @@ const EmployeTeamPearformence = () => {
     const [allEmployeeTask] = useEmployeeTask();
     const taskFilter = allEmployeeTask?.filter((element: any) => element?.company === hrRequestCheck?.company)
     const myName = taskFilter?.filter((taskElement: any) => taskElement?.name === employeeFilter[employeeIndex]?.name)
-    const todoFilter = myName?.filter((element: any)=> element?.status === 'todo')
+    const todoFilter = myName?.filter((element: any) => element?.status === 'todo')
     const doingFilter = myName?.filter((element: any) => element?.status === 'doing')
     const completedFilter = myName?.filter((element: any) => element?.status === 'completed')
 
@@ -81,21 +81,21 @@ const EmployeTeamPearformence = () => {
             </div>
             <div className="mx-4 xl:mx-0 border rounded-lg">
                 <h1 className="font-sans text-center text-xl md:text-2xl font-bold py-4">Performance Survey</h1>
-                <BarChart
-                    width={window.innerWidth / 1.5}
-                    height={400}
-                    data={taskShow}
-                    margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
-                >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <Bar dataKey="TodoTask" fill="#C92502" />
-                    <Bar dataKey="DoingTask" fill="#007cc7" />
-                    <Bar dataKey="CompletedTask" fill="#FF8042" />
-                </BarChart>
+                <ResponsiveContainer width="100%" height={400}>
+                    <BarChart
+                        data={taskShow}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Bar dataKey="TodoTask" fill="#C92502" />
+                        <Bar dataKey="DoingTask" fill="#007cc7" />
+                        <Bar dataKey="CompletedTask" fill="#FF8042" />
+                    </BarChart>
+                </ResponsiveContainer>
             </div>
         </div >
     );

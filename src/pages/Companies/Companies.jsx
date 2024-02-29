@@ -189,11 +189,16 @@ const Companies = () => {
                   {...register("companySize")}
                   className="flex-1 w-full select select-bordered"
                 >
-                  {companies?.map((agreement, index) => (
-                    <option key={index} value={agreement?.companySize}>
-                      {agreement?.companySize}
-                    </option>
-                  ))}
+                  <option value="Less Than 10 Employee">
+                    Less Than 10 Employee
+                  </option>
+                  <option value="10 ~ 50 Employee">10 ~ 50 Employee</option>
+                  <option value="50 ~ 200 Employee">50 ~ 200 Employee</option>
+                  <option value="200 ~ 500 Employee">200 ~ 500 Employee</option>
+                  <option value="500 ~ 2000 Employee">500 ~ 2000 Employee</option>
+                  <option value="More Than 2000 Employee">
+                    More Than 2000 Employee
+                  </option>
                 </select>
               </div>
               <button type="submit" className="but">
