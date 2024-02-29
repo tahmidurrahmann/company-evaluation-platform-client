@@ -25,24 +25,20 @@ const MessageHr = () => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const socket = useRef();
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
+    const handleSendMessage = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const fullMessage = form.message.value;
+        const userEmail = user?.email;
+        const hrEmail = hr?.email;
+        const message = { message: fullMessage, senderEmail: userEmail, receiverEmail: hrEmail, image: user?.photoURL, name: user?.displayName };
+        const res = await axiosSecure.post("/messages", message);
+        if (res?.data?.insertedId) {
+            form.reset();
+            refetch();
+            setSendMessage(message, hr?._id);
         }
-    }, [sendMessage])
-
-    useEffect(() => {
-        socket.current?.on("receive-message", (data) => {
-            setReceiveMessage(data);
-        })
-    }, [])
-
-    useEffect(() => {
-        if (receiveMessage !== null && hr?._id) {
-            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-        }
-    }, [receiveMessage, hr?._id]);
-
+    }
 
     useEffect(() => {
         // Connect to Socket.io server
@@ -57,6 +53,31 @@ const MessageHr = () => {
             socket.current.disconnect();
         };
     }, [employeeRequestCheck]);
+
+    useEffect(() => {
+        if (sendMessage !== null) {
+            socket.current.emit("send-message", sendMessage)
+        }
+    }, [sendMessage])
+
+    useEffect(() => {
+        socket.current?.on("receive-message", (data) => {
+            console.log(data);
+            setReceiveMessage(data);
+        })
+    }, [])
+
+    useEffect(() => {
+        if (receiveMessage === null) {
+            refetch();
+        }
+        refetch()
+        if (receiveMessage !== null && hr?._id) {
+            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+        }
+    }, [receiveMessage, hr?._id, refetch]);
+
+
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
@@ -75,23 +96,6 @@ const MessageHr = () => {
     if (isHrPending || isEmployee || isMessage) {
         return <Loading />
     }
-
-    const handleSendMessage = async (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const fullMessage = form.message.value;
-        const userEmail = user?.email;
-        const hrEmail = hr?.email;
-        const message = { message: fullMessage, senderEmail: userEmail, receiverEmail: hrEmail, image: user?.photoURL, name: user?.displayName };
-        const res = await axiosSecure.post("/messages", message);
-        if (res?.data?.insertedId) {
-            form.reset();
-            refetch();
-            setSendMessage(message, hr?._id);
-        }
-    }
-
-    console.log(hr);
 
     return (
         <div className="px-6 2xl:px-0">

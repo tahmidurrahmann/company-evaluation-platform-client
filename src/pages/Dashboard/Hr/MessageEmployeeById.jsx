@@ -27,53 +27,6 @@ const MessageEmployeeById = () => {
     const [onlineUsers, setOnlineUsers] = useState([]);
     const socket = useRef();
 
-    useEffect(() => {
-        if (sendMessage !== null) {
-            socket.current.emit("send-message", sendMessage)
-        }
-    }, [sendMessage])
-
-    useEffect(() => {
-        socket.current?.on("receive-message", (data) => {
-            setReceiveMessage(data);
-        })
-    }, [])
-
-    useEffect(() => {
-        if (receiveMessage !== null && id) {
-            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-        }
-    }, [id, receiveMessage]);
-
-
-    useEffect(() => {
-        // Connect to Socket.io server
-        socket.current = io("http://localhost:8800");
-        socket.current.emit("new-user-add", hrRequestCheck?._id);
-        socket.current?.on("get-users", (users) => {
-            setOnlineUsers(users);
-        });
-
-        return () => {
-            // Disconnect from Socket.io when component unmounts
-            socket.current.disconnect();
-        };
-    }, [hrRequestCheck]);
-
-    useEffect(() => {
-        if (employeeAgreements?.length > 0) {
-            const employeeDetails = employeeAgreements?.find(item => item?._id === id);
-            setEmployee(employeeDetails);
-        }
-    }, [employeeAgreements, id])
-
-    useEffect(() => {
-        if (message?.length > 0) {
-            const allMessage = message?.filter(m => (m?.senderEmail === user?.email && m?.receiverEmail === employee?.email) | (m?.senderEmail === employee?.email && m?.receiverEmail === user?.email));
-            setAllMessage(allMessage)
-        }
-    }, [employee?.email, message, user?.email])
-
     const handleSendMessage = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -88,11 +41,64 @@ const MessageEmployeeById = () => {
         }
     }
 
+    useEffect(() => {
+        // Connect to Socket.io server
+        socket.current = io("http://localhost:8800");
+        socket.current.emit("new-user-add", user?.email);
+        socket.current?.on("get-users", (users) => {
+            setOnlineUsers(users);
+        });
+
+        return () => {
+            // Disconnect from Socket.io when component unmounts
+            socket.current.disconnect();
+        };
+    }, [hrRequestCheck, user?.email]);
+
+    useEffect(() => {
+        if (sendMessage !== null) {
+            socket.current.emit("send-message", sendMessage)
+        }
+    }, [sendMessage])
+
+    useEffect(() => {
+        socket.current?.on("receive-message", (data) => {
+            console.log(data);
+            setReceiveMessage(data);
+        })
+    }, [])
+    
+    console.log(receiveMessage);
+
+    useEffect(() => {
+        if (receiveMessage === null) {
+            refetch();
+        }
+        refetch()
+        if (receiveMessage !== null && id) {
+            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+        }
+    }, [id, receiveMessage, refetch]);
+    
+    useEffect(() => {
+        if (employeeAgreements?.length > 0) {
+            const employeeDetails = employeeAgreements?.find(item => item?._id === id);
+            setEmployee(employeeDetails);
+        }
+    }, [employeeAgreements, id])
+
+    useEffect(() => {  
+        if (message?.length > 0) {
+            const allMessage = message?.filter(m => (m?.senderEmail === user?.email && m?.receiverEmail === employee?.email) | (m?.senderEmail === employee?.email && m?.receiverEmail === user?.email));
+            setAllMessage(allMessage)
+        }
+    }, [employee?.email, message, user?.email])
+
+    
+
     if (isEmployee || isMessage || isHr) {
         return <Loading />
     }
-
-    refetch();
 
     console.log(employee);
 
