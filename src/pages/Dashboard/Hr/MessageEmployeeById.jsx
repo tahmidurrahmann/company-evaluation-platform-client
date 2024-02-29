@@ -82,7 +82,7 @@ const MessageEmployeeById = () => {
         if (res?.data?.insertedId) {
             form.reset();
             refetch();
-            setSendMessage(...message, id);
+            setSendMessage(message, id);
         }
     }
 
