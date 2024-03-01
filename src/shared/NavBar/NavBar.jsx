@@ -60,8 +60,8 @@ const NavBar = () => {
         </span>
       </NavLink>
       <div className="dropdown dropdown-hover w-full lg:w-auto">
-        <div tabIndex={0} role="button" className=" hover:border-b-[#007cc7] px-4 py-2 text-center rounded-[30px] w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center lg:text-base xl:text-lg items-center gap-1 font-semibold"><FaAngleDown />About Us</span></div>
-        <ul tabIndex={0} className="dropdown-content z-[1] menu w-40 bg-base-100 shadow space-y-0.5">
+        <div tabIndex={0} role="button" className=" hover:border-b-[#007cc7] text-center rounded-[30px] w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center lg:text-base xl:text-lg items-center gap-1 font-semibold"><FaAngleDown />About Us</span></div>
+        <ul tabIndex={0} className="dropdown-content z-[1] menu w-48 bg-base-100 shadow space-y-1.5 p-4 rounded-lg">
           <NavLink
             onClick={() => setIsOpen(false)}
             to="/aboutUs"
@@ -202,7 +202,7 @@ const NavBar = () => {
 
   return (
     <div
-      className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-[#1515154D] text-white"
+      className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-white text-black"
         }`}
     >
       <div>
@@ -223,10 +223,7 @@ const NavBar = () => {
             <div className="">
               {user ? (
                 <div
-                  className={`flex items-center ${scrolled
-                    ? "bg-white text-black"
-                    : "bg-[#1515154D] text-black"
-                    }`}
+                  className={`flex items-center`}
                 >
                   <div className="dropdown dropdown-end">
                     <label

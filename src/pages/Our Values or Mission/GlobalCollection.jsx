@@ -6,8 +6,8 @@ import "./Global.css"
 const GlobalCollection = () => {
 
   return (
-    <div className="mt-10 md:mt-32 lg:mt-40 px-4  2xl:px-0 max-w-screen-2xl mx-auto">
-      <div className="flex lg:flex-row flex-col justify-center items-center gap-0 md:gap-10">
+    <div className="mt-10 md:mt-32 lg:mt-40 px-4 2xl:px-0">
+      <div className="flex lg:flex-row flex-col justify-between items-center gap-0 md:gap-10">
         <div>
           <SharedHeading heading="INNOVATION UNLEASHED - TOGETHER " />
           <SharedHeading heading="WE THRIVE " />
