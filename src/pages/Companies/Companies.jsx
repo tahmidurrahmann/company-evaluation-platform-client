@@ -105,7 +105,7 @@ const Companies = () => {
       <Helmet>
         <title>IONE | Companies</title>
       </Helmet>
-      <SharedBanner heading="All Companies" passage="All Companies" />
+      <SharedBanner bannerImg={"https://i.ibb.co/yBnWMkp/image.png"} heading="All Companies" passage="All Companies" />
       <div className="px-6 mx-auto max-w-screen-2xl xl:px-0">
         <form
           className="flex items-center justify-end my-6"

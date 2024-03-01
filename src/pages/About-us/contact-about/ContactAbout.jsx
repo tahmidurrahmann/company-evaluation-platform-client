@@ -10,7 +10,7 @@ const ContactAbout = () => {
       <SharedBanner
         passage="About Us"
         heading="About Us"
-        bannerImg="https://i.ibb.co/HzVskjP/image.png"
+        bannerImg="https://i.ibb.co/hsvz1YK/image.png"
       />
       {/* About Company Section  */}
       <div className="container flex flex-col justify-between px-12 py-24 mx-auto space-y-6 md:flex-row lg:flex-row">
