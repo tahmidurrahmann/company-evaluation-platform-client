@@ -3,8 +3,6 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useEmployeeTask from "../../../hooks/useEmployeeTask";
 import useUsers from "../../../hooks/useUsers";
 
-
-
 const Evaluationchart3 = () => {
     const axiosPublic = useAxiosPublic();
     const [allUsers] = useUsers()
@@ -29,7 +27,6 @@ const Evaluationchart3 = () => {
                     });
                     const dataShorting = data.sort((a, b) => b.value - a.value);
                     setCompanyTask(dataShorting);
-
                 }
             })
             .catch(error => {
@@ -51,11 +48,8 @@ const Evaluationchart3 = () => {
                         {/* head */}
                         <thead className="">
                             <tr className="">
-
                                 <th>Influencer</th>
                                 <th>Engagement</th>
-                                <th>Favorite</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -79,8 +73,6 @@ const Evaluationchart3 = () => {
                                     <td>
                                         {sapratehr.email}
                                     </td>
-                                    <td>{sapratehr.role}</td>
-
                                 </tr>)
 
 
