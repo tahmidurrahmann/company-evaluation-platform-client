@@ -66,7 +66,7 @@ const ApplyForHr = () => {
   return (
     <div>
       <SharedBanner
-        bannerImg="https://i.ibb.co/dKphgbm/image.png"
+        bannerImg="https://i.ibb.co/589jCVQ/image.png"
         passage="Apply For Human Resource"
         heading="Apply For Human Resource"
       />
