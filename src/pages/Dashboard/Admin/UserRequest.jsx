@@ -66,7 +66,7 @@ const UserRequest = () => {
     }
 
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div className="max-w-screen-xl mx-auto">
             <div className="py-6 md:py-8 lg:py-12">
                 <SharedHeading heading="All User Requests" />
             </div>

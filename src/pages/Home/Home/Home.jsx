@@ -21,17 +21,17 @@ const Home = () => {
                 pageId="202053042984596"
                 appId="1019541442448361"
             />
-        <Banner />
-            <HomeDetails />
+            <Banner />
             <Logo />
             <RachingBarMap ></RachingBarMap>
+            <HomeDetails />
+            <div className="hidden lg:block">
+                <OverVieww />
+            </div>
             <EvaluationBg />
             <Reviews />
             <div className="block lg:hidden">
                 <OverView />
-            </div>
-            <div className="hidden lg:block">
-                <OverVieww />
             </div>
         </div>
     );

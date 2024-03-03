@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Perfomence = () => {
     return (
         <>
-            <div className="container mx-auto">
+            <div className="max-w-screen-xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between  pt-32">
                     <div className="">
                         <h1 className="lg:text-7xl text-4xl md:text-5xl lg:text-start text-center  p-5 font-bold ">Make Better People <br /> Decisions with <br />  Better Performance <br />  Data</h1>

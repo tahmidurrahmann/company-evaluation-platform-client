@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <div className="bg-neutral">
-            <footer className="text-neutral-content max-w-screen-2xl mx-auto">
+            <footer className="text-neutral-content max-w-screen-xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-start items-start py-10 gap-6 px-6 2xl:px-0">
                     <div className="flex-1">
                         <div className="flex gap-2">

@@ -71,7 +71,7 @@ const ApplyForHr = () => {
         heading="Apply For Human Resource"
       />
 
-      <div className="px-6 mx-auto max-w-screen-2xl xl:px-0">
+      <div className="px-6 mx-auto max-w-screen-xl xl:px-0">
         <div className="my-6 md:my-8 lg:my-12">
           <SharedHeading heading="Apply For Human Resource" />
         </div>

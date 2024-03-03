@@ -51,7 +51,7 @@ const Apply = () => {
             </Helmet>
             <ApplyForHr/>
             <div className="pt-16">
-                <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
+                <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
                     <div className="my-6 md:my-8 lg:my-12">
                         <SharedHeading heading="Apply For Employee" />
                     </div>

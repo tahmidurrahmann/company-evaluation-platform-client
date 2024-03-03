@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const About_otherss = () => {
 
   return (
-    <div className="mb-32 pt-12">
+    <div className="mb-32 pt-12 max-w-screen-xl mx-auto">
       <h1 className="text-5xl text-center font-bold">
         Keeping the principles to{" "}
       </h1>

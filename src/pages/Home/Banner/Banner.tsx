@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 import banner from "../../../assets/65c3b693213374e97534bfdb_Video 1_hero image_v6_min-transcode (2).mp4";
 import { GiJourney } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 
 const Banner: React.FC = () => {
   let [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,9 +18,25 @@ const Banner: React.FC = () => {
   };
 
   return (
-    <div className="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 pt-20 lg:pt-52 px-6 2xl:px-16">
+    <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 pt-20 lg:pt-52 px-6 md:px-12 2xl:px-0">
       <div className="2xl:w-1/3 space-y-3 lg:space-y-6 lg:-mt-16 2xl:-mt-4">
-        <h1 className="text-[#151746] text-[40px] lg:text-5xl font-bold w-full text-center lg:text-left">Achieve Your <br />High Performance Culture</h1>
+        <TypeAnimation
+          sequence={[
+            'Achieve Your High Performance Culture',
+            1000,
+            'Achieve Peak Performance',
+            1000,
+            'Cultivate High Performance',
+            1000,
+            'Foster a Culture of Excellence',
+            1000
+          ]}
+          wrapper="span"
+          className="text-[#151746] text-[40px] lg:text-5xl font-bold w-full text-center lg:text-left"
+          speed={50}
+          style={{ display: 'inline-block' }}
+          repeat={Infinity}
+        />
         <p className="text-[#737490] w-full text-center lg:text-left font-medium">One platform to streamline and formalize your process for performance reviews, goals, and continuous feedback.</p>
         <div className="flex items-center justify-center lg:justify-start">
           <span
@@ -101,7 +118,7 @@ const Banner: React.FC = () => {
         </div>
       </div>
       <div>
-        <video className="w-4/5 mx-auto" autoPlay loop muted src={banner}></video>
+        <video className="2xl:w-4/5 mx-auto" autoPlay loop muted src={banner}></video>
       </div>
     </div>
   );

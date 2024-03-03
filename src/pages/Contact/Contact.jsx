@@ -31,7 +31,7 @@ const Contact = () => {
             </Helmet>
             <SharedBanner bannerImg={"https://i.ibb.co/vwwLFM5/image.png"} heading="Contact Us" passage="Contact Us" />
             {/* ------ first  section here ----- */}
-            <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-2xl mx-auto'>
+            <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-xl mx-auto'>
                 <div className='bg-white border-2 shadow-2xl rounded-xl pb-4'>
                     <div className='flex justify-center items-center -mt-10'>
                         <FaLocationDot className='text-blue-400 text-7xl p-2 bg-gray-300 rounded-full' />
@@ -59,7 +59,7 @@ const Contact = () => {
                 </div>
             </div>
             {/* second section heree  */}
-            <div className="flex lg:flex-row flex-col-reverse justify-center mb-12 gap-6 max-w-screen-2xl mx-auto">
+            <div className="flex lg:flex-row flex-col-reverse justify-center mb-12 gap-6 max-w-screen-xl mx-auto">
 
                 <div className='flex-1' style={{ width: '100%' }}>
                     <iframe

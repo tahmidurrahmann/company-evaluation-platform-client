@@ -71,7 +71,7 @@ const Companies = () => {
         <title>IONE | Companies</title>
       </Helmet>
       <SharedBanner heading="All Companies" passage="All Companies" />
-      <div className="max-w-screen-2xl mx-auto px-6 xl:px-0">
+      <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
         <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
           <div className="input-containerr">
             <input placeholder="Search by Company Name" className="inputy" name="companyName" type="text" />
