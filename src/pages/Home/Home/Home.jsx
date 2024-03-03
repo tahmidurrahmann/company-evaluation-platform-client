@@ -7,6 +7,7 @@ import RachingBarMap from "../../Reaching Chart/RachingBarMap";
 import EvaluationBg from "../Evaluation/EvaluationBg";
 import HomeDetails from "../HomeDetails/HomeDetails";
 import Banner from "../Banner/Banner";
+import OverVieww from "../OverView/OverVieww";
 
 
 const Home = () => {
@@ -20,14 +21,18 @@ const Home = () => {
                 pageId="202053042984596"
                 appId="1019541442448361"
             />
-            <Banner />
-         
+        <Banner />
             <HomeDetails />
             <Logo />
             <RachingBarMap ></RachingBarMap>
             <EvaluationBg />
             <Reviews />
-            <OverView />
+            <div className="block lg:hidden">
+                <OverView />
+            </div>
+            <div className="hidden lg:block">
+                <OverVieww />
+            </div>
         </div>
     );
 
