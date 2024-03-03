@@ -19,9 +19,9 @@ import { GiPieChart } from "react-icons/gi";
 import { FaAngleDown } from "react-icons/fa";
 
 const NavBar = () => {
+
   const { user, logOut } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -50,8 +50,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -60,7 +60,7 @@ const NavBar = () => {
         </span>
       </NavLink>
       <div className="dropdown dropdown-hover w-full lg:w-auto">
-        <div tabIndex={0} role="button" className=" hover:border-b-[#007cc7] text-center rounded-[30px] w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center lg:text-base xl:text-lg items-center gap-1 font-semibold"><FaAngleDown />About Us</span></div>
+        <div tabIndex={0} role="button" className=" hover:border-b-[#007cc7] text-center rounded-[30px] w-full md:w-3/4 lg:w-auto mx-auto"><span className="flex justify-center items-center gap-1 font-semibold"><FaAngleDown />About Us</span></div>
         <ul tabIndex={0} className="dropdown-content z-[1] menu w-48 bg-base-100 shadow space-y-1.5 p-4 rounded-lg">
           <NavLink
             onClick={() => setIsOpen(false)}
@@ -69,8 +69,8 @@ const NavBar = () => {
               isPending
                 ? "pending"
                 : isActive
-                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
-                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition"
+                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
             }
           >
             <span className="flex items-center gap-2">
@@ -85,8 +85,8 @@ const NavBar = () => {
               isPending
                 ? "pending"
                 : isActive
-                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition lg:text-base xl:text-lg"
-                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+                  ? "font-semibold border-b-2 border-b-[rgb(0,124,199)] transition"
+                  : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
             }
           >
             <span className="flex items-center gap-2">
@@ -103,8 +103,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -120,8 +120,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -136,8 +136,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -152,8 +152,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -168,8 +168,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -184,8 +184,8 @@ const NavBar = () => {
           isPending
             ? "pending"
             : isActive
-              ? "font-semibold border-b-2 border-b-[#007cc7] transition lg:text-base xl:text-lg"
-              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition lg:text-base xl:text-lg"
+              ? "font-semibold border-b-2 border-b-[#007cc7] transition"
+              : "font-semibold hover:border-b-2 hover:border-b-[#007cc7] transition"
         }
       >
         <span className="flex items-center gap-2">
@@ -205,9 +205,9 @@ const NavBar = () => {
       className={`fixed z-10 w-full ${scrolled ? "bg-white text-black" : "bg-white text-black"
         }`}
     >
-      <div>
+      <div className="max-w-screen-xl mx-auto">
         <div className="py-0.5">
-          <div className="flex items-center px-4 justify-evenly xl:px-0">
+          <div className="flex items-center justify-evenly xl:px-0">
             <Link to="/">
               <div className="flex gap-1">
                 <img
@@ -246,7 +246,7 @@ const NavBar = () => {
                         className="w-full hover:bg-[#eee8e8] mb-1 pt-2 pb-1 font-bold"
                         to="/dashboard"
                       >
-                        <button className="text-center lg:text-base xl:text-lg px-2.5 pb-1 flex justify-center items-center gap-1">
+                        <button className="text-center px-2.5 pb-1 flex justify-center items-center gap-1">
                           <MdOutlineDashboard />
                           Dashboard
                         </button>

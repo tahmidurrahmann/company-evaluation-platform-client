@@ -15,7 +15,7 @@ const Management = () => {
             
             </Helmet>
             <SharedBanner bannerImg="https://i.ibb.co/v1CNyy6/image.png" passage="Management" heading="Management" />
-            <div className="flex flex-col lg:flex-row justify-between items-center max-w-screen-2xl mx-auto">
+            <div className="flex flex-col lg:flex-row justify-between items-center max-w-screen-xl mx-auto">
                 <div className="ml-10 space-y-6">
                     <h1 className=" text-black pt-20 lg:pt-0  font-bold text-7xl">All solutions
                         <br /> in <span className="text-blue-400 ml-3"> one software</span></h1>
@@ -50,7 +50,7 @@ const Management = () => {
                 <img src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/07/Frame-122-2.png" alt="" />
             </div>
             {/* third section here      */}
-            <div className="grid mt-16 container mx-auto lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1 mb-10  justify-evenly">
+            <div className="grid mt-16 max-w-screen-xl mx-auto lg:grid-cols-4 gap-5 md:grid-cols-2 grid-cols-1 mb-10  justify-evenly">
                 <div className="bg-base m-12 lg:ml-0 p-6 rounded-xl shadow-gray-400 hover:shadow-blue-500 shadow-xl">
                     <img src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/05/Frame-82.png" alt="" />
                     <h1 className="text-xl font-bold">Simple budjet planning</h1>
@@ -73,7 +73,7 @@ const Management = () => {
                 </div>
             </div>
             {/* fourth section here      */}
-            <div className="mt-52 container mx-auto flex flex-col lg:flex-row justify-between">
+            <div className="mt-52 max-w-screen-xl mx-auto flex flex-col lg:flex-row justify-between">
                 <div>
                     <img className="w-[700px]" src="https://n.foxdsgn.com/twilo/wp-content/uploads/2022/08/XMLID_23509_.png" alt="" />
                 </div>

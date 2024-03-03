@@ -5,7 +5,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 const About_valus = () => {
     return (
-        <div className="mb-20 container mx-auto">
+        <div className="mb-20 max-w-screen-xl mx-auto">
           <div className="">
                 <h1 className="font-bold text-2xl lg:ml-2 text-center mb-2 uppercase">OUR VALUES</h1>
                 <h1 className="text-5xl lg:ml-2 py-3 text-center mb-12 font-bold">Completely disintermediate <br /><span className="text-[#007cc7] ">excellent skills</span></h1>

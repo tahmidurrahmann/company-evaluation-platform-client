@@ -13,7 +13,7 @@ const SharedBanner = ({ heading, passage, bannerImg }) => {
       }}
       className="bg-center bg-no-repeat bg-contain sm:bg-cover"
     >
-      <div className="w-full px-4 mx-auto space-y-3 max-w-screen-2xl py-28 md:py-48 lg:py-56 2xl:px-0">
+      <div className="w-full px-4 mx-auto space-y-3 max-w-screen-xl py-28 md:py-48 lg:py-56 2xl:px-0">
         <h1 className="text-xl font-semibold text-white md:text-3xl lg:text-4xl xl:text-5xl">
           {heading}
         </h1>

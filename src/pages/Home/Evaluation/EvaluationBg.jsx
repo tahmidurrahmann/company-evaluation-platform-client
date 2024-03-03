@@ -14,7 +14,7 @@ const EvaluationBg = () => {
     const [allUser] = useUsers();
 
     return (
-        <div className="max-w-screen-2xl mx-auto px-4 py-16 2xl:px-0">
+        <div className="max-w-screen-xl mx-auto px-4 py-16 2xl:px-0">
             <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-4">
                 {/* -----------------***---------- 1st chart heree ----------------***------------ */}
                 <div className="bg-white shadow-2xl lg:pl-5 lg:h-[60vh] rounded-xl">

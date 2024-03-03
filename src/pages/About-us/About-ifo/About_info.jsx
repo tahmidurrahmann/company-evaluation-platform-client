@@ -13,7 +13,7 @@ const About_info = () => {
           Meet the <span className="text-[#007cc7] "> Professionals</span>{" "}
         </h1>
       </div>
-      <div className="mb-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  grid-cols-1  gap-5 max-w-screen-2xl mx-auto">
+      <div className="mb-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  grid-cols-1  gap-5 max-w-screen-xl mx-auto">
         <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
           <figure>
             <img

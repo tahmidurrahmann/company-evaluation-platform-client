@@ -1,8 +1,8 @@
-import { TbCornerDownRight } from "react-icons/tb";
+import { FaCheck } from "react-icons/fa";
 
 const OverView = () => {
     return (
-        <div className="max-w-screen-2xl mx-auto px-6 2xl:px-0">
+        <div className="max-w-screen-xl mx-auto px-6 2xl:px-0">
             <h6 className="text-center font-semibold pt-6">Product Overview</h6>
             <h1 className="p-12 text-3xl md:text-4xl text-center xl:text-5xl font-semibold text-[#151746]">Your Complete Performance <br /> Management Toolkit</h1>
             <div className="flex flex-col md:flex-row my-6 md:my-8 gap-6 lg:my-12">
@@ -36,11 +36,11 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Drive high quality performance conversations</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Employee appraisals</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />360 reviews</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Quarterly check-ins</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Project-based reviews</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />One-on-ones</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Employee appraisals</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />360 reviews</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Quarterly check-ins</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Project-based reviews</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />One-on-ones</p>
                             </div>
                         </details>
                     </div>
@@ -73,12 +73,12 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Align your people around what’s next</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Collaborative goal setting</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Goal check-ins</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Cascading goals</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Development goals</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Corporate objectives</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Progress visualizations</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Collaborative goal setting</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Goal check-ins</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Cascading goals</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Development goals</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Corporate objectives</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Progress visualizations</p>
                             </div>
                         </details>
                     </div>
@@ -111,11 +111,11 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Formalize continuous and relevant feedback</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Continuous feedback</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Employee recognition</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Performance notes</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Manager feedback</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Feedback requests</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Continuous feedback</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Employee recognition</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Performance notes</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Manager feedback</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Feedback requests</p>
                             </div>
                         </details>
                     </div>
@@ -149,11 +149,11 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Inform your HR decision making</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Performance trends</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />9 box grids</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Rankings</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Summary reporting</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Review form calculations</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Performance trends</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />9 box grids</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Rankings</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Summary reporting</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Review form calculations</p>
                             </div>
                         </details>
                     </div>
@@ -185,11 +185,11 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Listen. Learn. Take Action.</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />iONE Engagement Survey</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Engagement Factors and Questions</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Engagement Trends Dashboard</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Satisfaction Factor Analysis</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Dynamic Employee Cohorting</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />iONE Engagement Survey</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Engagement Factors and Questions</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Engagement Trends Dashboard</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Satisfaction Factor Analysis</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Dynamic Employee Cohorting</p>
                             </div>
                         </details>
                     </div>
@@ -221,9 +221,9 @@ const OverView = () => {
                             </summary>
                             <div>
                                 <h1 className="text-2xl lg:text-4xl font-bold py-6">Conduct comprehensive evaluations of individual and team performance.</h1>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Individual and Team Assessments</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Continuous Improvement Plans</p>
-                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><TbCornerDownRight size={24} className="text-[#007cc7]" />Milestone Tracking</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Individual and Team Assessments</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Continuous Improvement Plans</p>
+                                <p className="flex items-center gap-2 text-neutral-600 font-medium"><FaCheck className="text-[#007cc7]" />Milestone Tracking</p>
                             </div>
                         </details>
                     </div>

@@ -14,12 +14,12 @@ const OurValuesOrMission = () => {
                 <title>IONE | Mission</title>
             </Helmet>
             <SharedBanner bannerImg="https://i.ibb.co/WtwgYyv/image.png" heading="Our Mission" passage="Our Mission"/>
-            <div className="container mx-auto">
+            <div className="max-w-screen-xl mx-auto">
                 <GlobalCollection></GlobalCollection>
                 <Innovation></Innovation>
             </div>
             <Excellence></Excellence>
-            <div className="container mx-auto">
+            <div className="max-w-screen-xl mx-auto">
                 <Inclusivity></Inclusivity>
             </div>
         </div >
