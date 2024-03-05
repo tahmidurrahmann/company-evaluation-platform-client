@@ -13,7 +13,7 @@ const ContactAbout = () => {
         bannerImg="https://i.ibb.co/hsvz1YK/image.png"
       />
       {/* About Company Section  */}
-      <div className="max-w-screen-xl flex flex-col justify-between px-12 py-24 mx-auto space-y-6 md:flex-row lg:flex-row">
+      <div className="max-w-screen-xl flex flex-col justify-between px-12 py-24 mx-auto space-y-6 md:flex-row lg:flex-row" data-aos-duration="1000" data-aos="zoom-in">
         {/* Image */}
         <div className="w-full md:w-[40%]">
           <img className="w-full " src={aboutCompanyImg} alt="" />

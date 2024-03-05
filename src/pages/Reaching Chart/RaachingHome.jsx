@@ -24,7 +24,8 @@ const RaachingHome = ({ filterHr, completedTaskpers }) => {
     return (
         <div className="mt-16">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center">Our Top Company Evaluation</h1>
-            <div className="">
+            <div className="" data-aos-duration="1000" data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom">
                 <ReachingChart data={data} ></ReachingChart>
             </div>
         </div>

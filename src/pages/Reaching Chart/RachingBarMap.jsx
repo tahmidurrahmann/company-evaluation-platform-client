@@ -43,7 +43,7 @@ const RachingBarMap = () => {
 
 
     return (
-        <div className="px-6 xl:px-0 max-w-screen-xl mx-auto">
+        <div className="px-6 xl:px-0 max-w-screen-xl mx-auto" >
             <RaachingHome
                 filterHr={filterHr}
                 completedTaskpers={completedTaskpers}

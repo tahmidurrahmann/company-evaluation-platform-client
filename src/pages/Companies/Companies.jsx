@@ -70,10 +70,13 @@ const Companies = () => {
       <Helmet>
         <title>IONE | Companies</title>
       </Helmet>
-      <SharedBanner heading="All Companies" passage="All Companies" />
+      <div>
+        <SharedBanner heading="All Companies" passage="All Companies" />
+     </div>
       <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
         <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
-          <div className="input-containerr">
+          <div className="input-containerr" data-aos="fade-up"
+            data-aos-duration="1000">
             <input placeholder="Search by Company Name" className="inputy" name="companyName" type="text" />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="iconn">
               <g strokeWidth="0" id="SVGRepo_bgCarrier"></g>
@@ -85,7 +88,8 @@ const Companies = () => {
             </svg>
           </div>
         </form>
-        <div className="mt-6 mb-4 md:mt-8">
+        <div className="mt-6 mb-4 md:mt-8" data-aos="fade-up"
+          data-aos-duration="1000">
           <SharedHeading heading="All Companies" />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -94,7 +98,8 @@ const Companies = () => {
               <h1 className="text-xl lg:text-2xl font-semibold">Search Company</h1>
               <div className="flex flex-col flex-1">
                 <label className="font-semibold">Category</label>
-                <select {...register("category")} className="select select-bordered w-full flex-1">
+                <select {...register("category")} className="select select-bordered w-full flex-1" data-aos="fade-up"
+                  data-aos-duration="500">
                   {
                     hrInfo?.map((agreement, index) => <option key={index} value={agreement?.industrySector}>{agreement?.industrySector}</option>)
                   }
@@ -102,7 +107,8 @@ const Companies = () => {
               </div>
               <div className="flex flex-col flex-1">
                 <label className="font-semibold">Location</label>
-                <select {...register("location")} className="select select-bordered w-full flex-1">
+                <select {...register("location")} className="select select-bordered w-full flex-1" data-aos="fade-up"
+                  data-aos-duration="1000">
                   {
                     hrInfo?.map((agreement, index) => <option key={index} value={agreement?.location}>{agreement?.location}</option>)
                   }
@@ -110,7 +116,8 @@ const Companies = () => {
               </div>
               <div className="flex flex-col flex-1">
                 <label className="font-semibold">Company Size</label>
-                <select {...register("companySize")} className="select select-bordered w-full flex-1">
+                <select {...register("companySize")} className="select select-bordered w-full flex-1" data-aos="fade-up"
+                  data-aos-duration="1000">
                   <option value="Less Than 10 Employee">
                     Less Than 10 Employee
                   </option>
@@ -123,14 +130,16 @@ const Companies = () => {
                   </option>
                 </select>
               </div>
-              <button type="submit" className="but">
+              <button type="submit" className="but" data-aos="fade-up"
+                data-aos-duration="1500">
                 <div className="but-top font-medium">Submit</div>
                 <div className="but-bottom"></div>
                 <div className="but-base"></div>
               </button>
             </form>
           </div>
-          <div className="col-span-2 ">
+          <div className="col-span-2 " data-aos="fade-up"
+            data-aos-duration="1000">
             {
               companies?.length > 2 ? <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
                 {companies?.slice(0, showMoreData).map(company => (
@@ -229,7 +238,7 @@ const Companies = () => {
                     </div>
                   </div>
                 ))}
-              </div> : <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+              </div> : <div className="grid grid-cols-1 xl:grid-cols-2 gap-6" >
                 {companies?.map(company => (
                   <div key={company?._id} className="block rounded-lg p-4 shadow-sm shadow-indigo-100">
                     <img

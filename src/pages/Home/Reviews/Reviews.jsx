@@ -7,8 +7,12 @@ const Reviews = () => {
 
     return (
         <div className="py-16">
-            <h6 className="text-center font-semibold">Hr Reviews</h6>
+            <div data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500">
+            <h6 className="text-center font-semibold">Users Reviews</h6>
             <h1 className="p-6 text-3xl md:text-4xl text-center xl:text-5xl font-semibold text-[#151746]">Trusted by 1500+ <br /> Human Resource Professionals</h1>
+           </div>
             <div className="flex flex-wrap justify-center items-center md:gap-6 xl:gap-12">
                 <div className="flex gap-2 items-center">
                     <img className="w-[123px]" src="https://i.ibb.co/Jx2stX6/allset-Logo-Design-min-removebg-preview.png" alt="" />

@@ -56,7 +56,8 @@ const ApplyForEmployee = () => {
       />
       <div className="pt-16">
         <div className="px-6 mx-auto max-w-screen-xl xl:px-0">
-          <div className="my-6 md:my-8 lg:my-12">
+          <div className="my-6 md:my-8 lg:my-12" data-aos="fade-up"
+            data-aos-duration="2000">
             <SharedHeading heading="Apply For Employee" />
           </div>
           <form
@@ -64,7 +65,8 @@ const ApplyForEmployee = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
-              <div className="flex-1 w-full inputContainer">
+              <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+                data-aos-duration="2000">
                 <input
                   defaultValue={user?.displayName}
                   readOnly
@@ -76,7 +78,8 @@ const ApplyForEmployee = () => {
                 <label className="font-semibold inputLabel">NAME</label>
                 <div className="inputUnderline"></div>
               </div>
-              <div className="flex-1 w-full inputContainer">
+              <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+                data-aos-duration="2000">
                 <input
                   defaultValue={user?.email}
                   readOnly
@@ -90,7 +93,8 @@ const ApplyForEmployee = () => {
               </div>
             </div>
             <div className="flex items-center justify-between w-full gap-8">
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1" data-aos="fade-up"
+                data-aos-duration="1000">
                 <label className="font-semibold">Select Your Company</label>
                 <select
                   {...register("company", { required: true })}
@@ -108,12 +112,14 @@ const ApplyForEmployee = () => {
                   </p>
                 )}
               </div>
-              <div className="flex flex-col flex-1 text-xl">
+              <div className="flex flex-col flex-1 text-xl" data-aos="fade-up"
+                data-aos-duration="2000">
                 <label className="font-semibold">Upload Resume</label>
                 <MultipleFileUploader setFile={setFile} />
               </div>
             </div>
-            <button type="submit" className="but">
+            <button type="submit" className="but" data-aos="fade-up"
+              data-aos-duration="3000">
               <div className="font-medium but-top">Submit</div>
               <div className="but-bottom"></div>
               <div className="but-base"></div>

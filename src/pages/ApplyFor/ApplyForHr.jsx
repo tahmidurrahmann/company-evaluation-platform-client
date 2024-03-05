@@ -72,7 +72,8 @@ const ApplyForHr = () => {
       />
 
       <div className="px-6 mx-auto max-w-screen-xl xl:px-0">
-        <div className="my-6 md:my-8 lg:my-12">
+        <div className="my-6 md:my-8 lg:my-12" data-aos="fade-up"
+          data-aos-duration="500">
           <SharedHeading heading="Apply For Human Resource" />
         </div>
         <form
@@ -80,7 +81,8 @@ const ApplyForHr = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="1000">
               <input
                 defaultValue={user?.displayName}
                 readOnly
@@ -92,7 +94,8 @@ const ApplyForHr = () => {
               <label className="font-semibold inputLabel">NAME</label>
               <div className="inputUnderline"></div>
             </div>
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="500">
               <input
                 defaultValue={user?.email}
                 readOnly
@@ -106,7 +109,8 @@ const ApplyForHr = () => {
             </div>
           </div>
           <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="1000">
               <input
                 {...register("company", { required: true })}
                 required
@@ -119,7 +123,8 @@ const ApplyForHr = () => {
             {errors.company?.type === "required" && (
               <p className="text-left text-red-600">Name is required</p>
             )}
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="1000">
               <input
                 {...register("location", { required: true })}
                 required
@@ -136,7 +141,8 @@ const ApplyForHr = () => {
             )}
           </div>
           <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="2000">
               <input
                 {...register("industrySector", { required: true })}
                 required
@@ -153,7 +159,8 @@ const ApplyForHr = () => {
                 Industry Sector is required
               </p>
             )}
-            <div className="flex-1 w-full inputContainer">
+            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+              data-aos-duration="2000">
               <input
                 {...register("yearFounded", { required: true })}
                 required
@@ -168,7 +175,8 @@ const ApplyForHr = () => {
             )}
           </div>
           <div className="flex items-center justify-between w-full gap-2 md:gap-8">
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1" data-aos="fade-up"
+              data-aos-duration="1000">
               <label className="font-semibold">Company Size</label>
               <select
                 {...register("companySize", { required: true })}
@@ -191,7 +199,8 @@ const ApplyForHr = () => {
                 Company Size is required
               </p>
             )}
-            <div className="flex flex-col flex-1 h-[72px]">
+            <div className="flex flex-col flex-1 h-[72px]" data-aos="fade-up"
+              data-aos-duration="1000">
               <label className="font-semibold">Choose Company Photo</label>
               <input
                 {...register("photo", { required: true })}
@@ -204,7 +213,8 @@ const ApplyForHr = () => {
             )}
           </div>
           <br />
-          <button type="submit" className="but">
+          <button type="submit" className="but" data-aos="fade-up"
+            data-aos-duration="2000">
             <div className="font-medium but-top">Submit</div>
             <div className="but-bottom"></div>
             <div className="but-base"></div>

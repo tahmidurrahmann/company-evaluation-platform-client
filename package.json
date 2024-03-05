@@ -24,6 +24,7 @@
     "@types/node": "^20.11.19",
     "@uploadcare/blocks": "^0.32.2",
     "@zegocloud/zego-uikit-prebuilt": "^1.10.2",
+    "aos": "^3.0.0-beta.6",
     "apexcharts": "^3.45.2",
     "axios": "^1.6.5",
     "chart.js": "^4.4.1",

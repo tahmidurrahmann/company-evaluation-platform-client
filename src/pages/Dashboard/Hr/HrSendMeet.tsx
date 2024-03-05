@@ -76,15 +76,15 @@ const HrSendMeet: React.FC = () => {
 
 
   return (
-    <div className="grid grid-cols-1 mx-auto lg:grid-cols-3 md:grid-cols-2 md:gap-5 lg:gap-2">
+    <div className="grid grid-cols-1  mx-auto lg:grid-cols-3 md:grid-cols-2 md:gap-5 lg:gap-2">
       {myEmploye.map((item: Employee) => (
-        <div className="rounded-lg p-4 bg-transparent">
+        <div className="rounded-lg p-4 bg-transparent ">
           <img
             alt=""
             src={item?.imageURL}
             className="h-56 w-full rounded-md object-cover"
           />
-          <div className="flex justify-between items-center p-3">
+          <div className="flex justify-between items-center p-3 ">
             <div className="mt-2">
             <dl>
               <div>

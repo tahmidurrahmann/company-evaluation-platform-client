@@ -52,7 +52,8 @@ const HrProfile = () => {
         <>
             <div className='my-6'>
                 {
-                    hrRequestCheck?.status === "checked" ? <div className="object-cover  shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center">
+                    hrRequestCheck?.status === "checked" ? <div className="object-cover border-r-2 border-l-2  shadow-black bg-black text-white shadow-xl flex flex-col md:flex-row p-6 md:p-8 mx-4 xl:mx-0 rounded-xl gap-12 items-center" data-aos="fade-up"
+                        data-aos-duration="2000">
                         <img src={hrRequestCheck?.imageURL} alt="Shoes" className='w-40' />
                         <div>
                             <h1 className="text-xl font-semibold flex items-center gap-2"><FaRegUser />{hrRequestCheck?.name}</h1>
@@ -64,7 +65,8 @@ const HrProfile = () => {
                 }
 
             </div>
-            <div className="App flex justify-center items-center py-6 ">
+            <div className="App flex justify-center items-center py-6 " data-aos="fade-up"
+                data-aos-duration="2000">
                 <PopupButton className='bg-black text-white p-5 shadow-xl rounded-xl hover:text-blue-400 border-b-2 font-bold'
                     url="https://calendly.com/tahmidurrahman/30min"
 
@@ -74,8 +76,10 @@ const HrProfile = () => {
             </div>
 
 
-            <h1 className='text-center text-white text-2xl lg:text-3xl font-extrabold mt-32'>Your Normal Analices for your company</h1>
-            <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20">
+            <h1 className='text-center text-white text-2xl lg:text-3xl font-extrabold mt-32' data-aos="fade-up"
+                data-aos-duration="2000">Your Normal Analices for your company</h1>
+            <section className="flex flex-wrap lg:flex-row justify-center items-center gap-12 md:gap-16 my-20" data-aos="fade-up"
+                data-aos-duration="3000">
                 <article>
                     <div className="w-14 h-14 rounded shadow-md bg-white flex justify-center items-center rotate-3 mb-6">
                         <FaUsersBetweenLines className='text-5xl bg-black shadow-xl shadow-blue-400' />

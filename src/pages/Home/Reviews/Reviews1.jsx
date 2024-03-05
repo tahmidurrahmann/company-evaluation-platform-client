@@ -13,7 +13,7 @@ const Reviews1 = () => {
     return (
         <div className="hidden md:flex my-4">
                 <Marquee direction="right">
-                    <div className="flex  justify-center items-center gap-6">
+                <div className="flex  justify-center items-center gap-6" data-aos="fade-up" data-aos-duration="1500">
                         {
                             allReviews.slice(0, 15)?.map(review => <div key={review?._id} className="">
                                 <div className="card w-96 h-48 bg-base-100 border-2 p-6">

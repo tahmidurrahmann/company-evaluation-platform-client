@@ -4,7 +4,8 @@ import { FaInstagram } from "react-icons/fa";
 const About_info = () => {
   return (
     <div className="px-6 2xl:px-0">
-      <div className="mb-12">
+      <div className="mb-12" data-aos="fade-down"
+        data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
         <h1 className="font-bold text-2xl text-center mb-2 uppercase pt-16">
           Our Team
         </h1>
@@ -14,7 +15,7 @@ const About_info = () => {
         </h1>
       </div>
       <div className="mb-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  grid-cols-1  gap-5 max-w-screen-xl mx-auto">
-        <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
+        <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl" data-aos="zoom-out" >
           <figure>
             <img
               className="pt-16"
@@ -39,7 +40,7 @@ const About_info = () => {
 
         {/* card 2   ------------ */}
 
-        <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
+        <div className="card h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl" data-aos="zoom-out" data-aos-duration="1000">
           <figure>
             <img
               src="https://i.ibb.co/chBXTPn/270224004-3140648616261730-993033304660391605-n-1-removebg-preview.png"
@@ -63,7 +64,7 @@ const About_info = () => {
 
         {/* card 3 -------- */}
 
-        <div className="card  h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
+        <div className="card  h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl" data-aos="zoom-out" data-aos-duration="1500">
           <figure>
             <img
               className="w-[270px]"
@@ -88,7 +89,7 @@ const About_info = () => {
 
         {/* card 4 -------- */}
 
-        <div className="card  h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl">
+        <div className="card  h-[500px] border-2 border-blue-500 hover:shadow-blue-600 card-compact  bg-base-100 shadow-xl" data-aos="zoom-out" data-aos-duration="2000">
           <figure>
             <img
               className="w-[270px]"

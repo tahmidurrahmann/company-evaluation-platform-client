@@ -17,7 +17,9 @@ const EvaluationBg = () => {
         <div className="max-w-screen-xl mx-auto px-4 py-16 2xl:px-0">
             <div className="grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-4">
                 {/* -----------------***---------- 1st chart heree ----------------***------------ */}
-                <div className="bg-white shadow-2xl lg:pl-5 lg:h-[60vh] rounded-xl">
+                <div className="bg-white shadow-2xl lg:pl-5 lg:h-[60vh] rounded-xl" data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="500">
                     <div className="flex justify-around">
                         <h1 className="text-3xl py-2 font-semibold ">Social perofomence <p className="text-lg text-gray-300">Poated</p></h1>
                         <div>
@@ -26,7 +28,7 @@ const EvaluationBg = () => {
                     </div>
                     <div>
                         {/* ////1st  demo hard  */}
-                        <div className="stats shadow lg:ml-8 mt-5">
+                        <div className="stats shadow lg:ml-8 mt-5" >
                             <div className="stat place-items-center">
                                 <div className="stat-title">Hr</div>
                                 <div className="stat-value">{allAgreement?.length}</div>
@@ -39,7 +41,7 @@ const EvaluationBg = () => {
                             </div>
                         </div>
                         {/* ////2nd demo hard  */}
-                        <div className="stats shadow lg:ml-8 mt-5">
+                        <div className="stats shadow lg:ml-8 mt-5" >
 
                             <div className="stat place-items-center">
                                 <div className="stat-title">Downloads</div>
@@ -55,7 +57,9 @@ const EvaluationBg = () => {
                     </div>
                 </div>
                 {/* ---------------****------------ 2nd chart heree ---------------------****------- */}
-                <div className="bg-white shadow-2xl pl-5 lg:h-[60vh] rounded-xl">
+                <div className="bg-white shadow-2xl pl-5 lg:h-[60vh] rounded-xl" data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1000">
                     <div className="flex justify-around">
                         <h1 className="text-3xl py-2 font-semibold ">Monetary  Perfomence <p className="text-lg text-gray-300">Duration</p></h1>
                         <div>
@@ -69,7 +73,9 @@ const EvaluationBg = () => {
                 {/*                chart 3 here  **************** */}
 
                 {/* ************       2nd line data  here  1st table  ***************** */}
-                <div className="bg-white lg:h-[60vh] shadow-2xl">
+                <div className="bg-white lg:h-[60vh] shadow-2xl" data-aos="fade-down"
+                    data-aos-easing="linear"
+                    data-aos-duration="1500">
                     <Evaluationchart3 />
                 </div>
                 {/* ************       2nd line data  here  2nd chart  ***************** */}
