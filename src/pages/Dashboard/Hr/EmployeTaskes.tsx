@@ -152,8 +152,8 @@ const EmployeTaskes: React.FC = () => {
 
       <div className="">
         <div className="w-full overflow-x-auto">
-          <table className="table">
-            <thead className="font-bold text-black bg-gray-300">
+          <table className="table" >
+            <thead className="font-bold text-black bg-gray-300" >
               <tr className="text-xs">
                 <th>Name</th>
                 <th>Task Name</th>
@@ -164,12 +164,12 @@ const EmployeTaskes: React.FC = () => {
                 <th>Dislike</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               {filteredTasks.map((element, index) => (
                 <tr
                   className="h-24 text-xs text-white border-b-2 border-gray-300"
                   key={index}
-                >
+                  >
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">

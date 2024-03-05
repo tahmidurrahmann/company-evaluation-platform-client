@@ -8,7 +8,8 @@ const Perfomence = () => {
         <>
             <div className="max-w-screen-xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between  pt-32">
-                    <div className="">
+                    <div className="" data-aos="fade-up"
+                        data-aos-duration="3000">
                         <h1 className="lg:text-7xl text-4xl md:text-5xl lg:text-start text-center  p-5 font-bold ">Make Better People <br /> Decisions with <br />  Better Performance <br />  Data</h1>
                         <p className="text-gray-600 p-5 ">One place to automatically track performance data and analyze results across time, teams, roles, or any other factor.</p>
                         <div className="flex lg:justify-start justify-center">
@@ -24,18 +25,18 @@ const Perfomence = () => {
                     </div>
 
 
-                    <div>
+                    <div data-aos="zoom-in" data-aos-duration="2000">
                         <img className="w-[800px] lg:ml-12 ml-0 md:pr-32 pr-12 mt-3 " src="https://specie-admin-template.multipurposethemes.com/intro/images/image-1.png" alt="" />
                     </div>
 
                 </div>
 
 
-                <div className="mt-12 p-12">
-                    <h1 className="text-center text-4xl lg:text-6xl font-bold">Stay Focused on <br /> Performance</h1>
+                <div className="mt-12 p-12" >
+                    <h1 className="text-center text-4xl lg:text-6xl font-bold" data-aos="zoom-in" data-aos-duration="1000">Stay Focused on <br /> Performance</h1>
                     <div>
                         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-20 ml-0 lg:ml-12">
-                            <div className="card w-96">
+                            <div className="card w-96" data-aos="zoom-in" data-aos-duration="500">
                                 <figure><LuBarChart4 className="text-9xl text-[#007cc7]" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title font-bold text-[#007cc7]">Produce Performance Data</h2>
@@ -43,7 +44,7 @@ const Perfomence = () => {
 
                                 </div>
                             </div>
-                            <div className="card w-96">
+                            <div className="card w-96" data-aos="zoom-in" data-aos-duration="1000">
                                 <figure><MdStackedBarChart className="text-9xl text-[#007cc7]" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title font-bold text-[#007cc7]">Store Performance Histories</h2>
@@ -51,7 +52,7 @@ const Perfomence = () => {
 
                                 </div>
                             </div>
-                            <div className="card w-96">
+                            <div className="card w-96" data-aos="zoom-in" data-aos-duration="3000">
                                 <figure><TbChartDotsFilled className="text-9xl text-[#007cc7]" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title font-bold text-[#007cc7]">Analyze Performance Results</h2>
@@ -74,13 +75,13 @@ const Perfomence = () => {
 
                 <div className="flex lg:flex-row flex-col-reverse  justify-between  gap-8 items-center mt-20 mb-12">
 
-                    <div className="mt-12">
+                    <div className="mt-12" data-aos="zoom-in" data-aos-duration="1000">
                         <img className="w-[900px] relative" src="https://i.ibb.co/X7tQpcG/image.png" alt="" />
                         <div className="absolute -bottom-[1260px] left-[600px]">
-                            <img className="w-[500px] rounded-2xl" src="https://i.ibb.co/NKYDWKZ/image.png" alt="" />
+                            <img className="w-[500px] lg:hidden rounded-2xl" src="https://i.ibb.co/NKYDWKZ/image.png" alt="" />
                         </div>
                     </div>
-                    <div className="">
+                    <div className="" data-aos="zoom-in" data-aos-duration="2000">
                         <h1 className="text-5xl font-bold text-black text-center lg:text-start">Connect Performance  &<br /> People Data</h1>
                         <p className="text-gray-400 text-center lg:text-start">Bring together your performance data with employee data to answer<br /> the questions you care about most.</p>
                     </div>
@@ -90,7 +91,7 @@ const Perfomence = () => {
 
 
                 <div className="flex flex-col lg:flex-row justify-between items-center my-16 gap-6 lg:gap-12 lg:mt-96">
-                    <div className="2xl:w-1/3 space-y-3 lg:space-y-6">
+                    <div className="2xl:w-1/3 space-y-3 lg:space-y-6" data-aos="zoom-in" data-aos-duration="2000">
                         <h1 className="text-[#151746] text-[40px] lg:text-5xl font-bold w-full text-center lg:text-left">The Best Support in Performance Management</h1>
                         <p className="text-[#737490] w-full text-center lg:text-left font-medium">Account setup, live training sessions, a dedicated success manager, and phone support are always included. You <br /> will never be on your own with PerformYard.</p>
                         <div className="flex flex-col items-center lg:items-start  justify-center">
@@ -102,7 +103,7 @@ const Perfomence = () => {
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div data-aos="zoom-in" data-aos-duration="2000">
                         <img src="https://i.ibb.co/YLtFjTT/image.png" className="w-4/5 mx-auto" alt="" />
                     </div>
                 </div>

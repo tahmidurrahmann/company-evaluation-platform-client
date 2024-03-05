@@ -8,7 +8,8 @@ const GlobalCollection = () => {
   return (
     <div className="mt-10 md:mt-32 lg:mt-40 px-4 2xl:px-0">
       <div className="flex lg:flex-row flex-col justify-between items-center gap-0 md:gap-10">
-        <div>
+        <div data-aos="fade-up"
+          data-aos-duration="1000">
           <SharedHeading heading="INNOVATION UNLEASHED - TOGETHER " />
           <SharedHeading heading="WE THRIVE " />
           <p className="mt-6 pb-6">Our mission is to empower organizations with the tools they need to thrive in a dynamic<br /> business landscape. Through cutting-edge evaluation methods and a commitment to excellence,<br /> we aim to foster innovation, elevate performance, and drive success for our clients.</p>
@@ -50,7 +51,7 @@ const GlobalCollection = () => {
             </dialog>
           </div>
         </div>
-        <div>
+        <div data-aos="zoom-out-up" data-aos-duration="1000">
           <img className=" md:ml-12 shadow-xl rounded-xl" src="https://i.ibb.co/Hg0vmBs/image.png" alt="" />
         </div>
       </div>

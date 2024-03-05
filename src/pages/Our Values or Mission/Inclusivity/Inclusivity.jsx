@@ -3,7 +3,8 @@ import SharedHeading from "../../../shared/SharedHeading/SharedHeading";
 const Inclusivity = () => {
     return (
         <>
-            <div className="flex justify-between flex-col md:flex-row items-center">
+            <div className="flex justify-between flex-col md:flex-row items-center" data-aos="fade-up"
+                data-aos-duration="1000">
                 <div className="px-4 2xl:px-0 flex-1 pt-4 md:pt-0">
                     <h1 className="font-bold md:text-7xl text-5xl mt-10 "></h1>
                     <SharedHeading heading="Inclusivity is Our Top Priority" />

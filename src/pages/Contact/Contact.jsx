@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import { useRef } from 'react';
 import SharedBanner from '../../shared/SharedBanner/SharedBanner';
 
+
 const Contact = () => {
 
     const form = useRef();
@@ -31,8 +32,9 @@ const Contact = () => {
             </Helmet>
             <SharedBanner bannerImg={"https://i.ibb.co/vwwLFM5/image.png"} heading="Contact Us" passage="Contact Us" />
             {/* ------ first  section here ----- */}
-            <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-xl mx-auto'>
-                <div className='bg-white border-2 shadow-2xl rounded-xl pb-4'>
+            <div className='pt-16 md:pt-28 md:pb-20 mb-12 gap-20 md:gap-12 px-10 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-screen-xl mx-auto' >
+                <div className='bg-white border-2 shadow-2xl rounded-xl pb-4' data-aos="fade-up"
+                    data-aos-duration="500">
                     <div className='flex justify-center items-center -mt-10'>
                         <FaLocationDot className='text-blue-400 text-7xl p-2 bg-gray-300 rounded-full' />
                     </div>
@@ -40,7 +42,8 @@ const Contact = () => {
                     <p className='text-center text-gray-500'>Level 4, 34, Awal Centre, Kemal Ataturk Ave,<br /> Dhaka - 1213, Bangladesh</p>
                 </div>
                 {/* 2 --------- contact  */}
-                <div className='bg-white border-2  shadow-2xl rounded-xl pb-4'>
+                <div className='bg-white border-2  shadow-2xl rounded-xl pb-4' data-aos="fade-up"
+                    data-aos-duration="1000">
                     <div className='flex justify-center items-center -mt-10'>
                         <IoCallSharp className='text-yellow-300  text-7xl p-2  bg-gray-300 rounded-full' />
                     </div>
@@ -49,7 +52,8 @@ const Contact = () => {
                     <p className='text-center text-gray-500'>+8801772352777</p>
                 </div>
                 {/* 3 --------- contact  */}
-                <div className='bg-white border-2 shadow-2xl  rounded-xl pb-4'>
+                <div className='bg-white border-2 shadow-2xl  rounded-xl pb-4' data-aos="fade-up"
+                    data-aos-duration="1500">
                     <div className='flex justify-center items-center -mt-10'>
                         <IoIosMailUnread className='text-orange-600  text-7xl p-3  bg-gray-300 rounded-full' />
                     </div>
@@ -58,8 +62,10 @@ const Contact = () => {
                     <p className='text-center text-gray-500'>evaluation@platform.com</p>
                 </div>
             </div>
+           
             {/* second section heree  */}
-            <div className="flex lg:flex-row flex-col-reverse justify-center mb-12 gap-6 max-w-screen-xl mx-auto">
+            <div className="flex lg:flex-row flex-col-reverse justify-center mb-12 gap-6 max-w-screen-xl mx-auto" data-aos="fade-up"
+                data-aos-duration="2000">
 
                 <div className='flex-1' style={{ width: '100%' }}>
                     <iframe

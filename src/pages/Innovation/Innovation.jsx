@@ -51,7 +51,8 @@ const Innovation = () => {
       <MyTitle text={`Best Reasons to Choose Our Services`} />
 
       <div className="mx-auto max-w-screen-xl">
-        <div className="grid grid-cols-1 gap-6 px-4 my-12 md:grid-cols-2 lg:grid-cols-4 md:gap-8 xl:px-0">
+        <div className="grid grid-cols-1 gap-6 px-4 my-12 md:grid-cols-2 lg:grid-cols-4 md:gap-8 xl:px-0" data-aos="fade-up"
+          data-aos-duration="1000">
           {service.map((item) => (
             <div key={item?._id} className="block">
               <img
@@ -70,10 +71,11 @@ const Innovation = () => {
         </div>
 
         <div className="mt-10">
-          <div className="flex justify-center">
+          <div className="flex justify-center" data-aos="fade-up"
+            data-aos-duration="2000">
             <div className="stack">
               <div className="text-center border border-base-content card bg-base-100">
-                <div className="card-body">
+                <div className="card-body" >
                   <button className="btn btn-warning">GET STARTED NOW</button>
                 </div>
               </div>
@@ -87,7 +89,8 @@ const Innovation = () => {
 
           <div className="flex items-center justify-center mt-24">
             <div>
-              <div className="items-center w-full mx-auto mb-10 text-center md:w-3/4">
+              <div className="items-center w-full mx-auto mb-10 text-center md:w-3/4" data-aos="fade-up"
+                data-aos-duration="2000">
                 <h4 className="mb-5 text-xl font-semibold text-orange-600">
                   OUR WORKING PROCESS
                 </h4>
@@ -97,7 +100,8 @@ const Innovation = () => {
               </div>
 
               <div className="grid items-center justify-center grid-cols-1 px-4 mx-auto gap-14 md:grid-cols-2 lg:grid-cols-3 xl:px-0">
-                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px] ">
+                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px] " data-aos="fade-up"
+                  data-aos-duration="500">
                   <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                     <HiMiniViewfinderCircle className="text-4xl" />
                   </div>
@@ -111,7 +115,8 @@ const Innovation = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
+                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]" data-aos="fade-up"
+                  data-aos-duration="1000">
                   <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                     <FaUsersViewfinder className="text-4xl" />
                   </div>
@@ -125,7 +130,8 @@ const Innovation = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]">
+                <div className="w-full bg-base-100 shadow-xl flex justify-center items-center lg:h-[200px]" data-aos="fade-up"
+                  data-aos-duration="1500">
                   <div className="p-6 ml-10 border border-gray-400 rounded-sm hover:bg-orange-400 ">
                     <TbBrandFinder className="text-4xl" />
                   </div>
@@ -146,13 +152,15 @@ const Innovation = () => {
 
         {/* client say .. */}
 
-        <div className="items-center mx-auto mt-24 mb-10 text-center">
+        <div className="items-center mx-auto mt-24 mb-10 text-center" data-aos="fade-up"
+          data-aos-duration="1000">
           <h4 className="mb-5 text-xl font-semibold text-orange-600">
             OUR TESTIMONIALS
           </h4>
           <MyTitle text={"What's our Client Say"} />
         </div>
-        <div className="flex flex-col gap-4 lg:flex-row border-green-950 bg-[#fbfbfb]">
+        <div className="flex flex-col gap-4 lg:flex-row border-green-950 bg-[#fbfbfb]" data-aos="fade-up"
+          data-aos-duration="2000">
           <div className="w-full lg:w-1/2 md:w-full">
             <img
               className="w-full"
@@ -160,7 +168,8 @@ const Innovation = () => {
               alt=""
             />
           </div>
-          <div className="w-full h-full border rounded-md lg:w-1/2 md:w-full">
+          <div className="w-full h-full border rounded-md lg:w-1/2 md:w-full" data-aos="fade-up"
+            data-aos-duration="2000" >
             <div className="items-center h-full p-5 bg-[#fbfbfb]">
               <Slider {...settings} className="text-black border ">
                 {reviews.map((item) => (

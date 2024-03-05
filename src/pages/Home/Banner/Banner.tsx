@@ -19,7 +19,8 @@ const Banner: React.FC = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-center gap-16 pt-20 lg:pt-52 px-6 md:px-12 2xl:px-0">
-      <div className="2xl:w-1/3 space-y-3 lg:space-y-6 lg:-mt-16 2xl:-mt-4">
+      <div className="2xl:w-1/3 space-y-3 lg:space-y-6 lg:-mt-16 2xl:-mt-4" data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom" data-aos-duration="1000">
         <TypeAnimation
           sequence={[
             'Achieve Your High Performance Culture',

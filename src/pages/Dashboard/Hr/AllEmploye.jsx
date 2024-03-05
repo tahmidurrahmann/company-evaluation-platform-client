@@ -102,7 +102,7 @@ const AllEmploye = () => {
                     </thead>
                     <tbody className="">
                         {myEmploye.map((element, index) => (
-                            <tr className="border-blue-300 border-b-2" key={index}>
+                            <tr className="border-blue-300 border-b-2" key={index} >
                                 <td>
                                     <div className="flex items-center gap-3">
                                         <div className="avatar">
