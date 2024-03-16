@@ -1,127 +1,139 @@
-import React, { useEffect, useState, Fragment } from "react";
-import { Link } from "react-router-dom";
-import { Dialog, Transition } from '@headlessui/react';
-import { FaEye } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
 import Loading from "../../../shared/Loading/Loading";
 import SharedHeadingDashboard from "../../../shared/SharedHeading/SharedHeadingDashboard";
 import useHrRequestCheckedOrNot, { HrRequestCheckData } from "../../../hooks/useHrRequestCheckedOrNot";
 import useEmployee from "../../../hooks/useEmployee";
-import usePayment, { PaymentAgreement } from "../../../hooks/usePayment";
+import usePayment from "../../../hooks/usePayment";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
 
 const PayEmployee: React.FC = () => {
     const [employeeAgreements, isEmployee] = useEmployee();
     const [hrRequestCheck] = useHrRequestCheckedOrNot();
     const [myEmployee, setMyEmployee] = useState<HrRequestCheckData[]>([]);
-    const [allPayments, isPayment] = usePayment();
-    const [payments, setPayments] = useState<PaymentAgreement[]>([]);
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-
-    function closeModal() {
-        setIsOpen(false);
-    }
-
-    const openModal = (id: string) => {
-        setIsOpen(true);
-        if (allPayments?.length > 0) {
-            const data = allPayments?.filter(item => item?.paymentSuccess === true);
-            const filterData = data?.filter(employee => employee?.employeeInfo?._id === id);
-            setPayments(filterData);
-        }
-    };
+    const [allPayments, isPayment, refetch] = usePayment();
+    const [totalSalary, setTotalSalary] = useState<number>(0);
+    const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
 
     useEffect(() => {
         if (hrRequestCheck?.status === "checked") {
-            const findEmployeeMatch = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company);
+            const findEmployeeMatch = employeeAgreements.filter(element => element?.company === hrRequestCheck?.company && element?.status === "checked");
             setMyEmployee(findEmployeeMatch);
         }
     }, [employeeAgreements, hrRequestCheck?.company, hrRequestCheck?.status]);
 
+    useEffect(() => {
+        if (myEmployee && Array.isArray(myEmployee)) {
+            const salary = myEmployee.reduce(
+                (accumulator, currentValue) => accumulator + (currentValue?.salary || 0),
+                0
+            );
+            setTotalSalary(salary);
+        }
+    }, [myEmployee]);
+
+
     if (isEmployee || isPayment) {
         return <Loading />;
+    }
+    
+    const handlePayment = async () => {
+        const salary = totalSalary;
+        const currentDate = new Date();
+        const date = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+        const hrEmail = user?.email;
+        const employeeDetails = { date, salary, myEmployee, hrEmail };
+        const res = await axiosSecure.post("/salary", employeeDetails);
+        window.location.replace(res?.data?.url);
+        console.log(res?.data?.url);
+        refetch();
     }
 
     return (
         <div>
             <SharedHeadingDashboard heading="Monthly Compensation for Employees" />
-            <div className="overflow-x-auto">
-                <table className="table table-xs rounded-lg">
-                    <thead className="font-bold text-black bg-gray-100">
-                        <tr>
-                            <th>Name</th>
-                            <th>company</th>
-                            <th>Action</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody className="border-b-2 border-blue-300">
-                        {myEmployee?.map(agreement => (
-                            <tr className="h-16 border-b-2 border-gray-200" key={agreement?._id}>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img referrerPolicy="no-referrer" src={agreement.imageURL} />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="font-bold">{agreement?.name}</div>
-                                            <div className="text-sm opacity-50">{agreement?.email}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>{agreement?.company}</td>
-                                <td><Link to={`/dashboard/payEmployee/${agreement?._id}`}><span className="bg-[#007cc7] px-2 py-1 text-white font-semibold rounded">PAY</span></Link></td>
-                                <td onClick={() => openModal(agreement?._id)} className="cursor-pointer hover:text-[#007cc7]"><FaEye size={16} /></td>
-                                <Transition appear show={isOpen} as={Fragment}>
-                                    <Dialog as="div" className="relative z-10" onClose={closeModal}>
-                                        <Transition.Child
-                                            as={Fragment}
-                                            enter="ease-out duration-300"
-                                            enterFrom="opacity-0"
-                                            enterTo="opacity-100"
-                                            leave="ease-in duration-200"
-                                            leaveFrom="opacity-100"
-                                            leaveTo="opacity-0"
-                                        >
-                                            <div className="fixed inset-0 bg-black/25" />
-                                        </Transition.Child>
+            <section className="text-white">
+                <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+                    <div className="mx-auto max-w-3xl">
+                        <div className="mt-8">
+                            <ul className="space-y-4">
+                                {myEmployee?.map(agreement => (
+                                    <li key={agreement?._id} className="flex items-center gap-4">
+                                        <img
+                                            src={agreement?.imageURL}
+                                            alt=""
+                                            className="size-16 rounded object-cover"
+                                        />
 
-                                        <div className="fixed inset-0 overflow-y-auto">
-                                            <div className="flex min-h-full items-center justify-center p-4 text-center">
-                                                <Transition.Child
-                                                    as={Fragment}
-                                                    enter="ease-out duration-300"
-                                                    enterFrom="opacity-0 scale-95"
-                                                    enterTo="opacity-100 scale-100"
-                                                    leave="ease-in duration-200"
-                                                    leaveFrom="opacity-100 scale-100"
-                                                    leaveTo="opacity-0 scale-95"
-                                                >
-                                                    <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                                                        {/* show data here todo */}
-                                                        {payments?.map(payment => (
-                                                            <div className="border p-4 mt-6 rounded-lg text-sm" key={payment?._id}>
-                                                                <h1>Salary Month : {payment?.date}</h1>
-                                                                <p>Employee Name : {payment?.employeeInfo?.name}</p>
-                                                                <p>Employee Email : {payment?.employeeInfo?.email}</p>
-                                                                <p>Payment TransactionId : {payment?.tranjectionId}</p>
-                                                                <p><span>{payment?.salary}</span> <span>{payment?.currency}</span></p>
-                                                            </div>
-                                                        ))}
-                                                        <div className="mt-4">
-                                                            <button onClick={closeModal} className="px-2 py-1 rounded-full hover:scale-110 transition bg-red-600 text-white absolute right-2 top-2">✕</button>
-                                                        </div>
-                                                    </Dialog.Panel>
-                                                </Transition.Child>
-                                            </div>
+                                        <div>
+                                            <h3 className="text-sm">{agreement?.name}</h3>
+
+                                            <dl className="mt-0.5 space-y-px text-[12px]">
+                                                <div>
+                                                    <dt className="inline">Email : </dt>
+                                                    <dd className="inline">{agreement?.email}</dd>
+                                                </div>
+
+                                                <div>
+                                                    <dt className="inline">Company : </dt>
+                                                    <dd className="inline">{agreement?.company}</dd>
+                                                </div>
+                                            </dl>
                                         </div>
-                                    </Dialog>
-                                </Transition>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+
+                                        <div className="flex flex-1 items-center justify-end gap-2">
+                                            <form>
+                                                <label htmlFor="Line1Qty" className="sr-only">Quantity</label>
+
+                                                <input
+                                                    type="number"
+                                                    readOnly
+                                                    defaultValue={agreement?.salary}
+                                                    className="h-8 w-12 rounded text-black border-gray-200 bg-gray-50 text-center text-xs [-moz-appearance:_textfield] focus:outline-none"
+                                                />
+                                            </form>
+                                            {/* i will work on this delete button */}
+                                            {/* <button className="transition hover:text-red-600">
+                                                <span className="sr-only">Remove item</span>
+
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    strokeWidth="1.5"
+                                                    stroke="currentColor"
+                                                    className="h-4 w-4"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                                                    />
+                                                </svg>
+                                            </button> */}
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <div className="mt-8 flex justify-end border-t border-gray-100 pt-8">
+                                <div className="w-screen max-w-lg space-y-4">
+                                    <dl className="text-sm text-white">
+                                        <div className="flex justify-between">
+                                            <dt>Total</dt>
+                                            <dd>{totalSalary}</dd>
+                                        </div>
+                                    </dl>
+                                    <div className="flex justify-end">
+                                        <span onClick={handlePayment} className="bg-[#007cc7] text-white font-semibold rounded block px-5 py-3 text-sm transition hover:bg-gray-600">PAY</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };

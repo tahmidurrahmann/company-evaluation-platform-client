@@ -19,16 +19,14 @@ const PaymentSuccess = (): JSX.Element => {
         return <Loading />;
     }
 
-    console.log(payment);
-
     return (
         <div className="min-h-screen text-xl flex flex-col space-y-6 justify-center items-center">
-            <img src={payment?.employeeInfo?.imageURL} alt="" />
+            {/* <img src={payment?.employeeInfo?.imageURL} alt="" /> */}
             <h1>Payment Success and Your Transaction Id is : {tranId}</h1>
             <p>Payment Month Date and Year : {payment?.date}</p>
-            <p>Company Name : {payment?.employeeInfo?.company}</p>
-            <p>Employee Email : {payment?.employeeInfo?.email}</p>
-            <p>Employee Name : {payment?.employeeInfo?.name}</p>
+            {/* <p>Company Name : {payment?.employeeInfo?.company}</p> */}
+            {/* <p>Employee Email : {payment?.employeeInfo?.email}</p> */}
+            {/* <p>Employee Name : {payment?.employeeInfo?.name}</p> */}
             <Link to="/dashboard/payEmployee"><button className="bg-[#007cc7] p-2 rounded-lg hover:scale-105 transition">Go to Pay Employee</button></Link>
         </div>
     );

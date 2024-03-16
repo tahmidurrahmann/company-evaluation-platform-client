@@ -8,15 +8,6 @@ export interface PaymentAgreement {
     paymentSuccess : Boolean;
     salary : number;
     tranjectionId : string;
-    employeeInfo : {
-        company : string;
-        email : string;
-        imageURL : string;
-        name : string;
-        role : string;
-        status : string;
-        _id : string;
-    }
 }
 
 const usePayment = (): [PaymentAgreement[], boolean, () => void] => {

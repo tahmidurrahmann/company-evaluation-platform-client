@@ -26,10 +26,13 @@ const Apply = () => {
     const onSubmit = async (data) => {
         const company = data?.company;
         const role = "user";
+        const selected = false;
         const name = user?.displayName;
         const email = user?.email;
         const imageURL = user?.photoURL;
-        const formDetails = { company, role, name, email, imageURL, file };
+        const salary = parseInt(data?.salary);
+        const title = data?.title;
+        const formDetails = { company, role, name, email, imageURL, file, salary, title, selected };
         const res = await axiosSecure.post("/employee", formDetails);
         if (res?.data?.insertedId) {
             toast.success("Your Form Submitted");
@@ -43,13 +46,13 @@ const Apply = () => {
     const checkedAgreements = allAgreements.filter(
         (agreement) => agreement.status === "checked"
     );
-    
+
     return (
         <div>
             <Helmet>
                 <title>IONE | Job Hub</title>
             </Helmet>
-            <ApplyForHr/>
+            <ApplyForHr />
             <div className="pt-16">
                 <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
                     <div className="my-6 md:my-8 lg:my-12">
@@ -60,7 +63,8 @@ const Apply = () => {
                         onSubmit={handleSubmit(onSubmit)}
                     >
                         <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
-                            <div className="flex-1 w-full inputContainer">
+                            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+                                data-aos-duration="2000">
                                 <input
                                     defaultValue={user?.displayName}
                                     readOnly
@@ -72,7 +76,8 @@ const Apply = () => {
                                 <label className="font-semibold inputLabel">NAME</label>
                                 <div className="inputUnderline"></div>
                             </div>
-                            <div className="flex-1 w-full inputContainer">
+                            <div className="flex-1 w-full inputContainer" data-aos="fade-up"
+                                data-aos-duration="2000">
                                 <input
                                     defaultValue={user?.email}
                                     readOnly
@@ -85,15 +90,16 @@ const Apply = () => {
                                 <div className="inputUnderline"></div>
                             </div>
                         </div>
-                        <div className="flex items-center justify-between w-full gap-8">
-                            <div className="flex flex-col flex-1">
+                        <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
+                            <div className="flex flex-col flex-1" data-aos="fade-up"
+                                data-aos-duration="1000">
                                 <label className="font-semibold">Select Your Company</label>
                                 <select
                                     {...register("company", { required: true })}
-                                    className="flex-1 w-full select select-bordered text-black"
+                                    className="flex-1 w-full select select-bordered"
                                 >
                                     {checkedAgreements?.map((agreement, index) => (
-                                        <option key={index} className="text-black" value={agreement?.company}>
+                                        <option key={index} value={agreement?.company}>
                                             {agreement?.company}
                                         </option>
                                     ))}
@@ -104,12 +110,44 @@ const Apply = () => {
                                     </p>
                                 )}
                             </div>
-                            <div className="flex flex-col flex-1 text-xl">
-                                <label className="font-semibold">Upload Resume</label>
-                                <MultipleFileUploader setFile={setFile} />
+                            <div className="flex-1 w-full inputContainer pt-10" data-aos="fade-up"
+                                data-aos-duration="1000">
+                                <input
+                                    {...register("salary", { required: true })}
+                                    className="py-6 customInput"
+                                    type="number"
+                                />
+                                <label className="font-semibold inputLabel mt-10">Your Expected Salary</label>
+                                <div className="inputUnderline"></div>
+                            </div>
+                            {errors.salary?.type === "required" && (
+                                <p className="text-left text-red-600">Salary is required</p>
+                            )}
+                        </div>
+                        <div className="flex flex-col items-center justify-between w-full gap-8 lg:flex-row">
+                            <div className="w-full inputContainer pt-10" data-aos="fade-up"
+                                data-aos-duration="1000">
+                                <input
+                                    {...register("title", { required: true })}
+                                    className="py-6 customInput"
+                                    type="text"
+                                />
+                                <label className="font-semibold inputLabel mt-10">Your Job Title</label>
+                                <div className="inputUnderline"></div>
+                            </div>
+                            {errors.title?.type === "required" && (
+                                <p className="text-left text-red-600">Title is required</p>
+                            )}
+                            <div className="flex w-full" data-aos="fade-up"
+                                data-aos-duration="2000">
+                                <div className="flex-1 text-xl">
+                                    <label className="font-semibold">Upload Resume</label>
+                                    <MultipleFileUploader setFile={setFile} />
+                                </div>
                             </div>
                         </div>
-                        <button type="submit" className="but">
+                        <button type="submit" className="but" data-aos="fade-up"
+                            data-aos-duration="3000">
                             <div className="font-medium but-top">Submit</div>
                             <div className="but-bottom"></div>
                             <div className="but-base"></div>

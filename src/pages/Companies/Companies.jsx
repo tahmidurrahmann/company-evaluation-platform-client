@@ -65,6 +65,12 @@ const Companies = () => {
     return <Loading />;
   }
 
+  const uniqueIndustrySectors = [...new Set(hrInfo.map(agreement => agreement?.industrySector))];
+
+  const uniqueLocations = [...new Set(hrInfo.map(agreement => agreement?.location))];
+
+  console.log(hrInfo);
+
   return (
     <div>
       <Helmet>
@@ -72,7 +78,7 @@ const Companies = () => {
       </Helmet>
       <div>
         <SharedBanner heading="All Companies" passage="All Companies" />
-     </div>
+      </div>
       <div className="max-w-screen-xl mx-auto px-6 xl:px-0">
         <form className="flex justify-end items-center my-6" onSubmit={handleSearchCompanyName}>
           <div className="input-containerr" data-aos="fade-up"
@@ -101,7 +107,9 @@ const Companies = () => {
                 <select {...register("category")} className="select select-bordered w-full flex-1" data-aos="fade-up"
                   data-aos-duration="500">
                   {
-                    hrInfo?.map((agreement, index) => <option key={index} value={agreement?.industrySector}>{agreement?.industrySector}</option>)
+                    uniqueIndustrySectors.map((sector, index) => (
+                      <option key={index} value={sector}>{sector}</option>
+                    ))
                   }
                 </select>
               </div>
@@ -110,7 +118,7 @@ const Companies = () => {
                 <select {...register("location")} className="select select-bordered w-full flex-1" data-aos="fade-up"
                   data-aos-duration="1000">
                   {
-                    hrInfo?.map((agreement, index) => <option key={index} value={agreement?.location}>{agreement?.location}</option>)
+                    uniqueLocations?.map((agreement, index) => <option key={index} value={agreement}>{agreement}</option>)
                   }
                 </select>
               </div>

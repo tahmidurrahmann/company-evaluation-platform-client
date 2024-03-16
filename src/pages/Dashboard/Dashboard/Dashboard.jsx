@@ -24,12 +24,12 @@ import useEmployeeProfile from '../../../hooks/useEmployeeProfile';
 import { FaAmazonPay } from "react-icons/fa";
 import { TbCoinTaka } from "react-icons/tb";
 import { Badge } from '@mui/material';
-import usePayment from '../../../hooks/usePayment';
+// import usePayment from '../../../hooks/usePayment';
 import { FaMessage } from "react-icons/fa6";
 
 const Dashboard = () => {
 
-    const [allPayments, isPayment] = usePayment();
+    // const [allPayments, isPayment] = usePayment();
     const { user, logOut } = useAuth();
     const [isAdmin, pending] = useAdmin();
     const [isHr, isPending] = useHr();
@@ -44,13 +44,13 @@ const Dashboard = () => {
         logOut().then().catch();
     };
 
-    if (isPayment) {
-        return <Loading />
-    }
+    // if (isPayment) {
+    //     return <Loading />
+    // }
 
-    const userEmail = user ? user.email : "";
+    // const userEmail = user ? user.email : "";
 
-    const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);
+    // const filteredPayments = allPayments?.filter(item => item.employeeInfo.email === userEmail);  badgeContent={filteredPayments.length}
 
     const navItems = <div className='flex flex-col items-center gap-4 px-10 justify-center pt-6'>
         <Link to="/"><div className="flex justify-center items-center gap-3">
@@ -109,7 +109,7 @@ const Dashboard = () => {
                     }
                 >
                     <div className='flex items-center gap-2'><TbCoinTaka className='text-2xl' />Salary History <p className='text-sm  text-white'>
-                        <Badge badgeContent={filteredPayments.length} color="warning" className="px-2 py-2">
+                        <Badge color="warning" className="px-2 py-2">
 
                         </Badge>
                     </p></div>
