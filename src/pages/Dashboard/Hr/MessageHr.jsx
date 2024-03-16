@@ -2,14 +2,16 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCompany from "../../../hooks/useCompany";
 import Loading from "../../../shared/Loading/Loading";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useEmployeeProfile from "../../../hooks/useEmployeeProfile";
 import useMessage from "../../../hooks/useMessage";
 import Message from "./Message";
-// import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 import { CgMail } from "react-icons/cg";
 import { PiMediumLogoFill } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
+
+const ENDPOINT = "http://localhost:5000";
 
 const MessageHr = () => {
 
@@ -20,62 +22,8 @@ const MessageHr = () => {
     const [employeeRequestCheck, isEmployee] = useEmployeeProfile();
     const [message, isMessage, refetch] = useMessage();
     const [allMessage, setAllMessage] = useState([]);
-    // const [sendMessage, setSendMessage] = useState(null);
-    // const [receiveMessage, setReceiveMessage] = useState(null);
-    // const [onlineUsers, setOnlineUsers] = useState([]);
-    // const socket = useRef();
-
-    const handleSendMessage = async (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const fullMessage = form.message.value;
-        const userEmail = user?.email;
-        const hrEmail = hr?.email;
-        const message = { message: fullMessage, senderEmail: userEmail, receiverEmail: hrEmail, image: user?.photoURL, name: user?.displayName };
-        const res = await axiosSecure.post("/messages", message);
-        if (res?.data?.insertedId) {
-            form.reset();
-            refetch();
-            // setSendMessage(message, hr?._id);
-        }
-    }
-
-    // useEffect(() => {
-    //     // Connect to Socket.io server
-    //     socket.current = io("http://localhost:8800"); // Use correct server URL
-    //     socket.current.emit("new-user-add", employeeRequestCheck._id);
-    //     socket.current.on("get-users", (users) => {
-    //         setOnlineUsers(users);
-    //     });
-
-    //     return () => {
-    //         // Disconnect from Socket.io when component unmounts
-    //         socket.current.disconnect();
-    //     };
-    // }, [employeeRequestCheck]);
-
-    // useEffect(() => {
-    //     if (sendMessage !== null) {
-    //         socket.current.emit("send-message", sendMessage)
-    //     }
-    // }, [sendMessage])
-
-    // useEffect(() => {
-    //     socket.current?.on("receive-message", (data) => {
-    //         console.log(data);
-    //         setReceiveMessage(data);
-    //     })
-    // }, [])
-
-    // useEffect(() => {
-    //     if (receiveMessage === null) {
-    //         refetch();
-    //     }
-    //     refetch()
-    //     if (receiveMessage !== null && hr?._id) {
-    //         setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
-    //     }
-    // }, [receiveMessage, hr?._id, refetch]);
+    const [receiveMessage, setReceiveMessage] = useState(null);
+    const socket = useRef();
 
     useEffect(() => {
         if (hrInfo?.length > 0) {
@@ -90,6 +38,39 @@ const MessageHr = () => {
             setAllMessage(allMessage);
         }
     }, [hr?.email, message, user?.email])
+
+    const handleSendMessage = async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const fullMessage = form.message.value;
+        const userEmail = user?.email;
+        const hrEmail = hr?.email;
+        const message = { message: fullMessage, senderEmail: userEmail, receiverEmail: hrEmail, image: user?.photoURL, name: user?.displayName };
+        const res = await axiosSecure.post("/messages", message);
+        socket.current.emit("send-message", message)
+        if (res?.data?.insertedId) {
+            form.reset();
+            refetch();
+        }
+    }
+
+    useEffect(() => {
+        socket.current = io(ENDPOINT);
+        socket.current?.on("receive-message", (data) => {
+            setReceiveMessage(data);
+        })
+    }, [])
+
+    useEffect(() => {
+        if (receiveMessage === null) {
+            refetch();
+        }
+        refetch()
+        if (receiveMessage !== null && hr?._id) {
+            setAllMessage(prevMessages => [...prevMessages, receiveMessage]);
+        }
+    }, [receiveMessage, hr?._id, refetch]);
+
 
     if (isHrPending || isEmployee || isMessage) {
         return <Loading />
